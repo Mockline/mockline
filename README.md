@@ -1,9 +1,6 @@
 ![Mockline Social Preview](assets/social-preview.jpg)
 
 <p align="center">
-  <a aria-label="Vercel logo" href="https://mockline.dev/">
-    <img src="https://img.shields.io/badge/MADE%20WITH%20Mockline-000000.svg?style=for-the-badge&logo=Vercel&labelColor=000">
-  </a>
   <a aria-label="NPM version" href="https://www.npmjs.com/package/mockline">
     <img alt="" src="https://img.shields.io/npm/v/mockline.svg?style=for-the-badge&labelColor=000000&color=E0E0E0">
   </a>
@@ -12,6 +9,9 @@
     </a>
   <a aria-label="Join the community on Discord" href="https://discord.gg/BkgyMzvJ3p">
     <img alt="" src="https://img.shields.io/badge/Join%20the%20community-F74804.svg?style=for-the-badge&logo=Discord&labelColor=000000&logoWidth=20&logoColor=white">
+  </a>
+  <a aria-label="Mockline logo" href="https://mockline.dev/">
+    <img src="https://img.shields.io/badge/MADE%20WITH%20Mockline-000000.svg?style=for-the-badge&logo=Mockline&labelColor=000000&logoWidth=20&logoColor=white">
   </a>
   <a aria-label="Follow Hugo on Twitter" href="https://twitter.com/HugoRCD__">
     <img alt="" src="https://img.shields.io/twitter/follow/HugoRCD__.svg?style=for-the-badge&labelColor=000000&logo=twitter&label=Follow%20Hugo&logoWidth=20&logoColor=white">
