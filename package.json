@@ -1,6 +1,6 @@
 {
   "name": "mockline",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Mockline is a premium UI Kit for Nuxt.js based on TailwindCSS. It provides a set of organized tools, patterns & practices which work as the foundation for your application development.",
   "repository": "Mockline/mockline",
   "license": "MIT",
