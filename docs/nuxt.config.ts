@@ -3,7 +3,8 @@ import pkg from '../package.json'
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    '@nuxt/content'
+    '@nuxt/content',
+    'nuxt-og-image'
   ],
   runtimeConfig: {
     public: {
