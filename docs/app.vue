@@ -1,13 +1,17 @@
 <script setup lang="ts">
-const { seo } = useAppConfig()
+const { seo, cover } = useAppConfig()
 
 useSeoMeta({
+  title: seo.title,
+  description: seo.description,
   ogTitle: seo.title,
   ogDescription: seo.description,
-  ogUrl: '/social-preview.jpg',
+  ogUrl: cover,
+  ogImage: cover,
   twitterTitle: seo.title,
   twitterDescription: seo.description,
-  twitterImage: '/social-preview.jpg'
+  twitterImage: cover,
+  twitterCard: 'summary_large_image'
 })
 
 useHead({
@@ -22,7 +26,9 @@ useHead({
 </script>
 
 <template>
-  <AppLayout>
-    <NuxtPage />
-  </AppLayout>
+  <Html lang="en">
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </Html>
 </template>

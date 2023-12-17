@@ -1,17 +1,29 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import pkg from '../package.json'
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    '@nuxt/content',
-    '@nuxtjs/eslint-module'
+    '@nuxt/content'
   ],
+  runtimeConfig: {
+    public: {
+      version: pkg.version,
+      name: pkg.name
+    }
+  },
   content: {
-    documentDriven: true,
     highlight: {
       theme: {
         dark: 'github-dark',
         default: 'github-light'
       }
+    }
+  },
+  nitro: {
+    prerender: {
+      routes: [
+        '/'
+      ]
     }
   }
 })

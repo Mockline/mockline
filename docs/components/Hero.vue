@@ -7,6 +7,5 @@
   </div>
 </template>
 
-<style scoped lang="scss">
-
+<style scoped>
 </style>

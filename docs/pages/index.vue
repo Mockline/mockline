@@ -1,6 +1,5 @@
 <template>
   <div>
-    <LayoutNavbar />
-    <slot />
+    <Hero />
   </div>
 </template>

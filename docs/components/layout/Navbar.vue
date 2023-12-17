@@ -1,5 +1,10 @@
 <script lang="ts" setup>
-const { navigation } = useContent()
+const navigation = [
+  {
+    title: 'Home',
+    _path: '/'
+  }
+]
 </script>
 
 <template>
