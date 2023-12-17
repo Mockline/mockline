@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LayoutNavbar } from '#build/components';
+import type { LayoutNavbar } from '#build/components'
 
 const { cover } = useAppConfig()
 </script>

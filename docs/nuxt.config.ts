@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/eslint-module'
   ],
   content: {
     documentDriven: true,
