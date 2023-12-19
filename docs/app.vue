@@ -23,6 +23,14 @@ useHead({
     }
   ]
 })
+
+defineOgImage({
+  component: 'OGImageHome',
+  props: {
+    title: seo.title,
+    tag: 'Home'
+  }
+})
 </script>
 
 <template>

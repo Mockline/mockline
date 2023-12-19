@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <LayoutNavbar />
+  <div class="bg-primary">
     <slot />
   </div>
 </template>

@@ -1,30 +1,43 @@
-import pkg from '../package.json'
+import pkg from "../package.json";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   modules: [
-    '@nuxt/content',
-    'nuxt-og-image'
+    "@nuxtjs/tailwindcss",
+    "@nuxt/content",
+    "nuxt-og-image",
+    "@nuxtjs/color-mode",
   ],
+
+  css: ["~/assets/style/main.scss"],
+
   runtimeConfig: {
     public: {
       version: pkg.version,
-      name: pkg.name
-    }
+      name: pkg.name,
+    },
   },
+
   content: {
     highlight: {
       theme: {
-        dark: 'github-dark',
-        default: 'github-light'
-      }
-    }
+        dark: "github-dark",
+        default: "github-light",
+      },
+    },
   },
+
   nitro: {
     prerender: {
-      routes: [
-        '/'
-      ]
-    }
-  }
-})
+      routes: ["/"],
+    },
+  },
+
+  colorMode: {
+    preference: "dark",
+    fallback: "dark",
+    storageKey: "mockline-color-mode",
+    classSuffix: "",
+  },
+});
