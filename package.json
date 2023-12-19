@@ -22,22 +22,15 @@
     "library"
   ],
   "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
     "release": "changelogen --release && npm publish && git push --follow-tags"
   },
   "devDependencies": {
-    "@nuxt/kit": "^3.8.2",
-    "@nuxt/devtools": "latest",
-    "@nuxt/eslint-config": "^0.2.0",
-    "@nuxt/module-builder": "^0.5.4",
-    "@nuxt/schema": "^3.8.2",
-    "@nuxt/test-utils": "^3.8.1",
-    "@nuxtjs/color-mode": "^3.3.2",
-    "@nuxtjs/tailwindcss": "^6.10.1",
-    "@types/node": "^20.10.3",
+    "tsconfig": "workspace:*",
     "changelogen": "^0.5.5",
     "eslint": "^8.55.0",
-    "nuxt": "^3.8.2",
-    "sass": "^1.69.5",
-    "vitest": "^0.33.0"
+    "turbo": "^1.11.2"
   }
 }

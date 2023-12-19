@@ -31,7 +31,7 @@
               class="text-inverted rounded-md bg-accent
             px-3.5 py-2.5 text-sm font-semibold"
             >Get started</a>
-            <a href="#" class="text-primary text-sm font-semibold leading-6">Learn more <span aria-hidden="true">→</span></a>
+            <a href="#" class="text-primary text-sm font-semibold leading-6">Learn more here</a>
           </div>
         </div>
       </div>
