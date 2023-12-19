@@ -12,15 +12,17 @@
     "lint:fix": "eslint --fix ."
   },
   "devDependencies": {
-    "eslint-config": "workspace:*",
-    "tsconfig": "workspace:*",
     "@nuxt/content": "^2.9.0",
     "@nuxt/devtools": "latest",
     "@nuxtjs/color-mode": "^3.3.2",
     "@nuxtjs/tailwindcss": "^6.10.1",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-custom": "workspace:*",
     "nuxt": "^3.8.2",
     "nuxt-og-image": "^3.0.0-rc.10",
     "sass": "^1.69.5",
+    "tsconfig": "workspace:*",
     "vue": "^3.3.12",
     "vue-router": "^4.2.5"
   }

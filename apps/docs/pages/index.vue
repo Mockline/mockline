@@ -26,11 +26,7 @@
             Mockline emerged from a shared passion for empowering designers and developers with a seamless, efficient, and uniquely tailored experience. Our story begins with a collective frustration – the countless hours wasted on repetitive design tasks, the struggle to break free from generic design systems, and the desire for a tool that understands the nuanced needs of each creative mind.
           </p>
           <div class="mt-10 flex items-center gap-x-6">
-            <a
-              href="#"
-              class="text-inverted rounded-md bg-accent
-            px-3.5 py-2.5 text-sm font-semibold"
-            >Get started</a>
+            <a href="#" class="text-inverted rounded-md bg-accent  px-3.5 py-2.5 text-sm font-semibold">Get started</a>
             <a href="#" class="text-primary text-sm font-semibold leading-6">Learn more here</a>
           </div>
         </div>

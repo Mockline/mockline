@@ -1,10 +1,10 @@
-import { resolve } from "node:path";
+const { resolve } = require("node:path");
 
 const project = resolve(process.cwd(), "tsconfig.json");
 
-const eslintConfig = {
+module.exports = {
     extends: [
-        "@nuxtjs/eslint-config-typescript",
+        "@nuxtjs/eslint-config-typescript"
     ].map(require.resolve),
     parserOptions: {
         sourceType: "module",
@@ -21,7 +21,6 @@ const eslintConfig = {
         "comma-dangle": "off",
         semi: "off",
         "no-undef": "off",
-    }
+        // add specific rules configurations here
+    },
 };
-
-export default eslintConfig;
