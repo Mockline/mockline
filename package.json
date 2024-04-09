@@ -2,8 +2,15 @@
   "name": "mockline",
   "version": "0.0.0",
   "description": "Mockline is a premium UI Kit for Nuxt.js based on TailwindCSS. It provides a set of organized tools, patterns & practices which work as the foundation for your application development.",
-  "repository": "Mockline/mockline",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mockline/mockline.git"
+  },
+  "funding": "https://github.com/sponsors/HugoRCD",
+  "bugs": {
+    "url": "https://github.com/Mockline/mockline/issues"
+  },
+  "license": "Apache-2.0",
   "type": "module",
   "author": "Hugo Richard",
   "homepage": "https://mockline.dev",
@@ -22,16 +29,26 @@
     "library"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint:fix",
-    "release": "changelogen --release && npm publish && git push --follow-tags"
+    "build": "automd && turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint -- --fix",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck"
   },
   "devDependencies": {
-    "tsconfig": "workspace:*",
-    "changelogen": "^0.5.5",
+    "@mockline/eslint-config": "*",
+    "typescript": "5.4.4",
     "eslint": "^8.55.0",
+    "automd": "^0.3.7",
     "turbo": "^1.11.2"
-  }
+  },
+  "engines": {
+    "node": ">=18.20.1"
+  },
+  "packageManager": "bun@1.0.30",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }
