@@ -1,0 +1,19 @@
+{
+  "name": "@mockline/mock",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "bun test",
+    "build": "bun build.mjs"
+  },
+  "devDependencies": {
+    "@hrcd/eslint-config": "^0.0.3",
+    "@types/bun": "^1.0.12",
+    "typescript": "^5.4.4"
+  }
+}

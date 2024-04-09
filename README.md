@@ -99,9 +99,9 @@ To start contributing, you can follow these steps:
 5. Commit your changes following the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 6. If your changes affect the code, run tests using `bun run test`.
 7. Create a pull request following the [Pull Request Template](https://github.com/HugoRCD/markdown/blob/main/src/pull_request_template.md).
-  - To be merged, the pull request must pass the tests/workflow and have at least one approval.
-  - If your changes affect the documentation, make sure to update it.
-  - If your changes affect the code, make sure to update the tests.
+   - To be merged, the pull request must pass the tests/workflow and have at least one approval.
+   - If your changes affect the documentation, make sure to update it.
+   - If your changes affect the code, make sure to update the tests.
 8. Wait for the maintainers to review your pull request.
 9. Once approved, the pull request will be merged in the next release !
 
@@ -109,11 +109,11 @@ To start contributing, you can follow these steps:
 
 <!-- automd:contributors license=Apache author=HugoRCD -->
 
-Published under the [APACHE](https://github.com/hugorcd/shelve/blob/main/LICENSE) license.
-Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.com/hugorcd/shelve/graphs/contributors) 💛
+Published under the [APACHE](https://github.com/Mockline/mockline/blob/main/LICENSE) license.
+Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.com/Mockline/mockline/graphs/contributors) 💛
 <br><br>
-<a href="https://github.com/hugorcd/shelve/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=hugorcd/shelve" />
+<a href="https://github.com/Mockline/mockline/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=Mockline/mockline" />
 </a>
 
 <!-- /automd -->
@@ -122,6 +122,6 @@ Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.co
 
 ---
 
-_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Mon Apr 01 2024)_
+_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Tue Apr 09 2024)_
 
 <!-- /automd -->
