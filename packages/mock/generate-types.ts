@@ -14,7 +14,6 @@ export type Company = {
 }
 */
 
-
 const files = await $`ls public/library/*.svg`.text()
 
 const companies = files.split('\n').filter(Boolean).map(file => {

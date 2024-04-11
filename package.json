@@ -38,10 +38,11 @@
   },
   "devDependencies": {
     "@mockline/eslint-config": "*",
-    "typescript": "5.4.4",
-    "eslint": "^8.55.0",
     "automd": "^0.3.7",
-    "turbo": "^1.11.2"
+    "eslint": "^8.55.0",
+    "jsdom": "^24.0.0",
+    "turbo": "^1.11.2",
+    "typescript": "5.4.4"
   },
   "engines": {
     "node": ">=18.20.1"

@@ -1,4 +1,4 @@
 module.exports = {
     root: true,
-    extends: ["custom/nuxt"],
+    extends: ["@mockline/eslint-config"],
 };
