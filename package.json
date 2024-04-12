@@ -1,6 +1,6 @@
 {
   "name": "mockline",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Mockline is a premium UI Kit for Nuxt.js based on TailwindCSS. It provides a set of organized tools, patterns & practices which work as the foundation for your application development.",
   "repository": {
     "type": "git",
@@ -37,17 +37,15 @@
     "typecheck": "turbo typecheck"
   },
   "devDependencies": {
-    "@mockline/eslint-config": "*",
+    "@hrcd/eslint-config": "^0.0.3",
     "automd": "^0.3.7",
     "eslint": "^8.55.0",
-    "jsdom": "^24.0.0",
     "turbo": "^1.11.2",
     "typescript": "5.4.4"
   },
   "engines": {
     "node": ">=18.20.1"
   },
-  "packageManager": "bun@1.0.30",
   "workspaces": [
     "apps/*",
     "packages/*"

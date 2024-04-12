@@ -27,7 +27,6 @@
     "release": "bun run check && changelogen --release && npm publish && git push --follow-tags"
   },
   "devDependencies": {
-    "@mockline/eslint-config": "workspace:*",
     "@nuxt/kit": "npm:@nuxt/kit@latest",
     "@nuxt/schema": "latest",
     "@types/bun": "^1.0.12",
@@ -44,5 +43,16 @@
   "peerDependencies": {
     "vue": ">= 3.2.0"
   },
-  "packageManager": "bun@1.0.30"
+  "packageManager": "bun@1.0.30",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mockline/mockline.git",
+    "directory": "packages/ui"
+  },
+  "bugs": {
+    "url": "https://github.com/mockline/mockline/issues"
+  }
 }
