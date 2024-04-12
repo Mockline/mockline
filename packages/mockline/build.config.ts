@@ -1,19 +1,25 @@
 import { defineBuildConfig } from 'unbuild'
 
-export default defineBuildConfig({
-  declaration: true,
-  rollup: {
-    inlineDependencies: true,
-    resolve: {
-      exportConditions: ['production', 'node'] as any,
+export default defineBuildConfig([
+  {
+    name: 'Nuxt module',
+    entries: ['./nuxt/index'],
+    outDir: './dist',
+    clean: false,
+    declaration: true,
+    externals: ['@nuxt/schema'],
+    rollup: {
+      emitCJS: true,
     },
   },
-  entries: [
-    'src/index',
-    {
-      builder: 'mkdist',
-      input: './src/components/',
-      outDir: './build/components',
+  {
+    name: 'Package',
+    entries: ['./src/index'],
+    outDir: './dist',
+    clean: false,
+    declaration: true,
+    rollup: {
+      emitCJS: true,
     },
-  ],
-})
+  }
+])

@@ -1,5 +1,5 @@
 {
-  "name": "mockline",
+  "name": "@mockline/app",
   "private": true,
   "type": "module",
   "scripts": {
