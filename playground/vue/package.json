@@ -12,12 +12,12 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "mockline": "link:../../packages/mockline",
+    "@mockline/ui": "workspace:*",
     "vue-router": "^4.3.0",
     "vue": "^3.4.21"
   },
   "devDependencies": {
-    "@mockline/eslint-config": "*",
+    "@mockline/eslint-config": "workspace:*",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.12.5",
     "@vitejs/plugin-vue": "^5.0.4",

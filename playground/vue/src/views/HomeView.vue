@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Modal from 'mockline'
+import Modal from '@mockline/ui'
 import TheWelcome from '../components/TheWelcome.vue'
 </script>
 

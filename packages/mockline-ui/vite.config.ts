@@ -1,7 +1,6 @@
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
 
 const projectRootDir = resolve(__dirname)
@@ -10,7 +9,6 @@ const projectRootDir = resolve(__dirname)
 export default defineConfig({
   plugins: [
     vue(),
-    vueJsx(),
     dts({
       tsconfigPath: 'tsconfig.build.json',
       cleanVueFileName: true,
@@ -24,7 +22,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      name: 'mockline',
+      name: '@mockline/ui',
       fileName: (format, name) => {
         return `${name}.${format === 'es' ? 'js' : 'umd.cjs'}`
       },
@@ -33,16 +31,10 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      external: ['vue', '@floating-ui/vue'],
+      external: ['vue'],
       output: {
         globals: {
           'vue': 'Vue',
-          '@floating-ui/vue': '@floating-ui/vue',
-        },
-        assetFileNames: (chunkInfo) => {
-          if (chunkInfo.name === 'style.css')
-            return 'index.css'
-          return chunkInfo.name as string
         },
       },
     },

@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "mockline": "link:../../packages/mockline",
+    "@mockline/ui": "*",
     "@mockline/eslint-config": "*",
     "nuxt": "^3.11.2",
     "vue": "^3.4.21",
