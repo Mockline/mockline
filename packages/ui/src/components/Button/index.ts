@@ -1,4 +1,4 @@
-export {
-  default as Button,
-  type ButtonProps,
-} from './Button.vue'
+import Button from './Button.vue'
+import type { ButtonProps } from './Button.vue'
+
+export { Button, type ButtonProps }

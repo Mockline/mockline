@@ -1,29 +1,23 @@
 {
-  // This tsconfig is for development. Allowing *.story.vue, and __test__/*.vue to have types support
-  "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": [
-    "env.d.ts",
-    "src/**/*",
-    "src/**/*.ts",
-    "src/**/*.vue"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/components/*.vue"],
   "compilerOptions": {
     "paths": {
       "@/*": ["src/*"],
     },
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "declaration": false,
+    "declaration": true,
+    "isolatedModules": true,
     "lib": ["esnext", "dom"],
     "baseUrl": ".",
     "skipLibCheck": true,
     "outDir": "dist",
-    "types": ["node", "jsdom"]
+    "types": ["node"]
   }
 }

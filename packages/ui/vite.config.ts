@@ -5,12 +5,10 @@ import dts from 'vite-plugin-dts'
 
 const projectRootDir = resolve(__dirname)
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     dts({
-      tsconfigPath: 'tsconfig.build.json',
       cleanVueFileName: true,
       exclude: ['src/test/**'],
     }),

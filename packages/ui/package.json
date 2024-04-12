@@ -7,11 +7,11 @@
   ],
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/src/index.d.ts",
       "require": "./dist/index.umd.cjs",
       "import": "./dist/index.js"
     }
@@ -27,8 +27,6 @@
     "release": "bun run check && changelogen --release && npm publish && git push --follow-tags"
   },
   "devDependencies": {
-    "@nuxt/kit": "npm:@nuxt/kit@latest",
-    "@nuxt/schema": "latest",
     "@types/bun": "^1.0.12",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/tsconfig": "^0.5.1",
