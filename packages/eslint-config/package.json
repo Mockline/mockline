@@ -1,0 +1,12 @@
+{
+  "name": "@mockline/eslint-config",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "index.js"
+  ],
+  "devDependencies": {
+    "@hrcd/eslint-config": "^0.0.3"
+  }
+}

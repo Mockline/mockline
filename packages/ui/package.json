@@ -27,21 +27,21 @@
     "check": "bun run build && bun run test && bun run typecheck && bun run lint",
     "release": "bun run check && changelogen --release && npm publish && git push --follow-tags"
   },
-  "dependencies": {
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
-  },
   "devDependencies": {
+    "@mockline/eslint-config": "*",
     "@types/bun": "^1.0.12",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/tsconfig": "^0.5.1",
     "automd": "^0.3.7",
     "changelogen": "^0.5.5",
+    "eslint": "^9.0.0",
     "typescript": "^5.4.5",
     "unbuild": "^2.0.0",
     "vite": "^5.2.8",
     "vite-plugin-dts": "^3.8.1",
     "vitest": "^1.4.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0",
     "vue-tsc": "^2.0.11"
   },
   "peerDependencies": {
