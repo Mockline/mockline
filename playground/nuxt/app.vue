@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import Modal from '@mockline/ui'
 </script>
+
 <template>
   <div>
     <Modal />
-    <NuxtWelcome />
+    <Button>
+      test
+    </Button>
   </div>
 </template>

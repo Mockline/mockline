@@ -14,6 +14,16 @@
       "types": "./dist/src/index.d.ts",
       "require": "./dist/index.umd.cjs",
       "import": "./dist/index.js"
+    },
+    "./nuxt": {
+      "require": {
+        "default": "./dist/nuxt/index.cjs",
+        "types": "./dist/nuxt/index.d.cts"
+      },
+      "import": {
+        "default": "./dist/nuxt/index.mjs",
+        "types": "./dist/nuxt/index.d.mts"
+      }
     }
   },
   "scripts": {
@@ -21,11 +31,15 @@
     "automd": "automd",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
-    "build": "automd && vite build",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
+    "build": "automd && vite build && unbuild",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "check": "bun run build && bun run test && bun run typecheck && bun run lint",
     "release": "bun run check && changelogen --release && npm publish && git push --follow-tags"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.9.0",
+    "radix-vue": "^1.7.0"
   },
   "devDependencies": {
     "@mockline/eslint-config": "*",

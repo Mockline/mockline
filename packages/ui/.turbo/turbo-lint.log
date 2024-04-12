@@ -1,0 +1,12 @@
+[0m[2m[35m$[0m [2m[1meslint .[0m
+
+Oops! Something went wrong! :(
+
+ESLint: 9.0.0
+
+Error: Could not find config file.
+    at locateConfigFileToUse (/Users/hugorcd/Dev/mockline/packages/ui/node_modules/eslint/lib/eslint/eslint.js:349:21)
+    at async calculateConfigArray (/Users/hugorcd/Dev/mockline/packages/ui/node_modules/eslint/lib/eslint/eslint.js:384:49)
+    at async ESLint.lintFiles (/Users/hugorcd/Dev/mockline/packages/ui/node_modules/eslint/lib/eslint/eslint.js:814:25)
+    at async Object.execute (/Users/hugorcd/Dev/mockline/packages/ui/node_modules/eslint/lib/cli.js:461:23)
+    at async main (/Users/hugorcd/Dev/mockline/packages/ui/node_modules/eslint/bin/eslint.js:165:22)
