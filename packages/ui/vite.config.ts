@@ -18,6 +18,9 @@ export default defineConfig({
       '@': resolve(projectRootDir, 'src'),
     },
   },
+  server: {
+    port: 3000
+  },
   build: {
     lib: {
       name: '@mockline/ui',

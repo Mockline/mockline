@@ -1,5 +1,6 @@
 {
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/components/*.vue"],
+  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/components/*.vue"],
+  "exclude": ["src/App.vue", "src/main.ts", "src/router/index.ts"],
   "compilerOptions": {
     "paths": {
       "@/*": ["src/*"],
