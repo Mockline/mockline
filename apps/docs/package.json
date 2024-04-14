@@ -12,6 +12,7 @@
     "lint:fix": "eslint --fix ."
   },
   "devDependencies": {
+    "@mockline/eslint-config": "*",
     "@nuxt/content": "^2.9.0",
     "@nuxt/devtools": "latest",
     "@nuxtjs/color-mode": "^3.3.2",

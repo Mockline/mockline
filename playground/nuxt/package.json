@@ -10,9 +10,10 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint ."
   },
-  "dependencies": {
+  "devDependencies": {
     "@mockline/eslint-config": "*",
     "mockline": "*",
+    "@nuxtjs/tailwindcss": "^6.11.4",
     "eslint": "^9.0.0",
     "nuxt": "^3.11.2",
     "vue": "^3.4.21",

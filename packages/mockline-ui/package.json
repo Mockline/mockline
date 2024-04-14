@@ -1,0 +1,77 @@
+{
+  "name": "@mockline/ui",
+  "version": "0.0.1",
+  "description": "Mockline is a premium UI Kit for Nuxt.js based on TailwindCSS. It provides a set of organized tools, patterns & practices which work as the foundation for your application development.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mockline/mockline.git"
+  },
+  "funding": "https://github.com/sponsors/HugoRCD",
+  "bugs": {
+    "url": "https://github.com/Mockline/mockline/issues"
+  },
+  "license": "Apache-2.0",
+  "type": "module",
+  "author": "Hugo Richard",
+  "homepage": "https://mockline.dev",
+  "contributors": [
+    "Hugo Richard <hrichard206@gmail.com>"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.11.2"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.1.5",
+    "@nuxt/eslint-config": "^0.3.6",
+    "@nuxt/module-builder": "^0.5.5",
+    "@nuxt/schema": "^3.11.2",
+    "@nuxt/test-utils": "^3.12.0",
+    "@nuxtjs/color-mode": "^3.4.0",
+    "@types/node": "^20.12.7",
+    "@vueuse/core": "^10.9.0",
+    "changelogen": "^0.5.5",
+    "eslint": "^9.0.0",
+    "nuxt": "^3.11.2",
+    "radix-vue": "^1.7.0",
+    "tailwind-merge": "^2.2.2",
+    "tailwind-variants": "^0.2.1",
+    "vaul-vue": "^0.1.0",
+    "vitest": "^1.4.0"
+  },
+  "keywords": [
+    "nuxt",
+    "typescript",
+    "ui",
+    "mockline",
+    "tailwindcss",
+    "vue",
+    "components",
+    "vue-component",
+    "library"
+  ],
+  "engines": {
+    "node": ">=18.20.1"
+  }
+}

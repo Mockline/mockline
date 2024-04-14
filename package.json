@@ -37,8 +37,6 @@
     "typecheck": "turbo typecheck"
   },
   "devDependencies": {
-    "@hrcd/eslint-config": "^0.0.3",
-    "automd": "^0.3.7",
     "eslint": "^8.55.0",
     "turbo": "^1.11.2",
     "typescript": "5.4.4"

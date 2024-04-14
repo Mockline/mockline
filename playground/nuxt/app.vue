@@ -3,9 +3,7 @@
 
 <template>
   <div>
-    <Modal />
-    <Button>
-      test
-    </Button>
+    <MModal />
+    <MButton label="test" />
   </div>
 </template>

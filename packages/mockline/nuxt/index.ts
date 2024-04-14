@@ -39,7 +39,7 @@ export default defineNuxtModule<ModuleOptions>({
         name: `${ options.prefix }${ component }`,
         export: component,
         filePath: 'mockline',
-      }).then(() => console.log('Added', component))
+      }).then()
     }
   },
 })
