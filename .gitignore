@@ -15,12 +15,14 @@ build/
 out/
 target/
 output/
+.nuxt/
 
 **/dist/
 **/build/
 **/out/
 **/target/
 **/output/
+**/.nuxt/
 
 # ESLint
 .eslintcache

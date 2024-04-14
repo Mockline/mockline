@@ -1,5 +1,5 @@
 module.exports = {
   extends: [
-    '@mockline/eslint-config',
+    '@hrcd/eslint-config',
   ]
 }
