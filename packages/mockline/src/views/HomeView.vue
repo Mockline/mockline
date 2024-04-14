@@ -6,8 +6,6 @@ import { Button } from '@/components/Button'
 <template>
   <main>
     <Modal />
-    <Button>
-      test
-    </Button>
+    <Button label="test" />
   </main>
 </template>
