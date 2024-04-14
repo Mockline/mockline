@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Modal } from '@mockline/ui'
+import { Modal } from 'mockline'
 </script>
 
 <template>

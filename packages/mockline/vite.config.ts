@@ -23,7 +23,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      name: '@mockline/ui',
+      name: 'mockline',
       fileName: (format, name) => {
         return `${name}.${format === 'es' ? 'js' : 'umd.cjs'}`
       },

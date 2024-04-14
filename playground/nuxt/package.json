@@ -7,11 +7,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@mockline/eslint-config": "*",
-    "@mockline/ui": "*",
+    "mockline": "*",
     "eslint": "^9.0.0",
     "nuxt": "^3.11.2",
     "vue": "^3.4.21",

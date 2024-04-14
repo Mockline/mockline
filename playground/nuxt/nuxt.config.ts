@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@mockline/ui/nuxt'],
+  modules: ['mockline/nuxt'],
   mockline: {
     prefix: ''
   }

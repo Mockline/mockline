@@ -10,7 +10,7 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: '@mockline/nuxt',
+    name: 'mockline/nuxt',
     configKey: 'mockline',
     compatibility: {
       nuxt: '^3.0.0',
@@ -38,7 +38,7 @@ export default defineNuxtModule<ModuleOptions>({
       addComponent({
         name: `${ options.prefix }${ component }`,
         export: component,
-        filePath: '@mockline/ui',
+        filePath: 'mockline',
       }).then(() => console.log('Added', component))
     }
   },
