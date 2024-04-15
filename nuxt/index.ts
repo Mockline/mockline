@@ -20,7 +20,7 @@ export default defineNuxtModule<ModuleOptions>({
     prefix: '',
     components: true,
   },
-  setup(options) {
+  setup(options,nuxt) {
     function getComponents() {
       if (typeof options.components === 'object') {
         return Object.entries(allComponents)
@@ -41,5 +41,7 @@ export default defineNuxtModule<ModuleOptions>({
         filePath: 'mockline',
       }).then()
     }
+
+    // nuxt.options.css.push('mockline/dist/index.css')
   },
 })
