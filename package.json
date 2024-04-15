@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",
+    "postinstall": "bun run dev:prepare",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
@@ -25,7 +26,9 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.11.2"
+    "@nuxt/kit": "^3.11.2",
+    "tailwind-merge": "^2.2.2",
+    "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
     "@hrcd/eslint-config": "^0.0.3",
