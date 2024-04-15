@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button > renders <UButton icon="i-heroicons-pencil-square" size="sm" color="primary" square variant="solid" /> correctly 1`] = `"<ubutton icon="i-heroicons-pencil-square" size="sm" color="primary" square="" variant="solid"></ubutton>"`;
+
+exports[`Button > renders basic case correctly 1`] = `
+"<div>
+  <div class="bg-blue-600 px-2 py-1 rounded text-white w-fit"></div>
+</div>"
+`;
+
+exports[`Button > renders black solid correctly 1`] = `
+"<div color="black" variant="solid">
+  <div class="bg-blue-600 px-2 py-1 rounded text-white w-fit"></div>
+</div>"
+`;
+
+exports[`Button > renders rounded full correctly 1`] = `
+"<div ui="[object Object]">
+  <div class="bg-blue-600 px-2 py-1 rounded text-white w-fit"></div>
+</div>"
+`;

@@ -59,8 +59,16 @@ export default defineNuxtModule<ModuleOptions>({
       }
     })
 
+    // Components elements
     addComponentsDir({
-      path: resolve('./runtime/components'),
+      path: resolve('./runtime/components/elements'),
+      prefix: options.prefix,
+      pathPrefix: false
+    }).then()
+
+    // Components layout
+    addComponentsDir({
+      path: resolve('./runtime/components/layout'),
       prefix: options.prefix,
       pathPrefix: false
     }).then()
