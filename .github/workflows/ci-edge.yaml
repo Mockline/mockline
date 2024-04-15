@@ -28,9 +28,6 @@ jobs:
       - name: 📦 Install dependencies
         run: bun install
 
-      - name: 🎒 Prepare
-        run: bun run dev:prepare
-
       - name: 💅 Lint code
         run: bun run lint
 
