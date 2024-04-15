@@ -16,7 +16,7 @@ const props = defineProps<ButtonProps>()
 
 const defaultClass = 'bg-blue-600 px-2 py-1 rounded text-white'
 
-const block = props.block ? 'w-full' : 'w-fit'
+const block = computed(() => props.block ? 'w-full' : 'w-fit')
 
 const buttonClass = computed(() => twMerge(defaultClass, props.class, block))
 </script>
