@@ -2,8 +2,8 @@
 
 exports[`Button > renders <Button icon="i-heroicons-pencil-square" size="sm" color="primary" square variant="solid" /> correctly 1`] = `"<button class="bg-blue-600 px-2 py-1 rounded text-white w-fit text-sm" icon="i-heroicons-pencil-square" color="primary" square="" variant="solid"></button>"`;
 
-exports[`Button > renders basic case correctly 1`] = `"<button class="bg-blue-600 px-2 py-1 rounded text-white w-fit text-md"></button>"`;
+exports[`Button > renders basic case correctly 1`] = `"<button class="bg-blue-600 px-2 py-1 rounded text-white w-fit text-base"></button>"`;
 
-exports[`Button > renders black solid correctly 1`] = `"<button class="bg-blue-600 px-2 py-1 rounded text-white w-fit text-md" color="black" variant="solid"></button>"`;
+exports[`Button > renders black solid correctly 1`] = `"<button class="bg-blue-600 px-2 py-1 rounded text-white w-fit text-base" color="black" variant="solid"></button>"`;
 
-exports[`Button > renders rounded full correctly 1`] = `"<button class="bg-blue-600 px-2 py-1 rounded text-white w-fit text-md" ui="[object Object]"></button>"`;
+exports[`Button > renders rounded full correctly 1`] = `"<button class="bg-blue-600 px-2 py-1 rounded text-white w-fit text-base" ui="[object Object]"></button>"`;
