@@ -35,7 +35,7 @@ export default defineNuxtModule<ModuleOptions>({
     configKey: 'mockline',
   },
   defaults: {
-    prefix: '',
+    prefix: 'M',
     icons: ['heroicons', 'lucide']
   },
   async setup(options, nuxt) {

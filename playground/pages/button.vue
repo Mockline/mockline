@@ -9,7 +9,7 @@
     </NuxtLink>
     <div>
       <h3>Button</h3>
-      <Button label="test" size="sm" @click="() => console.log('click')" />
+      <MButton label="test" size="sm" @click="() => console.log('click')" />
     </div>
   </div>
 </template>

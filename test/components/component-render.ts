@@ -1,13 +1,13 @@
-import path from 'path'
+import path from 'node:path'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 
 export default async function(nameOrHtml: string, options: any, component: any) {
   let html: string
-  const name = path.parse(component.__file).name
+  const name = component.__file ? path.parse(component.__file).name : undefined
   if (options === undefined) {
     const app = {
       template: nameOrHtml,
-      components: { [`${name}`]: component }
+      components: { [`M${name}`]: component }
     }
     const result = await mountSuspended(app)
     html = result.html()

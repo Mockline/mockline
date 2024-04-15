@@ -1,4 +1,4 @@
-name: ci-edge
+name: ci
 
 on:
   pull_request:

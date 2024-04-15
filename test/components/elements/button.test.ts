@@ -1,20 +1,12 @@
 import { describe, it, expect } from 'vitest'
-import type { TypeOf } from 'zod'
+import Button, { type ButtonProps } from '../../../src/runtime/components/elements/Button.vue'
 import ComponentRender from '../component-render'
-import { Button } from '#components'
 
 describe('Button', () => {
   it.each([
-    ['basic case', { }],
-    ['black solid', { props: { color: 'black', variant: 'solid' } }],
-    ['rounded full', { props: { ui: { rounded: 'rounded-full' } } }],
-    ['<Button icon="i-heroicons-pencil-square" size="sm" color="primary" square variant="solid" />']
-    // @ts-ignore
-  ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof Button.props>) => {
-    if (options !== undefined) {
-      options.slots = options.slots || { default: () => 'label' }
-      options.slots.default = options.slots.default || (() => 'label')
-    }
+    ['with label', { props: { label: 'Button' } }],
+    ['with size', { props: { size: 'sm' } }],
+  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ButtonProps, slots?: any }): Promise<void> => {
     const html = await ComponentRender(nameOrHtml, options, Button)
     expect(html).toMatchSnapshot()
   })
