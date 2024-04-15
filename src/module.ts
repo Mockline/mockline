@@ -6,6 +6,7 @@ import {
   installModule,
   addImportsSources
 } from '@nuxt/kit'
+import { defu } from 'defu'
 import { iconsPlugin, getIconCollections } from '@egoist/tailwindcss-icons'
 import type { CollectionNames, IconsPluginOptions } from '@egoist/tailwindcss-icons'
 import forms from '@tailwindcss/forms'
@@ -44,8 +45,12 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.build.transpile.push(runtimeDir)
     nuxt.options.alias['#mockline'] = resolve('./runtime')
 
-    // Modules
+    nuxt.options.appConfig.mockline = defu(nuxt.options.appConfig.mockline || {}, {
+      primary: 'orange',
+      gray: 'neutral',
+    })
 
+    // Modules
     await installModule('@nuxtjs/tailwindcss', {
       exposeConfig: true,
       config: {
