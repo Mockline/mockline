@@ -8,7 +8,7 @@ describe('Button', () => {
     ['basic case', { }],
     ['black solid', { props: { color: 'black', variant: 'solid' } }],
     ['rounded full', { props: { ui: { rounded: 'rounded-full' } } }],
-    ['<UButton icon="i-heroicons-pencil-square" size="sm" color="primary" square variant="solid" />']
+    ['<Button icon="i-heroicons-pencil-square" size="sm" color="primary" square variant="solid" />']
     // @ts-ignore
   ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof Button.props>) => {
     if (options !== undefined) {
