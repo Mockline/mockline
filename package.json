@@ -69,5 +69,18 @@
   },
   "bugs": {
     "url": "https://github.com/mockline/mockline/issues"
-  }
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://mockline.dev",
+  "description": "Mockline is a premium UI Kit for Nuxt.js based on TailwindCSS. It provides a set of organized tools, patterns & practices which work as the foundation for your application development.",
+  "keywords": [
+    "nuxt",
+    "nuxt3",
+    "nuxt-module",
+    "mockline",
+    "vue",
+    "vue3",
+    "tailwindcss",
+    "tailwind"
+  ]
 }

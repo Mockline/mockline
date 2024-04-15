@@ -3,8 +3,6 @@
 
 <template>
   <div>
-    Nuxt module playground!
-    <Button label="test" />
-    <span class="i-lucide-users size-20 text-blue-400" />
+    <NuxtPage />
   </div>
 </template>
