@@ -30,7 +30,7 @@ jobs:
         run: bun install
 
       - name: 🎒 Prepare
-        run: pnpm run dev:prepare
+        run: bun run dev:prepare
 
       - name: 💅 Lint code
         run: bun run lint
