@@ -11,7 +11,7 @@ export type ButtonProps = {
   /** Button type */
   type?: 'button' | 'submit' | 'reset';
   /** Size */
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 const props = defineProps<ButtonProps>()
@@ -21,18 +21,13 @@ const defaultClass = 'bg-blue-600 px-2 py-1 rounded text-white'
 const block = computed(() => props.block ? 'w-full' : 'w-fit')
 
 const size = computed(() => {
-  switch (props.size) {
-    case 'sm':
-      return 'text-sm'
-    case 'md':
-      return 'text-md'
-    case 'lg':
-      return 'text-lg'
-    case 'xl':
-      return 'text-xl'
-    default:
-      return 'text-md'
-  }
+  return {
+    'xs': 'text-xs',
+    'sm': 'text-sm',
+    'md': 'text-base',
+    'lg': 'text-lg',
+    'xl': 'text-xl',
+  }[props.size || 'md']
 })
 
 const buttonClass = computed(() => twMerge(defaultClass, props.class, block.value, size.value))

@@ -7,7 +7,7 @@ git restore -s@ -SW  -- .
 bunx jiti ./scripts/bump-edge
 
 # Update token
-if [[ ! -z ${NODE_AUTH_TOKEN} ]] ; then
+if [[ ! -z ${NPM_TOKEN} ]] ; then
   echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
   echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
   echo "always-auth=true" >> ~/.npmrc
