@@ -8,6 +8,8 @@ export type ButtonProps = {
   class?: string;
   /** Block button */
   block?: boolean;
+  /** Button type */
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const props = defineProps<ButtonProps>()
@@ -20,11 +22,9 @@ const buttonClass = computed(() => twMerge(defaultClass, props.class, block))
 </script>
 
 <template>
-  <div>
-    <div :class="buttonClass">
-      {{ props.label }}
-    </div>
-  </div>
+  <component :is="'button'" :class="buttonClass" :type="props.type">
+    {{ props.label }}
+  </component>
 </template>
 
 <style scoped>
