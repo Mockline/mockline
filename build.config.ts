@@ -4,10 +4,10 @@ export default defineBuildConfig([
   {
     name: 'Vue library',
     entries: [
-      { builder: 'mkdist', input: './src', pattern: ['./*.ts'], format: 'cjs', loaders: ['js'] },
-      { builder: 'mkdist', input: './src', pattern: ['./*.ts'], format: 'esm', loaders: ['js'] },
-      { builder: 'mkdist', input: './src/components', outDir: './dist/components', pattern: ['**/*.vue'], loaders: ['vue'] },
-      { builder: 'mkdist', input: './src/index', pattern: ['**/*.css'] },
+      { builder: 'mkdist', input: './src/runtime', pattern: ['./*.ts'], format: 'cjs', loaders: ['js'] },
+      { builder: 'mkdist', input: './src/runtime', pattern: ['./*.ts'], format: 'esm', loaders: ['js'] },
+      { builder: 'mkdist', input: './src/runtime/components', outDir: './dist/components', pattern: ['**/*.vue'], loaders: ['vue'] },
+      { builder: 'mkdist', input: './src/runtime/index', pattern: ['**/*.css'] },
     ],
     declaration: true,
     rollup: {
@@ -21,7 +21,7 @@ export default defineBuildConfig([
   },
   {
     name: 'Nuxt module',
-    entries: ['./nuxt/index'],
+    entries: ['./src/module'],
     declaration: true,
     rollup: {
       esbuild: {

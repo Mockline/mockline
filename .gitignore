@@ -1,28 +1,56 @@
-# IDE or Editor
-.idea/
-.vscode/
-**/.idea/
-**/.vscode/
+# Dependencies
+node_modules
 
-# Node.js
+# Logs
+*.log*
 
-node_modules/
-**/node_modules/
+# Temp directories
+.temp
+.tmp
+.cache
 
-# Build files
-dist/
-build/
-out/
-target/
-output/
-.nuxt/
+# Yarn
+**/.yarn/cache
+**/.yarn/*state*
 
-**/dist/
-**/build/
-**/out/
-**/target/
-**/output/
-**/.nuxt/
+# Generated dirs
+dist
 
-# ESLint
-.eslintcache
+# Nuxt
+.nuxt
+.output
+.data
+.vercel_build_output
+.build-*
+.netlify
+
+# Env
+.env
+
+# Testing
+reports
+coverage
+*.lcov
+.nyc_output
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Intellij idea
+*.iml
+.idea
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
