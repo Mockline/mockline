@@ -14,6 +14,7 @@ import aspectRatio from '@tailwindcss/aspect-ratio'
 import typography from '@tailwindcss/typography'
 import containerQueries from '@tailwindcss/container-queries'
 import { name, version } from '../package.json'
+import { addTemplates } from './templates'
 
 export type ModuleOptions = {
   /**
@@ -92,5 +93,7 @@ export default defineNuxtModule<ModuleOptions>({
     }).then()
 
     addImportsDir(resolve('./runtime/composables'))
+
+    addTemplates(options, nuxt)
   },
 })
