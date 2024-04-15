@@ -69,9 +69,5 @@
   },
   "bugs": {
     "url": "https://github.com/mockline/mockline/issues"
-  },
-  "workspaces": [
-    "./",
-    "./playground"
-  ]
+  }
 }
