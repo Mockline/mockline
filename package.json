@@ -1,51 +1,73 @@
 {
   "name": "mockline",
   "version": "0.0.1",
-  "description": "Mockline is a premium UI Kit for Nuxt.js based on TailwindCSS. It provides a set of organized tools, patterns & practices which work as the foundation for your application development.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mockline/mockline.git"
-  },
-  "funding": "https://github.com/sponsors/HugoRCD",
-  "bugs": {
-    "url": "https://github.com/Mockline/mockline/issues"
-  },
-  "license": "Apache-2.0",
   "type": "module",
-  "author": "Hugo Richard",
-  "homepage": "https://mockline.dev",
-  "contributors": [
-    "Hugo Richard <hrichard206@gmail.com>"
-  ],
-  "keywords": [
-    "nuxt",
-    "typescript",
-    "ui",
-    "mockline",
-    "tailwindcss",
-    "vue",
-    "components",
-    "vue-component",
-    "library"
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
   ],
   "scripts": {
-    "build": "automd && turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "lint:fix": "turbo lint -- --fix",
-    "test": "turbo test",
-    "typecheck": "turbo typecheck"
+    "prepack": "nuxt-module-build build",
+    "postinstall": "bun run dev:prepare",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@egoist/tailwindcss-icons": "^1.7.2",
+    "@iconify-json/heroicons": "^1.1.19",
+    "@iconify-json/lucide": "^1.1.154",
+    "@nuxt/fonts": "^0.6.1",
+    "@nuxtjs/color-mode": "latest",
+    "@nuxtjs/tailwindcss": "latest",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "@nuxt/kit": "^3.11.2",
+    "tailwind-merge": "^2.2.2",
+    "tailwind-variants": "^0.2.1",
+    "tailwindcss": "^3.4.1",
+    "vue-sonner": "^1.0.3"
   },
   "devDependencies": {
-    "eslint": "^8.55.0",
-    "turbo": "^1.11.2",
-    "typescript": "5.4.4"
+    "@hrcd/eslint-config": "^0.0.3",
+    "@nuxt/devtools": "^1.1.5",
+    "@nuxt/eslint-config": "^0.3.6",
+    "@nuxt/module-builder": "^0.5.5",
+    "@nuxt/schema": "^3.11.2",
+    "@nuxt/test-utils": "^3.12.0",
+    "@types/node": "^20.12.7",
+    "changelogen": "^0.5.5",
+    "eslint": "^8.57.0",
+    "nuxt": "^3.11.2",
+    "unbuild": "^2.0.0",
+    "vitest": "^1.4.0"
   },
-  "engines": {
-    "node": ">=18.20.1"
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mockline/mockline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mockline/mockline/issues"
   },
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "./",
+    "./playground"
   ]
 }
