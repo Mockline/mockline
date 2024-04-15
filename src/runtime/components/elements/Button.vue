@@ -17,10 +17,12 @@ const props = defineProps<ButtonProps>()
 const defaultClass = 'bg-blue-600 px-2 py-1 rounded text-white'
 
 const block = computed(() => props.block ? 'w-full' : 'w-fit')
+
+const buttonClass = computed(() => twMerge(defaultClass, props.class, block))
 </script>
 
 <template>
-  <component :is="'button'" :class="twMerge(defaultClass, block, props.class)" :type="props.type">
+  <component :is="'button'" :class="buttonClass" :type="props.type">
     {{ props.label }}
   </component>
 </template>
