@@ -109,11 +109,11 @@ To start contributing, you can follow these steps:
 
 <!-- automd:contributors license=Apache author=HugoRCD -->
 
-Published under the [APACHE](https://github.com/your-org/my-module/blob/main/LICENSE) license.
-Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.com/your-org/my-module/graphs/contributors) 💛
+Published under the [APACHE](https://github.com/mockline/mockline/blob/main/LICENSE) license.
+Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.com/mockline/mockline/graphs/contributors) 💛
 <br><br>
-<a href="https://github.com/your-org/my-module/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=your-org/my-module" />
+<a href="https://github.com/mockline/mockline/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=mockline/mockline" />
 </a>
 
 <!-- /automd -->

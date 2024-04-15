@@ -1,30 +1,21 @@
 {
-  "name": "my-module",
-  "version": "1.0.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
-  "license": "MIT",
+  "name": "mockline",
+  "version": "0.0.1",
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "require": "./dist/index.umd.cjs",
-      "import": "./dist/index.js"
-    },
-    "./nuxt": {
-      "types": "./nuxt/module.d.ts",
-      "import": "./nuxt/module.mjs",
-      "require": "./nuxt/module.cjs"
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
     }
   },
-  "main": "./dist/index.umd.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "automd && unbuild",
+    "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
@@ -44,11 +35,24 @@
     "@nuxt/schema": "^3.11.2",
     "@nuxt/test-utils": "^3.12.0",
     "@types/node": "^20.12.7",
-    "automd": "^0.3.7",
     "changelogen": "^0.5.5",
-    "eslint": "^9.0.0",
+    "eslint": "^8.57.0",
     "nuxt": "^3.11.2",
     "unbuild": "^2.0.0",
     "vitest": "^1.4.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mockline/mockline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mockline/mockline/issues"
+  },
+  "workspaces": [
+    "./",
+    "./playground"
+  ]
 }
