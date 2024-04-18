@@ -25,22 +25,14 @@ Welcome to Mockline, your go-to design library crafted to elevate your creative 
 
 Visit [mockline.dev](https://mockline.dev) to get started with Mockline.
 
-## Contributing
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for more information.
-
-## Community
-
-The Mockline community can be found on Discord, to chat with other community members, you can join the [Mockline Discord](https://discord.gg/BkgyMzvJ3p).
-
 ## Features
 
 - **Fully customizable**: All components are customizable via props and slots.
-- **Lightweight**: No external CSS file. All styles are generated via Tailwind CSS.
-- **Fully typed**: Written in TypeScript with predictable static types.
-- **Developer friendly**: Fully documented and easy to contribute.
-- **SSR**: Server-side rendering supported.
-- **Dark mode**: Dark mode supported.
+- **Dark mode**: Enjoy a seamless dark mode experience.
+- **Responsive**: Components are designed to be responsive across all devices.
+- **Easy to use**: Mockline is designed to be beginner-friendly, with a simple setup process.
+- **Community-driven**: Join the Mockline community on Discord to connect with other users and share your feedback.
+- **Open-source**: Mockline is open-source, and we welcome contributions from the community.
 
 ## Quick Setup
 
@@ -75,17 +67,9 @@ export default defineNuxtConfig({
 ```
 
 That's it! You can now use Mockline in your Nuxt app ✨
+## Community
 
-<!-- automd:fetch url="gh:hugorcd/markdown/main/src/local_development.md" -->
-
-### Local development
-
-- Clone this repository
-- Install latest LTS version of [Node.js](https://nodejs.org/en/)
-- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
-- Install dependencies using `bun install`
-
-<!-- /automd -->
+The Mockline community can be found on Discord, to chat with other community members, you can join the [Mockline Discord](https://discord.gg/BkgyMzvJ3p).
 
 <!-- automd:fetch url="gh:hugorcd/markdown/main/src/contributions.md" -->
 
@@ -107,6 +91,17 @@ To start contributing, you can follow these steps:
 
 <!-- /automd -->
 
+<!-- automd:fetch url="gh:hugorcd/markdown/main/src/local_development.md" -->
+
+### Local development
+
+- Clone this repository
+- Install latest LTS version of [Node.js](https://nodejs.org/en/)
+- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
+- Install dependencies using `bun install`
+
+<!-- /automd -->
+
 <!-- automd:contributors license=Apache author=HugoRCD -->
 
 Published under the [APACHE](https://github.com/mockline/mockline/blob/main/LICENSE) license.
@@ -122,6 +117,6 @@ Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.co
 
 ---
 
-_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Mon Apr 15 2024)_
+_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Thu Apr 18 2024)_
 
 <!-- /automd -->

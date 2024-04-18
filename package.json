@@ -52,6 +52,7 @@
     "@nuxt/test-utils": "^3.12.1",
     "@types/node": "^20.12.7",
     "@vue/test-utils": "^2.4.5",
+    "automd": "^0.3.7",
     "changelogen": "^0.5.5",
     "eslint": "^8.57.0",
     "happy-dom": "^14.7.1",
