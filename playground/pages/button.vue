@@ -31,14 +31,6 @@ const variants = [
           color="primary"
           @click="() => console.log('click')"
         />
-        <MButton
-          variant="solid"
-          label="test"
-          size="md"
-          rounded="lg"
-          color="mint"
-          @click="() => console.log('click')"
-        />
       </div>
       <MButton
         v-for="color in colors"
@@ -48,6 +40,11 @@ const variants = [
         variant="solid"
       />
     </div>
+    <MButton
+      label="test"
+      class="bg-iris-6"
+      @click="() => console.log('click')"
+    />
   </div>
 </template>
 

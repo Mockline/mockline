@@ -50,7 +50,6 @@ export default defineNuxtModule<ModuleOptions>({
       primary: 'iris',
       gray: 'mauve',
     })
-    nuxt.options.css.push(resolve('./runtime/style/radix-colors.css'))
 
     addTemplates(options, nuxt)
 
