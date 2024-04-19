@@ -28,7 +28,7 @@ const variants = [
           label="test"
           size="md"
           rounded="lg"
-          color="primary"
+          color="mint"
           @click="() => console.log('click')"
         />
       </div>

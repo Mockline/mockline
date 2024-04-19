@@ -16,6 +16,14 @@ export function addTemplates(options: ModuleOptions, nuxt: Nuxt) {
         return acc
       }, {}),
     }
+
+    tailwindConfig.safelist = tailwindConfig.safelist || []
+    tailwindConfig.safelist.push(
+      ...colors.map(color => `bg-${color}-5`),
+      ...colors.map(color => `bg-${color}-6`),
+      ...colors.map(color => `text-${color}-5`),
+      ...colors.map(color => `text-${color}-6`),
+    )
   })
 
   const template = addTemplate({
