@@ -2,6 +2,7 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 import { computed } from 'vue'
 import { twMerge } from 'tailwind-merge'
+import { colors } from '#mockline/colors'
 
 const buttonStyle = tv({
   base: 'text-white',
@@ -15,14 +16,7 @@ const buttonStyle = tv({
       link: '',
     },
     color: {
-      primary: 'bg-blue-500 hover:bg-blue-600',
-      secondary: 'bg-gray-500 hover:bg-gray-600',
-      success: 'bg-green-500 hover:bg-green-600',
-      danger: 'bg-red-500 hover:bg-red-600',
-      warning: 'bg-yellow-500 hover:bg-yellow-600',
-      info: 'bg-blue-500 hover:bg-blue-600',
-      light: 'bg-gray-200 hover:bg-gray-300',
-      dark: 'bg-gray-800 hover:bg-gray-900',
+      ...Object.fromEntries(colors.map(color => [color, ''])),
     },
     size: {
       sm: 'px-2 py-1 text-sm',
@@ -43,30 +37,11 @@ const buttonStyle = tv({
     size: 'md'
   },
   compoundVariants: [
-    {
+    ...colors.map(color => ({
       variant: 'solid',
-      class: 'bg-blue-500 hover:bg-blue-600'
-    },
-    {
-      variant: 'outline',
-      class: 'border border-blue-500 bg-transparent text-blue-500 hover:bg-blue-500 hover:text-white'
-    },
-    {
-      variant: 'soft',
-      class: 'bg-blue-100 text-blue-500 hover:bg-blue-200'
-    },
-    {
-      variant: 'subtle',
-      class: 'bg-blue-50 text-blue-500 hover:bg-blue-100'
-    },
-    {
-      variant: 'ghost',
-      class: 'bg-transparent text-blue-500 hover:bg-blue-50'
-    },
-    {
-      variant: 'link',
-      class: 'bg-transparent text-blue-500 hover:bg-transparent hover:underline'
-    }
+      color: `${color}`,
+      class: `bg-${color}-5 hover:bg-${color}-6`
+    })),
   ]
 })
 

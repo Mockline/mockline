@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { colors } from '#mockline/colors'
+
 const variants = [
   'solid',
   'outline',
@@ -29,7 +31,22 @@ const variants = [
           color="primary"
           @click="() => console.log('click')"
         />
+        <MButton
+          variant="solid"
+          label="test"
+          size="md"
+          rounded="lg"
+          color="mint"
+          @click="() => console.log('click')"
+        />
       </div>
+      <MButton
+        v-for="color in colors"
+        :key="color"
+        :label="color"
+        :color
+        variant="solid"
+      />
     </div>
   </div>
 </template>

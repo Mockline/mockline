@@ -47,9 +47,12 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.alias['#mockline'] = resolve('./runtime')
 
     nuxt.options.appConfig.mockline = defu(nuxt.options.appConfig.mockline || {}, {
-      primary: 'orange',
-      gray: 'neutral',
+      primary: 'iris',
+      gray: 'mauve',
     })
+    nuxt.options.css.push(resolve('./runtime/style/radix-colors.css'))
+
+    addTemplates(options, nuxt)
 
     // Modules
     await installModule('@nuxtjs/color-mode', { classSuffix: '' })
@@ -94,7 +97,5 @@ export default defineNuxtModule<ModuleOptions>({
     }).then()
 
     addImportsDir(resolve('./runtime/composables'))
-
-    addTemplates(options, nuxt)
   },
 })
