@@ -2,60 +2,44 @@ import { addTemplate, addTypeTemplate } from '@nuxt/kit'
 import type { Nuxt } from '@nuxt/schema'
 import type { Config } from 'tailwindcss'
 import type { ModuleOptions } from './module'
-import { colors, grayColors, colorsAsRegex, generateScale } from './runtime/colors'
+import { colors, grayColors, colorsAsRegex, generateScale, type Color } from './runtime/colors'
 
 export function addTemplates(options: ModuleOptions, nuxt: Nuxt) {
   nuxt.hook('tailwindcss:config', (tailwindConfig: Config) => {
+    const defaultColors = ['primary', ...colors]
+
+    const extendColors = defaultColors.reduce((acc: Record<string, Record<string, string>>, color) => {
+      acc[color] = generateScale(color as Color)
+      return acc
+    }, {})
+
+    const colorPatterns = defaultColors.reduce((patterns: { pattern: RegExp, variants: string[] }[], color) => {
+      patterns.push(
+        {
+          pattern: new RegExp(`^bg-${color}-(a)?(1[0-2]|[1-9])$`),
+          variants: ['hover', 'focus', 'active', 'group-hover'],
+        },
+        {
+          pattern: new RegExp(`^text-${color}-(a)?(1[0-2]|[1-9])$`),
+          variants: ['hover', 'focus', 'active', 'group-hover'],
+        },
+        {
+          pattern: new RegExp(`^border-${color}-(a)?(1[0-2]|[1-9])$`),
+          variants: ['hover', 'focus', 'active', 'group-hover'],
+        },
+        {
+          pattern: new RegExp(`^ring-${color}-(a)?(1[0-2]|[1-9])$`),
+          variants: ['hover', 'focus', 'active', 'group-hover'],
+        }
+      )
+      return patterns
+    }, [])
+
     tailwindConfig.theme = tailwindConfig.theme || {}
     tailwindConfig.theme.extend = tailwindConfig.theme.extend || {}
-    tailwindConfig.theme.extend.colors = tailwindConfig.theme.extend.colors || {}
-
-    tailwindConfig.theme.extend.colors = {
-      ...tailwindConfig.theme.extend.colors,
-      ...colors.reduce((acc: Record<string, Record<string, string>>, color) => {
-        acc[color] = generateScale(color)
-        return acc
-      }, {}),
-    }
-
+    tailwindConfig.theme.extend.colors = { ...tailwindConfig.theme.extend.colors, ...extendColors }
     tailwindConfig.safelist = tailwindConfig.safelist || []
-    // we want to safelist every color and its alpha variants so all the related classes are generated
-    // we want to use pattern like `bg-iris-10` and `bg-iris-a10` or `text-iris-10` and `text-iris-a10` and number from 1 to 12
-    // add also primary to safelist
-    tailwindConfig.safelist.push(
-      {
-        pattern: new RegExp(`^bg-(${colorsAsRegex(colors)})-(a)?(1[0-2]|[1-9])$`),
-        variants: ['hover', 'focus', 'active', 'group-hover'],
-      },
-      {
-        pattern: new RegExp(`^text-(${colorsAsRegex(colors)})-(a)?(1[0-2]|[1-9])$`),
-        variants: ['hover', 'focus', 'active', 'group-hover'],
-      },
-      {
-        pattern: new RegExp(`^border-(${colorsAsRegex(colors)})-(a)?(1[0-2]|[1-9])$`),
-        variants: ['hover', 'focus', 'active', 'group-hover'],
-      },
-      {
-        pattern: new RegExp(`^ring-(${colorsAsRegex(colors)})-(a)?(1[0-2]|[1-9])$`),
-        variants: ['hover', 'focus', 'active', 'group-hover'],
-      },
-      {
-        pattern: new RegExp(`^bg-primary-(a)?(1[0-2]|[1-9])$`),
-        variants: ['hover', 'focus', 'active', 'group-hover'],
-      },
-      {
-        pattern: new RegExp(`^text-primary-(a)?(1[0-2]|[1-9])$`),
-        variants: ['hover', 'focus', 'active', 'group-hover'],
-      },
-      {
-        pattern: new RegExp(`^border-primary-(a)?(1[0-2]|[1-9])$`),
-        variants: ['hover', 'focus', 'active', 'group-hover'],
-      },
-      {
-        pattern: new RegExp(`^ring-primary-(a)?(1[0-2]|[1-9])$`),
-        variants: ['hover', 'focus', 'active', 'group-hover'],
-      }
-    )
+    tailwindConfig.safelist.push(...colorPatterns)
 
     tailwindConfig.theme.extend.colors.primary = {
       1: 'var(--color-primary-1)',
@@ -73,6 +57,7 @@ export function addTemplates(options: ModuleOptions, nuxt: Nuxt) {
       DEFAULT: 'var(--color-primary-9)',
     }
   })
+
 
   const colorsWithoutPrimary = colors.filter(color => color !== 'primary')
 
