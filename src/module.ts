@@ -15,6 +15,25 @@ import typography from '@tailwindcss/typography'
 import containerQueries from '@tailwindcss/container-queries'
 import { name, version } from '../package.json'
 import { addTemplates } from './templates'
+import type { Color } from '#mockline/colors'
+
+type MocklineConfig = {
+  primary?: Color
+  gray?: Color
+  [key: string]: any
+}
+
+declare module 'nuxt/schema' {
+  type AppConfigInput = {
+    mockline?: MocklineConfig
+  }
+}
+
+declare module '@nuxt/schema' {
+  type AppConfigInput = {
+    mockline?: MocklineConfig
+  }
+}
 
 export type ModuleOptions = {
   /**
@@ -38,7 +57,7 @@ export default defineNuxtModule<ModuleOptions>({
     prefix: 'M',
     icons: ['heroicons', 'lucide']
   },
-  async setup(options, nuxt) {
+  async setup(options: ModuleOptions, nuxt) {
     const {resolve} = createResolver(import.meta.url)
 
     // Transpile runtime

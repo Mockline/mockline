@@ -1,51 +1,55 @@
 import { computed } from 'vue'
 import { defineNuxtPlugin, useAppConfig, useNuxtApp, useHead } from '#imports'
 
+function createRootStyles(stylesConfig: Record<string, string>) {
+  return Object.entries(stylesConfig).map(([name, color]) =>
+    [...Array(12).keys()].map(i => `--${name}-${i+1}: var(--${color}-${i+1});`).join('\n')
+  ).join('\n')
+}
+
 export default defineNuxtPlugin(() => {
-  const appConfig = useAppConfig()
+  const { mockline } = useAppConfig()
   const nuxtApp = useNuxtApp()
 
-  const root = computed(() => {
-    const primary: string = appConfig.mockline.primary
+  const rootStyle = computed(() => {
+    const stylesConfig = {
+      primary: mockline.primary,
+      gray: mockline.gray
+    }
 
     return `
-      :root {
-       --primary-1: var(--${primary}-1);
-       --primary-2: var(--${primary}-2);
-       --primary-3: var(--${primary}-3);
-       --primary-4: var(--${primary}-4);
-       --primary-5: var(--${primary}-5);
-       --primary-6: var(--${primary}-6);
-       --primary-7: var(--${primary}-7);
-       --primary-8: var(--${primary}-8);
-       --primary-9: var(--${primary}-9);
-       --primary-10: var(--${primary}-10);
-       --primary-11: var(--${primary}-11);
-       --primary-12: var(--${primary}-12);
-      }`
+    :root {
+      ${createRootStyles(stylesConfig)}
+    }
+    `
   })
 
-  // Head
-  const headData: any = {
+  const headData: {
+    title?: string
+    meta?: any[]
+    link?: any[]
+    script?: any[]
+    style?: any[]
+  } = {
+    script: [],
     style: [
       {
-        innerHTML: () => root.value,
+        innerHTML: () => rootStyle.value,
         tagPriority: -2,
         id: 'mockline-colors'
       }
-    ]
+    ],
   }
 
   if (import.meta.client && nuxtApp.isHydrating && !nuxtApp.payload.serverRendered) {
     const style = document.createElement('style')
-
-    style.innerHTML = root.value
+    style.innerHTML = rootStyle.value
     style.setAttribute('data-mockline-colors', '')
     document.head.appendChild(style)
 
     headData.script = [
       {
-        innerHTML: 'document.head.removeChild(document.querySelector(\'[data-mockline-colors]\'))'
+        innerHTML: 'document.head.removeChild(document.querySelector("[data-mockline-colors]"))'
       }
     ]
   }

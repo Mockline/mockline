@@ -1,10 +1,9 @@
-import { addTemplate, addTypeTemplate } from '@nuxt/kit'
-import type { Nuxt } from '@nuxt/schema'
+import { addTemplate, addTypeTemplate, useNuxt } from '@nuxt/kit'
 import type { Config } from 'tailwindcss'
 import type { ModuleOptions } from './module'
 import { colors, grayColors, generateScale, type Color } from './runtime/colors'
 
-export function addTemplates(options: ModuleOptions, nuxt: Nuxt) {
+export function addTemplates(options: ModuleOptions, nuxt = useNuxt()) {
   nuxt.hook('tailwindcss:config', (tailwindConfig: Config) => {
     tailwindConfig.theme = tailwindConfig.theme || {}
     tailwindConfig.theme.extend = tailwindConfig.theme.extend || {}
@@ -27,7 +26,7 @@ export function addTemplates(options: ModuleOptions, nuxt: Nuxt) {
     tailwindConfig.safelist.push(...colorPatterns)
   })
 
-  const colorsWithoutPrimary = colors.filter(color => color !== 'primary')
+  const colorsWithoutPrimary = colors.filter(color => color !== 'primary' && color !== 'gray')
   const constructImports = (type: string) => colorsWithoutPrimary.map(color => `@import "@radix-ui/colors/${color}${type}.css";`).join('\n')
 
   const template = addTemplate({
@@ -42,20 +41,6 @@ export function addTemplates(options: ModuleOptions, nuxt: Nuxt) {
 export type Color = GrayColor | '${colors.join('\' | \'')}';
 export const grayColors: GrayColor[] = ${JSON.stringify(grayColors)};
 export const colors: Color[] = ${JSON.stringify(colors)};`
-  })
-
-  addTypeTemplate({
-    filename: 'types/ui.d.ts',
-    getContents: () => `declare module 'nuxt/schema' {
-    interface AppConfigInput {
-        mockline?: AppConfigMockline;
-    }
-}
-declare module '@nuxt/schema' {
-    interface AppConfigInput {
-        mockline?: AppConfigMockline;
-    }
-}`
   })
 
   nuxt.options.css.unshift(template.dst)

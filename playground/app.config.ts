@@ -2,6 +2,5 @@
 export default defineAppConfig({
   mockline: {
     primary: 'blue',
-    gray: 'neutral',
   }
 })
