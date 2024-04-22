@@ -57,9 +57,11 @@ export function hexToRgb(hex: string) {
 export function generateScale(color: Color) {
   const scale = Array.from({ length: 12 }, (_, i) => {
     const id = i + 1
+    // add also a DEFAULT option (Default is the key and set the 9 value)
     return [
       [id, `var(--${color}-${id})`],
       [`a${id}`, `var(--${color}-a${id})`],
+      [`DEFAULT`, `var(--${color}-9)`]
     ]
   }).flat()
 
