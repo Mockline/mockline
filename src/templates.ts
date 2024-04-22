@@ -5,43 +5,62 @@ import { colors, grayColors, generateScale, type Color } from './runtime/colors'
 
 export function addTemplates(options: ModuleOptions, nuxt = useNuxt()) {
   nuxt.hook('tailwindcss:config', (tailwindConfig: Config) => {
-    tailwindConfig.theme = tailwindConfig.theme || {}
-    tailwindConfig.theme.extend = tailwindConfig.theme.extend || {}
-    tailwindConfig.theme.extend.colors = tailwindConfig.theme.extend.colors || {}
-
-    const defaultColors = ['primary', ...colors]
-    defaultColors.forEach(color => {
-      tailwindConfig.theme.extend.colors[color] = generateScale(color as Color)
-    })
+    initThemeColors(tailwindConfig)
 
     const variants = ['hover', 'focus', 'active', 'group-hover']
-    const colorPatterns = defaultColors.flatMap(color =>
-      ['bg', 'text', 'border', 'ring'].map(type => ({
-        pattern: new RegExp(`^${type}-${color}-(a)?(1[0-2]|[1-9])$`),
-        variants
-      }))
-    )
-
-    tailwindConfig.safelist = tailwindConfig.safelist || []
-    tailwindConfig.safelist.push(...colorPatterns)
+    const classes = ['bg', 'text', 'border', 'ring']
+    addColorPatternsToSafeList(tailwindConfig, variants, classes)
   })
-
-  const colorsWithoutPrimary = colors.filter(color => color !== 'primary' && color !== 'gray')
-  const constructImports = (type: string) => colorsWithoutPrimary.map(color => `@import "@radix-ui/colors/${color}${type}.css";`).join('\n')
 
   const template = addTemplate({
     filename: 'radix-colors.css',
     write: true,
-    getContents: () => [...Array(4).keys()].map(idx => constructImports(['', '-alpha', '-dark', '-dark-alpha'][idx])).join('\n')
+    getContents: () => generateRadixImports()
   })
 
   addTypeTemplate({
     filename: 'types/colors.d.ts',
-    getContents: () => `export type GrayColor = '${grayColors.join('\' | \'')}';
-export type Color = GrayColor | '${colors.join('\' | \'')}';
-export const grayColors: GrayColor[] = ${JSON.stringify(grayColors)};
-export const colors: Color[] = ${JSON.stringify(colors)};`
+    getContents: () => generateColorTypes()
   })
 
   nuxt.options.css.unshift(template.dst)
+}
+
+function initThemeColors(tailwindConfig: Config) {
+  tailwindConfig.theme = tailwindConfig.theme || {}
+  tailwindConfig.theme.extend = tailwindConfig.theme.extend || {}
+  tailwindConfig.theme.extend.colors = tailwindConfig.theme.extend.colors || {}
+
+  const defaultColors = ['primary', ...colors]
+  defaultColors.forEach(color => {
+    (tailwindConfig.theme!.extend!.colors as {[key: string]: any})[color] = generateScale(color as Color)
+  })
+}
+
+function addColorPatternsToSafeList(tailwindConfig: Config, variants: string[], classes: string[]) {
+  tailwindConfig.safelist = tailwindConfig.safelist || []
+
+  const patterns = ['primary', ...colors].flatMap(color =>
+    classes.map(type => ({
+      pattern: new RegExp(`^${type}-${color}-(a)?(1[0-2]|[1-9])$`),
+      variants
+    }))
+  )
+
+  tailwindConfig.safelist.push(...patterns)
+}
+
+function generateRadixImports() {
+  const suffixes = ['', '-alpha', '-dark', '-dark-alpha']
+  return colors.filter(color => color !== 'primary' && color !== 'gray')
+    .flatMap(color => suffixes.map(suffix => `@import "@radix-ui/colors/${color}${suffix}.css";`))
+    .join('\n')
+}
+
+function generateColorTypes() {
+  return `
+    export type GrayColor = '${grayColors.join('\' | \'')}';
+    export type Color = GrayColor | '${colors.join('\' | \'')}';
+    export const grayColors: GrayColor[] = ${JSON.stringify(grayColors)};
+    export const colors: Color[] = ${JSON.stringify(colors)};`
 }

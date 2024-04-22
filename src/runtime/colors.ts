@@ -54,7 +54,7 @@ export function hexToRgb(hex: string) {
     : null
 }
 
-export function generateScale(color: Color) {
+export function generateScale(color: Color): Record<string, string> {
   const scale = Array.from({ length: 12 }, (_, i) => {
     const id = i + 1
     return [
