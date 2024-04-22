@@ -28,7 +28,7 @@ const variants = [
           label="test"
           size="md"
           rounded="lg"
-          color="gold"
+          color="primary"
           @click="() => console.log('click')"
         />
       </div>
@@ -46,7 +46,7 @@ const variants = [
     </div>
     <MButton
       label="test"
-      class="bg-iris-9"
+      class="bg-iris-a9 bg-opacity-25"
       @click="() => console.log('click')"
     />
   </div>

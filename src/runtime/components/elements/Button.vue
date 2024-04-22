@@ -33,7 +33,8 @@ const buttonStyle = tv({
     }
   },
   defaultVariants: {
-    color: 'primary',
+    variant: 'solid',
+    color: 'iris',
     size: 'md'
   },
   compoundVariants: [

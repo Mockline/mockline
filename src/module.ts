@@ -4,7 +4,7 @@ import {
   addImportsDir,
   addComponentsDir,
   installModule,
-  addImportsSources
+  addImportsSources, addPlugin
 } from '@nuxt/kit'
 import { defu } from 'defu'
 import { iconsPlugin, getIconCollections } from '@egoist/tailwindcss-icons'
@@ -52,6 +52,10 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     addTemplates(options, nuxt)
+
+    addPlugin({
+      src: resolve(runtimeDir, 'plugins', 'colors')
+    })
 
     // Modules
     await installModule('@nuxtjs/color-mode', { classSuffix: '' })
