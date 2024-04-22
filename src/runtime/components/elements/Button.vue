@@ -40,32 +40,32 @@ const buttonStyle = tv({
     ...colors.map(color => ({
       variant: 'solid',
       color: `${color}`,
-      class: `bg-${color}-5 hover:bg-${color}-6`
+      class: `bg-${color}-9 hover:bg-${color}-10`
     })),
     ...colors.map(color => ({
       variant: 'outline',
       color: `${color}`,
-      class: `border border-${color}-5 text-${color}-5 hover:bg-${color}-5 hover:text-white`
+      class: `border border-${color}-9 text-${color}-9 hover:bg-${color}-9 hover:text-${color}-1`
     })),
     ...colors.map(color => ({
       variant: 'soft',
       color: `${color}`,
-      class: `bg-${color}-1 text-${color}-5 hover:bg-${color}-2`
+      class: `bg-${color}-2 text-${color}-9 hover:bg-${color}-3`
     })),
     ...colors.map(color => ({
       variant: 'subtle',
       color: `${color}`,
-      class: `text-${color}-5 hover:text-${color}-6`
+      class: `bg-${color}-3 text-${color}-9 hover:bg-${color}-4`
     })),
     ...colors.map(color => ({
       variant: 'ghost',
       color: `${color}`,
-      class: `text-${color}-5 hover:text-${color}-6`
+      class: `text-${color}-9 hover:bg-${color}-3`
     })),
     ...colors.map(color => ({
       variant: 'link',
       color: `${color}`,
-      class: `text-${color}-5 hover:text-${color}-6`
+      class: `text-${color}-9 hover:underline`
     }))
   ]
 })

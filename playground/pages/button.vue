@@ -17,7 +17,7 @@ const variants = [
       Home
     </NuxtLink>
     <div class="space-y-4">
-      <h3 class="text-lg font-semibold">
+      <h3 class="text-lg font-semibold text-black dark:text-white">
         Button
       </h3>
       <div class="space-x-2">
@@ -28,21 +28,25 @@ const variants = [
           label="test"
           size="md"
           rounded="lg"
-          color="mint"
+          color="gold"
           @click="() => console.log('click')"
         />
       </div>
-      <MButton
-        v-for="color in colors"
-        :key="color"
-        :label="color"
-        :color
-        variant="solid"
-      />
+      <div class="grid grid-cols-6 gap-4">
+        <MButton
+          v-for="color in colors"
+          :key="color"
+          :label="color"
+          :color
+          variant="solid"
+          size="md"
+          rounded="lg"
+        />
+      </div>
     </div>
     <MButton
       label="test"
-      class="bg-iris-6"
+      class="bg-iris-9"
       @click="() => console.log('click')"
     />
   </div>

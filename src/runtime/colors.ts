@@ -39,6 +39,8 @@ export const colors: Color[] = [
   'brown',
 ]
 
+export const colorsAsRegex = (colors: string[]): string => colors.join('|')
+
 export function generateScale(color: Color) {
   const scale = Array.from({ length: 12 }, (_, i) => {
     const id = i + 1
