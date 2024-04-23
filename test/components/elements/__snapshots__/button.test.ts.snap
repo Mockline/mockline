@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button > renders with label correctly 1`] = `
+"<button class="flex items-center justify-center gap-1 text-white text-sm px-2 py-1 rounded-md bg-iris-9 hover:bg-iris-10">
+  <!--v-if--> Button
+  <!--v-if-->
+</button>"
+`;
+
+exports[`Button > renders with size correctly 1`] = `
+"<button class="flex items-center justify-center gap-1 text-white text-sm px-2 py-1 rounded-md bg-iris-9 hover:bg-iris-10">
+  <!--v-if-->
+  <!--v-if-->
+</button>"
+`;

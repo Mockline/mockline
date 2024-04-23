@@ -20,15 +20,14 @@ const variants = [
       <h3 class="text-lg font-semibold text-black dark:text-white">
         Button
       </h3>
-      <div class="space-x-2">
+      <div class="flex gap-4">
         <MButton
           v-for="variant in variants"
           :key="variant"
           :variant
           label="test"
-          size="md"
-          rounded="lg"
           color="primary"
+          loading
           @click="() => console.log('click')"
         />
       </div>
@@ -46,7 +45,8 @@ const variants = [
     </div>
     <MButton
       label="test"
-      class="bg-iris-a9 bg-opacity-25"
+      class="bg-iris-a9"
+      loading
       @click="() => console.log('click')"
     />
   </div>
