@@ -15,25 +15,6 @@ import typography from '@tailwindcss/typography'
 import containerQueries from '@tailwindcss/container-queries'
 import { name, version } from '../package.json'
 import { addTemplates } from './templates'
-import type { Color } from '#mockline/colors'
-
-type MocklineConfig = {
-  primary?: Color
-  gray?: Color
-  [key: string]: any
-}
-
-declare module 'nuxt/schema' {
-  type AppConfigInput = {
-    mockline?: MocklineConfig
-  }
-}
-
-declare module '@nuxt/schema' {
-  type AppConfigInput = {
-    mockline?: MocklineConfig
-  }
-}
 
 export type ModuleOptions = {
   /**
@@ -68,6 +49,7 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.appConfig.mockline = defu(nuxt.options.appConfig.mockline || {}, {
       primary: 'iris',
       gray: 'mauve',
+      glass: false
     })
 
     addTemplates(options, nuxt)
@@ -108,14 +90,16 @@ export default defineNuxtModule<ModuleOptions>({
     addComponentsDir({
       path: resolve('./runtime/components/elements'),
       prefix: options.prefix,
-      pathPrefix: false
+      pathPrefix: false,
+      watch: false
     }).then()
 
     // Components layout
     addComponentsDir({
       path: resolve('./runtime/components/layout'),
       prefix: options.prefix,
-      pathPrefix: false
+      pathPrefix: false,
+      watch: false
     }).then()
 
     addImportsDir(resolve('./runtime/composables'))

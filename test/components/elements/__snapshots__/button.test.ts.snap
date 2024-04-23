@@ -1,5 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`Button > renders with label correctly 1`] = `"<button class="text-white bg-blue-500 hover:bg-blue-600 px-3 py-1 text-base">Button</button>"`;
-
-exports[`Button > renders with size correctly 1`] = `"<button class="text-white bg-blue-500 hover:bg-blue-600 px-2 py-1 text-sm"></button>"`;

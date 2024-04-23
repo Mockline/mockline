@@ -4,7 +4,7 @@ import type { ModuleOptions } from './module'
 import { colors, grayColors, generateScale, type Color } from './runtime/colors'
 
 export function addTemplates(options: ModuleOptions, nuxt = useNuxt()) {
-  nuxt.hook('tailwindcss:config', (tailwindConfig: Config) => {
+  nuxt.hook('tailwindcss:config', (tailwindConfig) => {
     initThemeColors(tailwindConfig)
 
     const variants = ['hover', 'focus', 'active', 'group-hover']
@@ -23,10 +23,33 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()) {
     getContents: () => generateColorTypes()
   })
 
+  addTypeTemplate({
+    filename: 'types/mockline.d.ts',
+    getContents: () => `
+      type Color = '${colors.join('\' | \'')}';
+
+      type MocklineConfig = {
+        primary?: Color
+        gray?: Color
+      }
+
+      declare module 'nuxt/schema' {
+        interface AppConfigInput {
+          mockline?: MocklineConfig
+        }
+      }
+      declare module '@nuxt/schema' {
+        interface AppConfigInput {
+          mockline?: MocklineConfig
+        }
+      }
+      export {}`
+  })
+
   nuxt.options.css.unshift(template.dst)
 }
 
-function initThemeColors(tailwindConfig: Config) {
+function initThemeColors(tailwindConfig: Partial<Config>) {
   tailwindConfig.theme = tailwindConfig.theme || {}
   tailwindConfig.theme.extend = tailwindConfig.theme.extend || {}
   tailwindConfig.theme.extend.colors = tailwindConfig.theme.extend.colors || {}
@@ -37,7 +60,7 @@ function initThemeColors(tailwindConfig: Config) {
   })
 }
 
-function addColorPatternsToSafeList(tailwindConfig: Config, variants: string[], classes: string[]) {
+function addColorPatternsToSafeList(tailwindConfig: Partial<Config>, variants: string[], classes: string[]) {
   tailwindConfig.safelist = tailwindConfig.safelist || []
 
   const patterns = ['primary', ...colors].flatMap(color =>
