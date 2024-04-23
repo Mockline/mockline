@@ -4,7 +4,7 @@ import {
   addImportsDir,
   addComponentsDir,
   installModule,
-  addImportsSources
+  addImportsSources, addPlugin
 } from '@nuxt/kit'
 import { defu } from 'defu'
 import { iconsPlugin, getIconCollections } from '@egoist/tailwindcss-icons'
@@ -15,6 +15,25 @@ import typography from '@tailwindcss/typography'
 import containerQueries from '@tailwindcss/container-queries'
 import { name, version } from '../package.json'
 import { addTemplates } from './templates'
+import type { Color } from '#mockline/colors'
+
+type MocklineConfig = {
+  primary?: Color
+  gray?: Color
+  [key: string]: any
+}
+
+declare module 'nuxt/schema' {
+  type AppConfigInput = {
+    mockline?: MocklineConfig
+  }
+}
+
+declare module '@nuxt/schema' {
+  type AppConfigInput = {
+    mockline?: MocklineConfig
+  }
+}
 
 export type ModuleOptions = {
   /**
@@ -38,7 +57,7 @@ export default defineNuxtModule<ModuleOptions>({
     prefix: 'M',
     icons: ['heroicons', 'lucide']
   },
-  async setup(options, nuxt) {
+  async setup(options: ModuleOptions, nuxt) {
     const {resolve} = createResolver(import.meta.url)
 
     // Transpile runtime
@@ -47,8 +66,14 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.alias['#mockline'] = resolve('./runtime')
 
     nuxt.options.appConfig.mockline = defu(nuxt.options.appConfig.mockline || {}, {
-      primary: 'orange',
-      gray: 'neutral',
+      primary: 'iris',
+      gray: 'mauve',
+    })
+
+    addTemplates(options, nuxt)
+
+    addPlugin({
+      src: resolve(runtimeDir, 'plugins', 'colors')
     })
 
     // Modules
@@ -94,7 +119,5 @@ export default defineNuxtModule<ModuleOptions>({
     }).then()
 
     addImportsDir(resolve('./runtime/composables'))
-
-    addTemplates(options, nuxt)
   },
 })

@@ -33,6 +33,7 @@
     "@nuxt/kit": "^3.11.2",
     "@nuxtjs/color-mode": "^3.4.0",
     "@nuxtjs/tailwindcss": "latest",
+    "@radix-ui/colors": "^3.0.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.7",

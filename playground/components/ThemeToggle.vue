@@ -16,6 +16,7 @@ const switchTheme = () => {
 
 <template>
   <button
+    class="text-black dark:text-white"
     :class="[$colorMode.value === 'light' ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid', size]"
     aria-label="Theme"
     @click="switchTheme"

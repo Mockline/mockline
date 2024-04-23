@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { colors } from '#mockline/colors'
+
 const variants = [
   'solid',
   'outline',
@@ -15,7 +17,7 @@ const variants = [
       Home
     </NuxtLink>
     <div class="space-y-4">
-      <h3 class="text-lg font-semibold">
+      <h3 class="text-lg font-semibold text-black dark:text-white">
         Button
       </h3>
       <div class="space-x-2">
@@ -30,7 +32,23 @@ const variants = [
           @click="() => console.log('click')"
         />
       </div>
+      <div class="grid grid-cols-6 gap-4">
+        <MButton
+          v-for="color in colors"
+          :key="color"
+          :label="color"
+          :color
+          variant="solid"
+          size="md"
+          rounded="lg"
+        />
+      </div>
     </div>
+    <MButton
+      label="test"
+      class="bg-iris-a9 bg-opacity-25"
+      @click="() => console.log('click')"
+    />
   </div>
 </template>
 

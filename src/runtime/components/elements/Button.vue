@@ -2,6 +2,7 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 import { computed } from 'vue'
 import { twMerge } from 'tailwind-merge'
+import { colors } from '#mockline/colors'
 
 const buttonStyle = tv({
   base: 'text-white',
@@ -15,14 +16,7 @@ const buttonStyle = tv({
       link: '',
     },
     color: {
-      primary: 'bg-blue-500 hover:bg-blue-600',
-      secondary: 'bg-gray-500 hover:bg-gray-600',
-      success: 'bg-green-500 hover:bg-green-600',
-      danger: 'bg-red-500 hover:bg-red-600',
-      warning: 'bg-yellow-500 hover:bg-yellow-600',
-      info: 'bg-blue-500 hover:bg-blue-600',
-      light: 'bg-gray-200 hover:bg-gray-300',
-      dark: 'bg-gray-800 hover:bg-gray-900',
+      ...Object.fromEntries(colors.map(color => [color, ''])),
     },
     size: {
       sm: 'px-2 py-1 text-sm',
@@ -39,34 +33,41 @@ const buttonStyle = tv({
     }
   },
   defaultVariants: {
-    color: 'primary',
+    variant: 'solid',
+    color: 'iris',
     size: 'md'
   },
   compoundVariants: [
-    {
+    ...colors.map(color => ({
       variant: 'solid',
-      class: 'bg-blue-500 hover:bg-blue-600'
-    },
-    {
+      color: `${color}`,
+      class: `bg-${color}-9 hover:bg-${color}-10`
+    })),
+    ...colors.map(color => ({
       variant: 'outline',
-      class: 'border border-blue-500 bg-transparent text-blue-500 hover:bg-blue-500 hover:text-white'
-    },
-    {
+      color: `${color}`,
+      class: `border border-${color}-9 text-${color}-9 hover:bg-${color}-9 hover:text-${color}-1`
+    })),
+    ...colors.map(color => ({
       variant: 'soft',
-      class: 'bg-blue-100 text-blue-500 hover:bg-blue-200'
-    },
-    {
+      color: `${color}`,
+      class: `bg-${color}-2 text-${color}-9 hover:bg-${color}-3`
+    })),
+    ...colors.map(color => ({
       variant: 'subtle',
-      class: 'bg-blue-50 text-blue-500 hover:bg-blue-100'
-    },
-    {
+      color: `${color}`,
+      class: `bg-${color}-3 text-${color}-9 hover:bg-${color}-4`
+    })),
+    ...colors.map(color => ({
       variant: 'ghost',
-      class: 'bg-transparent text-blue-500 hover:bg-blue-50'
-    },
-    {
+      color: `${color}`,
+      class: `text-${color}-9 hover:bg-${color}-3`
+    })),
+    ...colors.map(color => ({
       variant: 'link',
-      class: 'bg-transparent text-blue-500 hover:bg-transparent hover:underline'
-    }
+      color: `${color}`,
+      class: `text-${color}-9 hover:underline`
+    }))
   ]
 })
 
