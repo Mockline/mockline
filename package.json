@@ -45,7 +45,7 @@
     "vue-sonner": "^1.0.3"
   },
   "devDependencies": {
-    "@hrcd/eslint-config": "^0.0.3",
+    "@hrcd/eslint-config": "^1.0.0",
     "@nuxt/devtools": "^1.1.5",
     "@nuxt/eslint-config": "^0.3.6",
     "@nuxt/module-builder": "^0.5.5",
