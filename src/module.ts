@@ -49,7 +49,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.appConfig.mockline = defu(nuxt.options.appConfig.mockline || {}, {
       primary: 'iris',
-      gray: 'mauve',
+      canvas: 'mauve',
     })
 
     addTemplates(options, nuxt)

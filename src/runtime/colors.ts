@@ -1,7 +1,7 @@
-export type GrayColor = 'gray' | 'mauve' | 'slate' | 'sage' | 'olive' | 'sand'
-export type Color = GrayColor | 'primary' | 'tomato' | 'red' | 'ruby' | 'crimson' | 'pink' | 'plum' | 'purple' | 'violet' | 'iris' | 'indigo' | 'blue' | 'cyan' | 'teal' | 'jade' | 'green' | 'grass' | 'orange' | 'amber' | 'yellow' | 'lime' | 'mint' | 'sky' | 'gold' | 'bronze' | 'brown'
+export type CanvasColor = 'canvas' | 'gray' | 'mauve' | 'slate' | 'sage' | 'olive' | 'sand'
+export type Color = CanvasColor | 'primary' | 'tomato' | 'red' | 'ruby' | 'crimson' | 'pink' | 'plum' | 'purple' | 'violet' | 'iris' | 'indigo' | 'blue' | 'cyan' | 'teal' | 'jade' | 'green' | 'grass' | 'orange' | 'amber' | 'yellow' | 'lime' | 'mint' | 'sky' | 'gold' | 'bronze' | 'brown'
 
-export const grayColors: GrayColor[] = [
+export const canvasColors: CanvasColor[] = [
   'gray',
   'mauve',
   'slate',
@@ -11,7 +11,7 @@ export const grayColors: GrayColor[] = [
 ]
 
 export const colors: Color[] = [
-  ...grayColors,
+  ...canvasColors,
   'primary',
   'tomato',
   'red',
@@ -60,7 +60,7 @@ export function generateScale(color: Color): Record<string, string> {
     return [
       [id, `var(--${color}-${id})`],
       [`a${id}`, `var(--${color}-a${id})`],
-      [`DEFAULT`, `var(--${color}-9)`]
+      [`DEFAULT`, `var(--${color}-${color === 'canvas' ? '1' : '9'})`],
     ]
   }).flat()
 

@@ -14,7 +14,7 @@ export default defineNuxtPlugin(() => {
   const rootStyle = computed(() => {
     const stylesConfig = {
       primary: mockline.primary,
-      gray: mockline.gray
+      canvas: mockline.canvas
     }
 
     return `

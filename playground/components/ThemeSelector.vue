@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { colors } from '#mockline/colors'
 
-const graySaved = useCookie('mockline-gray')
+const canvasSaved = useCookie('mockline-canvas')
 const primarySaved = useCookie('mockline-primary')
 
 const appConfig = useAppConfig()
 
 appConfig.mockline.primary = primarySaved.value || appConfig.mockline.primary
-appConfig.mockline.gray = graySaved.value || appConfig.mockline.gray
+appConfig.mockline.canvas = canvasSaved.value || appConfig.mockline.canvas
 
 const primary = computed({
   get() {
@@ -19,22 +19,22 @@ const primary = computed({
   }
 })
 
-const gray = computed({
+const canvas = computed({
   get() {
-    return appConfig.mockline.gray
+    return appConfig.mockline.canvas
   },
   set(option) {
-    appConfig.mockline.gray = option
-    graySaved.value = option
+    appConfig.mockline.canvas = option
+    canvasSaved.value = option
   }
 })
 </script>
 
 <template>
-  <div :class="`bg-gray-1`">
-    Gray
+  <div>
+    Canvas
     <div class="grid grid-cols-8 gap-4">
-      <div v-for="color in colors" :key="color" class="flex cursor-pointer items-center space-x-2" @click="() => gray = color">
+      <div v-for="color in colors" :key="color" class="flex cursor-pointer items-center space-x-2" @click="() => canvas = color">
         <div class="size-4 rounded-full" :class="`bg-${color}-9`" />
         <div>{{ color }}</div>
       </div>
