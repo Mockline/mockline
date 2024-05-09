@@ -56,7 +56,7 @@ yarn add --dev mockline
 npm install --save-dev mockline
 ```
 
-2. Add `@nuxtjs/mockline` to the `modules` section of `nuxt.config.ts`
+2. Add `mockline` to the `modules` section of `nuxt.config.ts`
 
 ```js
 export default defineNuxtConfig({
