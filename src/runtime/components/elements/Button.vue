@@ -55,7 +55,7 @@ const buttonStyle = tv({
   },
   defaultVariants: {
     variant: 'solid',
-    color: 'iris',
+    color: 'primary',
     size: 'sm',
     rounded: 'md',
     padding: 'xs',

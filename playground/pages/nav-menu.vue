@@ -12,12 +12,23 @@ const nav = [
     path: '/docs',
     slot: 'docs',
   },
+  {
+    title: 'GitHub',
+    path: 'https://github.com/mockline/mockline',
+  }
 ]
 </script>
 
 <template>
   <div>
-    <MMenu :items="nav">
+    <MNavMenu :items="nav" orientation="vertical">
+      <template #leading>
+        <span class="i-lucide-user size-6" />
+      </template>
+
+      <template #trailing>
+        <MButton size="sm" rounded="md" label="Sign in" />
+      </template>
       <template #home>
         <ul class="one m-0 grid list-none gap-x-[10px] p-[22px] sm:w-[500px] sm:grid-cols-[0.75fr_1fr]">
           <li class="row-span-3 grid">
@@ -42,7 +53,7 @@ const nav = [
           <a class="text-[18px] font-medium leading-[1.2]" href="/docs/primitives">Primitives</a>
         </div>
       </template>
-    </MMenu>
+    </MNavMenu>
   </div>
 </template>
 
