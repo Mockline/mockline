@@ -3,6 +3,10 @@ import Button, { type ButtonProps } from '../../../src/runtime/components/elemen
 import ComponentRender from '../component-render'
 
 describe('Button', () => {
+  it('renders correctly', async () => {
+    const html = await ComponentRender('default', {}, Button)
+    expect(html).toMatchSnapshot()
+  })
   /*it.each([
     ['with label', { props: { label: 'Button' } }],
     ['with size', { props: { size: 'sm' } }],
