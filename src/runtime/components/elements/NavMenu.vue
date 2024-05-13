@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { tv, type VariantProps } from 'tailwind-variants'
+import { computed } from 'vue'
+import { twMerge } from 'tailwind-merge'
 import {
   NavigationMenuContent,
   NavigationMenuIndicator,
@@ -6,13 +9,25 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuRoot,
-  NavigationMenuSub,
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from 'radix-vue'
 
+const navMenuStyle = tv({
+  variants: {
+    color: {
+      primary: 'text-primary-11 hover:bg-primary-3 focus:shadow-primary-7',
+      white: 'hover:bg-gray-3 focus:shadow-gray-7 text-gray-12',
+    },
+  },
+  defaultVariants: {
+    color: 'primary',
+  },
+})
+
 export type NavMenuProps = {
   orientation?: 'horizontal' | 'vertical'
+  color?: VariantProps<typeof navMenuStyle>['color'];
   items: {
     title: string
     path: string
@@ -23,29 +38,38 @@ export type NavMenuProps = {
 const props = withDefaults(defineProps<NavMenuProps>(), {
   orientation: 'horizontal',
 })
+
+const navTitleStyle = computed(() => {
+  return twMerge([
+    navMenuStyle({...props}),
+    'group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]',
+  ])
+})
 </script>
 
 <template>
   <NavigationMenuRoot class="relative z-[1] flex w-full justify-center" :orientation>
-    <NavigationMenuList class="bg-canvas-2 m-0 flex list-none items-center justify-center rounded-[6px] p-1">
+    <NavigationMenuList class="bg-canvas-2 border-canvas-3 m-0 flex list-none items-center justify-between gap-8 rounded-lg border px-4 py-1.5 shadow-lg">
       <slot name="leading" />
-      <NavigationMenuItem v-for="item in items" :key="item.title">
-        <NavigationMenuTrigger
-          v-if="item.slot"
-          class="text-primary-11 hover:bg-primary-3 focus:shadow-primary-7 group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]"
-        >
-          {{ item.title }}
-        </NavigationMenuTrigger>
-        <NavigationMenuContent
-          v-if="item.slot"
-          class="data-[motion=from-start]:animate-enterFromLeft text-gray-12 data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute left-0 top-0 w-full sm:w-auto"
-        >
-          <slot :name="item.title.toLowerCase()" />
-        </NavigationMenuContent>
-        <NavigationMenuLink v-if="!item.slot" :href="item.path" class="text-primary-11 hover:bg-primary-3 focus:shadow-primary-7 group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]">
-          {{ item.title }}
-        </NavigationMenuLink>
-      </NavigationMenuItem>
+      <div class="flex list-none items-center justify-between">
+        <NavigationMenuItem v-for="item in items" :key="item.title">
+          <NavigationMenuTrigger
+            v-if="item.slot"
+            :class="navTitleStyle"
+          >
+            {{ item.title }}
+          </NavigationMenuTrigger>
+          <NavigationMenuContent
+            v-if="item.slot"
+            class="data-[motion=from-start]:animate-enterFromLeft text-gray-12 data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute left-0 top-0 w-full sm:w-auto"
+          >
+            <slot :name="item.title.toLowerCase()" />
+          </NavigationMenuContent>
+          <NavigationMenuLink v-if="!item.slot" :href="item.path" :class="navTitleStyle">
+            {{ item.title }}
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+      </div>
 
       <NavigationMenuIndicator />
       <slot name="trailing" />

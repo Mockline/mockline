@@ -21,13 +21,13 @@ const nav = [
 
 <template>
   <div>
-    <MNavMenu :items="nav" orientation="vertical">
+    <MNavMenu :items="nav" color="white">
       <template #leading>
-        <span class="i-lucide-user size-6" />
+        <img src="/assets/logo/icon.svg" alt="logo mockline" class="size-8">
       </template>
 
       <template #trailing>
-        <MButton size="sm" rounded="md" label="Sign in" />
+        <MButton size="sm" rounded="md" label="Sign in" class="ring-gray-1 ring-2" />
       </template>
       <template #home>
         <ul class="one m-0 grid list-none gap-x-[10px] p-[22px] sm:w-[500px] sm:grid-cols-[0.75fr_1fr]">
@@ -37,7 +37,7 @@ const nav = [
                 class="focus:shadow-primary-7 from-primary-9 to-primary-11 flex size-full select-none flex-col justify-end rounded-[6px] bg-gradient-to-b p-[25px] no-underline outline-none focus:shadow-[0_0_0_2px]"
                 href="/"
               >
-                <img class="w-16" src="https://hrcd.fr/favicon.ico">
+                <img src="/assets/logo/icon.svg" alt="logo mockline" class="size-[32px]">
                 <div class="mb-[7px] mt-4 text-[18px] font-medium leading-[1.2] text-white">Radix Primitives</div>
                 <p class="text-mauve-4 text-[14px] leading-[1.3]">Unstyled, accessible components for Vue.</p>
               </a>
