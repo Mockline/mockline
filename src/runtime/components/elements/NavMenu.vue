@@ -37,6 +37,7 @@ export type NavMenuProps = {
 
 const props = withDefaults(defineProps<NavMenuProps>(), {
   orientation: 'horizontal',
+  color: 'primary',
 })
 
 const navTitleStyle = computed(() => {

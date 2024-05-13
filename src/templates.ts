@@ -1,10 +1,8 @@
-import { addTemplate, addTypeTemplate, useNuxt } from '@nuxt/kit'
-import type { Config } from 'tailwindcss'
-import plugin from 'tailwindcss'
+import { addTemplate, addTypeTemplate } from '@nuxt/kit'
 import { kebabCase } from 'scule'
 import type { Nuxt } from '@nuxt/schema'
 import type { ModuleOptions } from './module'
-import { colors, generateScale, type Color, canvasColors } from './runtime/colors'
+import { colors, canvasColors } from './runtime/colors'
 import * as theme from './theme'
 
 export function addTemplates(options: ModuleOptions, nuxt: Nuxt) {
@@ -14,7 +12,7 @@ export function addTemplates(options: ModuleOptions, nuxt: Nuxt) {
     filename: 'tailwind.css',
     write: true,
     getContents: () => `@import "tailwindcss";
-    ${generateRadixImports()}
+${generateRadixImports()}
 
 @layer base {
   @keyframes scaleIn {

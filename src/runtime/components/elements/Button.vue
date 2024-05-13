@@ -23,8 +23,6 @@ export type ButtonProps = {
   size?: ButtonVariants['size'];
   /** Rounded */
   rounded?: ButtonVariants['rounded'];
-  /** Padding */
-  padding?: ButtonVariants['padding'];
   /** Form */
   form?: string;
   /** Loading */
@@ -35,6 +33,14 @@ export type ButtonProps = {
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   iconPosition: 'left',
+  loading: false,
+  type: 'button',
+  color: 'primary',
+  variant: 'solid',
+  size: 'md',
+  rounded: 'md',
+  form: '',
+  class: '',
 })
 
 const button = tv(buttonStyle)
@@ -47,11 +53,11 @@ const buttonClass = computed(() => {
 <template>
   <component :is="'button'" :class="buttonClass" :type :form>
     <slot name="left">
-      <MIcon name="i-lucide-loader" size="md" v-if="iconPosition === 'left' && loading" class="animate-spin" />
+      <MIcon v-if="iconPosition === 'left' && loading" name="i-lucide-loader" size="md" class="animate-spin" />
     </slot>
     {{ props.label }}
     <slot name="right">
-      <MIcon name="i-lucide-loader" size="md" v-if="iconPosition === 'right' && loading" class="animate-spin" />
+      <MIcon v-if="iconPosition === 'right' && loading" name="i-lucide-loader" size="md" class="animate-spin" />
     </slot>
   </component>
 </template>

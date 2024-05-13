@@ -1,6 +1,6 @@
-import { promises as fsp } from 'fs'
-import { resolve } from 'path'
-import { execSync } from 'child_process'
+import { promises as fsp } from 'node:fs'
+import { resolve } from 'node:path'
+import { execSync } from 'node:child_process'
 
 async function loadPackage(dir: string) {
   const pkgPath = resolve(dir, 'package.json')
