@@ -1,5 +1,5 @@
 export default (config: { colors: string[] }) => ({
-  base: 'flex items-center justify-center gap-1 text-white',
+  base: 'flex items-center justify-center gap-1 text-white cursor-pointer',
   variants: {
     variant: {
       solid: '',

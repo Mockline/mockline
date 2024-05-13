@@ -3,7 +3,7 @@ import { defineNuxtPlugin, useAppConfig, useNuxtApp, useHead } from '#imports'
 
 function createRootStyles(stylesConfig: Record<string, string>) {
   return Object.entries(stylesConfig).map(([name, color]) =>
-    [...Array(12).keys()].map(i => `--${name}-${i+1}: var(--${color}-${i+1});`).join('\n')
+    [...Array(12).keys()].map(i => `--color-${name}-${i+1}: var(--color-${color}-${i+1});`).join('\n')
   ).join('\n')
 }
 

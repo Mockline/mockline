@@ -2,25 +2,57 @@ import { addTemplate, addTypeTemplate, useNuxt } from '@nuxt/kit'
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss'
 import { kebabCase } from 'scule'
+import type { Nuxt } from '@nuxt/schema'
 import type { ModuleOptions } from './module'
 import { colors, generateScale, type Color, canvasColors } from './runtime/colors'
 import * as theme from './theme'
 
-export function addTemplates(options: ModuleOptions, nuxt = useNuxt()) {
-  nuxt.hook('tailwindcss:config', (tailwindConfig) => {
-    initThemeColors(tailwindConfig)
-    initAnimations(tailwindConfig)
-
-    const variants = ['hover', 'focus', 'active', 'group-hover']
-    const classes = ['bg', 'text', 'border', 'ring']
-    addColorPatternsToSafeList(tailwindConfig, variants, classes)
-  })
+export function addTemplates(options: ModuleOptions, nuxt: Nuxt) {
+  const shades = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
   const template = addTemplate({
-    filename: 'radix-colors.css',
+    filename: 'tailwind.css',
     write: true,
-    getContents: () => generateRadixImports()
+    getContents: () => `@import "tailwindcss";
+    ${generateRadixImports()}
+
+@layer base {
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes scaleOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.95); }
+  }
+  @keyframes enterFromRight {
+    from { opacity: 0; transform: translateX(200px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes enterFromLeft {
+    from { opacity: 0; transform: translateX(-200px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes exitToRight {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(200px); }
+  }
+  @keyframes exitToLeft {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(-200px); }
+  }
+}
+
+@theme {
+  ${colors.map(color =>
+      shades.map(shade => `--color-${color}-${shade}: var(--${color}-${shade});`).join('\n\t')
+    ).join('\n\t')}
+  ${shades.map(shade => `--color-canvas-${shade}: var(--canvas-${shade});`).join('\n\t')}
+}
+`
   })
+
+  nuxt.options.css.unshift(template.dst)
 
   addTypeTemplate({
     filename: 'types/colors.d.ts',
@@ -49,8 +81,6 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()) {
       }
       export {}`
   })
-
-  nuxt.options.css.unshift(template.dst)
 
   for (const component in theme) {
     addTemplate({
@@ -82,89 +112,6 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()) {
     write: true,
     getContents: () => Object.keys(theme).map(component => `export { default as ${component} } from './${kebabCase(component)}'`).join('\n')
   })
-}
-
-function initThemeColors(tailwindConfig: Partial<Config>) {
-  tailwindConfig.theme = tailwindConfig.theme || {}
-  tailwindConfig.theme.extend = tailwindConfig.theme.extend || {}
-  tailwindConfig.theme.extend.colors = tailwindConfig.theme.extend.colors || {}
-
-  const defaultColors = ['primary', 'canvas', ...colors]
-  defaultColors.forEach(color => {
-    (tailwindConfig.theme!.extend!.colors as {[key: string]: any})[color] = generateScale(color as Color)
-  })
-}
-
-function initAnimations(tailwindConfig: Partial<Config>) {
-  tailwindConfig.theme = tailwindConfig.theme || {}
-  tailwindConfig.theme.extend = tailwindConfig.theme.extend || {}
-  tailwindConfig.theme.extend.keyframes = tailwindConfig.theme.extend.keyframes || {}
-  tailwindConfig.plugins = tailwindConfig.plugins || []
-  tailwindConfig.theme.extend.keyframes = {
-    enterFromRight: {
-      from: { opacity: '0', transform: 'translateX(200px)' },
-      to: { opacity: '1', transform: 'translateX(0)' },
-    },
-    enterFromLeft: {
-      from: { opacity: '0', transform: 'translateX(-200px)' },
-      to: { opacity: '1', transform: 'translateX(0)' },
-    },
-    exitToRight: {
-      from: { opacity: '1', transform: 'translateX(0)' },
-      to: { opacity: '0', transform: 'translateX(200px)' },
-    },
-    exitToLeft: {
-      from: { opacity: '1', transform: 'translateX(0)' },
-      to: { opacity: '0', transform: 'translateX(-200px)' },
-    },
-    scaleIn: {
-      from: { opacity: '0', transform: 'rotateX(-10deg) scale(0.9)' },
-      to: { opacity: '1', transform: 'rotateX(0deg) scale(1)' },
-    },
-    scaleOut: {
-      from: { opacity: '1', transform: 'rotateX(0deg) scale(1)' },
-      to: { opacity: '0', transform: 'rotateX(-10deg) scale(0.95)' },
-    },
-    fadeIn: {
-      from: { opacity: '0' },
-      to: { opacity: '1' },
-    },
-    fadeOut: {
-      from: { opacity: '1' },
-      to: { opacity: '0' },
-    },
-  }
-  tailwindConfig.theme.extend.animation = {
-    scaleIn: 'scaleIn 200ms ease',
-    scaleOut: 'scaleOut 200ms ease',
-    fadeIn: 'fadeIn 200ms ease',
-    fadeOut: 'fadeOut 200ms ease',
-    enterFromLeft: 'enterFromLeft 250ms ease',
-    enterFromRight: 'enterFromRight 250ms ease',
-    exitToLeft: 'exitToLeft 250ms ease',
-    exitToRight: 'exitToRight 250ms ease',
-  }
-  // @ts-ignore
-  tailwindConfig.plugins.push(plugin(({ matchUtilities }) => {
-    matchUtilities({
-      perspective: value => ({
-        perspective: value,
-      }),
-    })
-  }))
-}
-
-function addColorPatternsToSafeList(tailwindConfig: Partial<Config>, variants: string[], classes: string[]) {
-  tailwindConfig.safelist = tailwindConfig.safelist || []
-
-  const patterns = ['primary', 'canvas', ...colors].flatMap(color =>
-    classes.map(type => ({
-      pattern: new RegExp(`^${type}-${color}-(a)?(1[0-2]|[1-9])$`),
-      variants
-    }))
-  )
-
-  tailwindConfig.safelist.push(...patterns)
 }
 
 function generateRadixImports() {

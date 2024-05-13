@@ -5,15 +5,12 @@ import {
   addComponentsDir,
   installModule,
   addImportsSources,
+  addVitePlugin,
   addPlugin
 } from '@nuxt/kit'
 import { defu } from 'defu'
-import { iconsPlugin, getIconCollections } from '@egoist/tailwindcss-icons'
 import type { CollectionNames, IconsPluginOptions } from '@egoist/tailwindcss-icons'
-import forms from '@tailwindcss/forms'
-import aspectRatio from '@tailwindcss/aspect-ratio'
-import typography from '@tailwindcss/typography'
-import containerQueries from '@tailwindcss/container-queries'
+import tailwindcss from '@tailwindcss/vite'
 import { name, version } from '../package.json'
 import { addTemplates } from './templates'
 
@@ -52,31 +49,18 @@ export default defineNuxtModule<ModuleOptions>({
       canvas: 'mauve',
     })
 
-    addTemplates(options, nuxt)
-
     addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors')})
 
     // Modules
     await installModule('@nuxtjs/color-mode', { classSuffix: '' })
-    await installModule('@nuxtjs/tailwindcss', {
-      exposeConfig: true,
-      config: {
-        darkMode: 'class',
-        content: {
-          files: [
-            resolve('./runtime/components/**/*.{vue,mjs,ts}'),
-            resolve('./runtime/*.{mjs,js,ts}')
-          ]
-        },
-        plugins: [
-          forms({ strategy: 'class' }),
-          aspectRatio,
-          typography,
-          containerQueries,
-          iconsPlugin(Array.isArray(options.icons) || options.icons === 'all' ? { collections: getIconCollections(options.icons) } : typeof options.icons === 'object' ? options.icons as IconsPluginOptions : {})
-        ],
-      }
+    await installModule('nuxt-icon', {
+      componentName: 'MIcon',
+      cssLayer: 'components'
     })
+
+    addVitePlugin(tailwindcss)
+
+    addTemplates(options, nuxt)
 
     // Add imports
     addImportsSources({

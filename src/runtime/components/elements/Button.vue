@@ -47,11 +47,11 @@ const buttonClass = computed(() => {
 <template>
   <component :is="'button'" :class="buttonClass" :type :form>
     <slot name="left">
-      <span v-if="iconPosition === 'left' && loading" class="i-lucide-loader animate-spin" />
+      <MIcon name="i-lucide-loader" size="md" v-if="iconPosition === 'left' && loading" class="animate-spin" />
     </slot>
     {{ props.label }}
     <slot name="right">
-      <span v-if="iconPosition === 'right' && loading" class="i-lucide-loader animate-spin" />
+      <MIcon name="i-lucide-loader" size="md" v-if="iconPosition === 'right' && loading" class="animate-spin" />
     </slot>
   </component>
 </template>
