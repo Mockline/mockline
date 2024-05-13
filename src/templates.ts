@@ -1,8 +1,10 @@
 import { addTemplate, addTypeTemplate, useNuxt } from '@nuxt/kit'
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss'
+import { kebabCase } from 'scule'
 import type { ModuleOptions } from './module'
 import { colors, generateScale, type Color, canvasColors } from './runtime/colors'
+import * as theme from './theme'
 
 export function addTemplates(options: ModuleOptions, nuxt = useNuxt()) {
   nuxt.hook('tailwindcss:config', (tailwindConfig) => {
@@ -49,6 +51,37 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()) {
   })
 
   nuxt.options.css.unshift(template.dst)
+
+  for (const component in theme) {
+    addTemplate({
+      filename: `components/${kebabCase(component)}.ts`,
+      write: true,
+      getContents: () => {
+        const template = (theme as any)[component]
+        const result = typeof template === 'function' ? template({ colors: colors }) : template
+
+        const variants = Object.keys(result.variants || {})
+
+        let json = JSON.stringify(result, null, 2)
+
+        for (const variant of variants) {
+          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), '$1 as const')
+          json = json.replace(new RegExp(`("${variant}": \\[\\s*)((?:"[^"]+",?\\s*)+)(\\])`, 'g'), (_, before, match, after) => {
+            const replaced = match.replace(/("[^"]+")/g, '$1 as const')
+            return `${before}${replaced}${after}`
+          })
+        }
+
+        return `export default ${json}`
+      }
+    })
+  }
+
+  addTemplate({
+    filename: 'ui/index.ts',
+    write: true,
+    getContents: () => Object.keys(theme).map(component => `export { default as ${component} } from './${kebabCase(component)}'`).join('\n')
+  })
 }
 
 function initThemeColors(tailwindConfig: Partial<Config>) {

@@ -1,7 +1,5 @@
-import { colors } from '#mockline/colors'
-
-export default {
-  base: 'text-white',
+export default (config: { colors: string[] }) => ({
+  base: 'flex items-center justify-center gap-1 text-white',
   variants: {
     variant: {
       solid: '',
@@ -12,17 +10,22 @@ export default {
       link: '',
     },
     color: {
-      ...Object.fromEntries(colors.map(color => [color, ''])),
+      ...Object.fromEntries(config.colors.map(color => [color, ''])),
     },
     size: {
-      sm: 'px-2 py-1 text-sm',
-      md: 'px-3 py-1 text-base',
-      lg: 'px-4 py-2 text-lg'
+      '2xs': 'text-xs gap-x-1 px-1 py-0.5',
+      xs: 'text-xs gap-x-1.5 px-2 py-1',
+      sm: 'text-sm gap-x-1.5 px-2 py-1',
+      md: 'text-base gap-x-2 px-3 py-1.5',
+      lg: 'text-lg gap-x-2.5 px-4 py-2',
+      xl: 'text-xl gap-x-2.5 px-5 py-2.5',
     },
     rounded: {
+      none: '',
       sm: 'rounded-sm',
       md: 'rounded-md',
-      lg: 'rounded-lg'
+      lg: 'rounded-lg',
+      xl: 'rounded-xl',
     },
     block: {
       true: 'w-full'
@@ -30,39 +33,40 @@ export default {
   },
   defaultVariants: {
     variant: 'solid',
-    color: 'iris',
-    size: 'md'
+    color: 'primary',
+    size: 'md',
+    rounded: 'md',
   },
   compoundVariants: [
-    ...colors.map(color => ({
+    ...config.colors.map(color => ({
+      color,
       variant: 'solid',
-      color: `${color}`,
       class: `bg-${color}-9 hover:bg-${color}-10`
     })),
-    ...colors.map(color => ({
+    ...config.colors.map(color => ({
+      color,
       variant: 'outline',
-      color: `${color}`,
       class: `border border-${color}-9 text-${color}-9 hover:bg-${color}-9 hover:text-${color}-1`
     })),
-    ...colors.map(color => ({
+    ...config.colors.map(color => ({
+      color,
       variant: 'soft',
-      color: `${color}`,
       class: `bg-${color}-2 text-${color}-9 hover:bg-${color}-3`
     })),
-    ...colors.map(color => ({
+    ...config.colors.map(color => ({
+      color,
       variant: 'subtle',
-      color: `${color}`,
       class: `bg-${color}-3 text-${color}-9 hover:bg-${color}-4`
     })),
-    ...colors.map(color => ({
+    ...config.colors.map(color => ({
+      color,
       variant: 'ghost',
-      color: `${color}`,
       class: `text-${color}-9 hover:bg-${color}-3`
     })),
-    ...colors.map(color => ({
+    ...config.colors.map(color => ({
+      color,
       variant: 'link',
-      color: `${color}`,
       class: `text-${color}-9 hover:underline`
     }))
   ]
-}
+})

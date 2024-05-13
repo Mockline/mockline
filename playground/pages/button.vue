@@ -26,7 +26,6 @@ const variants = [
           :key="variant"
           :variant
           label="test"
-          color="primary"
           loading
           @click="() => console.log('click')"
         />
@@ -37,15 +36,12 @@ const variants = [
           :key="color"
           :label="color"
           :color
-          variant="solid"
-          size="md"
-          rounded="lg"
         />
       </div>
     </div>
     <MButton
       label="test"
-      class="bg-iris-a9"
+      class="bg-iris-9"
       loading
       @click="() => console.log('click')"
     />
