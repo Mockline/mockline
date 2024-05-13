@@ -63,7 +63,7 @@
     "zod": "^3.23.8"
   },
   "resolutions": {
-    "vite": "5.2.4"
+    "vite": "5.2.6"
   },
   "publishConfig": {
     "access": "public"
