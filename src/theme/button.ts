@@ -1,1 +1,1 @@
-export default (config: { colors: string[] }) => ()
+export default (config: { colors: string[] }) => ({})
