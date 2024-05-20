@@ -46,9 +46,6 @@ const canvas = computed({
         <div>{{ color }}</div>
       </div>
     </div>
-    <button class="bg-primary my-8 px-2 py-1" @click="() => console.log('click')">
-      Primary
-    </button>
     <slot />
   </div>
 </template>
