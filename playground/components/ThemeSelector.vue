@@ -31,8 +31,8 @@ const canvas = computed({
 </script>
 
 <template>
-  <div>
-    Canvas
+  <div class="text-gray-12">
+    <div>Canvas</div>
     <div class="grid grid-cols-8 gap-4">
       <div v-for="color in colors" :key="color" class="flex cursor-pointer items-center space-x-2" @click="() => canvas = color">
         <div class="size-4 rounded-full" :class="`bg-${color}-9`" />

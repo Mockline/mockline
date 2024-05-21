@@ -1,17 +1,13 @@
-export type CanvasColor = 'canvas' | 'gray' | 'mauve' | 'slate' | 'sage' | 'olive' | 'sand'
-export type Color = CanvasColor | 'primary' | 'tomato' | 'red' | 'ruby' | 'crimson' | 'pink' | 'plum' | 'purple' | 'violet' | 'iris' | 'indigo' | 'blue' | 'cyan' | 'teal' | 'jade' | 'green' | 'grass' | 'orange' | 'amber' | 'yellow' | 'lime' | 'mint' | 'sky' | 'gold' | 'bronze' | 'brown'
+export type Color = 'canvas' | 'gray' | 'mauve' | 'slate' | 'sage' | 'olive' | 'sand' | 'primary' | 'tomato' | 'red' | 'ruby' | 'crimson' | 'pink' | 'plum' | 'purple' | 'violet' | 'iris' | 'indigo' | 'blue' | 'cyan' | 'teal' | 'jade' | 'green' | 'grass' | 'orange' | 'amber' | 'yellow' | 'lime' | 'mint' | 'sky' | 'gold' | 'bronze' | 'brown'
 
-export const canvasColors: CanvasColor[] = [
+export const colors: Color[] = [
+  'canvas',
   'gray',
   'mauve',
   'slate',
   'sage',
   'olive',
   'sand',
-]
-
-export const colors: Color[] = [
-  ...canvasColors,
   'primary',
   'tomato',
   'red',

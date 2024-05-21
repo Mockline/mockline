@@ -3,7 +3,7 @@ import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss'
 import { kebabCase } from 'scule'
 import type { ModuleOptions } from './module'
-import { colors, generateScale, type Color, canvasColors } from './runtime/colors'
+import { colors, generateScale, type Color } from './runtime/colors'
 import * as theme from './theme'
 
 export function addTemplates(options: ModuleOptions, nuxt = useNuxt()) {
@@ -144,7 +144,8 @@ function initAnimations(tailwindConfig: Partial<Config>) {
     exitToLeft: 'exitToLeft 250ms ease',
     exitToRight: 'exitToRight 250ms ease',
   }
-  // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   tailwindConfig.plugins.push(plugin(({ matchUtilities }) => {
     matchUtilities({
       perspective: value => ({
@@ -169,15 +170,13 @@ function addColorPatternsToSafeList(tailwindConfig: Partial<Config>, variants: s
 
 function generateRadixImports() {
   const suffixes = ['', '-alpha', '-dark', '-dark-alpha']
-  return colors.filter(color => color !== 'primary')
+  return colors.filter(color => color !== 'primary' && color !== 'canvas')
     .flatMap(color => suffixes.map(suffix => `@import "@radix-ui/colors/${color}${suffix}.css";`))
     .join('\n')
 }
 
 function generateColorTypes() {
   return `
-    export type CanvasColor = '${canvasColors.join('\' | \'')}';
-    export type Color = GrayColor | '${colors.join('\' | \'')}';
-    export const canvasColors: CanvasColor[] = ${JSON.stringify(canvasColors)};
+    export type Color = '${colors.join('\' | \'')}';
     export const colors: Color[] = ${JSON.stringify(colors)};`
 }

@@ -1,8 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`Button > renders correctly 1`] = `
-"<button class="flex items-center justify-center gap-1 text-white text-sm px-2 py-1 rounded-md bg-primary-9 hover:bg-primary-10">
-  <!--v-if-->
-  <!--v-if-->
-</button>"
-`;

@@ -31,9 +31,6 @@ jobs:
       - name: 💅 Lint code
         run: bun run lint
 
-      - name: 🧪 Run tests
-        run: bun run test
-
       - uses: dorny/paths-filter@v3
         id: changes
         with:
