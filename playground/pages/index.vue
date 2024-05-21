@@ -4,7 +4,7 @@ const components = ['button', 'nav-menu']
 
 <template>
   <div class="space-y-4 p-4">
-    <h1 class="text-2xl font-semibold">
+    <h1 class="text-gray-12 text-2xl font-semibold">
       Playground
     </h1>
     <ul class="space-y-4">

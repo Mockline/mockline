@@ -36,6 +36,8 @@ export const colors: Color[] = [
   'brown',
 ]
 
+export const availableColors = colors.filter((color) => color !== 'canvas' && color !== 'primary')
+
 /*export const colorsAsRegex = (colors: string[]): string => colors.join('|')
 
 export function hexToRgb(hex: string) {

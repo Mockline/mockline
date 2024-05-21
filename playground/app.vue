@@ -3,9 +3,9 @@
 
 <template>
   <div class="bg-canvas min-h-screen text-white">
-    <ThemeSelector>
-      <ThemeToggle class="absolute right-4 top-4" />
+    <ThemeToggle class="absolute right-4 top-4" />
+    <NuxtLayout>
       <NuxtPage />
-    </ThemeSelector>
+    </NuxtLayout>
   </div>
 </template>

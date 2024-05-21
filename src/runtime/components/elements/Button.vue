@@ -33,6 +33,7 @@ export type ButtonProps = {
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   iconPosition: 'left',
+  variant: 'solid',
 })
 
 const button = tv({

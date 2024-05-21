@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { colors } from '#mockline/colors'
+import { availableColors } from '#mockline/colors'
+
+definePageMeta({
+  layout: 'component',
+})
 
 const variants = [
   'solid',
@@ -12,42 +16,24 @@ const variants = [
 </script>
 
 <template>
-  <div class="space-y-4 p-4">
-    <NuxtLink to="/" class="text-blue-600 hover:underline">
-      Home
-    </NuxtLink>
-    <div class="space-y-4">
-      <h3 class="text-lg font-semibold text-black dark:text-white">
-        Button
-      </h3>
-      <div class="flex gap-4">
-        <MButton
-          v-for="variant in variants"
-          :key="variant"
-          :variant
-          label="test"
-          loading
-          @click="() => console.log('click')"
-        />
-      </div>
-      <div class="grid grid-cols-6 gap-4">
-        <MButton
-          v-for="color in colors"
-          :key="color"
-          :label="color"
-          :color
-        />
-      </div>
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-4">
+      <MButton
+        v-for="variant in variants"
+        :key="variant"
+        :variant
+        label="test"
+        loading
+        @click="() => console.log('click')"
+      />
     </div>
-    <MButton
-      label="test"
-      class="bg-iris-9"
-      loading
-      @click="() => console.log('click')"
-    />
+    <div class="grid grid-cols-6 gap-4">
+      <MButton
+        v-for="color in availableColors"
+        :key="color"
+        :label="color"
+        :color
+      />
+    </div>
   </div>
 </template>
-
-<style scoped>
-
-</style>
