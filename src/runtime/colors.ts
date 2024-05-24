@@ -38,6 +38,20 @@ export const colors: Color[] = [
 
 export const availableColors = colors.filter((color) => color !== 'canvas' && color !== 'primary')
 
+export function generateColorSafelist() {
+  const variants = ['hover', 'focus', 'active', 'group-hover']
+  const classes = ['bg', 'text', 'border', 'ring']
+
+  const patterns = ['primary', 'canvas', ...colors].flatMap(color =>
+    classes.map(type => ({
+      pattern: new RegExp(`^${ type }-${ color }-(a)?(1[0-2]|[1-9])$`),
+      variants
+    }))
+  )
+
+  return [...patterns]
+}
+
 /*export const colorsAsRegex = (colors: string[]): string => colors.join('|')
 
 export function hexToRgb(hex: string) {
