@@ -2,7 +2,7 @@ import { addTemplate, createResolver, installModule, useNuxt } from '@nuxt/kit'
 import type { ModuleOptions } from '@nuxt/schema'
 import { defu } from 'defu'
 import { join } from 'pathe'
-import { colors, generateScale } from './runtime/colors'
+import { colors, generateScale } from './runtime/utils/colors'
 
 /**
  * Install and configure TailwindCSS module.
@@ -43,7 +43,7 @@ function generateTailwindConfigContent(runtimeDir: string, options: ModuleOption
   : string {
   // Import required modules for TailwindCSS configuration
   return `
-    const { generateColorSafelist } = require(${JSON.stringify(resolve(runtimeDir, 'colors'))});
+    const { generateColorSafelist } = require(${JSON.stringify(resolve(runtimeDir, 'utils', 'colors'))});
     import plugin, { type Config } from 'tailwindcss';
     import { iconsPlugin, getIconCollections } from '@egoist/tailwindcss-icons';
 

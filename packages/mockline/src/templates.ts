@@ -1,5 +1,5 @@
 import { addTemplate, addTypeTemplate, useNuxt } from '@nuxt/kit'
-import { colors } from './runtime/colors'
+import { colors } from './runtime/utils/colors'
 
 export function addTemplates(nuxt = useNuxt()): void {
   const template = addTemplate({
