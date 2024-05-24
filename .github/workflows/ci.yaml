@@ -33,11 +33,11 @@ jobs:
         with:
           filters: |
             src:
-              - 'src/**'
+              - 'packages/mockline/src/**'
               - 'package.json'
 
       - name: 🚀 Release
         if: github.event_name == 'push' && steps.changes.outputs.src == 'true'
-        run: ./scripts/release.sh
+        run: ./packages/mockline/scripts/release.sh
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
