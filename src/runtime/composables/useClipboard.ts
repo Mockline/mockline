@@ -9,7 +9,7 @@ type useClipboardParams = {
   callback?: () => void
 }
 
-export function useClipboard(params: useClipboardParams) {
+export function useClipboard(params: useClipboardParams): void {
   navigator.clipboard.writeText(params.toCopy).then(() => {
     if (params.callback) {
       params.callback()

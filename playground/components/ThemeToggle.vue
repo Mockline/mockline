@@ -8,7 +8,7 @@ defineProps({
 
 const colorMode = useColorMode()
 
-const switchTheme = () => {
+const switchTheme = (): void => {
   colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark'
   colorMode.preference = colorMode.value
 }

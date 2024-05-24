@@ -1,5 +1,5 @@
 <script setup lang="ts">
-function formatTitle(title: string) {
+function formatTitle(title: string): string {
   return title
     .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

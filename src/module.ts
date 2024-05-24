@@ -35,7 +35,7 @@ export default defineNuxtModule<ModuleOptions>({
     prefix: 'M',
     icons: ['heroicons', 'lucide']
   },
-  async setup(options: ModuleOptions, nuxt) {
+  async setup(options: ModuleOptions, nuxt): Promise<void> {
     const {resolve} = createResolver(import.meta.url)
 
     // Transpile runtime
