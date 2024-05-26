@@ -1,4 +1,7 @@
 export default defineNuxtConfig({
-  modules: ['mockline', '@nuxt/image'],
-  devtools: { enabled: true }
+  modules: ['mockline', '@nuxt/image', '@nuxt/content'],
+  devtools: { enabled: true },
+  content: {
+    documentDriven: true,
+  }
 })
