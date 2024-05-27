@@ -2,7 +2,9 @@ import { addTemplate, createResolver, installModule, useNuxt } from '@nuxt/kit'
 import type { ModuleOptions } from '@nuxt/schema'
 import { defu } from 'defu'
 import { join } from 'pathe'
+import { getIconCollections } from '@egoist/tailwindcss-icons'
 import { colors, generateScale } from './runtime/utils/colors'
+import { logo } from './icons'
 
 /**
  * Install and configure TailwindCSS module.
@@ -136,9 +138,9 @@ function generateAnimations(): Record<string, string> {
  * @returns The options for the icons plugin in JSON format.
  */
 function generateIconsPluginOptions(options: ModuleOptions): string {
-  return Array.isArray(options.icons)
-    ? `{ collections: getIconCollections(${JSON.stringify(options.icons)}) }`
-    : typeof options.icons === 'object'
-      ? JSON.stringify(options.icons)
-      : '{}'
+  const collections= {
+    custom: logo,
+    ...getIconCollections(options.icons)
+  }
+  return `{ collections: ${JSON.stringify(collections)} }`
 }
