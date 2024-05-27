@@ -1,0 +1,26 @@
+<script setup lang="ts">
+useHead({
+  link: [
+    {
+      rel: 'icon',
+      href: 'favicon-light.ico',
+      media: '(prefers-color-scheme: light)'
+    },
+    {
+      rel: 'icon',
+      href: 'favicon-dark.ico',
+      media: '(prefers-color-scheme: dark)'
+    }
+  ]
+})
+</script>
+
+<template>
+  <Html lang="en" class="bg-canvas text-gray-12 font-geist size-full">
+    <Body>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </Body>
+  </Html>
+</template>

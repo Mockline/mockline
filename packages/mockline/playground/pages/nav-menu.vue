@@ -27,7 +27,7 @@ const nav = [
   <div>
     <MNavMenu :items="nav" color="white">
       <template #leading>
-        <span class="i-custom-mockline size-8" />
+        <span class="i-custom-mockline text-gray-12 size-8" />
       </template>
 
       <template #trailing>

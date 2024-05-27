@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const { navigation } = useContent()
-
 const items = [
   {
     title: 'Home',
@@ -9,7 +7,7 @@ const items = [
   },
   {
     title: 'Docs',
-    path: '/docs',
+    path: '/getting-started',
   },
 ]
 </script>
@@ -22,16 +20,14 @@ const items = [
       </div>
     </template>
     <template #leading>
-      <NuxtLink class="font-instrument italic" to="/">
-      Mockline
-      </NuxtLink>
+      <NuxtLink to="/" class="i-custom-mockline text-gray-12 size-8" />
     </template>
     <template #trailing>
-      <MButton label="Waitlist" size="sm" />
+      <div class="flex items-center gap-3">
+        <MThemeToggle />
+        <MButton size="sm" label="Waitlist" class="ring-gray-1 ring-2" />
+      </div>
     </template>
   </MNavMenu>
 </template>
 
-<style scoped>
-
-</style>
