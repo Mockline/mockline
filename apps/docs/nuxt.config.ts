@@ -3,5 +3,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   content: {
     documentDriven: true,
-  }
+  },
+  css: ['~/assets/style/main.css'],
 })

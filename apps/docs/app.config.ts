@@ -1,6 +1,6 @@
 export default defineAppConfig({
   mockline: {
-    primary: 'sky',
+    primary: 'iris',
     canvas: 'mauve',
   }
 })
