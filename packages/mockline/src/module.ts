@@ -77,6 +77,14 @@ export default defineNuxtModule<ModuleOptions>({
       watch: false
     }).then()
 
+    // Components settings
+    addComponentsDir({
+      path: resolve('./runtime/components/settings'),
+      prefix: options.prefix,
+      pathPrefix: false,
+      watch: false
+    }).then()
+
     addImportsDir(resolve('./runtime/composables'))
   },
 })

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const { navigation } = useContent()
-console.log(navigation.value)
 
 const items = [
   {

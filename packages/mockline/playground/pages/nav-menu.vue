@@ -31,7 +31,10 @@ const nav = [
       </template>
 
       <template #trailing>
-        <MButton size="sm" rounded="md" label="Sign in" class="ring-gray-1 ring-2" />
+        <div class="flex items-center gap-3">
+          <MThemeToggle />
+          <MButton size="sm" rounded="md" label="Sign in" class="ring-gray-1 ring-2" />
+        </div>
       </template>
       <template #home>
         <ul class="one m-0 grid list-none gap-x-[10px] p-[22px] sm:w-[500px] sm:grid-cols-[0.75fr_1fr]">
