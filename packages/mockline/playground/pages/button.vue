@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { availableColors } from '#mockline/colors'
+import { availableColors } from '#mockline-colors'
 
 definePageMeta({
   layout: 'component',

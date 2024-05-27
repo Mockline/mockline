@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { twMerge } from 'tailwind-merge'
 import { tv, type VariantProps } from 'tailwind-variants'
-import { colors } from '#mockline/colors'
+import { colors } from '../../utils/colors'
 
 type ButtonVariants = VariantProps<typeof button>
 

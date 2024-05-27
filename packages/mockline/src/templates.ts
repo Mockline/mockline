@@ -1,5 +1,5 @@
 import { addTemplate, addTypeTemplate, useNuxt } from '@nuxt/kit'
-import { colors } from './runtime/utils/colors'
+import { colors, availableColors } from './runtime/utils/colors'
 
 export function addTemplates(nuxt = useNuxt()): void {
   const template = addTemplate({
@@ -12,6 +12,15 @@ export function addTemplates(nuxt = useNuxt()): void {
     filename: 'types/colors.d.ts',
     getContents: () => generateColorTypes()
   })
+
+  const colorsTemplate = addTemplate({
+    filename: 'mockline.colors.mjs',
+    getContents: () => `export const colors = ${JSON.stringify(colors)};
+export const availableColors = ${JSON.stringify(availableColors)};`,
+    write: true
+  })
+
+  nuxt.options.alias['#mockline-colors'] = colorsTemplate.dst
 
   addTypeTemplate({
     filename: 'types/mockline.d.ts',
