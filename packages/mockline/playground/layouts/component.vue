@@ -8,16 +8,23 @@ function formatTitle(title: string): string {
 </script>
 
 <template>
-  <div class="flex flex-col gap-2 p-4">
-    <NuxtLink to="/" class="text-blue-600 hover:underline">
-      Home
-    </NuxtLink>
+  <div>
+    <div class="flex items-center justify-between p-4">
+      <NuxtLink to="/" class="text-blue-600 hover:underline">
+        Home
+      </NuxtLink>
+      <MThemeToggle />
+    </div>
     <div class="flex flex-col gap-2">
       <h3 class="text-gray-12 text-2xl font-bold">
         {{ formatTitle($route.name) }}
       </h3>
-      <slot />
     </div>
+    <Main>
+      <Page>
+        <slot />
+      </Page>
+    </Main>
   </div>
 </template>
 

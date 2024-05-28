@@ -1,19 +1,4 @@
 <script setup lang="ts">
-useHead({
-  link: [
-    {
-      rel: 'icon',
-      href: 'favicon-light.ico',
-      media: '(prefers-color-scheme: light)'
-    },
-    {
-      rel: 'icon',
-      href: 'favicon-dark.ico',
-      media: '(prefers-color-scheme: dark)'
-    }
-  ]
-})
-
 const route = useRoute()
 
 const { data: page } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
@@ -33,7 +18,7 @@ const { data: page } = await useAsyncData(route.path, () => queryContent(route.p
               Table of Contents
             </h3>
             <ul class="list-none">
-              <li v-for="link in page.body.toc.links">
+              <li v-for="link in page?.body?.toc?.links">
                 <span>{{ link.text }}</span>
               </li>
             </ul>

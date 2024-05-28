@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import Surround from '~/components/Surround.vue'
-
 definePageMeta({
   layout: 'docs'
 })
@@ -11,14 +9,6 @@ const { data: page } = await useAsyncData(route.path, () => queryContent(route.p
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
-
-useSeoMeta({
-  titleTemplate: '%s - Mockline',
-  title: page.value.title,
-  ogTitle: `${page.value.title} - Mockline`,
-  description: page.value.description,
-  ogDescription: page.value.description
-})
 </script>
 
 <template>
@@ -28,6 +18,5 @@ useSeoMeta({
         <ContentRenderer v-if="page.body" :value="page" />
       </PageBody>
     </div>
-    <Surround />
   </div>
 </template>

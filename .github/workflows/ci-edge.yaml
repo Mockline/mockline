@@ -28,6 +28,9 @@ jobs:
       - name: 📦 Install dependencies
         run: bun install
 
+      - name: 🚀 Prepare Edge
+        run: bun run dev:prepare
+
       - name: 💅 Lint code
         run: bun run lint
 
@@ -38,6 +41,7 @@ jobs:
             src:
               - 'packages/mockline/src/**'
               - 'package.json'
+              - 'bun.lockb'
 
       - name: 🚀 Release Edge
         if: github.event_name == 'push' && steps.changes.outputs.src == 'true'

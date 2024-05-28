@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const components = ['button', 'nav-menu']
+const components = ['button', 'nav-menu', 'page']
 </script>
 
 <template>
@@ -14,6 +14,18 @@ const components = ['button', 'nav-menu']
         </NuxtLink>
       </li>
     </ul>
+    <div class="space-x-4">
+      <NuxtLink to="/intro">
+        <button class="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+          Intro
+        </button>
+      </NuxtLink>
+      <NuxtLink to="/installation">
+        <button class="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+          Installation
+        </button>
+      </NuxtLink>
+    </div>
   </div>
 </template>
 

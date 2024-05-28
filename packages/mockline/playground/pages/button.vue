@@ -16,7 +16,7 @@ const variants = [
 </script>
 
 <template>
-  <div class="flex flex-col gap-4">
+  <PageBody>
     <div class="flex gap-4">
       <MButton
         v-for="variant in variants"
@@ -35,5 +35,5 @@ const variants = [
         :color
       />
     </div>
-  </div>
+  </PageBody>
 </template>

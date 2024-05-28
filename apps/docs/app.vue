@@ -21,6 +21,14 @@ useHead({
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
+      <MToasts
+        :toast-options="{
+          style: {
+            borderColor: 'var(--canvas-5)',
+            backgroundColor: 'var(--canvas-2)'
+          }
+        }"
+      />
     </Body>
   </Html>
 </template>

@@ -72,7 +72,7 @@ export default defineNuxtModule<ModuleOptions>({
     // Components layout
     addComponentsDir({
       path: resolve('./runtime/components/layout'),
-      prefix: options.prefix,
+      prefix: '',
       pathPrefix: false,
       watch: false
     }).then()
@@ -83,6 +83,22 @@ export default defineNuxtModule<ModuleOptions>({
       prefix: options.prefix,
       pathPrefix: false,
       watch: false
+    }).then()
+
+    // Components overlays
+    addComponentsDir({
+      path: resolve('./runtime/components/overlays'),
+      prefix: options.prefix,
+      pathPrefix: false,
+      watch: false
+    }).then()
+
+    // Components global
+    addComponentsDir({
+      path: resolve('./runtime/components/global'),
+      global: true,
+      prefix: '',
+      pathPrefix: false
     }).then()
 
     addImportsDir(resolve('./runtime/composables'))
