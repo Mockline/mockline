@@ -45,6 +45,6 @@ jobs:
 
       - name: 🚀 Release Edge
         if: github.event_name == 'push' && steps.changes.outputs.src == 'true'
-        run: ./packages/mockline/scripts/release-edge.sh
+        run: ./scripts/release-edge.sh
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}

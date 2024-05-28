@@ -52,11 +52,11 @@ export default defineNuxtModule<ModuleOptions>({
     await installTailwind(options, nuxt, resolve)
 
     addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors')})
-    
+
     // Modules
     await installModule('@nuxtjs/color-mode', { classSuffix: '', storageKey: 'mockline-color-mode' })
 
-    // Add imports
+    // Add vue-sonner
     addImportsSources({
       from: 'vue-sonner',
       imports: ['toast'],
