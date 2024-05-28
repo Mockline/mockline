@@ -53,7 +53,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors')})
     // Modules
-    await installModule('@nuxtjs/color-mode', { classSuffix: '' })
+    await installModule('@nuxtjs/color-mode', { classSuffix: '', storageKey: 'mockline-color-mode' })
 
     // Add imports
     addImportsSources({
