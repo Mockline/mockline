@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
+import { useSlots, computed } from 'vue'
 
 defineOptions({
   inheritAttrs: false
@@ -17,7 +18,7 @@ const slots = useSlots()
 const selectedIndex = ref(0)
 defineExpose({ selectedIndex })
 
-function transformSlot(slot: any, index: number) {
+function transformSlot(slot: any, index: number): any {
   if (typeof slot.type === 'symbol') {
     return slot.children?.map(transformSlot)
   }

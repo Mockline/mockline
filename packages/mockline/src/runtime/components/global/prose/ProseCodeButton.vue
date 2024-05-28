@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { toast } from 'vue-sonner'
+import { useClipboard } from '../../../composables/useClipboard'
+
 const props = defineProps({
   code: {
     type: String,
@@ -15,7 +18,7 @@ const config = {
 
 const icon = ref(config.icon.copy)
 
-function copy() {
+function copy(): void {
   useClipboard({
     toCopy: props.code,
     callback() {
