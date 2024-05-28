@@ -21,7 +21,10 @@ async function loadPackage(dir: string): Promise<{
 }
 
 async function main(): Promise<void> {
-  const pkg = await loadPackage(resolve(__dirname, '../'))
+  // load package.json from current working directory / repo directory (root) located in "~/packages/mockline", this script is located in "~/scripts/bump-edge.ts"
+  const pkg = await loadPackage(resolve(__dirname, '../packages/mockline'))
+  console.log(pkg)
+  return
 
   const commit = execSync('git rev-parse --short HEAD').toString('utf-8').trim()
 
