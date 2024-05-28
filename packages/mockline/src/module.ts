@@ -48,6 +48,7 @@ export default defineNuxtModule<ModuleOptions>({
       canvas: 'mauve',
     })
 
+    // Templates
     addTemplates(nuxt)
     await installTailwind(options, nuxt, resolve)
 
