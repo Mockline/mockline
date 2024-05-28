@@ -8,7 +8,7 @@ type ButtonVariants = VariantProps<typeof button>
 
 export type ButtonProps = {
   /** Button label */
-  label: string;
+  label?: string;
   /** Button class to override */
   class?: string;
   /** Block button */
@@ -23,6 +23,8 @@ export type ButtonProps = {
   size?: ButtonVariants['size'];
   /** Rounded */
   rounded?: ButtonVariants['rounded'];
+  /** Icon */
+  icon?: string;
   /** Form */
   form?: string;
   /** Loading */
@@ -119,7 +121,10 @@ const buttonClass = computed(() => {
     <slot name="left">
       <span v-if="iconPosition === 'left' && loading" class="i-lucide-loader animate-spin" />
     </slot>
-    {{ props.label }}
+    <span v-if="label">
+      {{ props.label }}
+    </span>
+    <span v-if="icon && !label" :class="icon" />
     <slot name="right">
       <span v-if="iconPosition === 'right' && loading" class="i-lucide-loader animate-spin" />
     </slot>

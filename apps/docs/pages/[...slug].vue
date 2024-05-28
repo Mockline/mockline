@@ -24,7 +24,7 @@ useSeoMeta({
 <template>
   <div>
     <div v-if="page">
-      <ContentRenderer v-if="page.body" :value="page" />
+      <ContentRenderer v-if="page.body" :value="page" class="prose dark:prose-invert max-w-none p-4" />
     </div>
     <Surround />
   </div>
