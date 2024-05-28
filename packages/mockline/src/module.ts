@@ -102,6 +102,7 @@ export default defineNuxtModule<ModuleOptions>({
       pathPrefix: false
     }).then()
 
+    // Composables
     addImportsDir(resolve('./runtime/composables'))
   },
 })
