@@ -28,6 +28,7 @@
     "@egoist/tailwindcss-icons": "^1.8.0",
     "@iconify-json/heroicons": "^1.1.21",
     "@iconify-json/lucide": "^1.1.188",
+    "@nuxt/content": "^2.12.1",
     "@nuxt/fonts": "^0.7.0",
     "@nuxt/kit": "^3.11.2",
     "@nuxtjs/color-mode": "^3.4.1",

@@ -1,7 +1,22 @@
 <script setup lang="ts">
+import { withoutTrailingSlash } from 'ufo'
+
 const route = useRoute()
 
 const { data: page } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
+
+const [prev, next] = await queryContent()
+  .where({
+    _extension: 'md',
+    _path: {
+      $exists: true,
+    },
+    navigation: {
+      $ne: false
+    },
+  })
+  .only(['title', '_path'])
+  .findSurround(withoutTrailingSlash(route.path))
 </script>
 
 <template>
@@ -17,16 +32,13 @@ const { data: page } = await useAsyncData(route.path, () => queryContent(route.p
             <h3 class="text-gray-12 text-2xl font-bold">
               Table of Contents
             </h3>
-            <ul class="list-none">
-              <li v-for="link in page?.body?.toc?.links">
-                <span>{{ link.text }}</span>
-              </li>
-            </ul>
+            <MContentToc :links="page?.body?.toc?.links" />
           </div>
         </template>
         <div>
           <slot />
         </div>
+        <MContentSurround :next :prev />
       </Page>
     </Main>
   </div>
