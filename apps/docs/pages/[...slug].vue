@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Surround from '~/components/Surround.vue'
+import { withoutTrailingSlash } from 'ufo'
 
 definePageMeta({
   layout: 'docs'
@@ -19,6 +19,19 @@ useSeoMeta({
   description: page.value.description,
   ogDescription: page.value.description
 })
+
+const [prev, next] = await queryContent()
+  .where({
+    _extension: 'md',
+    _path: {
+      $exists: true,
+    },
+    navigation: {
+      $ne: false
+    },
+  })
+  .only(['title', '_path'])
+  .findSurround(withoutTrailingSlash(route.path))
 </script>
 
 <template>
@@ -28,6 +41,6 @@ useSeoMeta({
         <ContentRenderer v-if="page.body" :value="page" />
       </PageBody>
     </div>
-    <Surround />
+    <MContentSurround :prev :next />
   </div>
 </template>

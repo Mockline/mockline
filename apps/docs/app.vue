@@ -16,8 +16,9 @@ useHead({
 </script>
 
 <template>
-  <Html lang="en" class="bg-canvas text-gray-12 size-full font-geist">
+  <Html lang="en" class="bg-canvas text-gray-12 font-geist size-full">
     <Body>
+      <NuxtLoadingIndicator />
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
