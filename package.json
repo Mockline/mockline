@@ -12,9 +12,9 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@hrcd/eslint-config": "^1.1.3",
+    "@hrcd/eslint-config": "^1.1.4",
     "automd": "^0.3.7",
-    "eslint": "^9.3.0",
+    "eslint": "^9.4.0",
     "turbo": "^1.13.3"
   },
   "workspaces": [
