@@ -109,6 +109,8 @@ export type SwitchProps = {
   size?: VariantProps<typeof switchStyle>['size'];
   /** Loading */
   loading?: boolean;
+  /** Icon */
+  icon?: string;
 }
 
 const props = withDefaults(defineProps<SwitchProps>(), {})
@@ -126,7 +128,9 @@ const {thumb, root} = switchStyle({...props})
     >
       <SwitchThumb
         :class="thumb()"
-      />
+      >
+        <MIcon v-if="icon" :name="icon" />
+      </SwitchThumb>
     </switchroot>
   </div>
 </template>
