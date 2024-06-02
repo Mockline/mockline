@@ -3,7 +3,7 @@ import {tv, type VariantProps} from 'tailwind-variants'
 import {SwitchRoot, SwitchThumb} from 'radix-vue'
 import {computed} from 'vue'
 import {twMerge} from 'tailwind-merge'
-import {colors} from '#mockline/colors'
+import { colors } from '../../utils/colors'
 
 
 const switchStyle = tv({
