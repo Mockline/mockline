@@ -106,7 +106,7 @@ export default defineNuxtModule<ModuleOptions>({
         path: resolve('./runtime/components/content'),
         prefix: options.prefix,
         pathPrefix: false
-      })
+      }).then()
 
       // Components global
       addComponentsDir({
