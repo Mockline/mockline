@@ -38,11 +38,13 @@ jobs:
           filters: |
             src:
               - 'packages/mockline/src/**'
+              - 'packages/mockline/package.json'
+              - 'packages/mockline/bun.lockb'
               - 'package.json'
               - 'bun.lockb'
 
       - name: 🚀 Release
-        if: github.event_name == 'push' && steps.changes.outputs.src == 'true'
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && steps.changes.outputs.src == 'true')
         run: ./scripts/release.sh
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}

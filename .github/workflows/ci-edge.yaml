@@ -38,6 +38,8 @@ jobs:
           filters: |
             src:
               - 'packages/mockline/src/**'
+              - 'packages/mockline/package.json'
+              - 'packages/mockline/bun.lockb'
               - 'package.json'
               - 'bun.lockb'
 
