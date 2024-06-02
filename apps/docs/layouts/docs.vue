@@ -33,7 +33,7 @@ const { data: page } = await useAsyncData(route.path, () => queryContent(route.p
               Table of Contents
             </h3>
             <ul class="list-none">
-              <li v-for="link in page.body.toc.links">
+              <li v-for="link in page.body.toc.links" :key="link.id">
                 <span>{{ link.text }}</span>
               </li>
             </ul>
