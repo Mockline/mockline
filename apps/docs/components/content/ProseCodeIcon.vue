@@ -65,8 +65,7 @@ const icon = computed(() => {
   }
 
   if (props.filename) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
+    // @ts-expect-error - TS doesn't know that the key exists
     return config[props.filename.split('/').pop()] || config[extension.value] || `i-vscode-icons-file-type-${extension.value}`
   }
 
