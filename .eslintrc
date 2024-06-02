@@ -1,6 +1,0 @@
-{
-  "extends": ["@hrcd/eslint-config"],
-  "ignorePatterns": [
-    "scripts/"
-  ]
-}

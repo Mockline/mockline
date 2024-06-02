@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const components = ['button', 'nav-menu', 'switch']
+const components = ['button', 'nav-menu']
 </script>
 
 <template>
