@@ -15,12 +15,12 @@ const components = ['button', 'nav-menu', 'page', 'switch']
       </li>
     </ul>
     <div class="space-x-4">
-      <NuxtLink to="/intro">
+      <NuxtLink to="/getting-started/intro">
         <button class="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
           Intro
         </button>
       </NuxtLink>
-      <NuxtLink to="/installation">
+      <NuxtLink to="/getting-started/installation">
         <button class="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
           Installation
         </button>

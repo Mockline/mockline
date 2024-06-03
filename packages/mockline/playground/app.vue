@@ -1,13 +1,12 @@
-<script setup lang="ts">
-</script>
-
 <template>
-  <div class="bg-canvas text-gray-12 min-h-screen">
+  <Html class="bg-canvas text-gray-12 min-h-screen">
     <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
     <MToasts
+      position="top-center"
+      close-button
       :toast-options="{
         style: {
           borderColor: 'var(--canvas-5)',
@@ -15,5 +14,5 @@
         }
       }"
     />
-  </div>
+  </Html>
 </template>

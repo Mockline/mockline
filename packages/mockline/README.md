@@ -1,4 +1,4 @@
-![Mockline Social Preview](assets/social-preview.jpg)
+![Mockline Social Preview](../../assets/social-preview.jpg)
 
 <p align="center">
   <a aria-label="NPM version" href="https://www.npmjs.com/package/mockline">
@@ -102,7 +102,7 @@ To start contributing, you can follow these steps:
 
 <!-- /automd -->
 
-<!-- automd:contributors license=Apache author=HugoRCD -->
+<!-- automd:contributors license=Apache author=HugoRCD github="mockline/mockline" -->
 
 <!-- ⚠️  (contributors) `github` is required! -->
 
