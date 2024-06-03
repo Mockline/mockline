@@ -28,16 +28,7 @@ const { data: page } = await useAsyncData(route.path, () => queryContent(route.p
     <Main>
       <Page>
         <template #right>
-          <div class="flex flex-col gap-2">
-            <h3 class="text-gray-12 text-2xl font-bold">
-              Table of Contents
-            </h3>
-            <ul class="list-none">
-              <li v-for="link in page.body.toc.links" :key="link.id">
-                <span>{{ link.text }}</span>
-              </li>
-            </ul>
-          </div>
+          <MContentToc :links="page?.body?.toc?.links" />
         </template>
         <div>
           <slot />

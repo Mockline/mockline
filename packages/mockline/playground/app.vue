@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="bg-canvas text-gray-12 min-h-screen">
+  <Html class="bg-canvas text-gray-12 min-h-screen">
     <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage />
@@ -15,5 +15,5 @@
         }
       }"
     />
-  </div>
+  </Html>
 </template>
