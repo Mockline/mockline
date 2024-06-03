@@ -24,18 +24,23 @@ const [prev, next] = await queryContent()
   })
   .only(['title', '_path'])
   .findSurround(withoutTrailingSlash(route.path))
+
+const { data: nav } = await useAsyncData('navigation', () => fetchContentNavigation())
 </script>
 
 <template>
-  <div>
-    <Page v-if="page">
-      <template #right>
-        <MContentToc :links="page?.body?.toc?.links" />
-      </template>
-      <PageBody class="p-4" prose>
-        <ContentRenderer v-if="page.body" :value="page" />
-      </PageBody>
-      <MContentSurround :next :prev />
-    </Page>
-  </div>
+  <Page v-if="page">
+    <template #left>
+      <Aside>
+        <MContentNavigationTree :links="nav" />
+      </Aside>
+    </template>
+    <template #right>
+      <MContentToc :links="page?.body?.toc?.links" />
+    </template>
+    <PageBody class="p-4" prose>
+      <ContentRenderer v-if="page.body" :value="page" />
+    </PageBody>
+    <MContentSurround :next :prev />
+  </Page>
 </template>
