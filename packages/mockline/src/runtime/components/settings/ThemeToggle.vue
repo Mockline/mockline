@@ -48,14 +48,14 @@ const themeToggleClasses = computed(() => twMerge(
         $colorMode.value === 'light' ? props.lightIcon : props.darkIcon
       )"
       @click="$colorMode.value === 'light' ? ($colorMode.preference = 'dark') : ($colorMode.preference = 'light')"
-      />
+    />
     <template #fallback>
       <div>
         <span
           :class="twMerge(
-          themeToggleClasses,
-          $colorMode.value === 'light' ? props.lightIcon : props.darkIcon
-        )"
+            themeToggleClasses,
+            $colorMode.value === 'light' ? props.lightIcon : props.darkIcon
+          )"
         />
       </div>
     </template>

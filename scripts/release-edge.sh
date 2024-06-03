@@ -16,4 +16,5 @@ fi
 
 # Release package
 echo "Publishing mockline-edge"
+cd packages/mockline
 npm publish -q --access public

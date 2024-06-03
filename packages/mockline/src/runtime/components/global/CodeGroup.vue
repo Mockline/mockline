@@ -43,7 +43,7 @@ const selectedTab = computed(() => tabs.value.find((_, index) => index === selec
         :key="index"
         tabindex="-1"
         :class="['text-gray-12 flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm focus:outline-none',
-        selectedIndex === index ? 'bg-canvas-4' : 'hover:bg-canvas-3']"
+                 selectedIndex === index ? 'bg-canvas-4' : 'hover:bg-canvas-3']"
         @click="selectedIndex = index"
       >
         <ProseCodeIcon :icon="tab.icon" :filename="tab.label" />

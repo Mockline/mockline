@@ -11,9 +11,9 @@ const props = defineProps({
 </script>
 
 <template>
-<ul class="list-none">
-  <li v-for="link in links">
-    <span>{{ link.text }}</span>
-  </li>
-</ul>
+  <ul class="list-none">
+    <li v-for="link in links" :key="link.id">
+      <span>{{ link.text }}</span>
+    </li>
+  </ul>
 </template>
