@@ -104,7 +104,12 @@ To start contributing, you can follow these steps:
 
 <!-- automd:contributors license=Apache author=HugoRCD github="mockline/mockline" -->
 
-<!-- ⚠️  (contributors) `github` is required! -->
+Published under the [APACHE](https://github.com/mockline/mockline/blob/main/LICENSE) license.
+Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.com/mockline/mockline/graphs/contributors) 💛
+<br><br>
+<a href="https://github.com/mockline/mockline/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=mockline/mockline" />
+</a>
 
 <!-- /automd -->
 
