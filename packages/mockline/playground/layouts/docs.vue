@@ -1,3 +1,5 @@
+<script setup lang="ts">
+</script>
 <template>
   <div>
     <Header :height="16">
@@ -8,6 +10,7 @@
         <MThemeToggle />
       </template>
     </Header>
+    <ThemeSelector />
     <Main>
       <slot />
     </Main>

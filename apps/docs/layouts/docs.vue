@@ -13,27 +13,21 @@ useHead({
     }
   ]
 })
-
-const route = useRoute()
-
-const { data: page } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
 </script>
 
 <template>
   <div>
-    <div class="bg-canvas-3 flex items-center justify-between p-4">
-      <NuxtLink to="/" class="i-custom-mockline size-6" />
-      <MThemeToggle />
-    </div>
+    <Header :height="16">
+      <template #left>
+        <NuxtLink to="/" class="i-custom-mockline size-6" />
+      </template>
+      <template #right>
+        <MThemeToggle />
+      </template>
+    </Header>
+    <ThemeSelector />
     <Main>
-      <Page>
-        <template #right>
-          <MContentToc :links="page?.body?.toc?.links" />
-        </template>
-        <div>
-          <slot />
-        </div>
-      </Page>
+      <slot />
     </Main>
   </div>
 </template>

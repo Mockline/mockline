@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { TocLink } from '@nuxt/content/dist/runtime/types'
-import { useScrollspy } from '#mockline/composables/useScrollSpy'
+import { useScrollspy } from '../../composables/useScrollspy'
 import { useNuxtApp, useRouter } from '#imports'
 
 const { activeHeadings, updateHeadings } = useScrollspy()
