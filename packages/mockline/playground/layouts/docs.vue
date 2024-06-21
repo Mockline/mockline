@@ -2,7 +2,7 @@
 </script>
 <template>
   <div>
-    <Header :height="16">
+    <Header :height="16" sticky>
       <template #left>
         <NuxtLink to="/" class="i-custom-mockline size-6" />
       </template>
@@ -10,7 +10,7 @@
         <MThemeToggle />
       </template>
     </Header>
-    <ThemeSelector />
+    <!--    <ThemeSelector />-->
     <Main>
       <slot />
     </Main>

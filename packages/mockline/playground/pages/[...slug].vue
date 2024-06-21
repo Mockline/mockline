@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { withoutTrailingSlash } from 'ufo'
+import { splitByCase, upperFirst } from 'scule'
+import type { ParsedContent } from '@nuxt/content/types'
 
 definePageMeta({
   layout: 'docs'
@@ -26,18 +28,29 @@ const [prev, next] = await queryContent()
   .findSurround(withoutTrailingSlash(route.path))
 
 const { data: nav } = await useAsyncData('navigation', () => fetchContentNavigation())
+
+function findPageHeadline(page: ParsedContent): string {
+  return page._dir?.title
+    ? page._dir.title
+    : splitByCase(page._dir)
+      .map((p) => upperFirst(p))
+      .join(' ')
+}
+
+const headline = findPageHeadline(page.value)
 </script>
 
 <template>
   <Page v-if="page">
     <template #left>
-      <Aside>
+      <Aside class="p-4">
         <MContentNavigationTree :links="nav" />
       </Aside>
     </template>
     <template #right>
-      <MContentToc :links="page?.body?.toc?.links" />
+      <MContentToc :links="page?.body?.toc?.links" class="p-4" />
     </template>
+    <PageHeader :title="page.title" :description="page.description" :links="page.links" :headline />
     <PageBody class="p-4" prose>
       <ContentRenderer v-if="page.body" :value="page" />
     </PageBody>

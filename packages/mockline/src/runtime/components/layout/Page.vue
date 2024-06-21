@@ -26,12 +26,12 @@ const wrapperClasses = computed(() => twMerge(
 ))
 
 const leftClasses = computed(() => twMerge(
-  'flex flex-col p-4',
+  'flex flex-col',
   props.left,
 ))
 
 const rightClasses = computed(() => twMerge(
-  'flex flex-col p-4',
+  'flex flex-col',
   props.right,
 ))
 </script>
