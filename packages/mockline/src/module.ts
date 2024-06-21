@@ -43,7 +43,7 @@ export default defineNuxtModule<ModuleOptions>({
     content: false
   },
   async setup(options: ModuleOptions, nuxt): Promise<void> {
-    const {resolve} = createResolver(import.meta.url)
+    const { resolve } = createResolver(import.meta.url)
 
     // Transpile runtime
     const runtimeDir = resolve('./runtime')
@@ -59,7 +59,7 @@ export default defineNuxtModule<ModuleOptions>({
     addTemplates(nuxt)
     await installTailwind(options, nuxt, resolve)
 
-    addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors')})
+    addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors') })
 
     // Modules
     await installModule('@nuxtjs/color-mode', { classSuffix: '', storageKey: 'mockline-color-mode' })

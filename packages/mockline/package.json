@@ -29,7 +29,7 @@
     "@egoist/tailwindcss-icons": "^1.8.0",
     "@iconify-json/heroicons": "^1.1.21",
     "@iconify-json/lucide": "^1.1.189",
-    "@nuxt/content": "^2.12.1",
+    "@nuxt/content": "^2.13.0",
     "@nuxt/fonts": "^0.7.0",
     "@nuxt/kit": "^3.11.2",
     "@nuxtjs/color-mode": "^3.4.1",
@@ -57,7 +57,7 @@
     "automd": "^0.3.7",
     "changelogen": "^0.5.5",
     "happy-dom": "^14.12.0",
-    "nuxt": "^3.11.2",
+    "nuxt": "^3.12.2",
     "unbuild": "^2.0.0",
     "vitest": "^1.6.0",
     "zod": "^3.23.8"

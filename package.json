@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@hrcd/eslint-config": "^1.1.4",
+    "@hrcd/eslint-config": "^2.0.0",
     "automd": "^0.3.7",
     "eslint": "^9.4.0",
     "turbo": "^1.13.3"

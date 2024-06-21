@@ -18,7 +18,7 @@ export const useScrollspy = (): Scrollspy => {
 
   const observerCallback = (entries: IntersectionObserverEntry[]): void =>
     entries.forEach((entry) => {
-      const id = entry.target.id
+      const { id } = entry.target
 
       if (entry.isIntersecting) {
         visibleHeadings.value.push(id)
