@@ -3,10 +3,6 @@ import type { Color } from '../utils/colors'
 
 export * from '../components/elements/Button.vue'
 
-export type DeepPartial<T> = Partial<{
-  [P in keyof T]: DeepPartial<T[P]> | { [key: string]: string | object }
-}>
-
 export type ModuleOptions = {
   /**
    * Prefix for all components
