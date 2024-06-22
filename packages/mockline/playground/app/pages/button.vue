@@ -15,7 +15,7 @@ definePageMeta({
       <MButton
         v-for="variant in variants"
         :key="variant"
-        :variant
+        :variant="(variant as any)"
         :label="variant"
         loading
         @click="() => console.log('click')"
@@ -26,7 +26,7 @@ definePageMeta({
         v-for="color in colors"
         :key="color"
         :label="color"
-        :color
+        :color="(color as any)"
       />
     </div>
   </PageBody>

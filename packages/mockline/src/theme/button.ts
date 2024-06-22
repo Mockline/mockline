@@ -1,6 +1,6 @@
 import type { ModuleOptions } from '#mockline/types'
 
-export default (options: Required<ModuleOptions>) => ({
+export default (options: Required<ModuleOptions>): any => ({
   slots: {
     base: ['rounded-md font-medium inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.transitions && 'transition-colors'],
     label: 'truncate',
@@ -73,39 +73,39 @@ export default (options: Required<ModuleOptions>) => ({
     ...options.colors.map((color: string) => ({
       color,
       variant: 'solid',
-      class: `shadow-sm text-white dark:text-primary-1 bg-${color}-8 hover:bg-${color}-7 disabled:bg-${color}-8 dark:bg-${color}-9 dark:hover:bg-${color}-8 dark:disabled:bg-${color}-9 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-${color}-8 dark:focus-visible:outline-${color}-9`
+      class: `shadow-sm text-white bg-${color}-9 hover:bg-${color}-7 disabled:bg-${color}-8 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-${color}-8`
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'outline',
-      class: `ring ring-inset ring-current text-${color}-8 dark:text-${color}-9 hover:bg-${color}-12 disabled:bg-transparent dark:hover:bg-${color}-912 dark:disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-${color}-8 dark:focus-visible:ring-${color}-9`
+      class: `ring ring-inset ring-current text-${color}-8 hover:bg-${color}-12 disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-${color}-8`
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'soft',
-      class: `text-${color}-8 dark:text-${color}-9 bg-${color}-12 hover:bg-${color}-100 disabled:bg-${color}-12 dark:bg-${color}-912 dark:hover:bg-${color}-1 dark:disabled:bg-${color}-912 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8 dark:focus-visible:ring-${color}-9`
+      class: `text-${color}-8 bg-${color}-12 hover:bg-${color}-100 disabled:bg-${color}-12 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8`
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'subtle',
-      class: `text-${color}-8 dark:text-${color}-9 ring ring-inset ring-${color}-8/25 dark:ring-${color}-9/25 bg-${color}-8/10 hover:bg-${color}-8/20 disabled:bg-${color}-8/10 dark:bg-${color}-9/10 dark:hover:bg-${color}-9/20 dark:disabled:bg-${color}-9/10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8 dark:focus-visible:ring-${color}-9`
+      class: `text-${color}-8 ring ring-inset ring-${color}-8/25 bg-${color}-8/10 hover:bg-${color}-8/20 disabled:bg-${color}-8/10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8`
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'ghost',
-      class: `text-${color}-8 dark:text-${color}-9 hover:bg-${color}-12 disabled:bg-transparent dark:hover:bg-${color}-912 dark:disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8 dark:focus-visible:ring-${color}-9`
+      class: `text-${color}-8 hover:bg-${color}-12 disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8`
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'link',
-      class: `text-${color}-8 hover:text-${color}-7 disabled:text-${color}-8 dark:text-${color}-9 dark:hover:text-${color}-8 dark:disabled:text-${color}-9 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8 dark:focus-visible:ring-${color}-9`
+      class: `text-${color}-8 hover:text-${color}-7 disabled:text-${color}-8 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8`
     })), {
       color: 'white',
       variant: 'solid',
-      class: 'shadow-sm ring ring-inset ring-gray-300 dark:ring-gray-6 text-primary-1 dark:text-white bg-white hover:bg-canvas-12 disabled:bg-white dark:bg-canvas-1 dark:hover:bg-canvas-800 dark:disabled:bg-canvas-1 focus-visible:ring-2 focus-visible:ring-primary-8 dark:focus-visible:ring-primary-9'
+      class: 'shadow-sm ring ring-inset ring-gray-300 text-primary-1 bg-white hover:bg-canvas-12 disabled:bg-white focus-visible:ring-2 focus-visible:ring-primary-8'
     }, {
       color: 'white',
       variant: 'ghost',
-      class: 'text-primary-1 dark:text-white hover:bg-white disabled:bg-transparent dark:hover:bg-canvas-1 dark:disabled:bg-transparent focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-8 dark:focus-visible:ring-primary-9'
+      class: 'text-primary-1 hover:bg-white disabled:bg-transparent focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-8'
     }, {
       color: 'white',
       variant: 'link',
-      class: 'text-primary-1 hover:text-primary-8 disabled:text-primary-1 dark:text-white dark:hover:text-primary-9 dark:disabled:text-white focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-8 dark:focus-visible:ring-primary-9'
+      class: 'text-primary-1 hover:text-primary-8 disabled:text-primary-1 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-8'
     }, {
       color: 'gray',
       variant: 'solid',

@@ -4,9 +4,7 @@ import type { AppConfig } from '@nuxt/schema'
 import { computed } from 'vue'
 import _appConfig from '#build/app.config'
 import theme from '#build/mockline/button'
-</script>
 
-<script setup lang="ts">
 const appConfig = _appConfig as AppConfig & { mockline: { button: Partial<typeof theme> } }
 
 const button = tv({ extend: tv(theme), ...(appConfig.mockline?.button || {}) })
@@ -33,10 +31,11 @@ export type ButtonSlots = {
   default(): any
   trailing(): any
 }
+</script>
 
+<script setup lang="ts">
 const props = defineProps<ButtonProps>()
 const slots = defineSlots<ButtonSlots>()
-
 
 const ui = computed(() => tv({ extend: button, slots: props.ui })({
   color: props.color,

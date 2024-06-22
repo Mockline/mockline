@@ -13,7 +13,7 @@ import { logo } from './icons'
  * @param nuxt - The Nuxt instance.
  * @param resolve - Resolver function.
  */
-export async function installTailwind(options: ModuleOptions, nuxt = useNuxt(), resolve = createResolver(process.env.url).resolve): Promise<void> {
+export async function installTailwind(options: ModuleOptions, nuxt = useNuxt(), resolve = createResolver(import.meta.url).resolve): Promise<void> {
   const runtimeDir = resolve('./runtime')
 
   // Define the TailwindCSS configuration template
