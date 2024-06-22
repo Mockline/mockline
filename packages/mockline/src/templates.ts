@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url'
 import { addTemplate, addTypeTemplate, useNuxt } from '@nuxt/kit'
 import { kebabCase } from 'scule'
-import { colors, availableColors } from './runtime/utils/colors'
+import { colors } from './runtime/utils/colors'
 import * as theme from './theme'
 import type { ModuleOptions } from './runtime/types'
 
@@ -66,12 +66,11 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()): void {
       import * as mockline from '#build/mockline'
       import type { DeepPartial } from '#mockline/types/utils'
 
-      type Color = '${colors.join('\' | \'')}';
       const colors = ${JSON.stringify(options.colors)} as const;
 
       type MocklineConfig = {
-        primary?: Color
-        canvas?: Color
+        primary?: typeof colors[number]
+        canvas?: typeof colors[number]
       } & DeepPartial<typeof mockline>
 
       declare module 'nuxt/schema' {
@@ -98,5 +97,6 @@ function generateRadixImports(): string {
 function generateColorTypes(): string {
   return `
     export type Color = '${colors.join('\' | \'')}';
-    export const colors: Color[] = ${JSON.stringify(colors)};`
+    export const colors: Color[] = ${JSON.stringify(colors)};
+  `
 }
