@@ -17,7 +17,7 @@
     "@hrcd/eslint-config": "^2.0.0",
     "automd": "^0.3.7",
     "eslint": "^9.5.0",
-    "turbo": "^2.0.4"
+    "turbo": "^2.0.5"
   },
   "workspaces": [
     "packages/*",
