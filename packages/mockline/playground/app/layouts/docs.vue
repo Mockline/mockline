@@ -4,13 +4,14 @@
   <div>
     <Header :height="16" sticky>
       <template #left>
-        <NuxtLink to="/" class="i-custom-mockline size-6" />
+        <NuxtLink to="/">
+          <MIcon name="custom:mockline" class="fill-gray-12 size-6" />
+        </NuxtLink>
       </template>
       <template #right>
         <MThemeToggle />
       </template>
     </Header>
-    <!--    <ThemeSelector />-->
     <Main>
       <slot />
     </Main>

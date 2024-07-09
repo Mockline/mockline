@@ -23,7 +23,6 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     prefix: 'M',
-    icons: ['heroicons', 'lucide'],
     content: false,
     colors: [],
     transitions: false,
@@ -54,6 +53,10 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Modules
     await installModule('@nuxtjs/color-mode', { classSuffix: '', storageKey: 'mockline-color-mode' })
+    await installModule('@nuxt/icon', {
+      componentName: 'MIcon',
+      mode: 'svg',
+    })
 
     // Add vue-sonner
     addImportsSources({

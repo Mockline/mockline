@@ -22,6 +22,7 @@ export type ButtonProps = {
   block?: boolean
   class?: any
   ui?: Partial<typeof button.slots>
+  icon?: string
   loading?: boolean
   iconPosition?: 'left' | 'right'
 }
@@ -60,6 +61,9 @@ const ui = computed(() => tv({ extend: button, slots: props.ui })({
       <slot>
         {{ label }}
       </slot>
+    </span>
+    <span v-if="icon" class="text-gray-12 size-6">
+      <MIcon :name="icon" />
     </span>
 
     <slot name="trailing">

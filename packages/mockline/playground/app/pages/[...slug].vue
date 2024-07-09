@@ -50,6 +50,7 @@ const headline = findPageHeadline(page.value)
     <template #right>
       <MContentToc :links="page?.body?.toc?.links" class="p-4" />
     </template>
+    <ThemeSelector />
     <PageHeader :title="page.title" :description="page.description" :links="page.links" :headline />
     <PageBody class="p-4" prose>
       <ContentRenderer v-if="page.body" :value="page" />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { availableColors } from '#mockline-colors'
+import { colors } from '#mockline/utils/colors'
 
 const canvasSaved = useCookie('mockline-canvas')
 const primarySaved = useCookie('mockline-primary')
@@ -34,13 +34,13 @@ const canvas = computed({
   <div class="text-gray-12">
     <div>Canvas</div>
     <div class="flex flex-wrap gap-1">
-      <div v-for="color in availableColors" :key="color" class="cursor-pointer" @click="() => canvas = color">
+      <div v-for="color in colors" :key="color" class="cursor-pointer" @click="() => canvas = color">
         <div class="size-4 rounded-full" :class="`bg-${color}-9`" />
       </div>
     </div>
     <div>Primary</div>
     <div class="flex flex-wrap gap-1">
-      <div v-for="color in availableColors" :key="color" class="cursor-pointer" @click="() => primary = color">
+      <div v-for="color in colors" :key="color" class="cursor-pointer" @click="() => primary = color">
         <div class="size-4 rounded-full" :class="`bg-${color}-9`" />
       </div>
     </div>
