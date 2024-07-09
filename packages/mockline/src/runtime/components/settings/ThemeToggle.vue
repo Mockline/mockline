@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { twMerge } from 'tailwind-merge'
-import { tv, type VariantProps } from 'tailwind-variants'
+import { tv } from 'tailwind-variants'
 
 export type ThemeToggleProps = {
   /** Theme toggle class to override */
@@ -14,8 +14,8 @@ export type ThemeToggleProps = {
 
 const props = withDefaults(defineProps<ThemeToggleProps>(), {
   size: 'xs',
-  lightIcon: 'i-heroicons-moon-solid',
-  darkIcon: 'i-heroicons-sun-solid',
+  lightIcon: 'heroicons:moon-solid',
+  darkIcon: 'heroicons:sun-solid',
 })
 
 const themeToggle = tv({
@@ -42,22 +42,14 @@ const themeToggleClasses = computed(() => twMerge(
 
 <template>
   <ClientOnly>
-    <span
-      :class="twMerge(
-        themeToggleClasses,
-        $colorMode.value === 'light' ? props.lightIcon : props.darkIcon
-      )"
+    <MIcon
+      v-if="!$slots.default"
+      :name="$colorMode.value === 'light' ? props.lightIcon : props.darkIcon"
+      :class="twMerge(themeToggleClasses)"
       @click="$colorMode.value === 'light' ? ($colorMode.preference = 'dark') : ($colorMode.preference = 'light')"
     />
     <template #fallback>
-      <div>
-        <span
-          :class="twMerge(
-            themeToggleClasses,
-            $colorMode.value === 'light' ? props.lightIcon : props.darkIcon
-          )"
-        />
-      </div>
+      <MIcon :class="twMerge(themeToggleClasses)" :name="$colorMode.value === 'light' ? props.lightIcon : props.darkIcon" />
     </template>
   </ClientOnly>
 </template>

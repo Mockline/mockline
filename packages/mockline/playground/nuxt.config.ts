@@ -7,4 +7,13 @@ export default defineNuxtConfig({
     content: true,
   },
   devtools: { enabled: true },
+  icon: {
+    customCollections: [
+      {
+        prefix: 'custom',
+        dir: './app/assets/icons'
+      },
+    ],
+  },
+  compatibilityDate: '2024-07-09'
 })
