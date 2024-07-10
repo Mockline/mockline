@@ -16,9 +16,7 @@ export type ButtonProps = {
   color?: ButtonVariants['color']
   variant?: ButtonVariants['variant']
   size?: ButtonVariants['size']
-  /** Render the button with equal padding on all sides. */
   square?: boolean
-  /** Render the button full width. */
   block?: boolean
   class?: any
   ui?: Partial<typeof button.slots>
