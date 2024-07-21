@@ -33,7 +33,7 @@ function findPageHeadline(page: ParsedContent): string {
   return page._dir?.title
     ? page._dir.title
     : splitByCase(page._dir)
-      .map((p) => upperFirst(p))
+      .map((p: string) => upperFirst(p))
       .join(' ')
 }
 

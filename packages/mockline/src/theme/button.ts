@@ -2,7 +2,7 @@ import type { ModuleOptions } from '#mockline/types'
 
 export default (options: Required<ModuleOptions>): any => ({
   slots: {
-    base: ['rounded-md font-medium inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.transitions && 'transition-colors'],
+    base: ['rounded-md font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.transitions && 'transition-colors'],
     label: 'truncate',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
@@ -35,9 +35,9 @@ export default (options: Required<ModuleOptions>): any => ({
         trailingIcon: 'size-4'
       },
       md: {
-        base: 'px-2.5 py-1.5 text-sm gap-1.5',
-        leadingIcon: 'size-5',
-        trailingIcon: 'size-5'
+        base: 'px-2.5 py-1 text-sm gap-1.5',
+        leadingIcon: 'size-4',
+        trailingIcon: 'size-4'
       },
       lg: {
         base: 'px-3 py-2 text-sm gap-2',
@@ -77,7 +77,7 @@ export default (options: Required<ModuleOptions>): any => ({
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'outline',
-      class: `ring ring-inset ring-current text-${color}-8 hover:bg-${color}-12 disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-${color}-8`
+      class: `ring-2 ring-current text-${color}-8 hover:bg-${color}-12 disabled:bg-transparent`
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'soft',
@@ -85,7 +85,7 @@ export default (options: Required<ModuleOptions>): any => ({
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'subtle',
-      class: `text-${color}-8 ring ring-inset ring-${color}-8/25 bg-${color}-8/10 hover:bg-${color}-8/20 disabled:bg-${color}-8/10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8`
+      class: `text-${color}-8 bg-${color}-8/10 hover:bg-${color}-8/20 disabled:bg-${color}-8/10`
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'ghost',
@@ -95,42 +95,6 @@ export default (options: Required<ModuleOptions>): any => ({
       variant: 'link',
       class: `text-${color}-8 hover:text-${color}-7 disabled:text-${color}-8 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8`
     })), {
-      color: 'white',
-      variant: 'solid',
-      class: 'shadow-sm ring ring-inset ring-gray-300 text-primary-1 bg-white hover:bg-canvas-12 disabled:bg-white focus-visible:ring-2 focus-visible:ring-primary-8'
-    }, {
-      color: 'white',
-      variant: 'ghost',
-      class: 'text-primary-1 hover:bg-white disabled:bg-transparent focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-8'
-    }, {
-      color: 'white',
-      variant: 'link',
-      class: 'text-primary-1 hover:text-primary-8 disabled:text-primary-1 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-8'
-    }, {
-      color: 'gray',
-      variant: 'solid',
-      class: 'shadow-sm ring ring-inset ring-gray-300 dark:ring-gray-6 text-primary-6 dark:text-primary-10 bg-canvas-12 hover:bg-canvas-100 disabled:bg-canvas-12 dark:bg-canvas-800 dark:hover:bg-canvas-6/12 dark:disabled:bg-canvas-800 focus-visible:ring-2 focus-visible:ring-primary-8 dark:focus-visible:ring-primary-9'
-    }, {
-      color: 'gray',
-      variant: 'ghost',
-      class: 'text-primary-6 dark:text-primary-10 hover:bg-canvas-12 disabled:bg-transparent dark:hover:bg-canvas-800 dark:hover:disabled:bg-transparent focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-8 dark:focus-visible:ring-primary-9'
-    }, {
-      color: 'gray',
-      variant: 'link',
-      class: 'text-primary-8 hover:text-primary-6 disabled:text-primary-8 dark:text-primary-9 dark:hover:text-primary-10 dark:disabled:text-primary-9 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-8 dark:focus-visible:ring-primary-9'
-    }, {
-      color: 'black',
-      variant: 'solid',
-      class: 'shadow-sm text-white dark:text-primary-1 bg-canvas-1 hover:bg-canvas-800 disabled:bg-canvas-1 dark:bg-white dark:hover:bg-canvas-10 dark:disabled:bg-white focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-8 dark:focus-visible:ring-primary-9'
-    }, {
-      color: 'black',
-      variant: 'ghost',
-      class: 'text-primary-1 hover:text-white disabled:text-primary-1 dark:text-white dark:hover:text-primary-1 dark:disabled:text-white hover:bg-canvas-1 disabled:bg-transparent dark:hover:bg-white dark:disabled:bg-transparent focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-8 dark:focus-visible:ring-primary-9'
-    }, {
-      color: 'black',
-      variant: 'link',
-      class: 'text-primary-1 hover:text-primary-8 disabled:text-primary-1 dark:text-white dark:hover:text-primary-9 dark:disabled:text-white focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-8 dark:focus-visible:ring-primary-9'
-    }, {
       size: 'xs',
       square: true,
       class: 'p-1'

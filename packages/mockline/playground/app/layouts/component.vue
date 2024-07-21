@@ -16,7 +16,7 @@ function formatTitle(title: string): string {
       <MThemeToggle />
     </div>
     <Main class="p-4">
-      <div class="flex flex-col gap-2">
+      <div class="mb-4 flex flex-col gap-2">
         <h3 class="text-gray-12 text-2xl font-bold">
           {{ formatTitle($route.name) }}
         </h3>
