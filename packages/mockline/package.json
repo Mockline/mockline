@@ -22,7 +22,8 @@
     "release": "bun run lint && bun run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "tailwind": "tailwindcss -i src/runtime/assets/css/style.css -o src/output.css"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.1.21",
