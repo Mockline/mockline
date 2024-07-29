@@ -16,8 +16,8 @@
   "devDependencies": {
     "@hrcd/eslint-config": "^2.0.1",
     "automd": "^0.3.8",
-    "eslint": "^9.7.0",
-    "turbo": "^2.0.7"
+    "eslint": "^9.8.0",
+    "turbo": "^2.0.9"
   },
   "workspaces": [
     "packages/*",
