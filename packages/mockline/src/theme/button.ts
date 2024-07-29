@@ -77,11 +77,11 @@ export default (options: Required<ModuleOptions>): any => ({
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'outline',
-      class: `ring-2 ring-current text-${color}-8 hover:bg-${color}-12 disabled:bg-transparent`
+      class: `ring-2 text-${color}-8 hover:bg-${color}-10 hover:text-white disabled:bg-transparent ring-${color}-9 hover:ring-${color}-10`
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'soft',
-      class: `text-${color}-8 bg-${color}-12 hover:bg-${color}-100 disabled:bg-${color}-12 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8`
+      class: `text-${color}-8 bg-${color}-12 hover:bg-${color}-100 disabled:bg-${color}-12`
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'subtle',
@@ -89,11 +89,11 @@ export default (options: Required<ModuleOptions>): any => ({
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'ghost',
-      class: `text-${color}-8 hover:bg-${color}-12 disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8`
+      class: `text-${color}-8 hover:bg-${color}-12 disabled:bg-transparent`
     })), ...options.colors.map((color: string) => ({
       color,
       variant: 'link',
-      class: `text-${color}-8 hover:text-${color}-7 disabled:text-${color}-8 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-8`
+      class: `text-${color}-8 hover:text-${color}-7 disabled:text-${color}-8 hover:underline`
     })), {
       size: 'xs',
       square: true,
