@@ -15,12 +15,12 @@ function formatTitle(title: string): string {
       </NuxtLink>
       <MThemeToggle />
     </div>
-    <div class="flex flex-col gap-2">
-      <h3 class="text-gray-12 text-2xl font-bold">
-        {{ formatTitle($route.name) }}
-      </h3>
-    </div>
-    <Main>
+    <Main class="p-4">
+      <div class="mb-4 flex flex-col gap-2">
+        <h3 class="text-gray-12 text-2xl font-bold">
+          {{ formatTitle($route.name) }}
+        </h3>
+      </div>
       <Page>
         <slot />
       </Page>

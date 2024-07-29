@@ -45,6 +45,10 @@ export default defineNuxtModule<ModuleOptions>({
       canvas: 'mauve',
     })
 
+    const resolver = createResolver(import.meta.url)
+
+    nuxt.options.css.push(resolver.resolve('./output.css'))
+
     // Templates
     addTemplates(options, nuxt)
     await installTailwind(options, nuxt, resolve)
