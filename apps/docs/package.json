@@ -17,8 +17,8 @@
     "@nuxt/image": "^1.7.0",
     "mockline": "^0.1.2",
     "nuxt": "^3.12.4",
-    "vue": "^3.4.34",
-    "vue-router": "^4.4.0"
+    "vue": "^3.4.35",
+    "vue-router": "^4.4.2"
   },
   "devDependencies": {
     "@iconify-json/vscode-icons": "^1.1.36"
