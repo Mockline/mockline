@@ -11,7 +11,7 @@ import { colors, generateScale } from './runtime/utils/colors'
  * @param nuxt - The Nuxt instance.
  * @param resolve - Resolver function.
  */
-export async function installTailwind(options: ModuleOptions, nuxt: Nuxt, resolve = createResolver(import.meta.url).resolve): Promise<void> {
+export async function installTailwind(options: ModuleOptions, nuxt: Nuxt, resolve = createResolver(process.env.url).resolve): Promise<void> {
   const runtimeDir = resolve('./runtime')
 
   // Define the TailwindCSS configuration template
@@ -28,6 +28,7 @@ export async function installTailwind(options: ModuleOptions, nuxt: Nuxt, resolv
       tailwindConfig,
       join(nuxt.options.rootDir, 'tailwind.config'),
     ],
+    // @ts-expect-error: Nuxt does not provide a type for this option
   }, nuxt.options.tailwindcss))
 }
 
