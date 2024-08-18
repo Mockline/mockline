@@ -8,6 +8,7 @@ import theme from '#build/mockline/button'
 </script>
 
 <script setup lang="ts">
+import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
 
 const appConfig = _appConfig as AppConfig & { mockline: { button: Partial<typeof theme> } }
 
@@ -24,24 +25,18 @@ export type ButtonProps = {
   block?: boolean
   class?: any
   ui?: Partial<typeof button.slots>
-  icon?: string
-  loading?: boolean
-  leading?: boolean
-  trailing?: boolean
-}
+} & UseComponentIconsProps
 
 export type ButtonSlots = {
-  leading(): any
-  default(): any
-  trailing(): any
+  leading(props?: NonNullable<unknown>): any
+  default(props?: NonNullable<unknown>): any
+  trailing(props?: NonNullable<unknown>): any
 }
 
-const props = withDefaults(defineProps<ButtonProps>(), {
-  leading: true,
-  trailing: false,
-})
-
+const props = defineProps<ButtonProps>()
 const slots = defineSlots<ButtonSlots>()
+
+const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
 const ui = computed(() => tv({ extend: button, slots: props.ui })({
   color: props.color,
@@ -50,6 +45,8 @@ const ui = computed(() => tv({ extend: button, slots: props.ui })({
   loading: props.loading,
   block: props.block,
   square: props.square || (!slots.default && !props.label),
+  leading: isLeading.value,
+  trailing: isTrailing.value,
 }))
 </script>
 
@@ -59,8 +56,7 @@ const ui = computed(() => tv({ extend: button, slots: props.ui })({
     :class="twMerge(ui.base({ class: props.class }))"
   >
     <slot name="leading">
-      <MIcon v-if="leading && loading" name="lucide:loader" :class="ui.leadingIcon(props)" />
-      <MIcon v-if="leading && icon" :name="icon" :class="ui.leadingIcon(props)" />
+      <MIcon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="ui.leadingIcon()" />
     </slot>
 
     <span v-if="label || !!slots.default" :class="ui.label()">
@@ -70,8 +66,7 @@ const ui = computed(() => tv({ extend: button, slots: props.ui })({
     </span>
 
     <slot name="trailing">
-      <MIcon v-if="trailing && loading" name="lucide:loader" :class="ui.trailingIcon(props)" />
-      <MIcon v-if="trailing && icon" :name="icon" :class="ui.trailingIcon(props)" />
+      <MIcon v-if="isTrailing && trailingIconName" :name="trailingIconName" :class="ui.trailingIcon()" />
     </slot>
   </component>
 </template>
