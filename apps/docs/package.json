@@ -17,10 +17,10 @@
     "@nuxt/image": "^1.7.0",
     "mockline": "^0.1.2",
     "nuxt": "^3.12.4",
-    "vue": "^3.4.35",
-    "vue-router": "^4.4.2"
+    "vue": "^3.4.38",
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
-    "@iconify-json/vscode-icons": "^1.1.36"
+    "@iconify-json/vscode-icons": "^1.1.37"
   }
 }
