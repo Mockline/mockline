@@ -117,7 +117,6 @@ export default (options: Required<ModuleOptions>): any => ({
     }, {
       loading: true,
       leading: true,
-      trailing: false,
       class: {
         leadingIcon: 'animate-spin'
       }
