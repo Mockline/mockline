@@ -20,15 +20,20 @@
 
 Welcome to Mockline, your go-to design library crafted to elevate your creative journey. Whether you're a seasoned designer or a budding developer, Mockline is designed to empower you with efficient, innovative, and collaborative tools, putting the joy back into the design process.
 
-
 ## Getting Started
 
 Visit [mockline.dev](https://mockline.dev) to get started with Mockline.
 
 ## Features
 
+- **Everything you need**: Mockline is a design system that provides everything you need to create stunning designs, from buttons to modals, toasts, tooltips, and more.
+  - Icons provided by [Nuxt Icon](https://github.com/nuxt-modules/icon), U can use any icon from [Lucide](https://lucide.dev/), [Heroicons](https://heroicons.com/), etc...
+  - TailwindCSS is directly integrated, so you can use all the power of TailwindCSS with zero configuration.
+  - Toasts are also provided by [Vue Sonner](https://github.com/xiaoluoboding/vue-sonner), so you can easily create beautiful toasts with ease.
+  - Themes are provided by [Color Mode](https://github.com/nuxt-modules/color-mode), so you can easily switch between light and dark modes or even create your own themes.
+  - Nuxt Content is also integrated and can be activated by setting `content: true` in the `mockline` module options.
 - **Fully customizable**: All components are customizable via props and slots.
-- **Dark mode**: Enjoy a seamless dark mode experience.
+- **Dark mode**: Enjoy a seamless dark mode experience with no additional setup.
 - **Responsive**: Components are designed to be responsive across all devices.
 - **Easy to use**: Mockline is designed to be beginner-friendly, with a simple setup process.
 - **Community-driven**: Join the Mockline community on Discord to connect with other users and share your feedback.
@@ -39,6 +44,13 @@ Visit [mockline.dev](https://mockline.dev) to get started with Mockline.
 For the moment Mockline is only available for Nuxt projects (Vue 3 support and react support will be added soon).
 To get started, follow these steps:
 
+Quickly add Mockline to your Nuxt project using the following command:
+```bash
+npx nuxi@latest module add mockline
+```
+It will automatically install and set up the Mockline module in your `nuxt.config.ts` file.
+
+or
 
 1. Add `mockline` dependency to your project
 
@@ -70,6 +82,62 @@ That's it! You can now use Mockline in your Nuxt app ✨
 ## Community
 
 The Mockline community can be found on Discord, to chat with other community members, you can join the [Mockline Discord](https://discord.gg/BkgyMzvJ3p).
+
+## Roadmap
+
+
+<details>
+  <summary>Roadmap</summary>
+
+- Overlays
+  - [x] Toast
+  - [ ] Modal
+  - [ ] Tooltip
+  - [ ] Popover
+  - [ ] Slideover
+- Components
+  - [x] Button
+  - [x] Icon
+  - [ ] Input
+  - [ ] Checkbox
+  - [ ] Radio
+  - [ ] Switch
+  - [ ] Select
+  - [ ] Textarea
+  - [ ] Toggle
+  - [ ] Range
+  - [ ] Slider
+  - [ ] Progress
+  - [ ] Rating
+  - [ ] Avatar
+  - [ ] Badge
+  - [ ] Card
+  - [ ] Table
+  - [ ] Tabs
+  - [ ] Breadcrumbs
+  - [ ] Pagination
+  - [ ] Steps
+  - [ ] Tree
+  - [ ] Calendar
+  - [ ] Datepicker
+  - [ ] Timepicker
+- Layout
+  - [ ] Grid
+  - [ ] Flex
+  - [ ] Page
+  - [ ] Sidebar
+  - [ ] Drawer
+- Documentation
+  - [ ] NavigationTree
+  - [ ] Surround
+  - [ ] Toc
+- Utilities
+  - [ ] Typography
+- Themes
+  - [ ] ThemeToggle
+  - [ ] ThemeSwitch
+
+</details>
 
 <!-- automd:fetch url="gh:hugorcd/markdown/main/src/contributions.md" -->
 
@@ -105,9 +173,14 @@ To start contributing, you can follow these steps:
 
 <!-- /automd -->
 
-<!-- automd:contributors license=Apache author=HugoRCD -->
+<!-- automd:contributors license=Apache author=HugoRCD github="mockline/mockline" -->
 
-<!-- ⚠️  (contributors) `github` is required! -->
+Published under the [APACHE](https://github.com/mockline/mockline/blob/main/LICENSE) license.
+Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.com/mockline/mockline/graphs/contributors) 💛
+<br><br>
+<a href="https://github.com/mockline/mockline/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=mockline/mockline" />
+</a>
 
 <!-- /automd -->
 
@@ -115,6 +188,6 @@ To start contributing, you can follow these steps:
 
 ---
 
-_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Sat Jun 22 2024)_
+_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Sun Aug 18 2024)_
 
 <!-- /automd -->
