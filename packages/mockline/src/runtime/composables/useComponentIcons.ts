@@ -48,8 +48,6 @@ export function useComponentIcons(componentProps: MaybeRefOrGetter<UseComponentI
     return props.value.trailingIcon || props.value.icon
   })
 
-  console.log(`isLeading: ${isLeading.value}, isTrailing: ${isTrailing.value}, props.value.icon: ${props.value.icon}, props.value.loading: ${props.value.loading}`)
-
   return {
     isLeading,
     isTrailing,

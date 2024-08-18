@@ -56,7 +56,7 @@ const ui = computed(() => tv({ extend: button, slots: props.ui })({
     :class="twMerge(ui.base({ class: props.class }))"
   >
     <slot name="leading">
-      <MIcon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="ui.leadingIcon(props)" />
+      <MIcon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="ui.leadingIcon()" />
     </slot>
 
     <span v-if="label || !!slots.default" :class="ui.label()">
@@ -66,7 +66,7 @@ const ui = computed(() => tv({ extend: button, slots: props.ui })({
     </span>
 
     <slot name="trailing">
-      <MIcon v-if="isTrailing && trailingIconName" :name="trailingIconName" :class="ui.trailingIcon(props)" />
+      <MIcon v-if="isTrailing && trailingIconName" :name="trailingIconName" :class="ui.trailingIcon()" />
     </slot>
   </component>
 </template>
