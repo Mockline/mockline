@@ -1,4 +1,4 @@
-type useClipboardParams = {
+type UseClipboardParams = {
   /**
    * The text to copy to the clipboard
    */
@@ -9,7 +9,7 @@ type useClipboardParams = {
   callback?: () => void
 }
 
-export function useClipboard(params: useClipboardParams): void {
+export function useClipboard(params: UseClipboardParams): void {
   navigator.clipboard.writeText(params.toCopy).then(() => {
     if (params.callback) {
       params.callback()

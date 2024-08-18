@@ -10,8 +10,8 @@ defineProps({
   <div>
     <div class="bg-canvas-8 rounded-md p-4 text-white">
       <div class="flex items-center gap-4">
-        <div class="text-2xl">
-          <span :class="icon" />
+        <div v-if="icon" class="text-2xl">
+          <MIcon :name="icon" />
         </div>
         <div>
           <ContentSlot :use="$slots.default" unwrap="p" />

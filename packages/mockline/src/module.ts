@@ -9,27 +9,11 @@ import {
   hasNuxtModule
 } from '@nuxt/kit'
 import { defu } from 'defu'
-import type { CollectionNames, IconsPluginOptions } from '@egoist/tailwindcss-icons'
 import { name, version } from '../package.json'
 import { addTemplates } from './templates'
 import { installTailwind } from './tailwind'
-
-export type ModuleOptions = {
-  /**
-   * Prefix for all components
-   */
-  prefix?: string,
-  /**
-   * The icon collections to use
-   * @default ['heroicons', 'lucide']
-   */
-  icons: CollectionNames[] | 'all' | IconsPluginOptions,
-  /**
-   * Enable Nuxt Content
-   * @default false
-   */
-  content?: boolean
-}
+import type { ModuleOptions } from './runtime/types'
+import { type Color, colors } from './runtime/utils/colors'
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -39,30 +23,44 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     prefix: 'M',
-    icons: ['heroicons', 'lucide'],
-    content: false
+    content: false,
+    colors: [],
+    transitions: false,
   },
   async setup(options: ModuleOptions, nuxt): Promise<void> {
-    const {resolve} = createResolver(import.meta.url)
+    const { resolve } = createResolver(import.meta.url)
 
     // Transpile runtime
     const runtimeDir = resolve('./runtime')
     nuxt.options.build.transpile.push(runtimeDir)
     nuxt.options.alias['#mockline'] = resolve('./runtime')
 
+    options.colors = (options.colors?.length ? [...new Set(['primary', 'canvas', ...options.colors])] : colors) as Color[]
+
+    // @ts-expect-error - TS doesn't know that the key exists
+    nuxt.options.mockline = options
+
     nuxt.options.appConfig.mockline = defu(nuxt.options.appConfig.mockline || {}, {
       primary: 'iris',
       canvas: 'mauve',
     })
 
+    const resolver = createResolver(import.meta.url)
+
+    nuxt.options.css.push(resolver.resolve('./output.css'))
+
     // Templates
-    addTemplates(nuxt)
+    addTemplates(options, nuxt)
     await installTailwind(options, nuxt, resolve)
 
-    addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors')})
+    addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors') })
 
     // Modules
     await installModule('@nuxtjs/color-mode', { classSuffix: '', storageKey: 'mockline-color-mode' })
+    await installModule('@nuxt/icon', {
+      componentName: 'MIcon',
+      mode: 'svg',
+    })
 
     // Add vue-sonner
     addImportsSources({

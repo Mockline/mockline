@@ -1,25 +1,5 @@
 <script setup lang="ts">
-import type { Position, Theme, ToastOptions } from 'vue-sonner/lib/types'
-import type { CSSProperties } from 'vue'
-import { Toaster } from 'vue-sonner'
-
-type ToasterProps = {
-  invert?: boolean;
-  theme?: Theme;
-  position?: Position;
-  hotkey?: string[];
-  richColors?: boolean;
-  expand?: boolean;
-  duration?: number;
-  gap?: number;
-  visibleToasts?: number;
-  closeButton?: boolean;
-  toastOptions?: ToastOptions;
-  className?: string;
-  style?: CSSProperties;
-  offset?: string | number;
-  dir?: 'rtl' | 'ltr' | 'auto';
-}
+import { Toaster, type ToasterProps } from 'vue-sonner'
 
 // Default amount of visible toasts
 const VISIBLE_TOASTS_AMOUNT = 4
@@ -35,7 +15,7 @@ const GAP = 14
 
 withDefaults(defineProps<ToasterProps>(), {
   invert: false,
-  position: 'top-right',
+  position: 'top-center',
   hotkey: () => ['altKey', 'KeyT'],
   expand: false,
   closeButton: false,
@@ -59,7 +39,6 @@ withDefaults(defineProps<ToasterProps>(), {
     :hotkey
     :expand
     :close-button
-    :class-name
     :offset
     :style
     :theme="$colorMode.preference === 'dark' ? 'dark' : 'light'"

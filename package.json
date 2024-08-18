@@ -1,4 +1,5 @@
 {
+  "name": "mockline-repo",
   "private": "true",
   "type": "module",
   "scripts": {
@@ -11,11 +12,12 @@
     "lint:fix": "turbo run lint:fix",
     "typecheck": "tsc --noEmit"
   },
+  "packageManager": "bun@1.0.30",
   "devDependencies": {
-    "@hrcd/eslint-config": "^1.1.4",
-    "automd": "^0.3.7",
-    "eslint": "^9.4.0",
-    "turbo": "^1.13.3"
+    "@hrcd/eslint-config": "^2.0.1",
+    "automd": "^0.3.8",
+    "eslint": "^9.9.0",
+    "turbo": "^2.0.14"
   },
   "workspaces": [
     "packages/*",

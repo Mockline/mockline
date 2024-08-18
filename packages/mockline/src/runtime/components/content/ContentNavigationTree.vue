@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<NavigationTreeProps>(), {
           {{ link.title }}
         </h3>
         <ul class="flex flex-col gap-1">
-          <li v-for="(child, index) in link.children" :key="index">
+          <li v-for="(child, index_) in link.children" :key="index_">
             <NuxtLink :to="child._path" class="text-gray-11 hover:text-primary-11 text-sm/6" :class="$route.path === child._path ? 'text-primary' : ''">
               {{ child.title }}
             </NuxtLink>
