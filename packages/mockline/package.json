@@ -1,6 +1,6 @@
 {
   "name": "mockline",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "exports": {
     ".": {
@@ -18,12 +18,12 @@
     "postinstall": "bun run dev:prepare",
     "dev": "DEV=true nuxi dev playground",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "bun run lint && bun run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && bun run tailwind",
+    "release": "bun run tailwind && bun run lint && bun run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
-    "tailwind": "tailwindcss -i src/runtime/assets/css/style.css -o src/output.css"
+    "tailwind": "tailwindcss -i src/runtime/assets/css/style.css -o src/runtime/assets/css/output.css"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.1.24",
