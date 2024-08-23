@@ -29,6 +29,9 @@ jobs:
       - name: 🚀 Prepare
         run: bun run dev:prepare
 
+      - name: 🎨 Run Tailwind
+        run: bun run tailwind
+
       - name: 💅 Lint code
         run: bun run lint
 
