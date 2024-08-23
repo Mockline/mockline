@@ -9,6 +9,7 @@ import {
   hasNuxtModule
 } from '@nuxt/kit'
 import { defu } from 'defu'
+import type { Nuxt } from '@nuxt/schema'
 import { name, version } from '../package.json'
 import { addTemplates } from './templates'
 import { installTailwind } from './tailwind'
@@ -27,7 +28,7 @@ export default defineNuxtModule<ModuleOptions>({
     colors: [],
     transitions: false,
   },
-  async setup(options: ModuleOptions, nuxt): Promise<void> {
+  async setup(options: ModuleOptions, nuxt: Nuxt): Promise<void> {
     const { resolve } = createResolver(import.meta.url)
 
     // Transpile runtime

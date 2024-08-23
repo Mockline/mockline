@@ -20,7 +20,11 @@ definePageMeta({
         loading
         @click="() => console.log('click')"
       />
-      <MButton label="Home" icon="lucide:home" />
+      <MButton
+        label="Home"
+        trailing
+        icon="lucide:home"
+      />
     </div>
     <div class="grid grid-cols-6 gap-4">
       <MButton
