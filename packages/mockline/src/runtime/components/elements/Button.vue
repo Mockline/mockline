@@ -1,13 +1,11 @@
-<script lang="ts">
+<script setup lang="ts">
 import { tv, type VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import { computed } from 'vue'
 import { twMerge } from 'tailwind-merge'
 import _appConfig from '#build/app.config'
 import theme from '#build/mockline/button'
-</script>
 
-<script setup lang="ts">
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
 
 const appConfig = _appConfig as AppConfig & { mockline: { button: Partial<typeof theme> } }

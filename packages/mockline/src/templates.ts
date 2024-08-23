@@ -42,10 +42,10 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()): void {
         // For local development, directly import from theme
         if (process.env.DEV) {
           return [
-            `import template from ${ JSON.stringify(fileURLToPath(new URL(`./theme/${ kebabCase(component) }`, import.meta.url))) }`,
-            `const result = typeof template === 'function' ? template(${ JSON.stringify(options) }) : template`,
-            `export default result`,
-            `/* export default ${ json } */`
+            `import template from ${JSON.stringify(fileURLToPath(new URL(`./theme/${kebabCase(component)}`, import.meta.url)))}`,
+            `const result = typeof template === 'function' ? template(${JSON.stringify(options)}) : template`,
+            `const json = ${json}`,
+            `export default result as typeof json`
           ].join('\n')
         }
 
