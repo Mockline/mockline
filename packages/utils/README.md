@@ -1,4 +1,4 @@
-![Mockline Social Preview](assets/social-preview.jpg)
+![Mockline Social Preview](../../assets/social-preview.jpg)
 
 <p align="center">
   <a aria-label="NPM version" href="https://www.npmjs.com/package/@mockline/utils">
@@ -91,11 +91,11 @@ To start contributing, you can follow these steps:
 
 <!-- automd:contributors license=Apache author=HugoRCD -->
 
-Published under the [APACHE](https://github.com/mockline/utils/blob/main/LICENSE) license.
-Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.com/mockline/utils/graphs/contributors) 💛
+Published under the [APACHE](https://github.com/mockline/mockline/blob/main/LICENSE) license.
+Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.com/mockline/mockline/graphs/contributors) 💛
 <br><br>
-<a href="https://github.com/mockline/utils/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=mockline/utils" />
+<a href="https://github.com/mockline/mockline/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=mockline/mockline" />
 </a>
 
 <!-- /automd -->
@@ -104,6 +104,6 @@ Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.co
 
 ---
 
-_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Fri Aug 23 2024)_
+_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Tue Aug 27 2024)_
 
 <!-- /automd -->
