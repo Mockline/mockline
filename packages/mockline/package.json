@@ -17,7 +17,7 @@
     "prepack": "nuxt-module-build build",
     "postinstall": "bun run dev:prepare",
     "dev": "DEV=true nuxi dev playground",
-    "dev:build": "nuxi build playground",
+    "build": "nuxt-module-build build",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && bun run tailwind",
     "release": "bun run tailwind && bun run lint && bun run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
