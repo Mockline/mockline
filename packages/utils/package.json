@@ -30,7 +30,7 @@
     "automd": "automd",
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
-    "build": "nuxi build playground",
+    "build": "nuxt-module-build build",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "automd && npm run lint && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
