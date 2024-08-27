@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v1.1.0
+
+[compare changes](https://github.com/mockline/mockline/compare/v0.1.7...v1.1.0)
+
+### 🚀 Enhancements
+
+- Add mockline utils repo to main repo ([#46](https://github.com/mockline/mockline/pull/46))
+
+### 🏡 Chore
+
+- **release:** V0.1.7 ([d851d48](https://github.com/mockline/mockline/commit/d851d48))
+
+### ❤️ Contributors
+
+- Hugo Richard ([@HugoRCD](http://github.com/HugoRCD))
+- HugoRCD ([@HugoRCD](http://github.com/HugoRCD))
+
 ## v1.0.5
 
 [compare changes](https://github.com/mockline/utils/compare/v1.0.4...v1.0.5)
