@@ -46,9 +46,7 @@ export default defineNuxtModule<ModuleOptions>({
       canvas: 'mauve',
     })
 
-    const resolver = createResolver(import.meta.url)
-
-    nuxt.options.css.push(resolver.resolve('./output.css'))
+    nuxt.options.css.push(resolve('./runtime/assets/css/output.css'))
 
     // Templates
     addTemplates(options, nuxt)

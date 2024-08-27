@@ -1,5 +1,5 @@
 {
-  "name": "mockline-playground",
+  "name": "mockline-utils-playground",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,9 +10,6 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "nuxt": "^3.13.0"
-  },
-  "devDependencies": {
-    "@iconify-json/vscode-icons": "^1.1.37"
+    "nuxt": "3.12.4"
   }
 }

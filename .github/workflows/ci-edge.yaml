@@ -1,4 +1,4 @@
-name: ci-edge
+name: Edge CI/CD
 
 on:
   push:
@@ -35,6 +35,9 @@ jobs:
       - name: 💅 Lint code
         run: bun run lint
 
+      - name: 🛠️ Build
+        run: bun run build
+
       - uses: dorny/paths-filter@v3
         id: changes
         with:
@@ -43,6 +46,9 @@ jobs:
               - 'packages/mockline/src/**'
               - 'packages/mockline/package.json'
               - 'packages/mockline/bun.lockb'
+              - 'packages/utils/src/**'
+              - 'packages/utils/package.json'
+              - 'packages/utils/bun.lockb'
               - 'package.json'
               - 'bun.lockb'
 
