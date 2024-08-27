@@ -1,4 +1,4 @@
-name: Autofix linting issues
+name: autofix.ci
 
 on:
   pull_request:
