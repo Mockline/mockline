@@ -26,6 +26,9 @@
     },
     "dev:prepare": {
       "cache": false
+    },
+    "tailwind": {
+      "cache": false
     }
   }
 }

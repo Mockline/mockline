@@ -43,6 +43,9 @@ jobs:
               - 'packages/mockline/src/**'
               - 'packages/mockline/package.json'
               - 'packages/mockline/bun.lockb'
+              - 'packages/utils/src/**'
+              - 'packages/utils/package.json'
+              - 'packages/utils/bun.lockb'
               - 'package.json'
               - 'bun.lockb'
 
