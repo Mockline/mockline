@@ -4,15 +4,18 @@
   "type": "module",
   "scripts": {
     "dev": "turbo run dev --filter=mockline",
-    "dev:docs": "turbo run dev --filter=docs",
-    "build": "turbo run build --filter=!playground",
+    "dev:ui": "turbo run dev --filter=mockline",
+    "dev:utils": "turbo run dev --filter=@mockline/utils",
+    "build": "turbo run build --filter=mockline",
+    "build:ui": "turbo run build --filter=mockline",
+    "build:utils": "turbo run build --filter=@mockline/utils",
     "test": "turbo run test",
     "dev:prepare": "turbo run dev:prepare",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "typecheck": "tsc --noEmit"
   },
-  "packageManager": "bun@1.0.30",
+  "packageManager": "bun@1.1.26",
   "devDependencies": {
     "@hrcd/eslint-config": "^2.0.2",
     "automd": "^0.3.8",

@@ -1,0 +1,15 @@
+{
+  "name": "mockline-utils-playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "nuxt": "3.12.2"
+  }
+}
