@@ -1,4 +1,4 @@
-name: ci-edge
+name: Edge CI/CD
 
 on:
   push:
