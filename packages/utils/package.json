@@ -63,7 +63,7 @@
     "changelogen": "^0.5.5",
     "eslint": "^9.9.1",
     "typescript": "5.5.4",
-    "nuxt": "3.12.2"
+    "nuxt": "3.12.4"
   },
   "description": "Mockline Utils is the minimal utility library for Mockline. To kickstart your project with some useful modules like color mode, tailwindcss, nuxt icons, and more.",
   "keywords": [
