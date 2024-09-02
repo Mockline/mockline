@@ -17,7 +17,9 @@ export type ButtonProps = {
   size?: ButtonVariants['size']
   square?: boolean
   block?: boolean
-  class?: any
+  class?: string
+  iconClass?: string
+  labelClass?: string
 } & UseComponentIconsProps
 
 export type ButtonSlots = {
@@ -31,12 +33,8 @@ const slots = defineSlots<ButtonSlots>()
 
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
-const ui = computed(() => tv({ extend: button, slots: props.ui })({
-  color: props.color,
-  variant: props.variant,
-  size: props.size,
-  loading: props.loading,
-  block: props.block,
+const ui = computed(() => tv({ extend: button })({
+  ...props,
   square: props.square || (!slots.default && !props.label),
   leading: isLeading.value,
   trailing: isTrailing.value,
@@ -49,17 +47,25 @@ const ui = computed(() => tv({ extend: button, slots: props.ui })({
     :class="twMerge(ui.base({ class: props.class }))"
   >
     <slot name="leading">
-      <MIcon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="ui.leadingIcon()" />
+      <MIcon
+        v-if="isLeading && leadingIconName"
+        :name="leadingIconName"
+        :class="twMerge(ui.leadingIcon(), iconClass)"
+      />
     </slot>
 
-    <span v-if="label || !!slots.default" :class="ui.label()">
+    <span v-if="label || !!slots.default" :class="twMerge(ui.label(), labelClass)">
       <slot>
         {{ label }}
       </slot>
     </span>
 
     <slot name="trailing">
-      <MIcon v-if="isTrailing && trailingIconName" :name="trailingIconName" :class="ui.trailingIcon()" />
+      <MIcon
+        v-if="isTrailing && trailingIconName"
+        :name="trailingIconName"
+        :class="twMerge(ui.trailingIcon(), iconClass)"
+      />
     </slot>
   </component>
 </template>

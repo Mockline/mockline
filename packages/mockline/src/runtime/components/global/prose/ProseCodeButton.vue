@@ -11,8 +11,8 @@ const props = defineProps({
 
 const config = {
   icon: {
-    copy: 'i-heroicons-clipboard-document',
-    copied: 'i-heroicons-clipboard-document-check'
+    copy: 'heroicons:clipboard-document',
+    copied: 'heroicons:clipboard-document-check'
   }
 }
 

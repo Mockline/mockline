@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Toaster, type ToasterProps } from 'vue-sonner'
+import appConfig from '#build/app.config'
 
 // Default amount of visible toasts
 const VISIBLE_TOASTS_AMOUNT = 4
@@ -13,9 +14,11 @@ const TOAST_LIFETIME = 4000
 // Default gap between toasts
 const GAP = 14
 
+console.log(appConfig)
+
 withDefaults(defineProps<ToasterProps>(), {
   invert: false,
-  position: 'top-center',
+  position: appConfig.mockline?.toast?.position ?? 'top-center',
   hotkey: () => ['altKey', 'KeyT'],
   expand: false,
   closeButton: false,
@@ -23,9 +26,14 @@ withDefaults(defineProps<ToasterProps>(), {
   offset: VIEWPORT_OFFSET,
   theme: 'light',
   richColors: false,
-  duration: TOAST_LIFETIME,
+  duration: appConfig.mockline?.toast?.duration ?? TOAST_LIFETIME,
   visibleToasts: VISIBLE_TOASTS_AMOUNT,
-  toastOptions: () => ({}),
+  toastOptions: () => ({
+    style: {
+      borderColor: 'var(--canvas-5)',
+      backgroundColor: 'var(--canvas-2)'
+    }
+  }),
   dir: 'auto',
   gap: GAP,
   style: () => ({}),

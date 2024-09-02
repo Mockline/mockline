@@ -59,29 +59,6 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()): void {
     write: true,
     getContents: () => Object.keys(theme).map(component => `export { default as ${component} } from './${kebabCase(component)}'`).join('\n')
   })
-
-  addTypeTemplate({
-    filename: 'types/mockline.d.ts',
-    getContents: () => `
-      const colors = ${JSON.stringify(options.colors)} as const;
-
-      type MocklineConfig = {
-        primary?: typeof colors[number]
-        canvas?: typeof colors[number]
-      }
-
-      declare module 'nuxt/schema' {
-        interface AppConfigInput {
-          mockline?: MocklineConfig
-        }
-      }
-      declare module '@nuxt/schema' {
-        interface AppConfigInput {
-          mockline?: MocklineConfig
-        }
-      }
-      export {}`
-  })
 }
 
 function generateRadixImports(): string {
