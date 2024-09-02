@@ -4,15 +4,6 @@
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-    <MToasts
-      position="top-center"
-      close-button
-      :toast-options="{
-        style: {
-          borderColor: 'var(--canvas-5)',
-          backgroundColor: 'var(--canvas-2)'
-        }
-      }"
-    />
+    <MToasts close-button />
   </Html>
 </template>
