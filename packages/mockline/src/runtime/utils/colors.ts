@@ -41,40 +41,27 @@ export const colors: Color[] = [
   'brown',
 ]
 
-export const availableColors = colors.filter(color => color !== 'canvas' && color !== 'primary')
-
-/**
- * Generate a safelist of color classes with variants for TailwindCSS.
- *
- * @returns The safelist configuration.
- */
-export function generateColorSafelist(): { pattern: RegExp, variants: string[] }[] {
-  const variants = ['hover', 'focus', 'active', 'group-hover']
-  const classes = ['bg', 'text', 'border', 'ring']
-
-  return ['primary', 'canvas', ...colors].flatMap(color =>
-    classes.map(type => ({
-      pattern: new RegExp(`^${ type }-${ color }-(a)?(1[0-2]|[1-9])$`),
-      variants,
-    }))
-  )
-}
-
 /**
  * Generate a color scale based on the given color.
  *
  * @param color - The color for which to generate the scale.
  * @returns The color scale configuration.
  */
-export function generateScale(color: Color): Record<string, string> {
-  const scale = Array.from({ length: 12 }, (_, i) => {
-    const id = i + 1
-    return [
-      [id, `var(--${color}-${id})`],
-      [`a${id}`, `var(--${color}-a${id})`],
-      ['DEFAULT', `var(--${color}-${color === 'canvas' ? '1' : '9'})`],
-    ]
-  }).flat()
+export function generateColor(color: string): string {
+  const shades = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9']
 
-  return Object.fromEntries(scale)
+  return `${shades.map(shade => `--color-${color}-${shade}: var(--${color}-${shade});`).join('\n  ')}`
+}
+
+/**
+ * Generate a color scale based for the given var with a given color.
+ *
+ * @param varName - The name of the var to assign the color to.
+ * @param color - The color for which to assign the var.
+ * @returns The color scale configuration.
+ */
+export function generateColorVar(varName: string, color: string): string {
+  const shades = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9']
+
+  return `${shades.map(shade => `--color-${varName}-${shade}: var(--${color}-${shade});`).join('\n  ')}`
 }

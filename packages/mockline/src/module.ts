@@ -46,13 +46,12 @@ export default defineNuxtModule<ModuleOptions>({
       canvas: 'mauve',
     })
 
-    nuxt.options.css.push(resolve('./runtime/assets/css/output.css'))
     nuxt.options.css.push(resolve('./runtime/assets/css/base.css'))
     nuxt.options.css.push(resolve('./runtime/assets/css/animation.css'))
 
-    // Templates
-    addTemplates(options, nuxt)
     await installTailwind(options, nuxt, resolve)
+
+    addTemplates(options, nuxt)
 
     addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors') })
 

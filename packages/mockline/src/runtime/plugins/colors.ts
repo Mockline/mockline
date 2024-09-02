@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import { generateColor, generateColorVar } from '../utils/colors'
 import { defineNuxtPlugin, useAppConfig, useNuxtApp, useHead } from '#imports'
 
 function createRootStyles(stylesConfig: Record<string, string>): string {
@@ -11,17 +12,16 @@ export default defineNuxtPlugin(() => {
   const { mockline } = useAppConfig()
   const nuxtApp = useNuxtApp()
 
-  const rootStyle = computed(() => {
-    const stylesConfig = {
-      primary: mockline.primary,
-      canvas: mockline.canvas
-    }
-
-    return `
-    :root {
-      ${createRootStyles(stylesConfig)}
-    }
-    `
+  const root = computed(() => {
+    return `:root {
+  ${ generateColorVar('primary', mockline.primary) }
+  ${ generateColorVar('canvas', mockline.canvas) }
+  --color-primary-DEFAULT: var(--color-primary-9);
+}
+@media (prefers-color-scheme: dark) {
+  --color-primary-DEFAULT: var(--color-primary-8);
+}
+`
   })
 
   const headData: {
@@ -34,9 +34,10 @@ export default defineNuxtPlugin(() => {
     script: [],
     style: [
       {
-        innerHTML: () => rootStyle.value,
+        innerHTML: () => root.value,
         tagPriority: -2,
-        id: 'mockline-colors'
+        id: 'mockline-colors',
+        type: 'text/css'
       }
     ],
   }

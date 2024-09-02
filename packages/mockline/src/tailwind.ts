@@ -1,8 +1,6 @@
-import { addTemplate, createResolver, installModule } from '@nuxt/kit'
+import { addTemplate, addVitePlugin, createResolver, hasNuxtModule } from '@nuxt/kit'
 import type { ModuleOptions, Nuxt } from '@nuxt/schema'
-import { defu } from 'defu'
-import { join } from 'pathe'
-import { colors, generateScale } from './runtime/utils/colors'
+import { colors, generateColor } from './runtime/utils/colors'
 
 /**
  * Install and configure TailwindCSS module.
@@ -12,24 +10,27 @@ import { colors, generateScale } from './runtime/utils/colors'
  * @param resolve - Resolver function.
  */
 export async function installTailwind(options: ModuleOptions, nuxt: Nuxt, resolve = createResolver(process.env.url).resolve): Promise<void> {
-  const runtimeDir = resolve('./runtime')
+  if (nuxt.options.builder === '@nuxt/vite-builder') {
+    const plugin = await import('@tailwindcss/vite').then(r => r.default)
+    addVitePlugin(plugin())
+  } else {
+    nuxt.options.postcss.plugins['@tailwindcss/postcss'] = {}
+  }
 
-  // Define the TailwindCSS configuration template
-  const tailwindConfig = addTemplate({
-    filename: 'mockline-tailwind.config.cjs',
-    write: true,
-    getContents: () => generateTailwindConfigContent(runtimeDir, options, resolve),
-  }).dst
+  if (!nuxt.options.css.find(path => path.endsWith('tailwind.css'))) {
+    const template = addTemplate({
+      filename: 'tailwind.css',
+      write: true,
+      getContents: () => `@import "tailwindcss";
 
-  // Install TailwindCSS module with custom options and configuration path
-  await installModule('@nuxtjs/tailwindcss', defu({
-    exposeConfig: true,
-    configPath: [
-      tailwindConfig,
-      join(nuxt.options.rootDir, 'tailwind.config'),
-    ],
-    // @ts-expect-error: Nuxt does not provide a type for this option
-  }, nuxt.options.tailwindcss))
+${hasNuxtModule('@nuxt/content') ? '@source "../content/**/*.md";' : ''}
+
+@theme {
+  ${ colors.map(color => generateColor(color)).join('\n') }
+}` })
+
+    nuxt.options.css.unshift(template.dst)
+  }
 }
 
 /**
@@ -63,8 +64,6 @@ function generateTailwindConfigContent(runtimeDir: string, options: ModuleOption
             canvas: ${JSON.stringify(generateScale('canvas'))},
             ${colors.map(color => `${color}: ${JSON.stringify(generateScale(color))}`).join(',\n')}
           },
-          keyframes: ${JSON.stringify(generateKeyframes())},
-          animation: ${JSON.stringify(generateAnimations())},
         },
       },
       plugins: [
@@ -80,50 +79,4 @@ function generateTailwindConfigContent(runtimeDir: string, options: ModuleOption
       ],
     };
   `
-}
-
-type Transformations = {
-  opacity?: string;
-  transform?: string;
-};
-
-type Keyframes = {
-  from: Transformations;
-  to: Transformations;
-};
-
-/**
- * Generate keyframes for animations.
- *
- * @returns The keyframes configuration.
- */
-function generateKeyframes(): Record<string, Keyframes> {
-  return {
-    enterFromRight: { from: { opacity: '0', transform: 'translateX(200px)' }, to: { opacity: '1', transform: 'translateX(0)' } },
-    enterFromLeft: { from: { opacity: '0', transform: 'translateX(-200px)' }, to: { opacity: '1', transform: 'translateX(0)' } },
-    exitToRight: { from: { opacity: '1', transform: 'translateX(0)' }, to: { opacity: '0', transform: 'translateX(200px)' } },
-    exitToLeft: { from: { opacity: '1', transform: 'translateX(0)' }, to: { opacity: '0', transform: 'translateX(-200px)' } },
-    scaleIn: { from: { opacity: '0', transform: 'rotateX(-10deg) scale(0.9)' }, to: { opacity: '1', transform: 'rotateX(0deg) scale(1)' } },
-    scaleOut: { from: { opacity: '1', transform: 'rotateX(0deg) scale(1)' }, to: { opacity: '0', transform: 'rotateX(-10deg) scale(0.95)' } },
-    fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
-    fadeOut: { from: { opacity: '1' }, to: { opacity: '0' } },
-  }
-}
-
-/**
- * Generate animations configuration.
- *
- * @returns The animations configuration.
- */
-function generateAnimations(): Record<string, string> {
-  return {
-    scaleIn: 'scaleIn 200ms ease',
-    scaleOut: 'scaleOut 200ms ease',
-    fadeIn: 'fadeIn 200ms ease',
-    fadeOut: 'fadeOut 200ms ease',
-    enterFromLeft: 'enterFromLeft 250ms ease',
-    enterFromRight: 'enterFromRight 250ms ease',
-    exitToLeft: 'exitToLeft 250ms ease',
-    exitToRight: 'exitToRight 250ms ease',
-  }
 }
