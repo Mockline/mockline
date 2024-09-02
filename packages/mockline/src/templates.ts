@@ -63,15 +63,12 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()): void {
   addTypeTemplate({
     filename: 'types/mockline.d.ts',
     getContents: () => `
-      import * as mockline from '#build/mockline'
-      import type { DeepPartial } from '#mockline/types/utils'
-
       const colors = ${JSON.stringify(options.colors)} as const;
 
       type MocklineConfig = {
         primary?: typeof colors[number]
         canvas?: typeof colors[number]
-      } & DeepPartial<typeof mockline>
+      }
 
       declare module 'nuxt/schema' {
         interface AppConfigInput {

@@ -1,16 +1,12 @@
 <script setup lang="ts">
 import { tv, type VariantProps } from 'tailwind-variants'
-import type { AppConfig } from '@nuxt/schema'
-import { computed } from 'vue'
 import { twMerge } from 'tailwind-merge'
-import _appConfig from '#build/app.config'
+import { computed } from 'vue'
 import theme from '#build/mockline/button'
 
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
 
-const appConfig = _appConfig as AppConfig & { mockline: { button: Partial<typeof theme> } }
-
-const button = tv({ extend: tv(theme), ...(appConfig.mockline?.button || {}) })
+const button = tv(theme)
 
 type ButtonVariants = VariantProps<typeof button>
 
@@ -22,7 +18,6 @@ export type ButtonProps = {
   square?: boolean
   block?: boolean
   class?: any
-  ui?: Partial<typeof button.slots>
 } & UseComponentIconsProps
 
 export type ButtonSlots = {
