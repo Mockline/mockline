@@ -11,9 +11,6 @@ definePageMeta({
 
 <template>
   <PageBody>
-    <span class="text-canvas font-semibold">
-      Test
-    </span>
     <div class="flex gap-4">
       <MButton
         v-for="variant in variants"

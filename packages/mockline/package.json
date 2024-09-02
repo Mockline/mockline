@@ -4,9 +4,11 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/module.d.ts",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
-    }
+    },
+    "./runtime/*": "./dist/runtime/*"
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
@@ -15,11 +17,10 @@
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",
-    "postinstall": "bun run dev:prepare",
     "dev": "DEV=true nuxi dev playground",
     "build": "nuxt-module-build build",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "bun run tailwind && bun run lint && bun run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "release": "bun run lint && bun run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit"

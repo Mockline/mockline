@@ -9,7 +9,7 @@ import { colors, generateColor } from './runtime/utils/colors'
  * @param nuxt - The Nuxt instance.
  * @param resolve - Resolver function.
  */
-export async function installTailwind(options: ModuleOptions, nuxt: Nuxt, resolve = createResolver(process.env.url).resolve): Promise<void> {
+export async function installTailwind(options: ModuleOptions, nuxt: Nuxt): Promise<void> {
   if (nuxt.options.builder === '@nuxt/vite-builder') {
     const plugin = await import('@tailwindcss/vite').then(r => r.default)
     addVitePlugin(plugin())

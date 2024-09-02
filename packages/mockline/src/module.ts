@@ -49,7 +49,7 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.css.push(resolve('./runtime/assets/css/base.css'))
     nuxt.options.css.push(resolve('./runtime/assets/css/animation.css'))
 
-    await installTailwind(options, nuxt, resolve)
+    await installTailwind(options, nuxt)
 
     addTemplates(options, nuxt)
 

@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <Page class="bg-canvas-3 h-96" right="p-0 bg-blue" left="p-0 bg-red">
+  <Page class="bg-canvas-3 h-96" right="p-0 bg-blue-9" left="p-0 bg-red-9">
     <template #left>
       <div>
         Left

@@ -1,5 +1,5 @@
 <template>
-  <Html class="bg-canvas text-gray-12 min-h-screen">
+  <Html class="bg-canvas-1 text-gray-12 min-h-screen">
     <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage />
