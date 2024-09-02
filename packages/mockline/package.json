@@ -26,8 +26,8 @@
     "tailwind": "tailwindcss -i src/runtime/assets/css/style.css -o src/runtime/assets/css/output.css"
   },
   "dependencies": {
-    "@iconify-json/heroicons": "^1.1.24",
-    "@iconify-json/lucide": "^1.1.208",
+    "@iconify-json/heroicons": "^1.2.0",
+    "@iconify-json/lucide": "^1.2.1",
     "@nuxt/content": "^2.13.2",
     "@nuxt/fonts": "^0.7.2",
     "@nuxt/icon": "^1.5.0",
@@ -37,8 +37,8 @@
     "@radix-ui/colors": "^3.0.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
-    "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.14",
+    "@tailwindcss/forms": "^0.5.8",
+    "@tailwindcss/typography": "^0.5.15",
     "@nuxt/schema": "^3.13.0",
     "defu": "^6.1.4",
     "pathe": "^1.1.2",
@@ -54,11 +54,11 @@
     "@nuxt/devtools": "^1.4.1",
     "@nuxt/module-builder": "^0.8.3",
     "@nuxt/test-utils": "^3.14.1",
-    "@types/node": "^20.16.1",
+    "@types/node": "^20.16.3",
     "changelogen": "^0.5.5",
     "nuxt": "^3.13.0",
     "typescript": "5.5.4",
-    "vue-tsc": "^2.0.29",
+    "vue-tsc": "^2.1.4",
     "zod": "^3.23.8"
   },
   "publishConfig": {
