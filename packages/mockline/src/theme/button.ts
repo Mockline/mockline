@@ -2,7 +2,7 @@ import type { ModuleOptions } from '#mockline/types'
 
 export default (options: Required<ModuleOptions>): any => ({
   slots: {
-    base: ['rounded-md font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.transitions && 'transition-colors'],
+    base: ['rounded-md cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.transitions && 'transition-colors'],
     label: 'truncate',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',

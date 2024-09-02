@@ -61,7 +61,7 @@ const navTitleStyle = computed(() => {
           </NavigationMenuTrigger>
           <NavigationMenuContent
             v-if="item.slot"
-            class="data-[motion=from-start]:animate-enterFromLeft text-gray-12 data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute left-0 top-0 w-full sm:w-auto"
+            class="data-[motion=from-start]:animate-[enter-from-left_200ms_ease] text-gray-12 data-[motion=from-end]:animate-[enter-from-right_200ms_ease] data-[motion=to-start]:animate-[exit-to-left_200ms_ease] data-[motion=to-end]:animate-[exit-to-right_200ms_ease] absolute left-0 top-0 w-full sm:w-auto"
           >
             <slot :name="item.title.toLowerCase()" />
           </NavigationMenuContent>
@@ -77,7 +77,7 @@ const navTitleStyle = computed(() => {
 
     <div class="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
       <NavigationMenuViewport
-        class="data-[state=open]:animate-scaleIn data-[state=closed]:animate-scaleOut bg-canvas-2 relative mt-[10px] h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-[10px] transition-[width,_height] duration-300 sm:w-[var(--radix-navigation-menu-viewport-width)]"
+        class="data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-out] bg-canvas-2 relative mt-[10px] h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-[10px] transition-[width,_height] duration-300 sm:w-[var(--radix-navigation-menu-viewport-width)]"
       />
     </div>
   </NavigationMenuRoot>

@@ -16,8 +16,7 @@ export async function installTailwind(options: ModuleOptions, nuxt: Nuxt): Promi
     nuxt.options.postcss.plugins['@tailwindcss/postcss'] = {}
   }
 
-  if (!nuxt.options.css.find(path => path.endsWith('tailwind.css'))) {
-    const template = addTemplate({
+  const template = addTemplate({
       filename: 'tailwind.css',
       write: true,
       getContents: () => `@import "tailwindcss";
@@ -28,6 +27,5 @@ ${hasNuxtModule('@nuxt/content') ? '@source "../content/**/*.md";' : ''}
   ${ colors.filter(color => color !== 'canvas' || color !== 'primary').map(color => generateColor(color)).join('\n') }
 }` })
 
-    nuxt.options.css.unshift(template.dst)
-  }
+  nuxt.options.css.unshift(template.dst)
 }
