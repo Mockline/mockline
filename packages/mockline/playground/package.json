@@ -13,6 +13,6 @@
     "nuxt": "^3.13.0"
   },
   "devDependencies": {
-    "@iconify-json/vscode-icons": "^1.1.37"
+    "@iconify-json/vscode-icons": "^1.2.0"
   }
 }
