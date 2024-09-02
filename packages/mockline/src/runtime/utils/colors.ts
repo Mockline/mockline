@@ -52,7 +52,9 @@ const shades = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '
  */
 export function generateColor(color: string, colorToAssign?: string): string {
   if (colorToAssign) {
-    return `${shades.map(shade => `--color-${color}-${shade}: var(--${colorToAssign}-${shade});`).join('\n  ')}`
+    const allShades = `${shades.map(shade => `--color-${color}-${shade}: var(--${colorToAssign}-${shade});`).join('\n  ')}`
+    return allShades + `\n  --color-${color}-DEFAULT: var(--${colorToAssign}-${color === 'canvas' ? '1' : '9'});`
   }
-  return `${shades.map(shade => `--color-${color}-${shade}: var(--${color}-${shade});`).join('\n  ')}`
+  const allShades = `${shades.map(shade => `--color-${color}-${shade}: var(--${color}-${shade});`).join('\n  ')}`
+  return allShades + `\n  --color-${color}-DEFAULT: var(--${color}-${color === 'canvas' ? '1' : '9'});`
 }

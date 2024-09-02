@@ -1,4 +1,4 @@
-import { addTemplate, addVitePlugin, createResolver, hasNuxtModule } from '@nuxt/kit'
+import { addTemplate, addVitePlugin, hasNuxtModule } from '@nuxt/kit'
 import type { ModuleOptions, Nuxt } from '@nuxt/schema'
 import { colors, generateColor } from './runtime/utils/colors'
 
@@ -7,7 +7,6 @@ import { colors, generateColor } from './runtime/utils/colors'
  *
  * @param options - Module options provided by Nuxt.
  * @param nuxt - The Nuxt instance.
- * @param resolve - Resolver function.
  */
 export async function installTailwind(options: ModuleOptions, nuxt: Nuxt): Promise<void> {
   if (nuxt.options.builder === '@nuxt/vite-builder') {
@@ -26,7 +25,7 @@ export async function installTailwind(options: ModuleOptions, nuxt: Nuxt): Promi
 ${hasNuxtModule('@nuxt/content') ? '@source "../content/**/*.md";' : ''}
 
 @theme {
-  ${ colors.map(color => generateColor(color)).join('\n') }
+  ${ colors.filter(color => color !== 'canvas' || color !== 'primary').map(color => generateColor(color)).join('\n') }
 }` })
 
     nuxt.options.css.unshift(template.dst)
