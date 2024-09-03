@@ -23,6 +23,7 @@ definePageMeta({
       <MButton
         label="Home"
         trailing
+        label-class="text-blue-700"
         icon="lucide:home"
       />
     </div>

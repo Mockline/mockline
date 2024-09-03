@@ -10,12 +10,6 @@ export default defineNuxtPlugin(() => {
     return `:root {
   ${ generateColor('primary', mockline.primary) }
   ${ generateColor('canvas', mockline.canvas) }
-  --color-primary-DEFAULT: var(--color-primary-9);
-  --color-canvas-DEFAULT: var(--color-canvas-1);
-}
-@media (prefers-color-scheme: dark) {
-  --color-primary-DEFAULT: var(--color-primary-9);
-  --color-canvas-DEFAULT: var(--color-canvas-1);
 }
 `
   })

@@ -25,10 +25,14 @@
   "workspaces": [
     "packages/*"
   ],
+  "engines": {
+    "node": ">=v16.20.2"
+  },
   "resolutions": {
-    "@nuxt/kit": "3.13.0",
-    "@nuxt/schema": "3.13.0",
-    "nuxt": "3.13.0",
+    "@nuxt/kit": "3.12.3",
+    "@nuxt/schema": "3.12.3",
+    "mockline": "workspace:*",
+    "nuxt": "3.12.3",
     "vite": "5.2.4"
   }
 }

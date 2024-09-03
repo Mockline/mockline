@@ -2,7 +2,7 @@ import type { ModuleOptions } from '#mockline/types'
 
 export default (options: Required<ModuleOptions>): any => ({
   slots: {
-    base: ['rounded-md cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.transitions && 'transition-colors'],
+    base: ['cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.transitions && 'transition-colors'],
     label: 'truncate',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
@@ -48,6 +48,24 @@ export default (options: Required<ModuleOptions>): any => ({
         base: 'px-3 py-2 text-base gap-2',
         leadingIcon: 'size-6',
         trailingIcon: 'size-6'
+      }
+    },
+    rounded: {
+      none: '',
+      sm: {
+        base: 'rounded-sm'
+      },
+      md: {
+        base: 'rounded-md'
+      },
+      lg: {
+        base: 'rounded-lg'
+      },
+      xl: {
+        base: 'rounded-xl'
+      },
+      full: {
+        base: 'rounded-full'
       }
     },
     block: {
@@ -132,6 +150,7 @@ export default (options: Required<ModuleOptions>): any => ({
   defaultVariants: {
     color: 'primary',
     variant: 'solid',
+    rounded: 'md',
     size: 'md'
   }
 })
