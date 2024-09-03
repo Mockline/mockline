@@ -1,4 +1,4 @@
-import { addTemplate, addVitePlugin, hasNuxtModule } from '@nuxt/kit'
+import { addTemplate, addVitePlugin } from '@nuxt/kit'
 import type { ModuleOptions, Nuxt } from '@nuxt/schema'
 import { colors, generateColor } from './runtime/utils/colors'
 
@@ -16,16 +16,16 @@ export async function installTailwind(options: ModuleOptions, nuxt: Nuxt): Promi
     nuxt.options.postcss.plugins['@tailwindcss/postcss'] = {}
   }
 
-  const template = addTemplate({
+  if (!nuxt.options.css.find(path => path.endsWith('tailwind.css'))) {
+    const template = addTemplate({
       filename: 'tailwind.css',
       write: true,
       getContents: () => `@import "tailwindcss";
 
-${hasNuxtModule('@nuxt/content') ? '@source "../content/**/*.md";' : ''}
-
 @theme {
-  ${ colors.filter(color => color !== 'canvas' || color !== 'primary').map(color => generateColor(color)).join('\n') }
+  ${ colors.map(color => generateColor(color)).join('\n') }
 }` })
 
-  nuxt.options.css.unshift(template.dst)
+    nuxt.options.css.unshift(template.dst)
+  }
 }

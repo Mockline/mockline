@@ -20,17 +20,10 @@ export default defineNuxtPlugin(() => {
 `
   })
 
-  const headData: {
-    title?: string
-    meta?: any[]
-    link?: any[]
-    script?: any[]
-    style?: any[]
-  } = {
-    script: [],
+  const headData = {
     style: [
       {
-        innerHTML: () => root.value,
+        innerHTML: (): string => root.value,
         tagPriority: -2,
         id: 'mockline-colors',
         type: 'text/css'
@@ -40,7 +33,7 @@ export default defineNuxtPlugin(() => {
 
   if (import.meta.client && nuxtApp.isHydrating && !nuxtApp.payload.serverRendered) {
     const style = document.createElement('style')
-    style.innerHTML = rootStyle.value
+    style.innerHTML = root.value
     style.setAttribute('data-mockline-colors', '')
     document.head.appendChild(style)
 
