@@ -15,6 +15,7 @@ export type ButtonProps = {
   color?: ButtonVariants['color']
   variant?: ButtonVariants['variant']
   size?: ButtonVariants['size']
+  rounded?: ButtonVariants['rounded']
   square?: boolean
   block?: boolean
   class?: string
@@ -44,7 +45,7 @@ const ui = computed(() => tv({ extend: button })({
 <template>
   <component
     :is="'button'"
-    :class="twMerge(ui.base({ class: props.class }))"
+    :class="twMerge(ui.base(), props.class)"
   >
     <slot name="leading">
       <MIcon
