@@ -23,6 +23,24 @@ export default (options: Required<ModuleOptions>): any => ({
       ghost: '',
       link: ''
     },
+    rounded: {
+      none: '',
+      sm: {
+        base: 'rounded-sm'
+      },
+      md: {
+        base: 'rounded-md'
+      },
+      lg: {
+        base: 'rounded-lg'
+      },
+      xl: {
+        base: 'rounded-xl'
+      },
+      full: {
+        base: 'rounded-full'
+      }
+    },
     size: {
       xs: {
         base: 'px-2 py-1 text-xs gap-1',
@@ -132,6 +150,7 @@ export default (options: Required<ModuleOptions>): any => ({
   defaultVariants: {
     color: 'primary',
     variant: 'solid',
+    rounded: 'md',
     size: 'md'
   }
 })
