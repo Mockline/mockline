@@ -20,6 +20,7 @@
     "build": "nuxt-module-build build",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && bun run tailwind",
     "release": "bun run tailwind && bun run lint && bun run prepack && release-it",
+    "release:edge": "release-it --preRelease=edge --npm.tag=edge",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
