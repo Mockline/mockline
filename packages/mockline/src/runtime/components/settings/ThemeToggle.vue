@@ -46,6 +46,7 @@ const themeToggleClasses = computed(() => twMerge(
       v-if="!$slots.default"
       :name="$colorMode.value === 'light' ? props.lightIcon : props.darkIcon"
       :class="twMerge(themeToggleClasses)"
+      class="select-none"
       @click="$colorMode.value === 'light' ? ($colorMode.preference = 'dark') : ($colorMode.preference = 'light')"
     />
     <template #fallback>

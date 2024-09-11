@@ -14,8 +14,6 @@ const TOAST_LIFETIME = 4000
 // Default gap between toasts
 const GAP = 14
 
-console.log(appConfig)
-
 withDefaults(defineProps<ToasterProps>(), {
   invert: false,
   position: appConfig.mockline?.toast?.position ?? 'top-center',
