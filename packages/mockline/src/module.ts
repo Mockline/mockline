@@ -38,7 +38,6 @@ export default defineNuxtModule<ModuleOptions>({
 
     options.colors = (options.colors?.length ? [...new Set(['primary', 'canvas', ...options.colors])] : colors) as Color[]
 
-    // @ts-expect-error - TS doesn't know that the key exists
     nuxt.options.mockline = options
 
     nuxt.options.appConfig.mockline = defu(nuxt.options.appConfig.mockline || {}, {
