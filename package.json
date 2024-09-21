@@ -17,9 +17,9 @@
   },
   "packageManager": "bun@1.1.26",
   "devDependencies": {
-    "@hrcd/eslint-config": "^2.0.2",
+    "@hrcd/eslint-config": "^2.0.5",
     "automd": "^0.3.8",
-    "eslint": "^9.10.0",
+    "eslint": "^9.11.0",
     "turbo": "^2.1.2"
   },
   "workspaces": [
