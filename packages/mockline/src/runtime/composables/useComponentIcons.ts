@@ -15,7 +15,7 @@ export type UseComponentIconsProps = {
   loading?: boolean
   /**
    * The icon when the `loading` prop is `true`.
-   * @defaultValue appConfig.ui.icons.loading
+   * @defaultValue appConfig.mockline.icons.loading
    */
   loadingIcon?: string
 }
