@@ -41,7 +41,7 @@ export default defineNuxtModule<ModuleOptions>({
     }
   },
   defaults: {
-    prefix: 'U',
+    prefix: 'M',
     fonts: true,
     theme: {
       colors: undefined,
@@ -53,7 +53,6 @@ export default defineNuxtModule<ModuleOptions>({
 
     options.theme = options.theme || {}
     options.theme.colors = options.theme.colors?.length ? [...new Set(['primary', 'error', ...options.theme.colors])] : ['primary', 'error', 'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose']
-console.log(options.theme.colors)
 
     nuxt.options.ui = options
 
@@ -92,17 +91,17 @@ console.log(options.theme.colors)
       nuxt.options.icon = defu(nuxt.options.icon, { cssLayer: 'components', componentName: 'MIcon', })
     }
 
-    // if (!hasNuxtModule('@nuxtjs/color-mode')) {
-    //   await installModule('@nuxtjs/color-mode', { classSuffix: '' })
-    // } else {
-    //   nuxt.options.colorMode = defu(nuxt.options.colorMode, { classSuffix: '' })
-    // }
+    if (!hasNuxtModule('@nuxtjs/color-mode')) {
+      await installModule('@nuxtjs/color-mode', { classSuffix: '' })
+    } else {
+      nuxt.options.colorMode = defu(nuxt.options.colorMode, { classSuffix: '' })
+    }
 
     addPlugin({
       src: resolve('./runtime/plugins/colors')
     })
 
-    addComponentsDir({
+    await addComponentsDir({
       path: resolve('./runtime/components'),
       prefix: options.prefix,
       pathPrefix: false

@@ -13,50 +13,50 @@ function onClick() {
 <template>
   <div class="flex flex-col gap-2">
     <div class="flex items-center gap-2">
-      <UButton class="font-bold">
+      <MButton class="font-bold">
         Button
-      </UButton>
+      </MButton>
     </div>
     <div class="flex items-center gap-2">
-      <UButton disabled>
+      <MButton disabled>
         Disabled
-      </UButton>
+      </MButton>
 
-      <UButton to="#" disabled>
+      <MButton to="#" disabled>
         Disabled Link
-      </UButton>
+      </MButton>
     </div>
     <div class="flex items-center gap-2">
-      <UButton loading-auto @click="onClick">
+      <MButton loading-auto @click="onClick">
         Loading
-      </UButton>
+      </MButton>
     </div>
     <div class="flex items-center gap-2">
-      <UButton loading trailing>
+      <MButton loading trailing>
         Loading
-      </UButton>
+      </MButton>
     </div>
     <div class="flex items-center gap-2">
-      <UButton v-for="variant in variants" :key="variant" icon="i-heroicons-rocket-launch" :label="upperFirst(variant)" :variant="variant" />
+      <MButton v-for="variant in variants" :key="variant" icon="i-heroicons-rocket-launch" :label="upperFirst(variant)" :variant="variant" />
     </div>
     <div class="flex items-center gap-2">
-      <UButton
+      <MButton
         v-for="variant in variants"
         :key="variant"
         icon="i-heroicons-rocket-launch"
         :label="upperFirst(variant)"
         :variant="variant"
-        color="gray"
+        color="red"
       />
     </div>
     <div class="flex items-center gap-2 ml-[-129px]">
-      <UButton v-for="size in sizes" :key="size" label="Button" :size="size" />
+      <MButton v-for="size in sizes" :key="size" label="Button" :size="size" />
     </div>
     <div class="flex items-center gap-2 ml-[-171px]">
-      <UButton v-for="size in sizes" :key="size" icon="i-heroicons-rocket-launch" label="Button" :size="size" />
+      <MButton v-for="size in sizes" :key="size" icon="i-heroicons-rocket-launch" label="Button" :size="size" />
     </div>
     <div class="flex items-center gap-2 ml-[-159px]">
-      <UButton
+      <MButton
         v-for="size in sizes"
         :key="size"
         icon="i-heroicons-rocket-launch"
@@ -66,13 +66,13 @@ function onClick() {
       />
     </div>
     <div class="flex items-center gap-2 ml-[-68px]">
-      <UButton v-for="size in sizes" :key="size" icon="i-heroicons-rocket-launch" :size="size" />
+      <MButton v-for="size in sizes" :key="size" icon="i-heroicons-rocket-launch" :size="size" />
     </div>
     <div class="flex items-center gap-2">
-      <UButton icon="i-heroicons-rocket-launch" trailing-icon="i-heroicons-chevron-down-20-solid" label="Block" block />
+      <MButton icon="i-heroicons-rocket-launch" trailing-icon="i-heroicons-chevron-down-20-solid" label="Block" block />
     </div>
     <div class="flex items-center gap-2">
-      <UButton icon="i-heroicons-cloud-arrow-down" label="Button" class="group" :ui="{ leadingIcon: 'group-hover:animate-pulse' }" />
+      <MButton icon="i-heroicons-cloud-arrow-down" label="Button" class="group" :ui="{ leadingIcon: 'group-hover:animate-pulse' }" />
     </div>
   </div>
 </template>
