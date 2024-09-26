@@ -45,29 +45,4 @@ export function addTemplates(options: ModuleOptions) {
     write: true,
     getContents: () => Object.keys(theme).map(component => `export { default as ${component} } from './${kebabCase(component)}'`).join('\n')
   })
-
-  // FIXME: `typeof colors[number]` should include all colors from the theme
-  addTypeTemplate({
-    filename: 'types/mockline.d.ts',
-    getContents: () => `import * as ui from '#build/ui'
-
-const colors = ${JSON.stringify(options.theme?.colors || [])} as const;
-
-type AppConfigUI = {
-  colors?: {
-    primary?: Exclude<typeof colors[number], 'error' | 'primary'>
-    error?: Exclude<typeof colors[number], 'primary' | 'error'>
-    gray?: 'slate' | 'cool' | 'zinc' | 'neutral' | 'stone'
-  }
-}
-
-declare module '@nuxt/schema' {
-  interface AppConfigInput {
-    mockline?: AppConfigUI
-  }
-}
-
-export {}
-`
-  })
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <h1 class="font-semibold mb-1">
+    <h1 class="mb-1 font-semibold">
       Playground
     </h1>
 

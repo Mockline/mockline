@@ -4,18 +4,12 @@ import { splitByCase, upperFirst } from 'scule'
 const appConfig = useAppConfig()
 const router = useRouter()
 
-const components = ['button',]
+const components = ['button', 'kbd']
 
 const items = components.map(component => ({ label: upperName(component), to: `/components/${component}` }))
 
 function upperName(name: string) {
   return splitByCase(name).map(p => upperFirst(p)).join('')
-}
-
-const isCommandPaletteOpen = ref(false)
-
-function onSelect(item: any) {
-  router.push(item.to)
 }
 
 defineShortcuts({
@@ -25,7 +19,7 @@ defineShortcuts({
 
 <template>
   <div class="flex h-screen min-h-0 w-screen overflow-hidden bg-white dark:bg-gray-900">
-    <div>
+    <div class="flex flex-col p-4">
       <NuxtLink v-for="item in items" :key="item.label" :to="item.to">
         {{ item.label }}
       </NuxtLink>

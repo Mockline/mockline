@@ -49,13 +49,13 @@ function onClick() {
         color="red"
       />
     </div>
-    <div class="ml-[-129px] flex items-center gap-2">
+    <div class="flex items-center gap-2">
       <MButton v-for="size in sizes" :key="size" label="Button" :size />
     </div>
-    <div class="ml-[-171px] flex items-center gap-2">
+    <div class="flex items-center gap-2">
       <MButton v-for="size in sizes" :key="size" icon="i-heroicons-rocket-launch" label="Button" :size />
     </div>
-    <div class="ml-[-159px] flex items-center gap-2">
+    <div class="flex items-center gap-2">
       <MButton
         v-for="size in sizes"
         :key="size"
@@ -65,7 +65,7 @@ function onClick() {
         :size
       />
     </div>
-    <div class="ml-[-68px] flex items-center gap-2">
+    <div class="flex items-center gap-2">
       <MButton v-for="size in sizes" :key="size" icon="i-heroicons-rocket-launch" :size />
     </div>
     <div class="flex items-center gap-2">

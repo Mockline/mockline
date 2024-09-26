@@ -4,7 +4,7 @@ import { addTemplates } from './templates'
 
 export type * from './runtime/types'
 
-export interface ModuleOptions {
+export type ModuleOptions = {
   /**
    * Prefix for components
    * @defaultValue U
