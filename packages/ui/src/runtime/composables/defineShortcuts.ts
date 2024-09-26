@@ -1,5 +1,3 @@
-/* eslint-disable regexp/no-useless-quantifier */
-/* eslint-disable regexp/no-super-linear-backtracking */
 import { ref, computed, toValue } from 'vue'
 import type { MaybeRef } from 'vue'
 import { useEventListener, useActiveElement, useDebounceFn } from '@vueuse/core'
@@ -7,20 +5,20 @@ import { useKbd } from '../composables/useKbd'
 
 type Handler = (e?: any) => void
 
-export interface ShortcutConfig {
+export type ShortcutConfig = {
   handler: Handler
   usingInput?: string | boolean
 }
 
-export interface ShortcutsConfig {
+export type ShortcutsConfig = {
   [key: string]: ShortcutConfig | Handler | false | null | undefined
 }
 
-export interface ShortcutsOptions {
+export type ShortcutsOptions = {
   chainDelay?: number
 }
 
-interface Shortcut {
+type Shortcut = {
   handler: Handler
   enabled: boolean
   chained: boolean
@@ -132,7 +130,7 @@ export function defineShortcuts(config: MaybeRef<ShortcutsConfig>, options: Shor
     const tagName = activeElement.value?.tagName
     const contentEditable = activeElement.value?.contentEditable
 
-    const usingInput = !!(tagName === 'INPUT' || tagName === 'TEXTAREA' || contentEditable === 'true' || contentEditable === 'plaintext-only')
+    const usingInput = (tagName === 'INPUT' || tagName === 'TEXTAREA' || contentEditable === 'true' || contentEditable === 'plaintext-only')
 
     if (usingInput) {
       return ((activeElement.value as any)?.name as string) || true

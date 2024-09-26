@@ -15,7 +15,7 @@ export default defineNuxtPlugin(() => {
 
   const root = computed(() => {
     return `:root {
-  ${Object.entries(appConfig.ui.colors).map(([key, value]: [string, string]) => generateColor(key, value)).join('\n  ')}
+  ${Object.entries(appConfig.mockline.colors).map(([key, value]: [string, string]) => generateColor(key, value)).join('\n  ')}
   --color-primary-DEFAULT: var(--color-primary-500);
 }
 @media (prefers-color-scheme: dark) {
@@ -26,12 +26,14 @@ export default defineNuxtPlugin(() => {
 
   // Head
   const headData: any = {
-    style: [{
-      innerHTML: () => root.value,
-      tagPriority: -2,
-      id: 'nuxt-ui-colors',
-      type: 'text/css'
-    }]
+    style: [
+      {
+        innerHTML: () => root.value,
+        tagPriority: -2,
+        id: 'mockline-colors',
+        type: 'text/css'
+      }
+    ]
   }
 
   // SPA mode
@@ -39,12 +41,14 @@ export default defineNuxtPlugin(() => {
     const style = document.createElement('style')
 
     style.innerHTML = root.value
-    style.setAttribute('data-nuxt-ui-colors', '')
+    style.setAttribute('data-mockline-colors', '')
     document.head.appendChild(style)
 
-    headData.script = [{
-      innerHTML: 'document.head.removeChild(document.querySelector(\'[data-nuxt-ui-colors]\'))'
-    }]
+    headData.script = [
+      {
+        innerHTML: 'document.head.removeChild(document.querySelector(\'[data-mockline-colors]\'))'
+      }
+    ]
   }
 
   useHead(headData)

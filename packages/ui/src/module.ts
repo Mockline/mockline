@@ -54,11 +54,11 @@ export default defineNuxtModule<ModuleOptions>({
     options.theme = options.theme || {}
     options.theme.colors = options.theme.colors?.length ? [...new Set(['primary', 'error', ...options.theme.colors])] : ['primary', 'error', 'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose']
 
-    nuxt.options.ui = options
+    nuxt.options.mockline = options
 
-    nuxt.options.alias['#ui'] = resolve('./runtime')
+    nuxt.options.alias['#mockline'] = resolve('./runtime')
 
-    nuxt.options.appConfig.ui = defu(nuxt.options.appConfig.ui || {}, {
+    nuxt.options.appConfig.mockline = defu(nuxt.options.appConfig.mockline || {}, {
       colors: {
         primary: 'green',
         error: 'red',

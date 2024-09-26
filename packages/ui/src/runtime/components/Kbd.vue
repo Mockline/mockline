@@ -1,17 +1,19 @@
-<script lang="ts">
+<script setup lang="ts">
 import { tv, type VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import _appConfig from '#build/app.config'
-import theme from '#build/ui/kbd'
+import { Primitive } from 'radix-vue'
 import type { KbdKey } from '../composables/useKbd'
+import { useKbd } from '../composables/useKbd'
+import _appConfig from '#build/app.config'
+import theme from '#build/mockline/kbd'
 
 const appConfig = _appConfig as AppConfig & { ui: { kbd: Partial<typeof theme> } }
 
-const kbd = tv({ extend: tv(theme), ...(appConfig.ui?.kbd || {}) })
+const kbd = tv({ extend: tv(theme), ...(appConfig.mockline?.kbd || {}) })
 
 type KbdVariants = VariantProps<typeof kbd>
 
-export interface KbdProps {
+export type KbdProps = {
   /**
    * The element or component this component should render as.
    * @defaultValue 'kbd'
@@ -23,14 +25,9 @@ export interface KbdProps {
   class?: any
 }
 
-export interface KbdSlots {
-  default(props?: {}): any
+export type KbdSlots = {
+  default(props?: object): any
 }
-</script>
-
-<script setup lang="ts">
-import { Primitive } from 'radix-vue'
-import { useKbd } from '../composables/useKbd'
 
 const props = withDefaults(defineProps<KbdProps>(), {
   as: 'kbd'
@@ -41,7 +38,7 @@ const { getKbdKey } = useKbd()
 </script>
 
 <template>
-  <Primitive :as="as" :class="kbd({ variant, size, class: props.class })">
+  <Primitive :as :class="kbd({ variant, size, class: props.class })">
     <slot>
       {{ getKbdKey(value) }}
     </slot>

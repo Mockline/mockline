@@ -1,16 +1,15 @@
 import { fileURLToPath } from 'node:url'
 import { kebabCase } from 'scule'
 import { addTemplate, addTypeTemplate } from '@nuxt/kit'
-import type { Nuxt } from '@nuxt/schema'
 import type { ModuleOptions } from './module'
 import * as theme from './theme'
 
-export function addTemplates(options: ModuleOptions, nuxt: Nuxt) {
+export function addTemplates(options: ModuleOptions) {
   for (const component in theme) {
     addTemplate({
-      filename: `ui/${kebabCase(component)}.ts`,
+      filename: `mockline/${kebabCase(component)}.ts`,
       write: true,
-      getContents: async () => {
+      getContents: () => {
         const template = (theme as any)[component]
         const result = typeof template === 'function' ? template(options) : template
 
@@ -42,14 +41,14 @@ export function addTemplates(options: ModuleOptions, nuxt: Nuxt) {
   }
 
   addTemplate({
-    filename: 'ui/index.ts',
+    filename: 'mockline/index.ts',
     write: true,
     getContents: () => Object.keys(theme).map(component => `export { default as ${component} } from './${kebabCase(component)}'`).join('\n')
   })
 
   // FIXME: `typeof colors[number]` should include all colors from the theme
   addTypeTemplate({
-    filename: 'types/ui.d.ts',
+    filename: 'types/mockline.d.ts',
     getContents: () => `import * as ui from '#build/ui'
 
 const colors = ${JSON.stringify(options.theme?.colors || [])} as const;
@@ -64,7 +63,7 @@ type AppConfigUI = {
 
 declare module '@nuxt/schema' {
   interface AppConfigInput {
-    ui?: AppConfigUI
+    mockline?: AppConfigUI
   }
 }
 

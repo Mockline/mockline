@@ -1,7 +1,7 @@
 import { computed, toValue, type MaybeRefOrGetter } from 'vue'
 import { useAppConfig } from '#imports'
 
-export interface UseComponentIconsProps {
+export type UseComponentIconsProps = {
   /** Display an icon based on the `leading` and `trailing` props. */
   icon?: string
   /** When `true`, the icon will be displayed on the left side. */
@@ -16,7 +16,7 @@ export interface UseComponentIconsProps {
   loading?: boolean
   /**
    * The icon when the `loading` prop is `true`.
-   * @defaultValue appConfig.ui.icons.loading
+   * @defaultValue appConfig.mockline.icons.loading
    */
   loadingIcon?: string
 }
@@ -31,14 +31,14 @@ export function useComponentIcons(componentProps: MaybeRefOrGetter<UseComponentI
 
   const leadingIconName = computed(() => {
     if (props.value.loading) {
-      return props.value.loadingIcon || appConfig.ui.icons.loading
+      return props.value.loadingIcon || appConfig.mockline.icons.loading
     }
 
     return props.value.leadingIcon || props.value.icon
   })
   const trailingIconName = computed(() => {
     if (props.value.loading && !isLeading.value) {
-      return props.value.loadingIcon || appConfig.ui.icons.loading
+      return props.value.loadingIcon || appConfig.mockline.icons.loading
     }
 
     return props.value.trailingIcon || props.value.icon

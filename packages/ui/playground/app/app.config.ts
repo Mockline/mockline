@@ -4,9 +4,9 @@ export default defineAppConfig({
     expand: true,
     duration: 5000
   },
-  ui: {
+  mockline: {
     icons: {
-      loading: "lucide:loader"
+      loading: 'lucide:loader'
     },
     colors: {
       primary: 'blue',

@@ -4,9 +4,7 @@ import { splitByCase, upperFirst } from 'scule'
 const appConfig = useAppConfig()
 const router = useRouter()
 
-const components = [
-  'button',
-]
+const components = ['button',]
 
 const items = components.map(component => ({ label: upperName(component), to: `/components/${component}` }))
 
@@ -21,18 +19,18 @@ function onSelect(item: any) {
 }
 
 defineShortcuts({
-  meta_k: () => isCommandPaletteOpen.value = true
+  meta_k: () => console.log('meta_k'),
 })
 </script>
 
 <template>
-  <div class="h-screen w-screen overflow-hidden flex min-h-0 bg-white dark:bg-gray-900" vaul-drawer-wrapper>
+  <div class="flex h-screen min-h-0 w-screen overflow-hidden bg-white dark:bg-gray-900">
     <div>
-      <NuxtLink v-for="item in items" :to="item.to">
+      <NuxtLink v-for="item in items" :key="item.label" :to="item.to">
         {{ item.label }}
       </NuxtLink>
     </div>
-    <div class="flex-1 flex flex-col items-center justify-around overflow-y-auto w-full py-12 px-4">
+    <div class="flex w-full flex-1 flex-col items-center justify-around overflow-y-auto px-4 py-12">
       <NuxtPage />
     </div>
   </div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { upperFirst } from 'scule'
-import theme from '#build/ui/button'
+import theme from '#build/mockline/button'
 
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
@@ -37,7 +37,7 @@ function onClick() {
       </MButton>
     </div>
     <div class="flex items-center gap-2">
-      <MButton v-for="variant in variants" :key="variant" icon="i-heroicons-rocket-launch" :label="upperFirst(variant)" :variant="variant" />
+      <MButton v-for="variant in variants" :key="variant" icon="i-heroicons-rocket-launch" :label="upperFirst(variant)" :variant />
     </div>
     <div class="flex items-center gap-2">
       <MButton
@@ -45,28 +45,28 @@ function onClick() {
         :key="variant"
         icon="i-heroicons-rocket-launch"
         :label="upperFirst(variant)"
-        :variant="variant"
+        :variant
         color="red"
       />
     </div>
-    <div class="flex items-center gap-2 ml-[-129px]">
-      <MButton v-for="size in sizes" :key="size" label="Button" :size="size" />
+    <div class="ml-[-129px] flex items-center gap-2">
+      <MButton v-for="size in sizes" :key="size" label="Button" :size />
     </div>
-    <div class="flex items-center gap-2 ml-[-171px]">
-      <MButton v-for="size in sizes" :key="size" icon="i-heroicons-rocket-launch" label="Button" :size="size" />
+    <div class="ml-[-171px] flex items-center gap-2">
+      <MButton v-for="size in sizes" :key="size" icon="i-heroicons-rocket-launch" label="Button" :size />
     </div>
-    <div class="flex items-center gap-2 ml-[-159px]">
+    <div class="ml-[-159px] flex items-center gap-2">
       <MButton
         v-for="size in sizes"
         :key="size"
         icon="i-heroicons-rocket-launch"
         label="Square"
         square
-        :size="size"
+        :size
       />
     </div>
-    <div class="flex items-center gap-2 ml-[-68px]">
-      <MButton v-for="size in sizes" :key="size" icon="i-heroicons-rocket-launch" :size="size" />
+    <div class="ml-[-68px] flex items-center gap-2">
+      <MButton v-for="size in sizes" :key="size" icon="i-heroicons-rocket-launch" :size />
     </div>
     <div class="flex items-center gap-2">
       <MButton icon="i-heroicons-rocket-launch" trailing-icon="i-heroicons-chevron-down-20-solid" label="Block" block />
