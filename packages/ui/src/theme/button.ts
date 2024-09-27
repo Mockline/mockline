@@ -2,7 +2,7 @@ import type { ModuleOptions } from '../module'
 
 export default (options: Required<ModuleOptions>): any => ({
   slots: {
-    base: ['rounded-md font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-7005', options.theme.transitions && 'transition-colors'],
+    base: ['rounded-md font-medium cursor-pointer inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-7005', options.theme.transitions && 'transition-colors'],
     label: 'truncate',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
@@ -91,27 +91,27 @@ export default (options: Required<ModuleOptions>): any => ({
     ...options.theme.colors.map((color: string) => ({
       color,
       variant: 'solid',
-      class: `shadow-sm text-white bg-${color}-600 hover:bg-${color}-700 disabled:bg-${color}-750 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-${color}-8`
+      class: `text-white dark:text-gray-900 bg-${color}-500 hover:bg-${color}-600 disabled:bg-${color}-500 aria-disabled:bg-${color}-500 dark:bg-${color}-400 dark:hover:bg-${color}-500 dark:disabled:bg-${color}-400 dark:aria-disabled:bg-${color}-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-${color}-500 dark:focus-visible:outline-${color}-400`
     })), ...options.theme.colors.map((color: string) => ({
       color,
       variant: 'outline',
-      class: `ring-2 text-${color}-750 hover:bg-${color}-10 hover:text-white disabled:bg-transparent ring-${color}-600 hover:ring-${color}-900`
+      class: `ring ring-inset ring-${color}-500/50 dark:ring-${color}-400/50 text-${color}-500 dark:text-${color}-400 hover:bg-${color}-500/10 disabled:bg-transparent aria-disabled:bg-transparent dark:hover:bg-${color}-400/10 dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-${color}-500 dark:focus-visible:ring-${color}-400`
     })), ...options.theme.colors.map((color: string) => ({
       color,
       variant: 'soft',
-      class: `text-${color}-750 bg-${color}-800 hover:bg-${color}-100 disabled:bg-${color}-800`
+      class: `text-${color}-500 dark:text-${color}-400 bg-${color}-500/10 hover:bg-${color}-500/15 focus-visible:bg-${color}-500/15 disabled:bg-${color}-500/10 aria-disabled:bg-${color}-500/10 dark:bg-${color}-400/10 dark:hover:bg-${color}-400/15 dark:focus-visible:bg-${color}-400/15 dark:disabled:bg-${color}-400/10 dark:aria-disabled:bg-${color}-400/10`
     })), ...options.theme.colors.map((color: string) => ({
       color,
       variant: 'subtle',
-      class: `text-${color}-750 bg-${color}-750/10 hover:bg-${color}-750/20 disabled:bg-${color}-750/10`
+      class: `text-${color}-500 dark:text-${color}-400 ring ring-inset ring-${color}-500/25 dark:ring-${color}-400/25 bg-${color}-500/10 hover:bg-${color}-500/15 disabled:bg-${color}-500/10 aria-disabled:bg-${color}-500/10 dark:bg-${color}-400/10 dark:hover:bg-${color}-400/15 dark:disabled:bg-${color}-400/10 dark:aria-disabled:bg-${color}-400/10 focus-visible:ring-2 focus-visible:ring-${color}-500 dark:focus-visible:ring-${color}-400`
     })), ...options.theme.colors.map((color: string) => ({
       color,
       variant: 'ghost',
-      class: `text-${color}-750 hover:bg-${color}-800 disabled:bg-transparent`
+      class: `text-${color}-500 dark:text-${color}-400 hover:bg-${color}-500/10 focus-visible:bg-${color}-500/10 disabled:bg-transparent aria-disabled:bg-transparent dark:hover:bg-${color}-400/10 dark:focus-visible:bg-${color}-400/10 dark:disabled:bg-transparent dark:aria-disabled:bg-transparent`
     })), ...options.theme.colors.map((color: string) => ({
       color,
       variant: 'link',
-      class: `text-${color}-750 hover:text-${color}-700 disabled:text-${color}-750 hover:underline`
+      class: `text-${color}-500 hover:text-${color}-600 disabled:text-${color}-500 aria-disabled:text-${color}-500 dark:text-${color}-400 dark:hover:text-${color}-500 dark:disabled:text-${color}-400 dark:aria-disabled:text-${color}-400 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}-500 dark:focus-visible:ring-${color}-400`
     })), {
       size: 'xs',
       square: true,

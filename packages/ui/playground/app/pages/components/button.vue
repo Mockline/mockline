@@ -37,7 +37,14 @@ function onClick() {
       </MButton>
     </div>
     <div class="flex items-center gap-2">
-      <MButton v-for="variant in variants" :key="variant" icon="i-heroicons-rocket-launch" :label="upperFirst(variant)" :variant />
+      <MButton
+        v-for="variant in variants"
+        :key="variant"
+        trailing
+        icon="i-heroicons-rocket-launch"
+        :label="upperFirst(variant)"
+        :variant
+      />
     </div>
     <div class="flex items-center gap-2">
       <MButton

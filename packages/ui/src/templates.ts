@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { kebabCase } from 'scule'
-import { addTemplate, addTypeTemplate } from '@nuxt/kit'
+import { addTemplate } from '@nuxt/kit'
 import type { ModuleOptions } from './module'
 import * as theme from './theme'
 

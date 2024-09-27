@@ -4,7 +4,7 @@ export default defineAppConfig({
       loading: 'lucide:loader'
     },
     colors: {
-      primary: 'blue',
+      primary: 'indigo',
       gray: 'neutral'
     }
   }

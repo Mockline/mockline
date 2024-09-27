@@ -1,25 +1,16 @@
 import type { ToasterProps } from 'vue-sonner'
 
-const colors = ['red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose']
+const colors = 'blue' | 'red' | 'green' | 'yellow' | 'indigo' | 'purple' | 'pink' | 'teal' | 'orange' | 'cyan' | 'black' | 'white'
+const gray = 'neutral' | 'slate' | 'gray' | 'zinc' | 'stone'
 
 export type MocklineConfig = {
-  /**
-   * Primary color (accent)
-   */
-  primary?: typeof colors[number]
-  /**
-   * Canvas color (background)
-   */
-  canvas?: typeof colors[number]
-  /**
-   * Icons
-   */
   icons?: {
     loading?: string
   }
-  /**
-   * Toast
-   */
+  colors?: {
+    primary?: typeof colors
+    gray?: typeof gray
+  }
   toast?: {
     position?: ToasterProps['position']
     duration?: number
@@ -37,4 +28,5 @@ declare module '@nuxt/schema' {
     mockline?: MocklineConfig
   }
 }
+
 export {}
