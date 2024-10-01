@@ -4,7 +4,7 @@ import { splitByCase, upperFirst } from 'scule'
 const appConfig = useAppConfig()
 const router = useRouter()
 
-const components = ['button', 'kbd']
+const components = ['button', 'kbd', 'nav-menu']
 
 const items = components.map(component => ({ label: upperName(component), to: `/components/${component}` }))
 
@@ -13,7 +13,7 @@ function upperName(name: string) {
 }
 
 defineShortcuts({
-  meta_k: () => console.log('meta_k'),
+  meta_k: () => toast.info('Meta + K'),
 })
 </script>
 
@@ -27,6 +27,8 @@ defineShortcuts({
     <div class="flex w-full flex-1 flex-col items-center justify-around overflow-y-auto px-4 py-12">
       <NuxtPage />
     </div>
+    <MToasts close-button />
+    <MThemeToggle />
   </div>
 </template>
 

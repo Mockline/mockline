@@ -1,5 +1,15 @@
 import { defu } from 'defu'
-import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, addVitePlugin, addPlugin, installModule, hasNuxtModule } from '@nuxt/kit'
+import {
+  createResolver,
+  defineNuxtModule,
+  addComponentsDir,
+  addImportsDir,
+  addVitePlugin,
+  addPlugin,
+  installModule,
+  hasNuxtModule,
+  addImportsSources
+} from '@nuxt/kit'
 import { addTemplates } from './templates'
 
 export type * from './runtime/types'
@@ -101,10 +111,37 @@ export default defineNuxtModule<ModuleOptions>({
       src: resolve('./runtime/plugins/colors')
     })
 
+    // Add vue-sonner
+    addImportsSources({
+      from: 'vue-sonner',
+      imports: ['toast'],
+    })
+
     await addComponentsDir({
       path: resolve('./runtime/components'),
       prefix: options.prefix,
       pathPrefix: false
+    })
+
+    // Components layout
+    await addComponentsDir({
+      path: resolve('./runtime/components/layout'),
+      prefix: '',
+      pathPrefix: false,
+    })
+
+    // Components settings
+    await addComponentsDir({
+      path: resolve('./runtime/components/settings'),
+      prefix: options.prefix,
+      pathPrefix: false,
+    })
+
+    // Components overlays
+    await addComponentsDir({
+      path: resolve('./runtime/components/overlays'),
+      prefix: options.prefix,
+      pathPrefix: false,
     })
 
     addImportsDir(resolve('./runtime/composables'))
