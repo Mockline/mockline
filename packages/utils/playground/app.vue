@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineShortcuts({
+  meta_k: () => toast.info('Hello There!')
+})
+</script>
+
 <template>
   <MApp class="size-full bg-white text-black dark:bg-black dark:text-white">
     <h1 class="flex items-center justify-center gap-2 text-center text-2xl">
