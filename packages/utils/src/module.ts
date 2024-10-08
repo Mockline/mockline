@@ -32,6 +32,9 @@ export default defineNuxtModule<ModuleOptions>({
     const runtimeDir = resolve('./runtime')
     nuxt.options.build.transpile.push(runtimeDir)
 
+
+    nuxt.options.css.push(resolve('./runtime/index.css'))
+
     // Templates
     await installTailwind(options, nuxt)
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="size-full bg-white text-black dark:bg-black dark:text-white">
+  <MApp class="size-full bg-white text-black dark:bg-black dark:text-white">
     <h1 class="flex items-center justify-center gap-2 text-center text-2xl">
       <span class="font-newsreader italic">Mockline</span> Utils Playground
       <MIcon name="lucide:rocket" class="size-6" />
@@ -10,15 +10,5 @@
       Render a toast
     </button>
     <MToasts />
-  </div>
+  </MApp>
 </template>
-
-<style>
-@import "tailwindcss";
-
-@variant dark (&:where(.dark, .dark *));
-
-.font-newsreader {
-  font-family: Newsreader, serif;
-}
-</style>
