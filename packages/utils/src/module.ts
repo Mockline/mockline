@@ -8,6 +8,7 @@ import {
   hasNuxtModule
 } from '@nuxt/kit'
 import type { Nuxt } from '@nuxt/schema'
+import { defu } from 'defu'
 import { name, version } from '../package.json'
 import { installTailwind } from './tailwind'
 
