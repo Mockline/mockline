@@ -11,7 +11,7 @@
     <img alt="" src="https://img.shields.io/badge/Join%20the%20community-F74804.svg?style=for-the-badge&logo=Discord&labelColor=000000&logoWidth=20&logoColor=white">
   </a>
   <a aria-label="Mockline logo" href="https://mockline.dev/">
-    <img src="https://img.shields.io/badge/MADE%20WITH%20Mockline-000000.svg?style=for-the-badge&logo=Mockline&labelColor=000000&logoWidth=20&logoColor=white">
+    <img src="https://img.shields.io/badge/MADE%20WITH%20Mockline-000000.svg?style=for-the-badge&logo=Mockline&labelColor=000000&logoWidth=20&logoColor=white" alt="mockline logo">
   </a>
   <a aria-label="Follow Hugo on Twitter" href="https://twitter.com/HugoRCD__">
     <img alt="" src="https://img.shields.io/twitter/follow/HugoRCD__.svg?style=for-the-badge&labelColor=000000&logo=twitter&label=Follow%20Hugo&logoWidth=20&logoColor=white">
@@ -89,13 +89,13 @@ To start contributing, you can follow these steps:
 
 <!-- /automd -->
 
-<!-- automd:contributors license=Apache author=HugoRCD -->
+<!-- automd:contributors license=Apache author=HugoRCD github=Mockline/mockline -->
 
-Published under the [APACHE](https://github.com/mockline/mockline/blob/main/LICENSE) license.
-Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.com/mockline/mockline/graphs/contributors) 💛
+Published under the [APACHE](https://github.com/Mockline/mockline/blob/main/LICENSE) license.
+Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.com/Mockline/mockline/graphs/contributors) 💛
 <br><br>
-<a href="https://github.com/mockline/mockline/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=mockline/mockline" />
+<a href="https://github.com/Mockline/mockline/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=Mockline/mockline" />
 </a>
 
 <!-- /automd -->
@@ -104,6 +104,6 @@ Made by [@HugoRCD](https://github.com/HugoRCD) and [community](https://github.co
 
 ---
 
-_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Tue Aug 27 2024)_
+_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Tue Oct 08 2024)_
 
 <!-- /automd -->

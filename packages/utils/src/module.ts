@@ -33,12 +33,14 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.build.transpile.push(runtimeDir)
 
     // Templates
-    await installTailwind(options, nuxt, resolve)
+    await installTailwind(options, nuxt)
 
     // Modules
     await installModule('@nuxtjs/color-mode', { classSuffix: '', storageKey: 'mockline-color-mode' })
     await installModule('@nuxt/fonts')
     await installModule('@nuxt/icon', {
+      componentName: 'MIcon',
+      class: 'fill-current',
       mode: 'svg',
     })
 
