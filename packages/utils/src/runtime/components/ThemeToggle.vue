@@ -2,7 +2,7 @@
 defineProps({
   size: {
     type: String,
-    default: 'size-4'
+    default: 'size-5'
   }
 })
 
@@ -20,10 +20,10 @@ const switchTheme = (): void => {
 
 <template>
   <button
-    class="text-black dark:text-white"
+    class="cursor-pointer text-black dark:text-white"
     aria-label="Theme"
     @click="switchTheme"
   >
-    <Icon :name="themeIcon" :class="size" />
+    <MIcon :name="themeIcon" :class="size" />
   </button>
 </template>
