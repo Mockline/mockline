@@ -31,7 +31,7 @@ const _useKbd = () : {
   metaSymbol: Ref<string>,
   macOS: Ref<boolean>
 } => {
-  const macOS = computed(() => import.meta.client && navigator && navigator.userAgent && navigator.userAgent.match(/Macintosh;/))
+  const macOS = computed(() => !!(import.meta.client && navigator && navigator.userAgent && navigator.userAgent.match(/Macintosh;/)))
 
   const metaSymbol = ref(' ')
 
@@ -39,9 +39,9 @@ const _useKbd = () : {
     metaSymbol.value = macOS.value ? kbdKeysMap.command : kbdKeysMap.ctrl
   })
 
-  function getKbdKey(value?: KbdKey | string): string | undefined {
+  function getKbdKey(value?: KbdKey | string): string {
     if (!value) {
-      return
+      return ''
     }
     if (value === 'meta') {
       return metaSymbol.value
