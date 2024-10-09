@@ -5,12 +5,11 @@ import {
   installModule,
   addImportsSources,
   addImportsDir,
-  hasNuxtModule
+  hasNuxtModule, addVitePlugin
 } from '@nuxt/kit'
 import type { Nuxt } from '@nuxt/schema'
 import { defu } from 'defu'
 import { name, version } from '../package.json'
-import { installTailwind } from './tailwind'
 
 export type ModuleOptions = {
   /**
@@ -37,11 +36,16 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.css.push(resolve('./runtime/index.css'))
 
-    // Templates
-    await installTailwind(options, nuxt)
+    // Tailwind
+    if (nuxt.options.builder === '@nuxt/vite-builder') {
+      const plugin = await import('@tailwindcss/vite').then(r => r.default)
+      addVitePlugin(plugin())
+    } else {
+      nuxt.options.postcss.plugins['@tailwindcss/postcss'] = {}
+    }
 
     // Modules
-    async function registerModule(name: string, options: Record<string, any>) {
+    async function registerModule(name: string, options: Record<string, any>): Promise<void> {
       if (!hasNuxtModule(name)) {
         await installModule(name, options)
       } else {

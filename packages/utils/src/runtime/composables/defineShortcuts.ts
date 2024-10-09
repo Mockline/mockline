@@ -35,10 +35,10 @@ type Shortcut = {
 const chainedShortcutRegex = /^[^-]+.*-.*[^-]+$/
 const combinedShortcutRegex = /^[^_]+.*_.*[^_]+$/
 
-export function extractShortcuts(items: any[] | any[][]) {
+export function extractShortcuts(items: any[] | any[][]): Record<string, Handler> {
   const shortcuts: Record<string, Handler> = {}
 
-  function traverse(items: any[]) {
+  function traverse(items: any[]): void {
     items.forEach((item) => {
       if (item.kbds?.length && (item.select || item.click)) {
         const shortcutKey = item.kbds.join('_')
@@ -58,9 +58,9 @@ export function extractShortcuts(items: any[] | any[][]) {
   return shortcuts
 }
 
-export function defineShortcuts(config: MaybeRef<ShortcutsConfig>, options: ShortcutsOptions = {}) {
+export function defineShortcuts(config: MaybeRef<ShortcutsConfig>, options: ShortcutsOptions = {}): void {
   const chainedInputs = ref<string[]>([])
-  const clearChainedInput = () => {
+  const clearChainedInput = (): void => {
     chainedInputs.value.splice(0, chainedInputs.value.length)
   }
   const debouncedClearChainedInput = useDebounceFn(clearChainedInput, options.chainDelay ?? 800)
@@ -68,11 +68,9 @@ export function defineShortcuts(config: MaybeRef<ShortcutsConfig>, options: Shor
   const { macOS } = useKbd()
   const activeElement = useActiveElement()
 
-  const onKeyDown = (e: KeyboardEvent) => {
+  const onKeyDown = (e: KeyboardEvent): void => {
     // Input autocomplete triggers a keydown event
-    if (!e.key) {
-      return
-    }
+    if (!e.key) return
 
     const alphabeticalKey = /^[a-z]{1}$/i.test(e.key)
 
