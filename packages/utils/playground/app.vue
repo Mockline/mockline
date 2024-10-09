@@ -15,12 +15,7 @@ defineShortcuts({
     <button @click="() => toast.info('Hello There!')">
       Render a toast
     </button>
+    <Test />
     <MToasts />
   </MApp>
 </template>
-
-<style>
-.font-newsreader {
-  font-family: Newsreader, serif;
-}
-</style>

@@ -1,0 +1,9 @@
+@import "@mockline/utils";
+
+@theme {
+  --font-family-newsreader: "Newsreader", serif;
+}
+
+.content {
+  @apply prose prose-sm prose-headings:font-bold prose-a:underline;
+}

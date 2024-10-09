@@ -34,7 +34,7 @@ export default defineNuxtModule<ModuleOptions>({
     const runtimeDir = resolve('./runtime')
     nuxt.options.build.transpile.push(runtimeDir)
 
-    nuxt.options.css.push(resolve('./runtime/index.css'))
+    nuxt.options.router.options.scrollBehaviorType = 'smooth'
 
     // Tailwind
     if (nuxt.options.builder === '@nuxt/vite-builder') {

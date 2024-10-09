@@ -1,6 +1,6 @@
 {
   "name": "@mockline/utils",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "license": "Apache-2.0",
   "type": "module",
   "publishConfig": {
@@ -16,11 +16,14 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/types.d.ts",
+      "types": "./dist/module.d.ts",
       "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
-    }
+      "require": "./dist/module.cjs",
+      "style": "./dist/runtime/index.css"
+    },
+    "./runtime/*": "./dist/runtime/*"
   },
+  "style": "./dist/runtime/index.css",
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
   "files": [
@@ -32,7 +35,7 @@
     "dev": "nuxi dev playground",
     "build": "nuxt-module-build build",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "automd && npm run lint && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "test": "bun lint && bun typecheck && bun prepack",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "typecheck": "tsc --noEmit"
@@ -56,9 +59,7 @@
   },
   "devDependencies": {
     "@nuxt/module-builder": "0.8.4",
-    "@nuxt/test-utils": "3.14.2",
     "automd": "^0.3.8",
-    "changelogen": "^0.5.7",
     "eslint": "^9.11.1",
     "nuxt": "3.13.2",
     "typescript": "5.6.2"
