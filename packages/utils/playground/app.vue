@@ -18,3 +18,9 @@ defineShortcuts({
     <MToasts />
   </MApp>
 </template>
+
+<style>
+.font-newsreader {
+  font-family: Newsreader, serif;
+}
+</style>
