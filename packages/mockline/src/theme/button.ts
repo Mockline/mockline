@@ -1,8 +1,8 @@
-import type { ModuleOptions } from '#mockline/types'
+import type { ModuleOptions } from '../module'
 
 export default (options: Required<ModuleOptions>): any => ({
   slots: {
-    base: ['rounded-md font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.transitions && 'transition-colors'],
+    base: ['cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.transitions && 'transition-colors'],
     label: 'truncate',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
@@ -10,10 +10,8 @@ export default (options: Required<ModuleOptions>): any => ({
   },
   variants: {
     color: {
-      ...Object.fromEntries(options.colors.map((color: string) => [color, ''])),
-      white: '',
-      gray: '',
-      black: ''
+      ...Object.fromEntries((options.colors || []).map((color: string) => [color, ''])),
+      neutral: ''
     },
     variant: {
       solid: '',
@@ -88,31 +86,55 @@ export default (options: Required<ModuleOptions>): any => ({
     }
   },
   compoundVariants: [
-    ...options.colors.map((color: string) => ({
+    ...(options.colors || []).map((color: string) => ({
       color,
       variant: 'solid',
-      class: `shadow-sm text-white bg-${color}-9 hover:bg-${color}-7 disabled:bg-${color}-8 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-${color}-8`
-    })), ...options.colors.map((color: string) => ({
+      class: `text-[var(--ui-bg)] bg-[var(--ui-${color})] hover:bg-[var(--ui-${color})]/75 disabled:bg-[var(--ui-${color})] aria-disabled:bg-[var(--ui-${color})] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-${color})]`
+    })), ...(options.colors || []).map((color: string) => ({
       color,
       variant: 'outline',
-      class: `ring-2 text-${color}-8 hover:bg-${color}-10 hover:text-white disabled:bg-transparent ring-${color}-9 hover:ring-${color}-10`
-    })), ...options.colors.map((color: string) => ({
+      class: `ring ring-inset ring-[var(--ui-${color})]/50 text-[var(--ui-${color})] hover:bg-[var(--ui-${color})]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-[var(--ui-${color})]`
+    })), ...(options.colors || []).map((color: string) => ({
       color,
       variant: 'soft',
-      class: `text-${color}-8 bg-${color}-12 hover:bg-${color}-100 disabled:bg-${color}-12`
-    })), ...options.colors.map((color: string) => ({
+      class: `text-[var(--ui-${color})] bg-[var(--ui-${color})]/10 hover:bg-[var(--ui-${color})]/15 focus-visible:bg-[var(--ui-${color})]/15 disabled:bg-[var(--ui-${color})]/10 aria-disabled:bg-[var(--ui-${color})]/10`
+    })), ...(options.colors || []).map((color: string) => ({
       color,
       variant: 'subtle',
-      class: `text-${color}-8 bg-${color}-8/10 hover:bg-${color}-8/20 disabled:bg-${color}-8/10`
-    })), ...options.colors.map((color: string) => ({
+      class: `text-[var(--ui-${color})] ring ring-inset ring-[var(--ui-${color})]/25 bg-[var(--ui-${color})]/10 hover:bg-[var(--ui-${color})]/15 disabled:bg-[var(--ui-${color})]/10 aria-disabled:bg-[var(--ui-${color})]/10 focus-visible:ring-2 focus-visible:ring-[var(--ui-${color})]`
+    })), ...(options.colors || []).map((color: string) => ({
       color,
       variant: 'ghost',
-      class: `text-${color}-8 hover:bg-${color}-12 disabled:bg-transparent`
-    })), ...options.colors.map((color: string) => ({
+      class: `text-[var(--ui-${color})] hover:bg-[var(--ui-${color})]/10 focus-visible:bg-[var(--ui-${color})]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent`
+    })), ...(options.colors || []).map((color: string) => ({
       color,
       variant: 'link',
-      class: `text-${color}-8 hover:text-${color}-7 disabled:text-${color}-8 hover:underline`
+      class: `text-[var(--ui-${color})] hover:text-[var(--ui-${color})] disabled:text-[var(--ui-${color})] aria-disabled:text-[var(--ui-${color})] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-${color})]`
     })), {
+      color: 'neutral',
+      variant: 'solid',
+      class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)] hover:bg-[var(--ui-bg-inverted)]/80 disabled:bg-[var(--ui-bg-inverted)] aria-disabled:bg-[var(--ui-bg-inverted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-border-inverted)]'
+    }, {
+      color: 'neutral',
+      variant: 'outline',
+      class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)] hover:bg-[var(--ui-bg-elevated)] disabled:bg-[var(--ui-bg)] aria-disabled:bg-[var(--ui-bg)] focus-visible:ring-2 focus-visible:ring-[var(--ui-border-inverted)]'
+    }, {
+      color: 'neutral',
+      variant: 'soft',
+      class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)] hover:bg-[var(--ui-bg-accented)]/75 focus-visible:bg-[var(--ui-bg-accented)]/75 disabled:bg-[var(--ui-bg-elevated)] aria-disabled:bg-[var(--ui-bg-elevated)]'
+    }, {
+      color: 'neutral',
+      variant: 'subtle',
+      class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg-elevated)] hover:bg-[var(--ui-bg-accented)]/75 disabled:bg-[var(--ui-bg-elevated)] aria-disabled:bg-[var(--ui-bg-elevated)] focus-visible:ring-2 focus-visible:ring-[var(--ui-border-inverted)]'
+    }, {
+      color: 'neutral',
+      variant: 'ghost',
+      class: 'text-[var(--ui-text)] hover:bg-[var(--ui-bg-elevated)] focus-visible:bg-[var(--ui-bg-elevated)] hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent'
+    }, {
+      color: 'neutral',
+      variant: 'link',
+      class: 'text-[var(--ui-text-muted)] hover:text-[var(--ui-text)] disabled:text-[var(--ui-text-muted)] aria-disabled:text-[var(--ui-text-muted)] focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-[var(--ui-border-inverted)]'
+    }, {
       size: 'xs',
       square: true,
       class: 'p-1'

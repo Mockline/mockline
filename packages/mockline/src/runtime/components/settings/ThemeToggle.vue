@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<ThemeToggleProps>(), {
 })
 
 const themeToggle = tv({
-  base: 'text-gray-12 cursor-pointer',
+  base: 'cursor-pointer text-neutral-950 dark:text-white',
   variants: {
     size: {
       xs: 'size-4',

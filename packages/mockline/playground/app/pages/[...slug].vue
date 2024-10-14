@@ -41,20 +41,20 @@ const headline = findPageHeadline(page.value)
 </script>
 
 <template>
-  <Page v-if="page">
+  <MPage v-if="page">
     <template #left>
-      <Aside class="p-4">
+      <MAside class="p-4">
         <MContentNavigationTree :links="nav" />
-      </Aside>
+      </MAside>
     </template>
     <template #right>
       <MContentToc :links="page?.body?.toc?.links" class="p-4" />
     </template>
     <ThemeSelector />
-    <PageHeader :title="page.title" :description="page.description" :links="page.links" :headline />
-    <PageBody class="p-4" prose>
+    <MPageHeader :title="page.title" :description="page.description" :links="page.links" :headline />
+    <MPageBody class="p-4" prose>
       <ContentRenderer v-if="page.body" :value="page" />
-    </PageBody>
+    </MPageBody>
     <MContentSurround :next :prev />
-  </Page>
+  </MPage>
 </template>

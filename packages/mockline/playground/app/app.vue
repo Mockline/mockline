@@ -1,9 +1,15 @@
 <template>
-  <Html class="bg-canvas text-gray-12 min-h-screen">
+  <Html>
     <NuxtLoadingIndicator />
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <MApp>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </MApp>
     <MToasts close-button />
   </Html>
 </template>
+
+<style>
+@import "mockline";
+</style>

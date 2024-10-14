@@ -6,19 +6,6 @@ import * as theme from './theme'
 import type { ModuleOptions } from './runtime/types'
 
 export function addTemplates(options: ModuleOptions, nuxt = useNuxt()): void {
-  const template = addTemplate({
-    filename: 'radix-colors.css',
-    write: true,
-    getContents: () => generateRadixImports()
-  })
-
-  addTypeTemplate({
-    filename: 'types/colors.d.ts',
-    getContents: () => generateColorTypes()
-  })
-
-  nuxt.options.css.unshift(template.dst)
-
   for (const component in theme) {
     addTemplate({
       filename: `mockline/${ kebabCase(component) }.ts`,
@@ -59,18 +46,4 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()): void {
     write: true,
     getContents: () => Object.keys(theme).map(component => `export { default as ${component} } from './${kebabCase(component)}'`).join('\n')
   })
-}
-
-function generateRadixImports(): string {
-  const suffixes = ['', '-alpha', '-dark', '-dark-alpha']
-  return colors.filter(color => color !== 'primary' && color !== 'canvas')
-    .flatMap(color => suffixes.map(suffix => `@import "@radix-ui/colors/${color}${suffix}.css";`))
-    .join('\n')
-}
-
-function generateColorTypes(): string {
-  return `
-    export type Color = '${colors.join('\' | \'')}';
-    export const colors: Color[] = ${JSON.stringify(colors)};
-  `
 }
