@@ -8,7 +8,7 @@ defineProps({
 
 <template>
   <div>
-    <div class="bg-canvas-8 rounded-md p-4 text-white">
+    <div class="rounded-md bg-neutral-100 p-4 text-gray-900 dark:border-gray-800 dark:border-opacity-25 dark:bg-neutral-950 dark:text-white dark:shadow-md">
       <div class="flex items-center gap-4">
         <div v-if="icon" class="text-2xl">
           <MIcon :name="icon" />

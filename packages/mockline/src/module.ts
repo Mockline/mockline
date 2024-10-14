@@ -13,7 +13,7 @@ import { defu } from 'defu'
 import type { Nuxt } from '@nuxt/schema'
 import { name, version } from '../package.json'
 import { addTemplates } from './templates'
-import { availableColors } from './runtime/utils/colors'
+import { colors } from './runtime/utils/colors'
 import type { Color } from './runtime/utils/colors'
 
 export type * from './runtime/types'
@@ -63,7 +63,7 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.build.transpile.push(runtimeDir)
     nuxt.options.alias['#mockline'] = resolve('./runtime')
 
-    options.colors = options.colors?.length ? [...new Set(['primary', ...options.colors])] : ['primary', ...availableColors]
+    options.colors = options.colors?.length ? [...new Set(['primary', ...options.colors])] : ['primary', ...colors]
 
     nuxt.options.mockline = options
 

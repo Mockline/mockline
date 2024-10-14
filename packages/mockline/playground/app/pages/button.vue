@@ -3,7 +3,6 @@ import theme from '#build/mockline/button'
 
 const sizes = Object.keys(theme.variants.size)
 const colors = Object.keys(theme.variants.color)
-console.log(colors)
 const variants = Object.keys(theme.variants.variant)
 
 definePageMeta({

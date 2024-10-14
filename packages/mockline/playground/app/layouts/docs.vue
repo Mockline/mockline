@@ -5,7 +5,7 @@
     <MHeader :height="16" sticky>
       <template #left>
         <NuxtLink to="/">
-          <MIcon name="custom:mockline" class="fill-gray-12 size-6" />
+          <MIcon name="custom:mockline" />
         </NuxtLink>
       </template>
       <template #right>

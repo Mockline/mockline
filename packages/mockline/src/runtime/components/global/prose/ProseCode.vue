@@ -41,17 +41,17 @@ defineProps({
   <div class="relative" :class="!!filename && '[&>pre]:!rounded-t-none [&>pre]:!my-0 my-5'">
     <div
       v-if="filename && !hideHeader"
-      class="not-prose bg-gray-2 relative flex items-center gap-1.5 rounded-t-md px-4 py-3"
+      class="not-prose relative flex items-center gap-1.5 rounded-t-md bg-neutral-100 px-4 py-3 dark:bg-neutral-800"
     >
       <ProseCodeIcon :icon :filename />
 
-      <span class="text-gray-12 text-sm/6">
+      <span class="text-sm text-neutral-950 dark:text-neutral-100">
         {{ filename }}
       </span>
     </div>
     <ProseCodeButton :code />
 
-    <div class="not-prose bg-gray-3 px-4 py-3 text-sm">
+    <div class="not-prose bg-neutral-50 px-4 py-3 text-sm dark:bg-neutral-900">
       <slot />
     </div>
   </div>

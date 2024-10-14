@@ -41,7 +41,7 @@ export const colors: Color[] = [
   'brown',
 ]*/
 
-export const availableColors = [
+export const colors = [
   'slate',
   'gray',
   'zinc',
@@ -67,7 +67,7 @@ export const availableColors = [
   'rose',
 ]
 
-export type Color = typeof availableColors
+export type Color = typeof colors
 
 // export const availableColors = colors.filter(color => color !== 'canvas' && color !== 'primary')
 

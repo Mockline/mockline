@@ -22,13 +22,12 @@
     "postinstall": "bun run dev:prepare",
     "dev": "DEV=true nuxi dev playground",
     "build": "nuxt-module-build build",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && bun run tailwind",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "bun run tailwind && bun run lint && bun run prepack && release-it",
     "release:edge": "release-it --preRelease=edge --npm.tag=edge",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit",
-    "tailwind": "tailwindcss -i src/runtime/assets/css/style.css -o src/runtime/assets/css/output.css"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.0",
