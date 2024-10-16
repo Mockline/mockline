@@ -6,10 +6,10 @@ export type MainProps = {
   class?: string
 }
 
-const props = withDefaults(defineProps<MainProps>(), {})
+const props = defineProps<MainProps>()
 
 const mainClasses = computed(() => twMerge(
-  'min-h-[calc(100vh-var(--header-height))] selection:bg-primary-8 selection:text-primary-12',
+  'min-h-[calc(100vh-var(--header-height))]',
   props.class
 ))
 </script>

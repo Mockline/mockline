@@ -63,7 +63,7 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.build.transpile.push(runtimeDir)
     nuxt.options.alias['#mockline'] = resolve('./runtime')
 
-    options.colors = options.colors?.length ? [...new Set(['primary', ...options.colors])] : ['primary', ...colors]
+    options.colors = options.colors?.length ? [...new Set(['primary', ...options.colors])] : ['primary']
 
     nuxt.options.mockline = options
 

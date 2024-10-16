@@ -16,10 +16,10 @@ const components = ['button', 'nav-menu', 'page']
     </ul>
     <div class="space-x-4">
       <NuxtLink to="/getting-started/intro">
-        <MButton label="Intro" color="blue" />
+        <MButton label="Intro" />
       </NuxtLink>
       <NuxtLink to="/getting-started/installation">
-        <MButton label="Installation" color="blue" />
+        <MButton label="Installation" />
       </NuxtLink>
     </div>
   </div>

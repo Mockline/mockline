@@ -28,8 +28,8 @@ withDefaults(defineProps<ToasterProps>(), {
   visibleToasts: VISIBLE_TOASTS_AMOUNT,
   toastOptions: () => ({
     style: {
-      borderColor: 'var(--canvas-5)',
-      backgroundColor: 'var(--canvas-2)'
+      borderColor: 'var(--color-border)',
+      backgroundColor: 'var(--color-neutral)'
     }
   }),
   dir: 'auto',

@@ -48,11 +48,12 @@ const headline = findPageHeadline(page.value)
       </MAside>
     </template>
     <template #right>
-      <MContentToc :links="page?.body?.toc?.links" class="p-4" />
+      <MAside class="p-4">
+        <MContentToc :links="page?.body?.toc?.links" />
+      </MAside>
     </template>
-    <ThemeSelector />
     <MPageHeader :title="page.title" :description="page.description" :links="page.links" :headline />
-    <MPageBody class="p-4" prose>
+    <MPageBody prose>
       <ContentRenderer v-if="page.body" :value="page" />
     </MPageBody>
     <MContentSurround :next :prev />

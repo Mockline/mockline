@@ -13,7 +13,7 @@ export type PageProps = {
   right?: string
 }
 
-const props = withDefaults(defineProps<PageProps>(), {})
+const props = defineProps<PageProps>()
 
 const pageClasses = computed(() => twMerge(
   'flex flex-col gap-4 w-full',

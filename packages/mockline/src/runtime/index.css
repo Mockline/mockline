@@ -5,6 +5,12 @@
 
 @plugin "@tailwindcss/typography";
 
+@theme {
+  --color-neutral: var(--ui-bg);
+  --color-neutral-elevated: var(--ui-bg-elevated);
+  --color-border: var(--ui-border);
+}
+
 @layer base {
   :root {
     color-scheme: light;
@@ -26,10 +32,11 @@
 
     --ui-radius: var(--radius);
 
-    --ui-slate: var(--color-slate-500);
+    /*--ui-slate: var(--color-slate-500);
     --ui-gray: var(--color-gray-500);
     --ui-zinc: var(--color-zinc-500);
     --ui-stone: var(--color-stone-500);
+    --ui-neutral: var(--color-neutral-500);
     --ui-red: var(--color-red-500);
     --ui-orange: var(--color-orange-500);
     --ui-amber: var(--color-amber-500);
@@ -46,7 +53,7 @@
     --ui-purple: var(--color-purple-500);
     --ui-fuchsia: var(--color-fuchsia-500);
     --ui-pink: var(--color-pink-500);
-    --ui-rose: var(--color-rose-500);
+    --ui-rose: var(--color-rose-500);*/
   }
 
   .dark {
