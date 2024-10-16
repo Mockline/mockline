@@ -19,3 +19,7 @@ defineShortcuts({
     <MToasts />
   </MApp>
 </template>
+
+<style>
+@import "@mockline/utils";
+</style>
