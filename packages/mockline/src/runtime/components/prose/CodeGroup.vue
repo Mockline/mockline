@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
 import { useSlots, computed } from 'vue'
 
 defineOptions({
   inheritAttrs: false
 })
 
-const props = defineProps({
-  class: {
-    type: [String, Object, Array] as PropType<any>,
-    default: undefined
-  }
-})
+type CodeGroupProps = {
+  class?: any
+}
+
+const props = defineProps<CodeGroupProps>()
 
 const slots = useSlots()
 
@@ -22,6 +20,8 @@ function transformSlot(slot: any, index: number): any {
   if (typeof slot.type === 'symbol') {
     return slot.children?.map(transformSlot)
   }
+
+  console.log(slot)
 
   return {
     label: slot.props?.filename || slot.props?.label || `${index}`,
@@ -51,6 +51,6 @@ const selectedTab = computed(() => tabs.value.find((_, index) => index === selec
       </button>
     </div>
 
-    <component :is="selectedTab?.component" :key="selectedIndex" hide-header code-block />
+    <component :is="selectedTab?.component" :key="selectedIndex" hide-header />
   </div>
 </template>
