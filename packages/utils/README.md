@@ -2,7 +2,7 @@
 
 <p align="center">
   <a aria-label="NPM version" href="https://www.npmjs.com/package/@mockline/utils">
-    <img alt="" src="https://img.shields.io/npm/v/mockline.svg?style=for-the-badge&labelColor=000000&color=E0E0E0">
+    <img alt="" src="https://img.shields.io/npm/v/@mockline/utils.svg?style=for-the-badge&labelColor=000000&color=E0E0E0">
   </a>
   <a aria-label="License" href="https://github.com/mockline/utils/main/LICENSE">
     <img alt="" src="https://img.shields.io/npm/l/mockline.svg?style=for-the-badge&labelColor=000000&color=212121">
@@ -18,11 +18,31 @@
   </a>
 </p>
 
+## Features
+
+- **Everything you need**: Mockline Utils is a minimal utility library for Mockline.
+- **TailwindCSS v4 Alpha** is directly integrated, so you can use all the power of TailwindCSS with zero configuration.
+- **Icons** provided by [Nuxt Icon](https://github.com/nuxt-modules/icon), U can use any icon from [Lucide](https://lucide.dev/), [Heroicons](https://heroicons.com/), etc...
+- **Toasts** are also provided by [Vue Sonner](https://github.com/xiaoluoboding/vue-sonner), so you can easily create beautiful toasts with ease.
+- **Fonts** are provided by [Nuxt Fonts](https://fonts.nuxt.com/), so you can easily use any font with magic 🧙‍♂️.
+- **Themes** are provided by [Color Mode](https://github.com/nuxt-modules/color-mode), so you can easily switch between light and dark modes or even create your own themes.
+- **Fully customizable**: All components are customizable via props and slots.
+- **Dark mode**: Enjoy a seamless dark mode experience with no additional setup.
+- **Easy to use**: Mockline is designed to be beginner-friendly, with a simple setup process.
+- **Community-driven**: Join the Mockline community on Discord to connect with other users and share your feedback.
+- **Open-source**: Mockline is open-source, and we welcome contributions from the community.
+
 ## Quick Setup
 
 For the moment Mockline is only available for Nuxt projects (Vue 3 support and react support will be added soon).
 To get started, follow these steps:
 
+You can automatically install Mockline Utils in your Nuxt project using the following command:
+```bash
+npx nuxi@latest module add @mockline/utils
+```
+
+or install it manually:
 
 1. Add `@mockline/utils` dependency to your project
 
@@ -50,7 +70,23 @@ export default defineNuxtConfig({
 })
 ```
 
-That's it! You can now use Mockline in your Nuxt app ✨
+Then you will need to import the mockline css in your `app.vue` file:
+
+```vue [app.vue]
+<template>
+  <MApp>
+    <!-- Your app content -->
+    <MToasts />
+  </MApp>
+</template>
+
+<style>
+@import "@mockline/utils";
+</style>
+```
+
+That's it! You can now use Mockline Utils in your Nuxt app ✨
+
 ## Community
 
 The Mockline community can be found on Discord, to chat with other community members, you can join the [Mockline Discord](https://discord.gg/BkgyMzvJ3p).
