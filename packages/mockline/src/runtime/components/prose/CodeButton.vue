@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { toast } from 'vue-sonner'
-import { useClipboard } from '../../../composables/useClipboard'
+import { useClipboard } from '../../composables/useClipboard'
 
 const props = defineProps({
   code: {

@@ -12,4 +12,6 @@
 
 <style>
 @import "mockline";
+
+@source "../content/**/*.md";
 </style>

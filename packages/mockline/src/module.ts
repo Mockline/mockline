@@ -143,7 +143,7 @@ export default defineNuxtModule<ModuleOptions>({
       pathPrefix: false,
     }).then()
 
-    if (hasNuxtModule('@nuxt/content') || options.content) {
+    if (options.content) {
       await registerModule('@nuxt/content', {
         highlight: {
           theme: {
@@ -151,23 +151,23 @@ export default defineNuxtModule<ModuleOptions>({
             dark: 'github-dark-default',
             light: 'github-light-default'
           },
-          preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini']
         },
+        highlight: {
+          langs: ['bash', 'ts', 'diff', 'vue', 'json', 'yml', 'css', 'mdc']
+        }
       })
 
-      addComponentsDir({
+      await addComponentsDir({
         path: resolve('./runtime/components/content'),
         prefix: options.prefix,
         pathPrefix: false
-      }).then()
+      })
 
-      // Components global
-      addComponentsDir({
-        path: resolve('./runtime/components/global'),
-        global: true,
-        prefix: '',
-        pathPrefix: false
-      }).then()
+      await addComponentsDir({
+        path: resolve('./runtime/components/prose'),
+        pathPrefix: false,
+        global: true
+      })
     }
 
     // Composables

@@ -21,8 +21,6 @@ function transformSlot(slot: any, index: number): any {
     return slot.children?.map(transformSlot)
   }
 
-  console.log(slot)
-
   return {
     label: slot.props?.filename || slot.props?.label || `${index}`,
     icon: slot.props?.icon,
@@ -46,7 +44,7 @@ const selectedTab = computed(() => tabs.value.find((_, index) => index === selec
                  selectedIndex === index ? 'bg-neutral-200 dark:bg-neutral-700' : 'hover:bg-neutral-300 dark:hover:bg-neutral-700']"
         @click="selectedIndex = index"
       >
-        <ProseCodeIcon :icon="tab.icon" :filename="tab.label" />
+        <CodeIcon :icon="tab.icon" :filename="tab.label" />
         <span>{{ tab.label }}</span>
       </button>
     </div>

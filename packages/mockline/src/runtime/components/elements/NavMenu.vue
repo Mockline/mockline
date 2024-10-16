@@ -16,7 +16,7 @@ import {
 const navMenuStyle = tv({
   slots: {
     content: 'absolute left-0 top-0 w-full data-[motion=from-end]:animate-[enter-from-right_200ms_ease] data-[motion=from-start]:animate-[enter-from-left_200ms_ease] data-[motion=to-end]:animate-[exit-to-right_200ms_ease] data-[motion=to-start]:animate-[exit-to-left_200ms_ease] sm:w-auto',
-    viewport: 'bg-[var(--ui-bg)] border border-[var(--ui-border)] relative mt-[10px] h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-[10px] transition-[width,_height] duration-300 data-[state=closed]:animate-[scale-out_200ms_ease] data-[state=open]:animate-[scale-in_200ms_ease] sm:w-[var(--radix-navigation-menu-viewport-width)]'
+    viewport: 'bg-neutral border border-[var(--ui-border)] relative mt-[10px] h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-[10px] transition-[width,_height] duration-300 data-[state=closed]:animate-[scale-out_200ms_ease] data-[state=open]:animate-[scale-in_200ms_ease] sm:w-[var(--radix-navigation-menu-viewport-width)]'
   },
   variants: {
     color: {
@@ -53,7 +53,7 @@ const navTitleStyle = computed(() => {
 
 <template>
   <NavigationMenuRoot class="relative z-[1] flex w-full justify-center" :orientation>
-    <NavigationMenuList class="bg-[var(--ui-bg)] border-[var(--ui-border)] m-0 flex list-none items-center justify-between gap-8 rounded-lg border px-4 py-1.5 shadow-lg">
+    <NavigationMenuList class="bg-neutral border-[var(--ui-border)] m-0 flex list-none items-center justify-between gap-8 rounded-lg border px-4 py-1.5 shadow-lg">
       <slot name="leading" />
       <div class="flex list-none items-center justify-between">
         <NavigationMenuItem v-for="item in items" :key="item.title">
