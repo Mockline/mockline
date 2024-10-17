@@ -7,7 +7,9 @@
         </NuxtLink>
       </template>
       <template #right>
-        <MThemeToggle />
+        <ClientOnly>
+          <MThemeToggle />
+        </ClientOnly>
       </template>
     </MHeader>
     <MMain>
@@ -15,3 +17,5 @@
     </MMain>
   </div>
 </template>
+<script setup lang="ts">
+</script>

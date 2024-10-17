@@ -63,9 +63,8 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.build.transpile.push(runtimeDir)
     nuxt.options.alias['#mockline'] = resolve('./runtime')
 
+    // @ts-expect-error - Fix this later
     options.colors = options.colors?.length ? [...new Set(['primary', ...options.colors])] : ['primary']
-    console.log(options.colors)
-    console.log(typeof options.colors)
 
     nuxt.options.mockline = options
 
@@ -150,7 +149,8 @@ export default defineNuxtModule<ModuleOptions>({
         highlight: {
           theme: {
             dark: 'github-dark',
-            default: 'github-light'
+            default: 'github-light',
+            light: 'github-light'
           },
           langs: ['bash', 'ts', 'diff', 'vue', 'json', 'yml', 'css', 'mdc']
         },
