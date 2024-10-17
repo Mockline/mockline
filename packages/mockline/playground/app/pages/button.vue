@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import theme from '#build/mockline/button'
 
+const sizes = Object.keys(theme.variants.size)
 const colors = Object.keys(theme.variants.color)
 const variants = Object.keys(theme.variants.variant)
 
@@ -10,29 +11,39 @@ definePageMeta({
 </script>
 
 <template>
-  <PageBody>
+  <MPageBody>
     <div class="flex gap-4">
       <MButton
         v-for="variant in variants"
         :key="variant"
-        :variant="(variant as any)"
+        :variant
         :label="variant"
         loading
-        @click="() => console.log('click')"
       />
       <MButton
         label="Home"
         trailing
+        color="neutral"
         icon="lucide:home"
       />
     </div>
-    <div class="grid grid-cols-6 gap-4">
+    <div class="flex gap-4">
+      <div v-for="size in sizes" :key="size" class="flex items-center gap-2">
+        <MButton
+          :key="size"
+          :label="size"
+          :size
+        />
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-4">
       <MButton
         v-for="color in colors"
         :key="color"
         :label="color"
-        :color="(color as any)"
+        variant="subtle"
+        :color
       />
     </div>
-  </PageBody>
+  </MPageBody>
 </template>

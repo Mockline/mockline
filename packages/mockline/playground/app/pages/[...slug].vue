@@ -1,60 +1,33 @@
 <script setup lang="ts">
-import { withoutTrailingSlash } from 'ufo'
-import { splitByCase, upperFirst } from 'scule'
-import type { ParsedContent } from '@nuxt/content/types'
-
 definePageMeta({
   layout: 'docs'
 })
 
-const route = useRoute()
+const { prev, next } = await findPageSurround()
 
-const { data: page } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
-if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
-}
+const page = await findCurrentPage()
 
-const [prev, next] = await queryContent()
-  .where({
-    _extension: 'md',
-    _path: {
-      $exists: true,
-    },
-    navigation: {
-      $ne: false
-    },
-  })
-  .only(['title', '_path'])
-  .findSurround(withoutTrailingSlash(route.path))
-
-const { data: nav } = await useAsyncData('navigation', () => fetchContentNavigation())
-
-function findPageHeadline(page: ParsedContent): string {
-  return page._dir?.title
-    ? page._dir.title
-    : splitByCase(page._dir)
-      .map((p: string) => upperFirst(p))
-      .join(' ')
-}
+const nav = await findNavigation()
 
 const headline = findPageHeadline(page.value)
 </script>
 
 <template>
-  <Page v-if="page">
+  <MPage v-if="page">
     <template #left>
-      <Aside class="p-4">
+      <MAside class="p-4">
         <MContentNavigationTree :links="nav" />
-      </Aside>
+      </MAside>
     </template>
     <template #right>
-      <MContentToc :links="page?.body?.toc?.links" class="p-4" />
+      <MAside class="p-4">
+        <MContentToc :links="page?.body?.toc?.links" />
+      </MAside>
     </template>
-    <ThemeSelector />
-    <PageHeader :title="page.title" :description="page.description" :links="page.links" :headline />
-    <PageBody class="p-4" prose>
+    <MPageHeader :title="page.title" :description="page.description" :links="page.links" :headline />
+    <MPageBody prose>
       <ContentRenderer v-if="page.body" :value="page" />
-    </PageBody>
+    </MPageBody>
     <MContentSurround :next :prev />
-  </Page>
+  </MPage>
 </template>

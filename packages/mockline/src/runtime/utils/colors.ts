@@ -1,4 +1,4 @@
-export type Color =
+/*export type Color =
   | 'canvas' | 'gray' | 'mauve' | 'slate' | 'sage' | 'olive' | 'sand'
   | 'primary' | 'tomato' | 'red' | 'ruby' | 'crimson' | 'pink' | 'plum'
   | 'purple' | 'violet' | 'iris' | 'indigo' | 'blue' | 'cyan' | 'teal'
@@ -39,9 +39,37 @@ export const colors: Color[] = [
   'gold',
   'bronze',
   'brown',
+]*/
+
+export const colors = [
+  'slate',
+  'gray',
+  'zinc',
+  'neutral',
+  'stone',
+  'red',
+  'orange',
+  'amber',
+  'yellow',
+  'lime',
+  'green',
+  'emerald',
+  'teal',
+  'cyan',
+  'sky',
+  'blue',
+  'blue',
+  'indigo',
+  'violet',
+  'purple',
+  'fuchsia',
+  'pink',
+  'rose',
 ]
 
-export const availableColors = colors.filter(color => color !== 'canvas' && color !== 'primary')
+export type Color = typeof colors
+
+// export const availableColors = colors.filter(color => color !== 'canvas' && color !== 'primary')
 
 /**
  * Generate a safelist of color classes with variants for TailwindCSS.

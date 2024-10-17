@@ -15,9 +15,9 @@ withDefaults(defineProps<ContentTocProps>(), {
 <template>
   <nav class="sticky top-[--header-height] max-h-[calc(100vh-var(--header-height))] overflow-y-auto">
     <div>
-      <slot name="top" />
+      <slot  name="top " />
 
-      <button v-if="links?.length" tabindex="-1" class="group flex w-full items-center gap-1.5 lg:cursor-text lg:select-text">
+      <button  tabindex="-1" v-if="links?.length" class="group flex w-full items-center gap-1.5 lg:cursor-text lg:select-text">
         <span class="truncate text-sm/6 font-semibold">{{ title }}</span>
       </button>
 

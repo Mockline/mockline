@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <Page class="bg-canvas-3 h-96" right="p-0 bg-blue" left="p-0 bg-red">
+  <MPage class="h-96 bg-gray-100 dark:bg-neutral-800" right="p-0 bg-blue-500" left="p-0 bg-red-500">
     <template #left>
       <div>
         Left
@@ -16,10 +16,10 @@ definePageMeta({
         Right
       </div>
     </template>
-    <PageBody>
+    <MPageBody>
       Page Body
-    </PageBody>
-  </Page>
+    </MPageBody>
+  </MPage>
 </template>
 
 <style scoped>

@@ -18,9 +18,9 @@ const header = ref(null)
 const { height } = useElementSize(header)
 
 const headerClasses = computed(() => twMerge(
-  'flex items-center justify-between w-full h-[var(--header-height)] p-4 bg-canvas-3',
+  'flex items-center justify-between w-full h-[var(--header-height)] p-4 bg-neutral-elevated',
   props.sticky && 'sticky top-0 z-10',
-  props.glass && 'backdrop-blur bg-canvas-3/75',
+  props.glass && 'backdrop-blur bg-neutral/50',
   props.class,
 ))
 

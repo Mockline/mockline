@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
 import { useSlots, computed } from 'vue'
 
 defineOptions({
   inheritAttrs: false
 })
 
-const props = defineProps({
-  class: {
-    type: [String, Object, Array] as PropType<any>,
-    default: undefined
-  }
-})
+type CodeGroupProps = {
+  class?: any
+}
+
+const props = defineProps<CodeGroupProps>()
 
 const slots = useSlots()
 
@@ -37,20 +35,20 @@ const selectedTab = computed(() => tabs.value.find((_, index) => index === selec
 
 <template>
   <div class="relative my-5 [&>div:last-child]:!static [&>div:last-child]:!my-0">
-    <div class="bg-gray-2 flex items-center gap-1 overflow-hidden rounded-t-md p-2">
+    <div class="flex items-center gap-1 overflow-hidden rounded-t-md bg-neutral-100 p-2 dark:bg-neutral-800">
       <button
         v-for="(tab, index) in tabs"
         :key="index"
         tabindex="-1"
-        :class="['text-gray-12 flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm focus:outline-none',
-                 selectedIndex === index ? 'bg-canvas-4' : 'hover:bg-canvas-3']"
+        :class="['flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm text-neutral-950 focus:outline-none dark:text-neutral-100',
+                 selectedIndex === index ? 'bg-neutral-200 dark:bg-neutral-700' : 'hover:bg-neutral-300 dark:hover:bg-neutral-700']"
         @click="selectedIndex = index"
       >
-        <ProseCodeIcon :icon="tab.icon" :filename="tab.label" />
+        <CodeIcon :icon="tab.icon" :filename="tab.label" />
         <span>{{ tab.label }}</span>
       </button>
     </div>
 
-    <component :is="selectedTab?.component" :key="selectedIndex" hide-header code-block />
+    <component :is="selectedTab?.component" :key="selectedIndex" hide-header />
   </div>
 </template>

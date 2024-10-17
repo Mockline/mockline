@@ -1,55 +1,57 @@
 import { computed } from 'vue'
 import { defineNuxtPlugin, useAppConfig, useNuxtApp, useHead } from '#imports'
-
-function createRootStyles(stylesConfig: Record<string, string>): string {
-  return Object.entries(stylesConfig).map(([name, color]) =>
-    [...Array(12).keys()].map(i => `--${name}-${i+1}: var(--${color}-${i+1});`).join('\n')
-  ).join('\n')
-}
+// FIXME: https://github.com/nuxt/module-builder/issues/141#issuecomment-2078248248
+import type {} from '#app'
 
 export default defineNuxtPlugin(() => {
-  const { mockline } = useAppConfig()
+  const appConfig = useAppConfig()
   const nuxtApp = useNuxtApp()
 
-  const rootStyle = computed(() => {
-    const stylesConfig = {
-      primary: mockline.primary,
-      canvas: mockline.canvas
-    }
+  const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]
 
-    return `
-    :root {
-      ${createRootStyles(stylesConfig)}
-    }
-    `
-  })
-
-  const headData: {
-    title?: string
-    meta?: any[]
-    link?: any[]
-    script?: any[]
-    style?: any[]
-  } = {
-    script: [],
-    style: [
-      {
-        innerHTML: () => rootStyle.value,
-        tagPriority: -2,
-        id: 'mockline-colors'
-      }
-    ],
+  function generateShades(key: string, value: string): string {
+    return `${shades.map(shade => `--ui-color-${key}-${shade}: var(--color-${value}-${shade});`).join('\n  ')}`
+  }
+  function generateColor(key: string, shade: number): string {
+    return `--ui-${key}: var(--ui-color-${key}-${shade});`
   }
 
+  const root = computed(() => {
+    const { ...colors } = appConfig.mockline.colors
+
+    return `:root {
+  ${Object.entries(appConfig.mockline.colors).map(([key, value]: [string, string]) => generateShades(key, value)).join('\n  ')}
+
+  ${Object.keys(colors).map(key => generateColor(key, 500)).join('\n  ')}
+}
+.dark {
+  ${Object.keys(colors).map(key => generateColor(key, 400)).join('\n  ')}
+}`
+  })
+
+  // Head
+  const headData: any = {
+    style: [
+      {
+        innerHTML: () => root.value,
+        tagPriority: -2,
+        id: 'mockline-colors',
+        type: 'text/css'
+      }
+    ]
+  }
+
+  // SPA mode
   if (import.meta.client && nuxtApp.isHydrating && !nuxtApp.payload.serverRendered) {
     const style = document.createElement('style')
-    style.innerHTML = rootStyle.value
+
+    style.innerHTML = root.value
     style.setAttribute('data-mockline-colors', '')
     document.head.appendChild(style)
 
     headData.script = [
       {
-        innerHTML: 'document.head.removeChild(document.querySelector("[data-mockline-colors]"))'
+        innerHTML: 'document.head.removeChild(document.querySelector(\'[data-mockline-colors]\'))'
       }
     ]
   }

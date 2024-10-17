@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   },
   modules: [
     '../src/module',
-    '@nuxt/content'
   ],
   mockline: {
     content: true,

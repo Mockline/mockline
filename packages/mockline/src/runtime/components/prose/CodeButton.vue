@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { toast } from 'vue-sonner'
-import { useClipboard } from '../../../composables/useClipboard'
+import { useClipboard } from '../../composables/useClipboard'
 
 const props = defineProps({
   code: {
@@ -36,8 +36,7 @@ function copy(): void {
   <div class="absolute right-2.5 top-2.5">
     <MButton
       variant="link"
-      size="md"
-      color="gray"
+      color="neutral"
       :icon
       aria-label="Copy code to clipboard"
       @click="copy"

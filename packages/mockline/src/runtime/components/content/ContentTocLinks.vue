@@ -39,7 +39,7 @@ const scrollToHeading = (id: string): void => {
     <li v-for="link in links" :key="link.text" :class="link.depth === 3 ? 'ml-3' : ''">
       <a
         class="block truncate text-sm/6"
-        :class="activeHeadings.includes(link.id) ? 'text-primary' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'"
+        :class="activeHeadings.includes(link.id) ? 'text-[var(--ui-primary)]' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'"
         :href="`#${link.id}`"
         @click.prevent="scrollToHeading(link.id)"
       >

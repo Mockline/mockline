@@ -3,7 +3,6 @@ import { createConfig } from "@hrcd/eslint-config"
 export default createConfig({
   typescript: {
     strict: true,
+    any: true
   }
-}).overrideRules({
-  "@typescript-eslint/no-explicit-any": "off"
 })

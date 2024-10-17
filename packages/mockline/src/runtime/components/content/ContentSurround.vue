@@ -1,17 +1,12 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
-import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
+import type { ParsedContent } from '@nuxt/content'
 
-const props = defineProps({
-  next: {
-    type: Object as PropType<ParsedContent>,
-    default: null
-  },
-  prev: {
-    type: Object as PropType<ParsedContent>,
-    default: null
-  }
-})
+type ContentSurroundProps = {
+  next?: ParsedContent
+  prev?: ParsedContent
+}
+
+const props = defineProps<ContentSurroundProps>()
 </script>
 
 <template>

@@ -25,9 +25,9 @@ const nav = [
 
 <template>
   <div>
-    <MNavMenu :items="nav" color="white">
+    <MNavMenu :items="nav">
       <template #leading>
-        <MIcon name="custom:mockline" class="fill-gray-12 size-8" />
+        <MIcon name="custom:mockline" class="size-8" />
       </template>
 
       <template #trailing>
@@ -41,12 +41,12 @@ const nav = [
           <li class="row-span-3 grid">
             <NavigationMenuLink as-child>
               <a
-                class="focus:shadow-primary-7 from-primary-9 to-primary-11 flex size-full select-none flex-col justify-end rounded-[6px] bg-gradient-to-b p-[25px] no-underline outline-none focus:shadow-[0_0_0_2px]"
+                class="from-[var(--ui-primary)] to-black/50 flex size-full select-none flex-col justify-end rounded-[6px] bg-gradient-to-b p-[25px] no-underline outline-none focus:shadow-[0_0_0_2px]"
                 href="/"
               >
-                <MIcon name="custom:mockline" class="size-10 fill-white" />
+                <MIcon name="custom:mockline" class="size-10" />
                 <div class="mb-[7px] mt-4 text-[18px] font-medium leading-[1.2] text-white">Radix Primitives</div>
-                <p class="text-mauve-4 text-[14px] leading-[1.3]">Unstyled, accessible components for Vue.</p>
+                <p class="text-[14px] leading-[1.3]">Unstyled, accessible components for Vue.</p>
               </a>
             </NavigationMenuLink>
           </li>
