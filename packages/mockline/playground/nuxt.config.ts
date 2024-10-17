@@ -2,9 +2,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4
   },
-  modules: [
-    '../src/module',
-  ],
+  modules: ['../src/module'],
   mockline: {
     content: true,
   },

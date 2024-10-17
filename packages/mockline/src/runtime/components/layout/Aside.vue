@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { twMerge } from "tailwind-merge";
+import { twMerge } from 'tailwind-merge'
 
 type AsideProps = {
   sticky?: boolean

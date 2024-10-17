@@ -1,31 +1,30 @@
-import type { ParsedContent } from '@nuxt/content'
-import { splitByCase, upperFirst } from "scule";
-import type { NavItem } from "@nuxt/content";
-import { withoutTrailingSlash } from "ufo";
+import type { ParsedContent, NavItem } from '@nuxt/content'
+import { splitByCase, upperFirst } from 'scule'
+import { withoutTrailingSlash } from 'ufo'
 
 export function findPageHeadline(page?: ParsedContent | null): string | undefined {
   if (!page) {
-    return;
+    return
   }
-  return page._dir?.title ? page._dir.title : splitByCase(page._dir).map((p) => upperFirst(p)).join(" ");
+  return page._dir?.title ? page._dir.title : splitByCase(page._dir).map((p) => upperFirst(p)).join(' ')
 }
 
 export function findPageBreadcrumb(navigation?: NavItem[], page?: ParsedContent | undefined | null): NavItem[] {
   if (!navigation || !page) {
-    return [];
+    return []
   }
   return navigation.reduce((breadcrumb, link) => {
-    if (page._path && (page._path + "/").startsWith(link._path + "/")) {
+    if (page._path && (page._path + '/').startsWith(link._path + '/')) {
       if (link.children) {
-        breadcrumb.push(link);
-        breadcrumb.push(...findPageBreadcrumb(link.children, page));
+        breadcrumb.push(link)
+        breadcrumb.push(...findPageBreadcrumb(link.children, page))
       }
     }
-    return breadcrumb;
-  }, []);
+    return breadcrumb
+  }, [])
 }
 
-export async function findPageSurround() {
+export async function findPageSurround(): Promise<{ prev?: ParsedContent; next?: ParsedContent }> {
   const route = useRoute()
 
   const [prev, next] = await queryContent()
