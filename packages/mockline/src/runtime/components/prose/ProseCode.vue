@@ -1,36 +1,15 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
+type ProseCodeProps = {
+  code: string
+  icon?: string
+  language?: string
+  hideHeader?: boolean
+  filename?: string
+  highlights?: number[]
+  meta?: string
+}
 
-defineProps({
-  code: {
-    type: String,
-    required: true
-  },
-  icon: {
-    type: String,
-    default: undefined
-  },
-  language: {
-    type: String,
-    default: undefined
-  },
-  hideHeader: {
-    type: Boolean,
-    default: false
-  },
-  filename: {
-    type: String,
-    default: undefined
-  },
-  highlights: {
-    type: Array as PropType<number[]>,
-    default: undefined
-  },
-  meta: {
-    type: String,
-    default: undefined
-  },
-})
+const props = defineProps<ProseCodeProps>()
 </script>
 
 <template>

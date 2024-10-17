@@ -64,6 +64,8 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.alias['#mockline'] = resolve('./runtime')
 
     options.colors = options.colors?.length ? [...new Set(['primary', ...options.colors])] : ['primary']
+    console.log(options.colors)
+    console.log(typeof options.colors)
 
     nuxt.options.mockline = options
 
@@ -147,14 +149,11 @@ export default defineNuxtModule<ModuleOptions>({
       await registerModule('@nuxt/content', {
         highlight: {
           theme: {
-            default: 'github-dark-default',
-            dark: 'github-dark-default',
-            light: 'github-light-default'
+            dark: 'github-dark',
+            default: 'github-light'
           },
-        },
-        highlight: {
           langs: ['bash', 'ts', 'diff', 'vue', 'json', 'yml', 'css', 'mdc']
-        }
+        },
       })
 
       await addComponentsDir({
