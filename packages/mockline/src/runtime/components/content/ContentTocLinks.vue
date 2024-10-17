@@ -1,19 +1,16 @@
 <script setup lang="ts">
-import type { TocLink } from '@nuxt/content/dist/runtime/types'
+import type { TocLink } from '@nuxt/content'
 import { useScrollspy, useNuxtApp, useRouter } from '#imports'
 
 const { activeHeadings, updateHeadings } = useScrollspy()
 
-export type ContentTocProps = {
+type ContentTocProps = {
   title?: string
   links: TocLink[]
   active?: string
 }
 
-withDefaults(defineProps<ContentTocProps>(), {
-  title: 'Table of Contents',
-  links: () => []
-})
+const { title = 'Table of Contents', links = (): any => [] } = defineProps<ContentTocProps>()
 
 const nuxtApp = useNuxtApp()
 const router = useRouter()

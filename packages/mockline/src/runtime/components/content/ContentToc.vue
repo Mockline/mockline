@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import type { TocLink } from '@nuxt/content/dist/runtime/types'
+import type { TocLink } from '@nuxt/content'
 
-export type ContentTocProps = {
+type ContentTocProps = {
   title?: string
   links: TocLink[]
 }
 
-withDefaults(defineProps<ContentTocProps>(), {
-  title: 'Table of Contents',
-  links: () => []
-})
+const { title = 'Table of Contents', links = (): any => [] } = defineProps<ContentTocProps>()
 </script>
 
 <template>
