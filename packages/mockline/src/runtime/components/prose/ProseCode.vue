@@ -22,7 +22,8 @@ const props = defineProps<ProseCodeProps>()
 
     <CodeButton :code />
 
-    <slot />
+    <div class="not-prose text-sm p-2 bg-neutral-50 dark:bg-neutral-950 rounded-b-md">
+      <slot />
+    </div>
   </div>
 </template>
-
