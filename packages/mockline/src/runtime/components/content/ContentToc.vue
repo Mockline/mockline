@@ -6,7 +6,8 @@ type ContentTocProps = {
   links: TocLink[]
 }
 
-const { title = 'Table of Contents', links = (): any => [] } = defineProps<ContentTocProps>()
+// eslint-disable-next-line
+const { title = 'Table of Contents', links = [] } = defineProps<ContentTocProps>()
 </script>
 
 <template>

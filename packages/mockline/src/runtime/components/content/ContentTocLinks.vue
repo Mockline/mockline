@@ -10,7 +10,8 @@ type ContentTocProps = {
   active?: string
 }
 
-const { title = 'Table of Contents', links = (): any => [] } = defineProps<ContentTocProps>()
+// eslint-disable-next-line
+const { title = 'Table of Contents', links = [] } = defineProps<ContentTocProps>()
 
 const nuxtApp = useNuxtApp()
 const router = useRouter()
