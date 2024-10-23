@@ -46,8 +46,14 @@ jobs:
               - 'package.json'
               - 'bun.lockb'
 
+      - uses: EndBug/version-check@v2
+        id: check
+        with:
+          file-name: packages/mockline/package.json
+          diff-search: true
+
       - name: 🚀 Release
-        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && steps.changes.outputs.src == 'true')
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && steps.changes.outputs.src == 'true') || steps.check.outputs.changed == 'true'
         run: ./scripts/release.sh
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}

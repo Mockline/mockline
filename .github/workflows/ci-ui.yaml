@@ -46,6 +46,12 @@ jobs:
               - 'package.json'
               - 'bun.lockb'
 
+      - uses: EndBug/version-check@v2
+        id: check
+        with:
+          file-name: packages/mockline/package.json
+          diff-search: true
+
       - name: 🚀 Release UI
         if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && steps.changes.outputs.src == 'true')
         run: ./scripts/release-ui.sh
