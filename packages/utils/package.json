@@ -42,25 +42,25 @@
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.1",
-    "@iconify-json/lucide": "^1.2.9",
-    "@nuxt/fonts": "^0.10.0",
+    "@iconify-json/lucide": "^1.2.10",
+    "@nuxt/fonts": "^0.10.1",
     "@nuxt/icon": "^1.5.6",
     "@nuxt/kit": "3.13.2",
     "@nuxt/schema": "3.13.2",
     "@nuxtjs/color-mode": "^3.5.1",
-    "@tailwindcss/postcss": "4.0.0-alpha.26",
+    "@tailwindcss/postcss": "4.0.0-alpha.28",
     "@tailwindcss/typography": "^0.5.15",
-    "@tailwindcss/vite": "4.0.0-alpha.26",
+    "@tailwindcss/vite": "4.0.0-alpha.28",
     "@vueuse/core": "^11.1.0",
     "defu": "^6.1.4",
     "pathe": "^1.1.2",
-    "tailwindcss": "4.0.0-alpha.26",
-    "vue-sonner": "^1.2.1"
+    "tailwindcss": "4.0.0-alpha.28",
+    "vue-sonner": "^1.2.3"
   },
   "devDependencies": {
     "@nuxt/module-builder": "0.8.4",
     "automd": "^0.3.12",
-    "eslint": "^9.12.0",
+    "eslint": "^9.13.0",
     "nuxt": "3.13.2",
     "typescript": "5.6.3"
   },
