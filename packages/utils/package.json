@@ -44,7 +44,7 @@
     "@iconify-json/heroicons": "^1.2.1",
     "@iconify-json/lucide": "^1.2.10",
     "@nuxt/fonts": "^0.10.2",
-    "@nuxt/icon": "^1.5.6",
+    "@nuxt/icon": "^1.5.8",
     "@nuxt/kit": "3.13.2",
     "@nuxt/schema": "3.13.2",
     "@nuxtjs/color-mode": "^3.5.2",
