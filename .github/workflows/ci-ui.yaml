@@ -53,7 +53,7 @@ jobs:
           diff-search: true
 
       - name: 🚀 Release UI
-        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && steps.changes.outputs.src == 'true')
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && steps.changes.outputs.src == 'true') || steps.check.outputs.changed == 'true'
         run: ./scripts/release-ui.sh
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
