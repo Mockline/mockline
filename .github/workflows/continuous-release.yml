@@ -2,9 +2,31 @@ name: Publish Any Commit
 on: [push, pull_request]
 
 jobs:
-  build:
+  check-changes:
     runs-on: ubuntu-latest
+    outputs:
+      src: ${{ steps.changes.outputs.src }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
+      - name: Check if there are changes
+        uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            src:
+              - 'packages/mockline/src/**'
+              - 'packages/mockline/package.json'
+              - 'bun.lockb'
+
+  build:
+    needs: check-changes
+    if: needs.check-changes.outputs.src == 'true'
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
