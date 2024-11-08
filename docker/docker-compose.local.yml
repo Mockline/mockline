@@ -1,9 +1,9 @@
 services:
-  mockline_lp:
+  mockline_docs:
     build:
       context: ../
       dockerfile: ./apps/docs/Dockerfile
-    container_name: mockline_lp
+    container_name: mockline_docs
     restart: always
     environment:
       - NUXT_PUBLIC_SITE_URL=${NUXT_PUBLIC_SITE_URL:-http://localhost:3000}
