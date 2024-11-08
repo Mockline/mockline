@@ -63,7 +63,7 @@ jobs:
       - uses: EndBug/version-check@v2
         id: check
         with:
-          file-name: packages/mockline/package.json
+          file-name: packages/nuxt/package.json
           diff-search: true
 
       - name: 🚀 Release UI
