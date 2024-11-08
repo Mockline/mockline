@@ -28,9 +28,8 @@ jobs:
         id: changes
         with:
           filters: |
-            src:
-              # Liste des fichiers à surveiller dans un format plus lisible
-              - 'packages/**/*.{js,ts,vue}'
+            src
+              - 'packages/**/*.{ts,vue}'
               - 'packages/**/package.json'
               - 'packages/**/*.lockb'
               - 'package.json'
