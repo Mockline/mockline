@@ -1,4 +1,4 @@
-name: Build and Push Landing Page Docker Image
+name: Build and Push Documentation Docker Image
 
 on:
   push:
