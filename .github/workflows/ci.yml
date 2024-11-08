@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - dev
 
 permissions:
   contents: write
@@ -32,15 +33,15 @@ jobs:
               - 'packages/utils/bun.lockb'
               - 'package.json'
               - 'bun.lockb'
-  ci:
+
+  shared-build:
     runs-on: ubuntu-latest
     needs: check-changes
     if: needs.check-changes.outputs.src == 'true'
-    permissions:
-      contents: read
-      packages: write
+    outputs:
+      version_changed: ${{ steps.check.outputs.changed }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -66,8 +67,59 @@ jobs:
           file-name: packages/nuxt/package.json
           diff-search: true
 
-      - name: 🚀 Release
-        if: steps.check.outputs.changed == 'true'
+  deploy-main:
+    needs: shared-build
+    if: |
+      needs.shared-build.outputs.version_changed == 'true' &&
+      github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: 🚀 Release Main
         run: ./scripts/release.sh
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  deploy-ui:
+    needs: shared-build
+    if: |
+      needs.shared-build.outputs.version_changed == 'true' &&
+      github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: 🚀 Release UI
+        run: ./scripts/release-ui.sh
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  deploy-edge:
+    needs: shared-build
+    if: |
+      needs.shared-build.outputs.version_changed == 'true' &&
+      github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: 🚀 Release Edge
+        run: ./scripts/release-edge.sh
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
