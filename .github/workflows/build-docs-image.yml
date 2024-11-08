@@ -1,4 +1,4 @@
-name: Build and Push Landing Page Docker Image
+name: Build and Push Documentation Docker Image
 
 on:
   push:
@@ -28,6 +28,8 @@ jobs:
           filters: |
             src:
               - 'apps/docs/**'
+              - 'packages/nuxt/**
+              - 'packages/utils/**
               - 'bun.lockb'
 
   build-and-push:

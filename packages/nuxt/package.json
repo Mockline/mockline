@@ -69,7 +69,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/mockline/mockline.git",
-    "directory": "packages/mockline"
+    "directory": "packages/nuxt"
   },
   "bugs": {
     "url": "https://github.com/mockline/mockline/issues"

@@ -19,6 +19,8 @@ COPY . .
 
 RUN bun install
 
+RUN bun run dev:prepare
+
 RUN bun run build:docs
 
 # Stage 2: Final Stage

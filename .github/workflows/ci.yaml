@@ -24,9 +24,12 @@ jobs:
         with:
           filters: |
             src:
-              - 'packages/mockline/src/**'
-              - 'packages/mockline/package.json'
-              - 'packages/mockline/bun.lockb'
+              - 'packages/nuxt/src/**'
+              - 'packages/nuxt/package.json'
+              - 'packages/nuxt/bun.lockb'
+              - 'packages/utils/src/**'
+              - 'packages/utils/package.json'
+              - 'packages/utils/bun.lockb'
               - 'package.json'
               - 'bun.lockb'
   ci:
@@ -60,7 +63,7 @@ jobs:
       - uses: EndBug/version-check@v2
         id: check
         with:
-          file-name: packages/mockline/package.json
+          file-name: packages/nuxt/package.json
           diff-search: true
 
       - name: 🚀 Release

@@ -16,8 +16,12 @@ jobs:
         with:
           filters: |
             src:
-              - 'packages/mockline/src/**'
-              - 'packages/mockline/package.json'
+              - 'packages/nuxt/src/**'
+              - 'packages/nuxt/package.json'
+              - 'packages/nuxt/bun.lockb'
+              - 'packages/utils/src/**'
+              - 'packages/utils/package.json'
+              - 'packages/utils/bun.lockb'
               - 'bun.lockb'
 
   build:
@@ -45,4 +49,4 @@ jobs:
         run: bun run build
 
       - name: 🚀 Continuous Release
-        run: bunx pkg-pr-new publish './packages/mockline'
+        run: bunx pkg-pr-new publish './packages/nuxt'
