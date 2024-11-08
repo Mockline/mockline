@@ -13,7 +13,6 @@ import { defu } from 'defu'
 import type { Nuxt } from '@nuxt/schema'
 import { name, version } from '../package.json'
 import { addTemplates } from './templates'
-import { colors } from './runtime/utils/colors'
 import type { Color } from './runtime/utils/colors'
 
 export type * from './runtime/types'
