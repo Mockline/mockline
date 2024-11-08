@@ -28,6 +28,8 @@ jobs:
           filters: |
             src:
               - 'apps/docs/**'
+              - 'packages/nuxt/**
+              - 'packages/utils/**
               - 'bun.lockb'
 
   build-and-push:
