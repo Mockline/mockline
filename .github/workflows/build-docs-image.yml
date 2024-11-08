@@ -10,7 +10,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}-lp
+  IMAGE_NAME: ${{ github.repository }}-docs
 
 jobs:
   check-changes:
@@ -27,7 +27,7 @@ jobs:
         with:
           filters: |
             src:
-              - 'apps/lp/**'
+              - 'apps/docs/**'
               - 'bun.lockb'
 
   build-and-push:
@@ -69,7 +69,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./apps/lp/Dockerfile
+          file: ./apps/docs/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

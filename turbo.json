@@ -1,5 +1,8 @@
 {
   "$schema": "https://turborepo.org/schema.json",
+  "globalDependencies": [
+    "**/.env"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
@@ -10,21 +13,6 @@
       ],
       "cache": false
     },
-    "generate": {
-      "dependsOn": ["^build"],
-      "outputs": [
-        "dist/**",
-        ".output/**",
-        ".nuxt/**"
-      ],
-      "cache": false
-    },
-    "lint": {
-      "outputs": []
-    },
-    "lint:fix": {
-      "outputs": []
-    },
     "dev": {
       "dependsOn": ["^dev"],
       "cache": false
@@ -34,6 +22,9 @@
     },
     "dev:prepare": {
       "cache": false
-    }
+    },
+    "typecheck": {},
+    "lint": {},
+    "lint:fix": {}
   }
 }
