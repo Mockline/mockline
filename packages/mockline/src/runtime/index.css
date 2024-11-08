@@ -1,5 +1,4 @@
-@import "tailwindcss";
-@import "assets/css/animation.css";
+@import "./animation.css";
 
 @variant dark (&:where(.dark, .dark *));
 

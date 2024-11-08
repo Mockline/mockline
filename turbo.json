@@ -3,12 +3,20 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".nuxt/**", ".output/**"],
+      "outputs": [
+        "dist/**",
+        ".output/**",
+        ".nuxt/**"
+      ],
       "cache": false
     },
     "generate": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".nuxt/**", ".output/**"],
+      "outputs": [
+        "dist/**",
+        ".output/**",
+        ".nuxt/**"
+      ],
       "cache": false
     },
     "lint": {
@@ -25,9 +33,6 @@
       "cache": false
     },
     "dev:prepare": {
-      "cache": false
-    },
-    "tailwind": {
       "cache": false
     }
   }

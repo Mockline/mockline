@@ -11,6 +11,7 @@
 </template>
 
 <style>
+@import "tailwindcss";
 @import "mockline";
 
 @source "../content/**/*.md";
