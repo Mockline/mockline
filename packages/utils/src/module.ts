@@ -11,23 +11,47 @@ import type { Nuxt } from '@nuxt/schema'
 import { defu } from 'defu'
 import { name, version } from '../package.json'
 
-export type ModuleOptions = {
+export type MocklineUtilsModuleOptions = {
+  /** Import base component (just some basic component to kickstart project App, Theme Toggle etc...)
+   * @defaultValue `true`
+   */
+  importComponents?: boolean
   /**
    * Prefix for all components
+   * @defaultValue `M`
    */
   prefix?: string,
+  /**
+   * Enable or disable `@nuxt/fonts` module
+   * @defaultValue `true`
+   */
+  fonts?: boolean
+  /**
+   * Enable or disable `@nuxt/icon` module
+   * @defaultValue `true`
+   */
+  icon?: boolean
+  /**
+   * Enable or disable `@nuxtjs/color-mode` module
+   * @defaultValue `true`
+   */
+  colorMode?: boolean
 }
 
-export default defineNuxtModule<ModuleOptions>({
+export default defineNuxtModule<MocklineUtilsModuleOptions>({
   meta: {
     name,
     version,
     configKey: 'mocklineUtils',
   },
   defaults: {
+    importComponents: true,
     prefix: 'M',
+    fonts: true,
+    icon: true,
+    colorMode: true
   },
-  async setup(options: ModuleOptions, nuxt: Nuxt): Promise<void> {
+  async setup(options: MocklineUtilsModuleOptions, nuxt: Nuxt): Promise<void> {
     const { resolve } = createResolver(import.meta.url)
 
     // Transpile runtime
@@ -53,29 +77,33 @@ export default defineNuxtModule<ModuleOptions>({
       }
     }
 
-    await registerModule('@nuxt/icon', {
-      componentName: 'MIcon',
-      class: 'fill-current',
-      mode: 'svg',
-    })
+    if (options.icon) {
+      await registerModule('@nuxt/icon', {
+        componentName: `${options.prefix}Icon`,
+        class: 'fill-current',
+        mode: 'svg',
+      })
+    }
 
-    await registerModule('@nuxt/fonts', { experimental: { processCSSVariables: true } })
+    if (options.fonts)
+      await registerModule('@nuxt/fonts', { experimental: { processCSSVariables: true } })
 
-    await registerModule('@nuxtjs/color-mode', { classSuffix: '', disableTransition: true, storageKey: 'mockline-color-mode' })
+    if (options.colorMode)
+      await registerModule('@nuxtjs/color-mode', { classSuffix: '', disableTransition: true, storageKey: 'mockline-color-mode' })
 
-    // Add vue-sonner
     addImportsSources({
       from: 'vue-sonner',
       imports: ['toast'],
     })
 
-    // Components elements
-    await addComponentsDir({
-      path: resolve('./runtime/components'),
-      prefix: options.prefix,
-      pathPrefix: false,
-    })
+    if (options.importComponents) {
+      await addComponentsDir({
+        path: resolve('./runtime/components'),
+        prefix: options.prefix,
+        pathPrefix: false,
+      })
 
-    addImportsDir(resolve('./runtime/composables'))
+      addImportsDir(resolve('./runtime/composables'))
+    }
   },
 })

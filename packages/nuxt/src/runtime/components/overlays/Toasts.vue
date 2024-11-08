@@ -14,7 +14,7 @@ const TOAST_LIFETIME = 4000
 // Default gap between toasts
 const GAP = 14
 
-withDefaults(defineProps<ToasterProps>(), {
+const props = withDefaults(defineProps<ToasterProps>(), {
   invert: false,
   position: appConfig.mockline?.toast?.position ?? 'top-center',
   hotkey: () => ['altKey', 'KeyT'],
@@ -45,6 +45,7 @@ withDefaults(defineProps<ToasterProps>(), {
     :hotkey
     :expand
     :close-button
+    :class="props.class"
     :offset
     :style
     :theme="$colorMode.preference === 'dark' ? 'dark' : 'light'"
