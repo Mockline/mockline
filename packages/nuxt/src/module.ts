@@ -5,50 +5,15 @@ import {
   addComponentsDir,
   installModule,
   addPlugin,
-  hasNuxtModule,
+  hasNuxtModule, addVitePlugin, addImportsSources,
 } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { Nuxt } from '@nuxt/schema'
-import type { MocklineUtilsModuleOptions } from '@mockline/utils'
+import type { ModuleOptions } from '@mockline/types'
 import { name, version } from '../package.json'
 import { addTemplates } from './templates'
-import type { Color } from './runtime/utils/colors'
 
 export type * from './runtime/types'
-
-export type ModuleOptions = {
-  /**
-   * Prefix for all components
-   * @defaultValue 'M'
-   */
-  prefix?: string,
-  /** Enable Nuxt Fonts
-   *  @defaultValue true
-   */
-  fonts?: boolean
-  /** Enable Nuxt Icons
-   *  @defaultValue true
-   */
-  icon?: boolean
-  /** Enable Nuxt Color Mode
-   *  @defaultValue true
-   */
-  colorMode?: boolean
-  /**
-   * Enable Nuxt Content
-   * @defaultValue false
-   */
-  content?: boolean
-  /**
-   * The colors to use
-   */
-  colors?: Color[]
-  /**
-   * Enable Color Transitions
-   * @defaultValue false
-   */
-  transitions?: boolean
-}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -58,8 +23,10 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     prefix: 'M',
+    fonts: true,
+    icon: true,
+    colorMode: true,
     content: false,
-    colors: undefined,
     transitions: false,
   },
   async setup(options: ModuleOptions, nuxt: Nuxt): Promise<void> {
@@ -90,10 +57,8 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.app.rootAttrs = nuxt.options.app.rootAttrs || {}
     nuxt.options.app.rootAttrs.class = [nuxt.options.app.rootAttrs.class, 'isolate'].filter(Boolean).join(' ')
 
-    // Templates
     addTemplates(options, nuxt)
 
-    // Modules
     async function registerModule(name: string, options: Record<string, any>): Promise<void> {
       if (!hasNuxtModule(name)) {
         await installModule(name, options)
@@ -102,38 +67,42 @@ export default defineNuxtModule<ModuleOptions>({
       }
     }
 
-    const utilsOptions: MocklineUtilsModuleOptions = {
-      prefix: options.prefix,
-      fonts: options.fonts,
-      icon: options.icon,
-      colorMode: options.colorMode,
-      importComponents: false
+    if (nuxt.options.builder === '@nuxt/vite-builder') {
+      const plugin = await import('@tailwindcss/vite').then(r => r.default)
+      addVitePlugin(plugin())
+    } else {
+      nuxt.options.postcss.plugins['@tailwindcss/postcss'] = {}
     }
 
-    await registerModule('@mockline/utils', utilsOptions)
+    if (options.icon) {
+      await registerModule('@nuxt/icon', {
+        componentName: `${options.prefix}Icon`,
+        class: 'fill-current',
+        mode: 'svg',
+        customCollections: [
+          {
+            prefix: 'custom',
+            dir: './assets/icons'
+          },
+        ],
+      })
+    }
+
+    if (options.fonts)
+      await registerModule('@nuxt/fonts', { experimental: { processCSSVariables: true } })
+
+    if (options.colorMode)
+      await registerModule('@nuxtjs/color-mode', { classSuffix: '', disableTransition: true, storageKey: 'mockline-color-mode' })
+
+    addImportsSources({
+      from: 'vue-sonner',
+      imports: ['toast'],
+    })
 
     addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors') })
 
     addComponentsDir({
-      path: resolve('./runtime/components/elements'),
-      prefix: options.prefix,
-      pathPrefix: false,
-    }).then()
-
-    addComponentsDir({
-      path: resolve('./runtime/components/layout'),
-      prefix: options.prefix,
-      pathPrefix: false,
-    }).then()
-
-    addComponentsDir({
-      path: resolve('./runtime/components/settings'),
-      prefix: options.prefix,
-      pathPrefix: false,
-    }).then()
-
-    addComponentsDir({
-      path: resolve('./runtime/components/overlays'),
+      path: resolve('./runtime/components/'),
       prefix: options.prefix,
       pathPrefix: false,
     }).then()

@@ -1,0 +1,17 @@
+{
+  "name": "@mockline/types",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "files": [
+    "index.ts"
+  ],
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "main": "index.ts",
+  "types": "index.ts",
+  "devDependencies": {
+    "typescript": "latest"
+  }
+}

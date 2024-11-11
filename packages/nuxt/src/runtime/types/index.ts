@@ -25,7 +25,7 @@ export * from '../components/content/ContentToc.vue'
 export * from '../components/content/ContentTocLinks.vue'
 
 // Global
-export * from '../components/global/Callout.vue'
-export * from '../components/global/CodeGroup.vue'
-export * from '../components/global/prose/ProseCode.vue'
-export * from '../components/global/prose/ProseCodeButton.vue'
+export * from '../components/prose/Callout.vue'
+export * from '../components/prose/CodeGroup.vue'
+export * from '../components/prose/ProseCode.vue'
+export * from '../components/prose/CodeButton.vue'
