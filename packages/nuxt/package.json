@@ -30,7 +30,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mockline/utils": "*",
     "@mockline/types": "*",
     "@iconify-json/heroicons": "^1.2.1",
     "@iconify-json/lucide": "^1.2.12",

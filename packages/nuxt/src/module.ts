@@ -5,7 +5,9 @@ import {
   addComponentsDir,
   installModule,
   addPlugin,
-  hasNuxtModule, addVitePlugin, addImportsSources,
+  hasNuxtModule,
+  addVitePlugin,
+  addImportsSources,
 } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { Nuxt } from '@nuxt/schema'
@@ -20,6 +22,9 @@ export default defineNuxtModule<ModuleOptions>({
     name,
     version,
     configKey: 'mockline',
+    compatibility: {
+      nuxt: '>=3.13.1'
+    },
   },
   defaults: {
     prefix: 'M',
@@ -56,8 +61,6 @@ export default defineNuxtModule<ModuleOptions>({
     // Isolate root node from portaled components
     nuxt.options.app.rootAttrs = nuxt.options.app.rootAttrs || {}
     nuxt.options.app.rootAttrs.class = [nuxt.options.app.rootAttrs.class, 'isolate'].filter(Boolean).join(' ')
-
-    addTemplates(options, nuxt)
 
     async function registerModule(name: string, options: Record<string, any>): Promise<void> {
       if (!hasNuxtModule(name)) {
@@ -131,6 +134,8 @@ export default defineNuxtModule<ModuleOptions>({
         global: true
       })
     }
+
+    addTemplates(options, nuxt, resolve)
 
     addImportsDir(resolve('./runtime/composables'))
   },

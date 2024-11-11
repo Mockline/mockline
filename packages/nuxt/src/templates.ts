@@ -1,11 +1,11 @@
 import { fileURLToPath } from 'node:url'
-import { addTemplate, addTypeTemplate, useNuxt } from '@nuxt/kit'
+import { addTemplate, type Resolver } from '@nuxt/kit'
 import { kebabCase } from 'scule'
-import { colors } from './runtime/utils/colors'
+import type { ModuleOptions } from '@mockline/types'
+import type { Nuxt } from '@nuxt/schema'
 import * as theme from './theme'
-import type { ModuleOptions } from './runtime/types'
 
-export function addTemplates(options: ModuleOptions, nuxt = useNuxt()): void {
+export function addTemplates(options: ModuleOptions, nuxt: Nuxt, resolve: Resolver['resolve']): void {
   for (const component in theme) {
     addTemplate({
       filename: `mockline/${ kebabCase(component) }.ts`,
@@ -38,6 +38,10 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()): void {
 
         return `export default ${ json }`
       }
+    })
+
+    nuxt.hook('prepare:types', ({ references }) => {
+      references.push({ path: resolve('./runtime/types/app.config.d.ts') })
     })
   }
 
