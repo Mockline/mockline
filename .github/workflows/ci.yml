@@ -38,7 +38,7 @@ jobs:
     needs: check-changes
     if: needs.check-changes.outputs.src == 'true'
     outputs:
-      version_changed: ${{ steps.version_check.outputs.has_changed }}
+      version_changed: ${{ steps.version_check.outputs.changed }}
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
@@ -64,10 +64,11 @@ jobs:
           ${{ env.PACKAGE_MANAGER }} run build
 
       - name: 🔍 Check Version Changes
-        uses: HugoRCD/version-diff-action@v1.0.1
+        uses: EndBug/version-check@v2
         id: version_check
         with:
-          path: ${{ env.VERSION_FILE }}
+          file-name: ${{ env.VERSION_FILE }}
+          diff-search: true
 
   deploy:
     needs: build-and-test
