@@ -1,4 +1,3 @@
-import type { ToasterProps } from 'vue-sonner'
 import type { Colors } from './Colors'
 
 export type ModuleOptions = {
@@ -52,7 +51,7 @@ export type MocklineConfig = {
     neutral?: Colors
   }
   toast?: {
-    position?: ToasterProps['position']
+    position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
     duration?: number
   }
 }

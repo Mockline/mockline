@@ -1,17 +1,28 @@
 {
   "name": "@mockline/themes",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "type": "module",
-  "private": true,
-  "files": [
-    "index.ts"
-  ],
-  "exports": {
-    ".": "./src/index.ts"
+  "publishConfig": {
+    "access": "public"
   },
-  "main": "index.ts",
-  "types": "index.ts",
+  "scripts": {
+    "dev:prepare": "unbuild",
+    "build": "unbuild",
+    "release": "bun run build && npm publish"
+  },
+  "main": "./dist/index.mjs",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.mjs"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
-    "typescript": "latest"
+    "@mockline/types": "*",
+    "typescript": "latest",
+    "unbuild": "^2.0.0"
   }
 }

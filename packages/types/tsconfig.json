@@ -10,7 +10,6 @@
 
     "allowJs": true,
     "jsx": "react-jsx",
-    "types": ["bun-types"],
 
     // Strict Type Checking
     "strict": true,

@@ -1,21 +1,27 @@
 {
   "name": "@mockline/types",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "type": "module",
-  "private": true,
-  "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist"
+  "publishConfig": {
+    "access": "public"
   },
+  "scripts": {
+    "dev:prepare": "unbuild",
+    "build": "unbuild",
+    "release": "bun run build && npm publish"
+  },
+  "main": "./dist/index.mjs",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.mjs"
+  },
+  "types": "./dist/index.d.ts",
   "files": [
-    "index.ts",
     "dist"
   ],
-  "exports": {
-    ".": "./src/index.ts"
-  },
-  "main": "index.ts",
-  "types": "index.d.ts",
   "devDependencies": {
-    "typescript": "latest"
+    "typescript": "latest",
+    "unbuild": "^2.0.0"
   }
 }
