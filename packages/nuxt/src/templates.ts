@@ -1,4 +1,3 @@
-import { fileURLToPath } from 'node:url'
 import { addTemplate, addTypeTemplate, type Resolver } from '@nuxt/kit'
 import { kebabCase } from 'scule'
 import type { ModuleOptions } from '@mockline/types'

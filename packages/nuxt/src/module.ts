@@ -104,7 +104,7 @@ export default defineNuxtModule<ModuleOptions>({
             default: 'github-light',
             light: 'github-light'
           },
-          langs: ['bash', 'ts', 'diff', 'vue', 'json', 'yml', 'css', 'mdc']
+          langs: ['bash', 'ts', 'typescript', 'diff', 'vue', 'json', 'yml', 'css', 'mdc']
         },
       })
 

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ContentSlot from '@nuxt/content'
+
 defineProps({
   type: String,
   icon: String,
@@ -20,7 +22,3 @@ defineProps({
     </div>
   </div>
 </template>
-
-<style scoped>
-
-</style>
