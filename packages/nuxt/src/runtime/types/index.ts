@@ -1,22 +1,22 @@
 // Elements
-export * from '../components/elements/Button.vue'
-export * from '../components/elements/NavMenu.vue'
+export * from '../components/Button.vue'
+export * from '../components/NavMenu.vue'
 
 // Layout
-export * from '../components/layout/App.vue'
-export * from '../components/layout/Aside.vue'
-export * from '../components/layout/Card.vue'
-export * from '../components/layout/Header.vue'
-export * from '../components/layout/Main.vue'
-export * from '../components/layout/Page.vue'
-export * from '../components/layout/PageBody.vue'
-export * from '../components/layout/PageHeader.vue'
+export * from '../components/App.vue'
+export * from '../components/Aside.vue'
+export * from '../components/Card.vue'
+export * from '../components/Header.vue'
+export * from '../components/Main.vue'
+export * from '../components/Page.vue'
+export * from '../components/PageBody.vue'
+export * from '../components/PageHeader.vue'
 
 // Settings
-export * from '../components/settings/ThemeToggle.vue'
+export * from '../components/ThemeToggle.vue'
 
 // Overlays
-export * from '../components/overlays/Toasts.vue'
+export * from '../components/Toasts.vue'
 
 // Content
 export * from '../components/content/ContentNavigationTree.vue'

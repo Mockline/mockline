@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "type": "module",
   "private": true,
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist"
+  },
   "files": [
-    "index.ts"
+    "index.ts",
+    "dist"
   ],
   "exports": {
     ".": "./src/index.ts"
   },
   "main": "index.ts",
-  "types": "index.ts",
+  "types": "index.d.ts",
   "devDependencies": {
     "typescript": "latest"
   }

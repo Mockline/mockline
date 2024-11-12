@@ -1,4 +1,4 @@
-import { MocklineConfig, ModuleOptions } from './Module'
+import type { MocklineConfig, ModuleOptions } from './Module'
 
 export const defaultModuleOptions: ModuleOptions = {
   prefix: 'M',

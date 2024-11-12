@@ -1,5 +1,5 @@
 import type { ToasterProps } from 'vue-sonner'
-import { Colors } from './Colors'
+import type { Colors } from './Colors'
 
 export type ModuleOptions = {
   /**
