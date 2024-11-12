@@ -8,7 +8,6 @@ on:
   push:
     branches:
       - main
-      - dev
   workflow_dispatch:
 
 permissions:
@@ -81,12 +80,8 @@ jobs:
           - name: ui
             script: release-ui.sh
             branch: main
-          - name: edge
-            script: release-edge.sh
-            branch: dev
     if: |
-      (needs.build-and-test.outputs.version_changed == 'true' &&
-      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev')) ||
+      needs.build-and-test.outputs.version_changed == 'true' ||
       github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
