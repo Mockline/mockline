@@ -67,7 +67,7 @@ jobs:
         uses: EndBug/version-check@v2
         id: version_check
         with:
-          file-name: ${{ env.VERSION_FILE }}
+          file-name: packages/nuxt/package.json
           diff-search: true
 
   deploy:
