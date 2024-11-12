@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import ContentSlot from '@nuxt/content'
-
 defineProps({
   type: String,
   icon: String,
