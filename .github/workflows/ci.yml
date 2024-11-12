@@ -9,6 +9,7 @@ on:
     branches:
       - main
       - dev
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -36,7 +37,7 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     needs: check-changes
-    if: needs.check-changes.outputs.src == 'true'
+    if: needs.check-changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
     outputs:
       version_changed: ${{ steps.version_check.outputs.has_changed }}
     env:
@@ -84,8 +85,9 @@ jobs:
             script: release-edge.sh
             branch: dev
     if: |
-      needs.build-and-test.outputs.version_changed == 'true' &&
-      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev')
+      (needs.build-and-test.outputs.version_changed == 'true' &&
+      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev')) ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
       contents: read

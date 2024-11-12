@@ -7,8 +7,6 @@ import * as themes from '@mockline/themes'
 export function getTemplates(options: ModuleOptions): NuxtTemplate[] {
   const templates: NuxtTemplate[] = []
 
-  console.log(typeof themes)
-  console.log(themes)
   for (const component in themes) {
     templates.push({
       filename: `mockline/${ kebabCase(component) }.ts`,

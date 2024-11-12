@@ -6,7 +6,6 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "unbuild --stub",
     "dev:prepare": "unbuild",
     "build": "unbuild",
     "release": "bun run build && npm publish"
