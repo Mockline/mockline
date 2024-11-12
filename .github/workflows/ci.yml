@@ -40,7 +40,7 @@ jobs:
     needs: check-changes
     if: needs.check-changes.outputs.src == 'true'
     outputs:
-      version_changed: ${{ steps.version_check.outputs.changed }}
+      version_changed: ${{ steps.version_check.outputs.has_changed }}
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
