@@ -1,32 +1,5 @@
 import type { ToasterProps } from 'vue-sonner'
-
-export const colors = [
-  'slate',
-  'gray',
-  'zinc',
-  'neutral',
-  'stone',
-  'red',
-  'orange',
-  'amber',
-  'yellow',
-  'lime',
-  'green',
-  'emerald',
-  'teal',
-  'cyan',
-  'sky',
-  'blue',
-  'blue',
-  'indigo',
-  'violet',
-  'purple',
-  'fuchsia',
-  'pink',
-  'rose',
-]
-
-export type Color = typeof colors
+import { Colors } from './Colors'
 
 export type ModuleOptions = {
   /**
@@ -56,11 +29,28 @@ export type ModuleOptions = {
    * @defaultValue false
    */
   transitions?: boolean
+  /**
+   * Import components or not
+   * @defaultValue true
+   */
+  components?: boolean
+  /**
+   * Import composables or not
+   * @defaultValue true
+   */
+  composables?: boolean
 }
 
 export type MocklineConfig = {
-  primary?: typeof colors[number]
-  canvas?: typeof colors[number]
+  colors?: {
+    primary?: Colors
+    secondary?: Colors
+    success?: Colors
+    error?: Colors
+    warning?: Colors
+    info?: Colors
+    neutral?: Colors
+  }
   toast?: {
     position?: ToasterProps['position']
     duration?: number

@@ -11,6 +11,10 @@
 }
 
 @layer base {
+  body {
+    @apply antialiased;
+  }
+
   :root {
     color-scheme: light;
 

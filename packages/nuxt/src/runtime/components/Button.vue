@@ -3,7 +3,6 @@ import { tv, type VariantProps } from 'tailwind-variants'
 import { twMerge } from 'tailwind-merge'
 import { computed } from 'vue'
 import theme from '#build/mockline/button'
-
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
 
 const button = tv(theme)
