@@ -2,17 +2,19 @@ import { addTemplate, addTypeTemplate, type Resolver } from '@nuxt/kit'
 import { kebabCase } from 'scule'
 import type { ModuleOptions } from '@mockline/types'
 import type { Nuxt, NuxtTemplate, NuxtTypeTemplate } from '@nuxt/schema'
-import * as theme from '@mockline/themes'
+import * as themes from '@mockline/themes'
 
 export function getTemplates(options: ModuleOptions): NuxtTemplate[] {
   const templates: NuxtTemplate[] = []
 
-  for (const component in theme) {
+  console.log(typeof themes)
+  console.log(themes)
+  for (const component in themes) {
     templates.push({
       filename: `mockline/${ kebabCase(component) }.ts`,
       write: true,
       getContents: () => {
-        const template = (theme as any)[component]
+        const template = (themes as any)[component]
         const result = typeof template === 'function' ? template(options) : template
 
         const variants = Object.keys(result.variants || {})
@@ -35,7 +37,7 @@ export function getTemplates(options: ModuleOptions): NuxtTemplate[] {
   addTemplate({
     filename: 'mockline/index.ts',
     write: true,
-    getContents: () => Object.keys(theme).map(component => `export { default as ${component} } from './${kebabCase(component)}'`).join('\n')
+    getContents: () => Object.keys(themes).map(component => `export { default as ${component} } from './${kebabCase(component)}'`).join('\n')
   })
 
   return templates

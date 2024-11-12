@@ -6,16 +6,20 @@
     "access": "public"
   },
   "scripts": {
+    "dev": "unbuild --stub",
     "dev:prepare": "unbuild",
     "build": "unbuild",
     "release": "bun run build && npm publish"
   },
-  "main": "./dist/index.mjs",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.mjs"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
@@ -23,6 +27,6 @@
   "devDependencies": {
     "@mockline/types": "*",
     "typescript": "latest",
-    "unbuild": "^2.0.0"
+    "unbuild": "^3.0.0-rc.7"
   }
 }

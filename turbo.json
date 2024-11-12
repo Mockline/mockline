@@ -21,6 +21,7 @@
       "cache": false
     },
     "dev:prepare": {
+      "dependsOn": ["^dev:prepare"],
       "cache": false
     },
     "typecheck": {},
