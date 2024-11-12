@@ -25,6 +25,6 @@
   ],
   "devDependencies": {
     "typescript": "latest",
-    "unbuild": "^3.0.0-rc.7"
+    "unbuild": "^3.0.0-rc.11"
   }
 }
