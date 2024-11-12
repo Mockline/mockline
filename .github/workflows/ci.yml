@@ -26,12 +26,12 @@ jobs:
         id: changes
         with:
           filters: |
-            src
-              - 'packages/**/*.{ts,vue}'
+            src:
               - 'packages/**/package.json'
               - 'packages/**/*.lockb'
+              - 'packages/**/src/**'
               - 'package.json'
-              - '*.lockb'
+              - 'bun.lockb'
 
   build-and-test:
     runs-on: ubuntu-latest
