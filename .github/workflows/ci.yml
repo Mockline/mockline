@@ -64,7 +64,7 @@ jobs:
           ${{ env.PACKAGE_MANAGER }} run build
 
       - name: 🔍 Check Version Changes
-        uses: HugoRCD/version-diff-action@v1.0.1
+        uses: HugoRCD/version-diff-action@v1.0.2
         id: version_check
         with:
           path: ${{ env.VERSION_FILE }}
