@@ -16,5 +16,5 @@ fi
 
 # Release package
 echo "Publishing @mockline/ui"
-cd packages/mockline
+cd packages/nuxt
 npm publish -q --access public
