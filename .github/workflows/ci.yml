@@ -3,6 +3,8 @@ name: CI/CD
 env:
   PACKAGE_MANAGER: bun
   VERSION_FILE: packages/nuxt/package.json
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
 on:
   push:
@@ -39,9 +41,6 @@ jobs:
     if: needs.check-changes.outputs.src == 'true' || github.event_name == 'workflow_dispatch'
     outputs:
       version_changed: ${{ steps.version_check.outputs.has_changed }}
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     steps:
       - uses: actions/checkout@v4
         with:
