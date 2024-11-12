@@ -4,25 +4,25 @@
     "**/.env"
   ],
   "tasks": {
+    "dev": {
+      "dependsOn": ["^dev"],
+      "cache": false
+    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": [
         "dist/**",
         ".output/**",
         ".nuxt/**"
-      ],
-      "cache": false
-    },
-    "dev": {
-      "dependsOn": ["^dev"],
-      "cache": false
-    },
-    "test": {
-      "cache": false
+      ]
     },
     "dev:prepare": {
       "dependsOn": ["^dev:prepare"],
-      "cache": false
+      "outputs": [
+        "dist/**",
+        ".output/**",
+        ".nuxt/**"
+      ]
     },
     "typecheck": {},
     "lint": {},
