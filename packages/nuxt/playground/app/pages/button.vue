@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import theme from '#build/mockline/button'
+import { button } from '@mockline/themes'
+import { colors } from '@mockline/types'
 
-const sizes = Object.keys(theme.variants.size)
-const colors = Object.keys(theme.variants.color)
-const variants = Object.keys(theme.variants.variant)
+const sizes = Object.keys(button().variants.size)
+const variants = Object.keys(button().variants.variant)
 
 definePageMeta({
   layout: 'component',

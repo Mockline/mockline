@@ -9,7 +9,7 @@ const page = await findCurrentPage()
 
 const nav = await findNavigation()
 
-const headline = findPageHeadline(page.value)
+const headline = findPageHeadline(page?.value)
 </script>
 
 <template>

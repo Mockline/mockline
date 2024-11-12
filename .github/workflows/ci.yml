@@ -66,11 +66,10 @@ jobs:
           ${{ env.PACKAGE_MANAGER }} run build
 
       - name: 🔍 Check Version Changes
-        uses: EndBug/version-check@v2
+        uses: HugoRCD/version-diff-action@v1.0.1
         id: version_check
         with:
-          file-name: ${{ env.VERSION_FILE }}
-          diff-search: true
+          path: ${{ env.VERSION_FILE }}
 
   deploy:
     needs: build-and-test

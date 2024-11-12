@@ -1,8 +1,8 @@
-import type { ModuleOptions } from '../module'
+import { colors } from '@mockline/types'
 
-export default (options: Required<ModuleOptions>): any => ({
+export default (): any => ({
   slots: {
-    base: ['cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.transitions && 'transition-colors'],
+    base: ['cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75'],
     label: 'truncate',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
@@ -10,7 +10,7 @@ export default (options: Required<ModuleOptions>): any => ({
   },
   variants: {
     color: {
-      ...Object.fromEntries((options.colors || []).map((color: string) => [color, ''])),
+      ...Object.fromEntries(colors.map((color: string) => [color, ''])),
       neutral: ''
     },
     variant: {
@@ -86,27 +86,27 @@ export default (options: Required<ModuleOptions>): any => ({
     }
   },
   compoundVariants: [
-    ...(options.colors || []).map((color: string) => ({
+    ...(colors || []).map((color: string) => ({
       color,
       variant: 'solid',
       class: `text-[var(--ui-bg)] bg-[var(--ui-${color})] hover:bg-[var(--ui-${color})]/75 disabled:bg-[var(--ui-${color})] aria-disabled:bg-[var(--ui-${color})] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-${color})]`
-    })), ...(options.colors || []).map((color: string) => ({
+    })), ...(colors).map((color: string) => ({
       color,
       variant: 'outline',
       class: `ring ring-inset ring-[var(--ui-${color})]/50 text-[var(--ui-${color})] hover:bg-[var(--ui-${color})]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-[var(--ui-${color})]`
-    })), ...(options.colors || []).map((color: string) => ({
+    })), ...(colors || []).map((color: string) => ({
       color,
       variant: 'soft',
       class: `text-[var(--ui-${color})] bg-[var(--ui-${color})]/10 hover:bg-[var(--ui-${color})]/15 focus-visible:bg-[var(--ui-${color})]/15 disabled:bg-[var(--ui-${color})]/10 aria-disabled:bg-[var(--ui-${color})]/10`
-    })), ...(options.colors || []).map((color: string) => ({
+    })), ...(colors || []).map((color: string) => ({
       color,
       variant: 'subtle',
       class: `text-[var(--ui-${color})] ring ring-inset ring-[var(--ui-${color})]/25 bg-[var(--ui-${color})]/10 hover:bg-[var(--ui-${color})]/15 disabled:bg-[var(--ui-${color})]/10 aria-disabled:bg-[var(--ui-${color})]/10 focus-visible:ring-2 focus-visible:ring-[var(--ui-${color})]`
-    })), ...(options.colors || []).map((color: string) => ({
+    })), ...(colors || []).map((color: string) => ({
       color,
       variant: 'ghost',
       class: `text-[var(--ui-${color})] hover:bg-[var(--ui-${color})]/10 focus-visible:bg-[var(--ui-${color})]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent`
-    })), ...(options.colors || []).map((color: string) => ({
+    })), ...(colors || []).map((color: string) => ({
       color,
       variant: 'link',
       class: `text-[var(--ui-${color})] hover:text-[var(--ui-${color})] disabled:text-[var(--ui-${color})] aria-disabled:text-[var(--ui-${color})] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-${color})]`

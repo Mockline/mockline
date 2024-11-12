@@ -5,11 +5,9 @@
   "scripts": {
     "dev": "turbo run dev --filter=mockline",
     "dev:ui": "turbo run dev --filter=mockline",
-    "dev:utils": "turbo run dev --filter=@mockline/utils",
     "dev:docs": "turbo run dev --filter=@mockline/docs",
     "build": "turbo run build",
     "build:ui": "turbo run build --filter=mockline",
-    "build:utils": "turbo run build --filter=@mockline/utils",
     "build:docs": "turbo run build --filter=@mockline/docs",
     "test": "turbo run test",
     "dev:prepare": "turbo run dev:prepare",

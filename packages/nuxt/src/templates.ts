@@ -1,13 +1,14 @@
-import { fileURLToPath } from 'node:url'
-import { addTemplate, addTypeTemplate, useNuxt } from '@nuxt/kit'
+import { addTemplate, addTypeTemplate, type Resolver } from '@nuxt/kit'
 import { kebabCase } from 'scule'
-import { colors } from './runtime/utils/colors'
-import * as theme from './theme'
-import type { ModuleOptions } from './runtime/types'
+import type { ModuleOptions } from '@mockline/types'
+import type { Nuxt, NuxtTemplate, NuxtTypeTemplate } from '@nuxt/schema'
+import * as theme from '@mockline/themes'
 
-export function addTemplates(options: ModuleOptions, nuxt = useNuxt()): void {
+export function getTemplates(options: ModuleOptions): NuxtTemplate[] {
+  const templates: NuxtTemplate[] = []
+
   for (const component in theme) {
-    addTemplate({
+    templates.push({
       filename: `mockline/${ kebabCase(component) }.ts`,
       write: true,
       getContents: () => {
@@ -26,16 +27,6 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()): void {
           })
         }
 
-        // For local development, directly import from theme
-        if (process.env.DEV) {
-          return [
-            `import template from ${JSON.stringify(fileURLToPath(new URL(`./theme/${kebabCase(component)}`, import.meta.url)))}`,
-            `const result = typeof template === 'function' ? template(${JSON.stringify(options)}) : template`,
-            `const json = ${json}`,
-            `export default result as typeof json`
-          ].join('\n')
-        }
-
         return `export default ${ json }`
       }
     })
@@ -45,5 +36,23 @@ export function addTemplates(options: ModuleOptions, nuxt = useNuxt()): void {
     filename: 'mockline/index.ts',
     write: true,
     getContents: () => Object.keys(theme).map(component => `export { default as ${component} } from './${kebabCase(component)}'`).join('\n')
+  })
+
+  return templates
+}
+
+export function addTemplates(options: ModuleOptions, nuxt: Nuxt, resolve: Resolver['resolve']): void {
+  const templates = getTemplates(options)
+  for (const template of templates) {
+    if (template.filename!.endsWith('.d.ts')) {
+      addTypeTemplate(template as NuxtTypeTemplate)
+    } else {
+      addTemplate(template)
+    }
+  }
+
+  nuxt.hook('prepare:types', ({ references }) => {
+    references.push({ path: resolve('./runtime/types/app.config.d.ts') })
+    references.push({ path: resolve('./runtime/types/mockline.d.ts') })
   })
 }
