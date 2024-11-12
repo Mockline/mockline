@@ -95,6 +95,12 @@ jobs:
         with:
           bun-version: latest
 
+      - name: 📦 Install Dependencies
+        run: ${{ env.PACKAGE_MANAGER }} install
+
+      - name: 🚀 Project Setup
+        run: ${{ env.PACKAGE_MANAGER }} run dev:prepare
+
       - name: 🚀 Deploy ${{ matrix.name }}
         run: ./scripts/${{ matrix.script }}
         env:
