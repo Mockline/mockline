@@ -85,7 +85,7 @@ jobs:
             branch: dev
     if: |
       needs.build-and-test.outputs.version_changed == 'true' &&
-      github.ref == format('refs/heads/{0}', matrix.branch)
+      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev')
     runs-on: ubuntu-latest
     permissions:
       contents: read
