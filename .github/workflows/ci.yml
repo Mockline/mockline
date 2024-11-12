@@ -2,7 +2,7 @@ name: CI/CD
 
 env:
   PACKAGE_MANAGER: bun
-  VERSION_FILE: packages/nuxt
+  VERSION_FILE: packages/nuxt/package.json
 
 on:
   push:
@@ -38,7 +38,7 @@ jobs:
     needs: check-changes
     if: needs.check-changes.outputs.src == 'true'
     outputs:
-      version_changed: ${{ steps.version_check.outputs.changed }}
+      version_changed: ${{ steps.version_check.outputs.has_changed }}
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
@@ -64,11 +64,10 @@ jobs:
           ${{ env.PACKAGE_MANAGER }} run build
 
       - name: 🔍 Check Version Changes
-        uses: EndBug/version-check@v2
+        uses: HugoRCD/version-diff-action@v1.0.1
         id: version_check
         with:
-          file-name: packages/nuxt/package.json
-          diff-search: true
+          path: ${{ env.VERSION_FILE }}
 
   deploy:
     needs: build-and-test
