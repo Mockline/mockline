@@ -2,7 +2,7 @@ name: CI/CD
 
 env:
   PACKAGE_MANAGER: bun
-  VERSION_FILE: packages/nuxt/package.json
+  VERSION_FILE: packages/nuxt
 
 on:
   push:
