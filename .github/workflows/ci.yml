@@ -9,8 +9,8 @@ env:
 on:
   push:
     branches:
-      - ${{ env.MAIN_BRANCH }}
-      - ${{ env.DEV_BRANCH }}
+      - main
+      - dev
 
 permissions:
   contents: write
