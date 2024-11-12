@@ -3,8 +3,6 @@ name: CI/CD
 env:
   PACKAGE_MANAGER: bun
   VERSION_FILE: packages/nuxt/package.json
-  MAIN_BRANCH: main
-  DEV_BRANCH: dev
 
 on:
   push:
@@ -78,13 +76,13 @@ jobs:
         include:
           - name: main
             script: release.sh
-            branch: ${{ env.MAIN_BRANCH }}
+            branch: main
           - name: ui
             script: release-ui.sh
-            branch: ${{ env.MAIN_BRANCH }}
+            branch: main
           - name: edge
             script: release-edge.sh
-            branch: ${{ env.DEV_BRANCH }}
+            branch: dev
     if: |
       needs.build-and-test.outputs.version_changed == 'true' &&
       github.ref == format('refs/heads/{0}', matrix.branch)
