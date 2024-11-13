@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import { addTemplate, addTypeTemplate, type Resolver } from '@nuxt/kit'
 import { kebabCase } from 'scule'
 import type { ModuleOptions } from '@mockline/types'
@@ -25,6 +26,16 @@ export function getTemplates(options: ModuleOptions): NuxtTemplate[] {
             const replaced = match.replace(/("[^"]+")/g, '$1 as const')
             return `${ before }${ replaced }${ after }`
           })
+        }
+
+        // For local development, directly import from @mockline/themes
+        if (process.env.DEV) {
+          return [
+            `import template from ${JSON.stringify(fileURLToPath(new URL(`../../themes/src/${kebabCase(component)}`, import.meta.url)))}`,
+            `const result = typeof template === 'function' ? template(${JSON.stringify(options)}) : template`,
+            `const json = ${json}`,
+            `export default result as typeof json`
+          ].join('\n')
         }
 
         return `export default ${ json }`
