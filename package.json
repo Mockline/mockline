@@ -3,7 +3,7 @@
   "private": "true",
   "type": "module",
   "scripts": {
-    "dev": "turbo run dev --filter=mockline",
+    "dev": "turbo run dev --filter='./packages/*'",
     "dev:ui": "turbo run dev --filter=mockline",
     "dev:docs": "turbo run dev --filter=@mockline/docs",
     "build": "turbo run build",
