@@ -19,7 +19,7 @@ async function loadPackage(dir: string) {
 
 async function main() {
   const rootDir = resolve(__dirname, '..')
-  const pkg = await loadPackage(join(rootDir, 'packages', 'mockline'))
+  const pkg = await loadPackage(join(rootDir, 'packages', 'nuxt'))
 
   pkg.data.name = `@mockline/ui`
 
