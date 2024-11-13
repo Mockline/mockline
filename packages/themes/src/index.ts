@@ -1,8 +1,18 @@
 import { ModuleOptions } from '@mockline/types'
+import { kebabCase } from 'scule'
 
 import * as components from './components'
 
 export const themes = components
+
+export const componentsJson = Object.keys(components).map((component: string) => {
+  const template = (themes as any)[component]
+  const result = template()
+  return {
+    name: kebabCase(component),
+    json: processComponentTheme(JSON.stringify(result), Object.keys(result.variants || {}))
+  }
+})
 
 /**
  * Processes the JSON theme to add "as const" to simple properties and array properties
