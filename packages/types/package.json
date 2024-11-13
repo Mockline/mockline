@@ -6,25 +6,25 @@
     "access": "public"
   },
   "scripts": {
-    "dev:prepare": "unbuild",
-    "build": "unbuild",
+    "dev:prepare": "bun run build",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
     "release": "bun run build && npm publish"
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "types": "./src/index.ts",
+      "default": "./dist/index.js"
     }
   },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "devDependencies": {
-    "typescript": "latest",
-    "unbuild": "^3.0.0-rc.11"
+    "tsup": "^8.3.5",
+    "typescript": "latest"
   }
 }
