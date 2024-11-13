@@ -3,42 +3,32 @@ import { addTemplate, addTypeTemplate, type Resolver } from '@nuxt/kit'
 import { kebabCase } from 'scule'
 import type { ModuleOptions } from '@mockline/types'
 import type { Nuxt, NuxtTemplate, NuxtTypeTemplate } from '@nuxt/schema'
-import * as themes from '@mockline/themes'
+import { themes, processComponentTheme, generateDevImport } from '@mockline/themes'
 
 export function getTemplates(options: ModuleOptions): NuxtTemplate[] {
   const templates: NuxtTemplate[] = []
 
   for (const component in themes) {
+    if (component === 'default' || component === 'generateDevImport' || component === 'processComponentTheme') continue
     templates.push({
       filename: `mockline/${ kebabCase(component) }.ts`,
       write: true,
       getContents: () => {
         const template = (themes as any)[component]
-        const result = typeof template === 'function' ? template(options) : template
+        const result = template(options)
+        console.log(`--- ${component} ---`)
 
         const variants = Object.keys(result.variants || {})
+        const json = JSON.stringify(result, null, 2)
+        const processedJson = processComponentTheme(json, variants)
 
-        let json = JSON.stringify(result, null, 2)
+        const themePath = fileURLToPath(
+          new URL(`../../themes/src/components/${kebabCase(component)}`, import.meta.url)
+        )
 
-        for (const variant of variants) {
-          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), '$1 as const')
-          json = json.replace(new RegExp(`("${variant}": \\[\\s*)((?:"[^"]+",?\\s*)+)(\\])`, 'g'), (_, before, match, after) => {
-            const replaced = match.replace(/("[^"]+")/g, '$1 as const')
-            return `${ before }${ replaced }${ after }`
-          })
-        }
-
-        // For local development, directly import from @mockline/themes
-        if (process.env.DEV) {
-          return [
-            `import template from ${JSON.stringify(fileURLToPath(new URL(`../../themes/src/${kebabCase(component)}`, import.meta.url)))}`,
-            `const result = typeof template === 'function' ? template(${JSON.stringify(options)}) : template`,
-            `const json = ${json}`,
-            `export default result as typeof json`
-          ].join('\n')
-        }
-
-        return `export default ${ json }`
+        return process.env.DEV
+          ? generateDevImport(themePath, options, processedJson)
+          : `export default ${processedJson}`
       }
     })
   }

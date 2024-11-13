@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { button } from '@mockline/themes'
+import { themes } from '@mockline/themes'
 import { colors } from '@mockline/types'
+
+const { button } = themes
 
 const sizes = Object.keys(button().variants.size)
 const variants = Object.keys(button().variants.variant)
