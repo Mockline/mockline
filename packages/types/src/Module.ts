@@ -1,4 +1,4 @@
-import type { Colors } from './Colors'
+import type { Color } from './Colors'
 
 export type ModuleOptions = {
   /**
@@ -42,13 +42,13 @@ export type ModuleOptions = {
 
 export type MocklineConfig = {
   colors?: {
-    primary?: Colors
-    secondary?: Colors
-    success?: Colors
-    error?: Colors
-    warning?: Colors
-    info?: Colors
-    neutral?: Colors
+    primary?: Color
+    secondary?: Color
+    success?: Color
+    error?: Color
+    warning?: Color
+    info?: Color
+    neutral?: Color
   }
   toast?: {
     position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';

@@ -23,8 +23,10 @@
   "files": [
     "dist"
   ],
+  "dependencies": {
+    "@mockline/types": "workspace:*"
+  },
   "devDependencies": {
-    "@mockline/types": "*",
     "typescript": "latest",
     "unbuild": "^3.0.0-rc.11"
   }
