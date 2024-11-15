@@ -1,33 +1,25 @@
+import { fileURLToPath } from 'node:url'
 import { addTemplate, addTypeTemplate, type Resolver } from '@nuxt/kit'
 import { kebabCase } from 'scule'
 import type { ModuleOptions } from '@mockline/types'
 import type { Nuxt, NuxtTemplate, NuxtTypeTemplate } from '@nuxt/schema'
-import * as themes from '@mockline/themes'
+import { themes, componentsJson, generateDevImport } from '@mockline/themes'
 
 export function getTemplates(options: ModuleOptions): NuxtTemplate[] {
   const templates: NuxtTemplate[] = []
 
-  for (const component in themes) {
+  for (const component of componentsJson) {
     templates.push({
-      filename: `mockline/${ kebabCase(component) }.ts`,
+      filename: `mockline/${ component.name }.ts`,
       write: true,
       getContents: () => {
-        const template = (themes as any)[component]
-        const result = typeof template === 'function' ? template(options) : template
+        const themePath = fileURLToPath(
+          new URL(`../../themes/src/components/${component.name}`, import.meta.url)
+        )
 
-        const variants = Object.keys(result.variants || {})
-
-        let json = JSON.stringify(result, null, 2)
-
-        for (const variant of variants) {
-          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), '$1 as const')
-          json = json.replace(new RegExp(`("${variant}": \\[\\s*)((?:"[^"]+",?\\s*)+)(\\])`, 'g'), (_, before, match, after) => {
-            const replaced = match.replace(/("[^"]+")/g, '$1 as const')
-            return `${ before }${ replaced }${ after }`
-          })
-        }
-
-        return `export default ${ json }`
+        return process.env.DEV
+          ? generateDevImport(themePath, options, component.json)
+          : `export default ${component.json}`
       }
     })
   }

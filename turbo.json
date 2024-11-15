@@ -1,11 +1,12 @@
 {
   "$schema": "https://turborepo.org/schema.json",
+  "ui": "stream",
   "globalDependencies": [
     "**/.env"
   ],
   "tasks": {
     "dev": {
-      "dependsOn": ["^dev"],
+      "persistent": true,
       "cache": false
     },
     "build": {
@@ -23,6 +24,9 @@
         ".output/**",
         ".nuxt/**"
       ]
+    },
+    "release": {
+      "dependsOn": ["^release"]
     },
     "typecheck": {},
     "lint": {},

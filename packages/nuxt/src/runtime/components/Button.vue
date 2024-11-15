@@ -20,7 +20,7 @@ export type ButtonProps = {
   class?: string
   iconClass?: string
   labelClass?: string
-} & UseComponentIconsProps
+}
 
 export type ButtonSlots = {
   leading(props?: NonNullable<unknown>): any
@@ -28,7 +28,7 @@ export type ButtonSlots = {
   trailing(props?: NonNullable<unknown>): any
 }
 
-const props = defineProps<ButtonProps>()
+const props = defineProps<ButtonProps & UseComponentIconsProps>()
 const slots = defineSlots<ButtonSlots>()
 
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)

@@ -3,19 +3,18 @@
   "private": "true",
   "type": "module",
   "scripts": {
-    "dev": "turbo run dev --filter=mockline",
-    "dev:ui": "turbo run dev --filter=mockline",
-    "dev:docs": "turbo run dev --filter=@mockline/docs",
-    "build": "turbo run build",
-    "build:ui": "turbo run build --filter=mockline",
-    "build:docs": "turbo run build --filter=@mockline/docs",
-    "test": "turbo run test",
-    "dev:prepare": "turbo run dev:prepare",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint:fix",
+    "dev": "turbo dev --filter='./packages/*'",
+    "dev:ui": "turbo dev --filter=mockline",
+    "dev:docs": "turbo dev --filter=@mockline/docs",
+    "build": "turbo build",
+    "build:ui": "turbo build --filter=mockline",
+    "build:docs": "turbo build --filter=@mockline/docs",
+    "test": "turbo test",
+    "dev:prepare": "turbo dev:prepare",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
     "typecheck": "tsc --noEmit"
   },
-  "packageManager": "bun@1.1.26",
   "devDependencies": {
     "@hrcd/eslint-config": "edge",
     "@shelve/cli": "^2.5.3",
@@ -26,5 +25,6 @@
   "workspaces": [
     "packages/*",
     "apps/*"
-  ]
+  ],
+  "packageManager": "bun@1.1.34"
 }

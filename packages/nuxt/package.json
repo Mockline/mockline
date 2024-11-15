@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",
-    "dev": "nuxi dev playground",
+    "dev": "DEV=true nuxi dev playground",
     "build": "nuxt-module-build build",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "bun run lint && bun run prepack && npm publish",
@@ -32,8 +32,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mockline/themes": "*",
-    "@mockline/types": "*",
+    "@mockline/themes": "workspace:*",
+    "@mockline/types": "workspace:*",
     "@iconify-json/heroicons": "^1.2.1",
     "@iconify-json/lucide": "^1.2.14",
     "@nuxt/content": "^2.13.4",

@@ -37,4 +37,4 @@ export const colors = [
 
 export type MocklineColor = typeof colors[number]
 
-export type Colors = TailwindColor | MocklineColor
+export type Color = TailwindColor | MocklineColor
