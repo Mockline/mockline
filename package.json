@@ -17,10 +17,10 @@
   },
   "devDependencies": {
     "@hrcd/eslint-config": "edge",
-    "@shelve/cli": "^2.5.3",
+    "@shelve/cli": "^2.5.4",
     "automd": "^0.3.12",
-    "eslint": "^9.14.0",
-    "turbo": "^2.2.3"
+    "eslint": "^9.15.0",
+    "turbo": "^2.3.0"
   },
   "workspaces": [
     "packages/*",
