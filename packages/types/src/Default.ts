@@ -1,4 +1,5 @@
 import type { MocklineConfig, ModuleOptions } from './Module'
+import icons from './Icons'
 
 export const defaultModuleOptions: ModuleOptions = {
   prefix: 'M',
@@ -23,5 +24,6 @@ export const defaultAppConfig: MocklineConfig = {
   },
   toast: {
     position: 'top-center',
-  }
+  },
+  icons
 }

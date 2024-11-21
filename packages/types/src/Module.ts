@@ -1,4 +1,5 @@
 import type { Color } from './Colors'
+import icons from './Icons'
 
 export type ModuleOptions = {
   /**
@@ -53,5 +54,6 @@ export type MocklineConfig = {
   toast?: {
     position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
     duration?: number
-  }
+  },
+  icons?: typeof icons
 }
