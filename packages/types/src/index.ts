@@ -1,3 +1,4 @@
-export * from './Module'
-export * from './Colors'
-export * from './Default'
+export * from './module'
+export * from './default'
+export * from './colors'
+export * from './icons'

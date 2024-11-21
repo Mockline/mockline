@@ -1,5 +1,5 @@
-import type { Color } from './Colors'
-import icons from './Icons'
+import type { Color } from './colors'
+import icons from './icons'
 
 export type ModuleOptions = {
   /**
