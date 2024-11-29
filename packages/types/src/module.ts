@@ -51,7 +51,7 @@ export type MocklineConfig = {
     primary?: Color
     secondary?: Color
     success?: Color
-    error?: Color
+    danger?: Color
     warning?: Color
     info?: Color
     neutral?: Color

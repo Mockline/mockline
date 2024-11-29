@@ -127,6 +127,8 @@ export default defineNuxtModule<ModuleOptions>({
         prefix: options.prefix,
       })
     }
+    */
+
     if (options.components) {
       await addComponentsDir({
         path: resolve('./runtime/components'),
@@ -134,7 +136,7 @@ export default defineNuxtModule<ModuleOptions>({
         pathPrefix: false,
         ignore: ['content/!**', 'prose/!**']
       })
-    }*/
+    }
 
     if (options.composables)
       addImportsDir(resolve('./runtime/composables'))

@@ -31,7 +31,7 @@ export const colors = [
   'success',
   'info',
   'warning',
-  'error',
+  'danger',
   'neutral'
 ] as const
 

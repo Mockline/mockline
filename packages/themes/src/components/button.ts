@@ -12,6 +12,8 @@ const button = tv({
   variants: {
     color: {
       neutral: '',
+      primary: '',
+      danger: '',
     },
     variant: {
       solid: '',
@@ -86,6 +88,66 @@ const button = tv({
     },
   },
   compoundVariants: [
+    {
+      color: 'primary',
+      variant: 'solid',
+      class: 'text-[var(--ui-bg)] bg-[var(--ui-primary)] hover:bg-[var(--ui-primary)]/75 disabled:bg-[var(--ui-primary)] aria-disabled:bg-[var(--ui-primary)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-primary)]'
+    },
+    {
+      color: 'primary',
+      variant: 'outline',
+      class: 'ring ring-inset ring-[var(--ui-primary)]/50 text-[var(--ui-primary)] hover:bg-[var(--ui-primary)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-[var(--ui-primary)]'
+    },
+    {
+      color: 'primary',
+      variant: 'soft',
+      class: 'text-[var(--ui-primary)] bg-[var(--ui-primary)]/10 hover:bg-[var(--ui-primary)]/15 focus-visible:bg-[var(--ui-primary)]/15 disabled:bg-[var(--ui-primary)]/10 aria-disabled:bg-[var(--ui-primary)]/10'
+    },
+    {
+      color: 'primary',
+      variant: 'subtle',
+      class: 'text-[var(--ui-primary)] ring ring-inset ring-[var(--ui-primary)]/25 bg-[var(--ui-primary)]/10 hover:bg-[var(--ui-primary)]/15 disabled:bg-[var(--ui-primary)]/10 aria-disabled:bg-[var(--ui-primary)]/10 focus-visible:ring-2 focus-visible:ring-[var(--ui-primary)]'
+    },
+    {
+      color: 'primary',
+      variant: 'ghost',
+      class: 'text-[var(--ui-primary)] hover:bg-[var(--ui-primary)]/10 focus-visible:bg-[var(--ui-primary)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
+    },
+    {
+      color: 'primary',
+      variant: 'link',
+      class: 'text-[var(--ui-${color})] hover:text-[var(--ui-${color})]/75 disabled:text-[var(--ui-${color})] aria-disabled:text-[var(--ui-${color})] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-${color})]'
+    },
+    {
+      color: 'danger',
+      variant: 'solid',
+      class: 'text-[var(--ui-bg)] bg-[var(--ui-danger)] hover:bg-[var(--ui-danger)]/75 disabled:bg-[var(--ui-danger)] aria-disabled:bg-[var(--ui-danger)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-danger)]'
+    },
+    {
+      color: 'danger',
+      variant: 'outline',
+      class: 'ring ring-inset ring-[var(--ui-danger)]/50 text-[var(--ui-danger)] hover:bg-[var(--ui-danger)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-[var(--ui-danger)]'
+    },
+    {
+      color: 'danger',
+      variant: 'soft',
+      class: 'text-[var(--ui-danger)] bg-[var(--ui-danger)]/10 hover:bg-[var(--ui-danger)]/15 focus-visible:bg-[var(--ui-danger)]/15 disabled:bg-[var(--ui-danger)]/10 aria-disabled:bg-[var(--ui-danger)]/10'
+    },
+    {
+      color: 'danger',
+      variant: 'subtle',
+      class: 'text-[var(--ui-danger)] ring ring-inset ring-[var(--ui-danger)]/25 bg-[var(--ui-danger)]/10 hover:bg-[var(--ui-danger)]/15 disabled:bg-[var(--ui-danger)]/10 aria-disabled:bg-[var(--ui-danger)]/10 focus-visible:ring-2 focus-visible:ring-[var(--ui-danger)]'
+    },
+    {
+      color: 'danger',
+      variant: 'ghost',
+      class: 'text-[var(--ui-danger)] hover:bg-[var(--ui-danger)]/10 focus-visible:bg-[var(--ui-danger)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
+    },
+    {
+      color: 'danger',
+      variant: 'link',
+      class: 'text-[var(--ui-${color})] hover:text-[var(--ui-${color})]/75 disabled:text-[var(--ui-${color})] aria-disabled:text-[var(--ui-${color})] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-${color})]'
+    },
     {
       color: 'neutral',
       variant: 'solid',

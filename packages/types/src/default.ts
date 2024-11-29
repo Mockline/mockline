@@ -17,7 +17,7 @@ export const defaultAppConfig: MocklineConfig = {
   colors: {
     primary: 'blue',
     secondary: 'blue',
-    error: 'red',
+    danger: 'red',
     warning: 'yellow',
     success: 'green',
     info: 'blue',
