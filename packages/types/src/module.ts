@@ -1,4 +1,5 @@
-import type { Color } from './Colors'
+import type { Color } from './colors'
+import icons from './icons'
 
 export type ModuleOptions = {
   /**
@@ -24,6 +25,11 @@ export type ModuleOptions = {
    */
   content?: boolean
   /**
+   * Force the import of prose components even if @nuxtjs/mdc or @nuxt/content is not installed
+   * @defaultValue false
+   */
+  mdc?: boolean;
+  /**
    * Enable Color Transitions
    * @defaultValue false
    */
@@ -45,7 +51,7 @@ export type MocklineConfig = {
     primary?: Color
     secondary?: Color
     success?: Color
-    error?: Color
+    danger?: Color
     warning?: Color
     info?: Color
     neutral?: Color
@@ -53,5 +59,6 @@ export type MocklineConfig = {
   toast?: {
     position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
     duration?: number
-  }
+  },
+  icons?: typeof icons
 }

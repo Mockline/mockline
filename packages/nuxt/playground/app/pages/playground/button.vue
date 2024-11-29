@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { themes } from '@mockline/themes'
+import { button } from '@mockline/themes'
 import { colors } from '@mockline/types'
 
-const { button } = themes
-
-const sizes = Object.keys(button().variants.size)
-const variants = Object.keys(button().variants.variant)
+const sizes = Object.keys(button.variants.size)
+const variants = Object.keys(button.variants.variant)
 
 definePageMeta({
   layout: 'component',
@@ -40,11 +38,12 @@ definePageMeta({
     </div>
     <div class="flex flex-wrap gap-4">
       <MButton
-        v-for="color in colors"
-        :key="color"
-        :label="color"
-        variant="subtle"
-        :color
+        v-for="variant in variants"
+        :key="variant"
+        :variant
+        :label="variant"
+        color="danger"
+        loading
       />
     </div>
   </MPageBody>

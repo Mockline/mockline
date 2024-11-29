@@ -1,4 +1,5 @@
-import type { MocklineConfig, ModuleOptions } from './Module'
+import type { MocklineConfig, ModuleOptions } from './module'
+import icons from './icons'
 
 export const defaultModuleOptions: ModuleOptions = {
   prefix: 'M',
@@ -6,6 +7,7 @@ export const defaultModuleOptions: ModuleOptions = {
   icon: true,
   colorMode: true,
   content: false,
+  mdc: false,
   transitions: false,
   components: true,
   composables: true,
@@ -15,7 +17,7 @@ export const defaultAppConfig: MocklineConfig = {
   colors: {
     primary: 'blue',
     secondary: 'blue',
-    error: 'red',
+    danger: 'red',
     warning: 'yellow',
     success: 'green',
     info: 'blue',
@@ -23,5 +25,6 @@ export const defaultAppConfig: MocklineConfig = {
   },
   toast: {
     position: 'top-center',
-  }
+  },
+  icons
 }

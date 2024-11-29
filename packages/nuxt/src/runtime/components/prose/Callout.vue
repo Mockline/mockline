@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import MDCSlot from '@nuxtjs/mdc/dist/runtime/components/MDCSlot.vue'
+
 defineProps({
   type: String,
   icon: String,
@@ -14,7 +16,7 @@ defineProps({
           <MIcon :name="icon" />
         </div>
         <div>
-          <ContentSlot :use="$slots.default" unwrap="p" />
+          <MDCSlot unwrap="p" />
         </div>
       </div>
     </div>

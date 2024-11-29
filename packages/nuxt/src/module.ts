@@ -14,7 +14,6 @@ import type { Nuxt } from '@nuxt/schema'
 import type { ModuleOptions } from '@mockline/types'
 import { defaultModuleOptions, defaultAppConfig } from '@mockline/types'
 import { name, version } from '../package.json'
-import { addTemplates } from './templates'
 
 export type * from './runtime/types'
 
@@ -64,14 +63,6 @@ export default defineNuxtModule<ModuleOptions>({
     if (options.icon) {
       await registerModule('@nuxt/icon', {
         componentName: `${options.prefix}Icon`,
-        class: 'fill-current',
-        mode: 'svg',
-        customCollections: [
-          {
-            prefix: 'custom',
-            dir: './assets/icons'
-          },
-        ],
       })
     }
 
@@ -88,42 +79,71 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors') })
 
-    if (options.components) {
-      addComponentsDir({
-        path: resolve('./runtime/components/'),
-        prefix: options.prefix,
-        pathPrefix: false,
-      }).then()
-    }
-
-    if (options.content) {
-      await registerModule('@nuxt/content', {
+    /*if (hasNuxtModule('@nuxtjs/mdc') || options.mdc || (hasNuxtModule('@nuxt/content') || options.content)) {
+      // @ts-expect-error - Nuxt doesn't have a type for this
+      nuxt.options.mdc = defu(nuxt.options.mdc, {
         highlight: {
           theme: {
             dark: 'github-dark',
             default: 'github-light',
             light: 'github-light'
-          },
-          langs: ['bash', 'ts', 'typescript', 'diff', 'vue', 'json', 'yml', 'css', 'mdc']
+          }
         },
+        components: {
+          map: {
+            'accordion': 'ProseAccordion',
+            'accordion-item': 'ProseAccordionItem',
+            'badge': 'ProseBadge',
+            'callout': 'ProseCallout',
+            'card': 'ProseCard',
+            'card-group': 'ProseCardGroup',
+            'caution': 'ProseCaution',
+            'code-collapse': 'ProseCodeCollapse',
+            'code-group': 'ProseCodeGroup',
+            'code-icon': 'ProseCodeIcon',
+            'code-tree': 'ProseCodeTree',
+            'collapsible': 'ProseCollapsible',
+            'icon': 'ProseIcon',
+            'kbd': 'ProseKbd',
+            'note': 'ProseNote',
+            'steps': 'ProseSteps',
+            'tabs': 'ProseTabs',
+            'tip': 'ProseTip',
+            'warning': 'ProseWarning'
+          }
+        }
       })
-
-      await addComponentsDir({
-        path: resolve('./runtime/components/content'),
-        prefix: options.prefix,
-        pathPrefix: false
-      })
-
       await addComponentsDir({
         path: resolve('./runtime/components/prose'),
+        prefix: 'Prose',
         pathPrefix: false,
         global: true
       })
     }
+    if (hasNuxtModule('@nuxt/content') || options.content) {
+      await addComponentsDir({
+        path: resolve('./runtime/components/content'),
+        pathPrefix: false,
+        prefix: options.prefix,
+      })
+    }
+    */
 
-    addTemplates(options, nuxt, resolve)
+    if (options.components) {
+      await addComponentsDir({
+        path: resolve('./runtime/components'),
+        prefix: options.prefix,
+        pathPrefix: false,
+        ignore: ['content/!**', 'prose/!**']
+      })
+    }
 
     if (options.composables)
       addImportsDir(resolve('./runtime/composables'))
+
+    nuxt.hook('prepare:types', ({ references }) => {
+      references.push({ path: resolve('./runtime/types/app.config.d.ts') })
+      references.push({ path: resolve('./runtime/types/mockline.d.ts') })
+    })
   },
 })

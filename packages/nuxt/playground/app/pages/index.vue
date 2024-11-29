@@ -9,19 +9,19 @@ const components = ['button', 'nav-menu', 'page']
     </h1>
     <ul class="space-y-4">
       <li v-for="component in components" :key="component">
-        <NuxtLink :to="`/${component}`" class="text-blue-600 hover:underline">
+        <NuxtLink :to="`/playground/${component}`" class="text-blue-600 hover:underline">
           {{ component.charAt(0).toUpperCase() + component.slice(1) }}
         </NuxtLink>
       </li>
     </ul>
-    <div class="space-x-4">
+    <!--    <div class="space-x-4">
       <NuxtLink to="/getting-started/intro">
         <MButton label="Intro" />
       </NuxtLink>
       <NuxtLink to="/getting-started/installation">
         <MButton label="Installation" />
       </NuxtLink>
-    </div>
+    </div>-->
   </div>
 </template>
 

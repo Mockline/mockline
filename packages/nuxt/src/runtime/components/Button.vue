@@ -1,26 +1,9 @@
 <script setup lang="ts">
-import { tv, type VariantProps } from 'tailwind-variants'
+import { tv } from 'tailwind-variants'
 import { twMerge } from 'tailwind-merge'
 import { computed } from 'vue'
-import theme from '#build/mockline/button'
+import { button, type ButtonProps } from '@mockline/themes'
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
-
-const button = tv(theme)
-
-type ButtonVariants = VariantProps<typeof button>
-
-export type ButtonProps = {
-  label?: string
-  color?: ButtonVariants['color']
-  variant?: ButtonVariants['variant']
-  size?: ButtonVariants['size']
-  rounded?: ButtonVariants['rounded']
-  square?: boolean
-  block?: boolean
-  class?: string
-  iconClass?: string
-  labelClass?: string
-}
 
 export type ButtonSlots = {
   leading(props?: NonNullable<unknown>): any
