@@ -5,18 +5,18 @@ definePageMeta({
 
 const route = useRoute()
 
+const { data: page } = await useAsyncData(route.path, () => queryCollection('content').path(route.path).first())
+if (!page.value)
+  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content'))
+console.log('navigation', navigation)
+
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryCollectionItemSurroundings('content', route.path, {
   fields: ['description']
 }))
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content'))
-
-const { data: page } = await useAsyncData(route.path, () => queryCollection('content').path(route.path).first())
-if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
-}
-
-const breadcrumb = computed(() => mapContentNavigation(findPageBreadcrumb(navigation?.value, page.value)).map(({ icon, ...link }) => link))
+// const breadcrumb = computed(() => mapContentNavigation(findPageBreadcrumb(navigation?.value, page.value)).map(({ icon, ...link }) => link))
 
 const headline = findPageHeadline(navigation.value, page?.value)
 </script>
@@ -37,6 +37,6 @@ const headline = findPageHeadline(navigation.value, page?.value)
     <MPageBody prose>
       <ContentRenderer v-if="page.body" :value="page" />
     </MPageBody>
-    <MContentSurround :next="surround[1]" :prev="surround[0]" />
+    <MContentSurround :surround />
   </MPage>
 </template>

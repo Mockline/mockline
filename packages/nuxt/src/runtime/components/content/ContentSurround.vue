@@ -1,12 +1,36 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends ContentSurroundLink">
 import type { ContentNavigationItem } from '@nuxt/content'
 
-type ContentSurroundProps = {
-  next?: ContentNavigationItem
-  prev?: ContentNavigationItem
+export type ContentSurroundLink = {
+  description?: string
+  icon?: string
+} & ContentNavigationItem
+
+export type ContentSurroundProps<T> = {
+  /**
+   * The element or component this component should render as.
+   * @defaultValue 'div'
+   */
+  as?: any
+  /**
+   * The icon displayed in the prev link.
+   * @defaultValue appConfig.ui.icons.arrowLeft
+   */
+  prevIcon?: string
+  /**
+   * The icon displayed in the next link.
+   * @defaultValue appConfig.ui.icons.arrowRight
+   */
+  nextIcon?: string
+  surround?: T[]
+  class?: any
 }
 
-const props = defineProps<ContentSurroundProps>()
+const { surround } = defineProps<ContentSurroundProps<T>>()
+console.log(surround)
+
+const prev = surround?.[0]
+const next = surround?.[1]
 </script>
 
 <template>

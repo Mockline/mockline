@@ -14,7 +14,6 @@ import type { Nuxt } from '@nuxt/schema'
 import type { ModuleOptions } from '@mockline/types'
 import { defaultModuleOptions, defaultAppConfig } from '@mockline/types'
 import { name, version } from '../package.json'
-import { addTemplates } from './templates'
 
 export type * from './runtime/types'
 
@@ -64,14 +63,6 @@ export default defineNuxtModule<ModuleOptions>({
     if (options.icon) {
       await registerModule('@nuxt/icon', {
         componentName: `${options.prefix}Icon`,
-        class: 'fill-current',
-        mode: 'svg',
-        customCollections: [
-          {
-            prefix: 'custom',
-            dir: './assets/icons'
-          },
-        ],
       })
     }
 
@@ -121,9 +112,12 @@ export default defineNuxtModule<ModuleOptions>({
       })
     }
 
-    addTemplates(nuxt, resolve)
-
     if (options.composables)
       addImportsDir(resolve('./runtime/composables'))
+
+    nuxt.hook('prepare:types', ({ references }) => {
+      references.push({ path: resolve('./runtime/types/app.config.d.ts') })
+      references.push({ path: resolve('./runtime/types/mockline.d.ts') })
+    })
   },
 })
