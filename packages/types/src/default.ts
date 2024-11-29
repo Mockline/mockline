@@ -7,6 +7,7 @@ export const defaultModuleOptions: ModuleOptions = {
   icon: true,
   colorMode: true,
   content: false,
+  mdc: false,
   transitions: false,
   components: true,
   composables: true,

@@ -25,6 +25,11 @@ export type ModuleOptions = {
    */
   content?: boolean
   /**
+   * Force the import of prose components even if @nuxtjs/mdc or @nuxt/content is not installed
+   * @defaultValue false
+   */
+  mdc?: boolean;
+  /**
    * Enable Color Transitions
    * @defaultValue false
    */

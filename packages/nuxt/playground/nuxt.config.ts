@@ -2,10 +2,10 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4
   },
-  modules: ['../src/module'],
-  mockline: {
-    content: true,
-  },
+  modules: [
+    '../src/module',
+    '@nuxt/content'
+  ],
   icon: {
     class: 'fill-current',
     mode: 'svg',
