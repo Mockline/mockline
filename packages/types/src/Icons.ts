@@ -10,7 +10,7 @@ export default {
   close: 'lucide:x',
   ellipsis: 'lucide:ellipsis',
   external: 'lucide:arrow-up-right',
-  loading: 'lucide:refresh-ccw',
+  loading: 'lucide:loader',
   minus: 'lucide:minus',
   plus: 'lucide:plus',
   search: 'lucide:search',

@@ -121,7 +121,7 @@ export default defineNuxtModule<ModuleOptions>({
       })
     }
 
-    addTemplates(options, nuxt, resolve)
+    addTemplates(nuxt, resolve)
 
     if (options.composables)
       addImportsDir(resolve('./runtime/composables'))

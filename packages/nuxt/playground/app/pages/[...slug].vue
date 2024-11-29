@@ -3,20 +3,29 @@ definePageMeta({
   layout: 'docs'
 })
 
-const { prev, next } = await findPageSurround()
+const route = useRoute()
 
-const page = await findCurrentPage()
+const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryCollectionItemSurroundings('content', route.path, {
+  fields: ['description']
+}))
 
-const nav = await findNavigation()
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content'))
 
-const headline = findPageHeadline(page?.value)
+const { data: page } = await useAsyncData(route.path, () => queryCollection('content').path(route.path).first())
+if (!page.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+}
+
+const breadcrumb = computed(() => mapContentNavigation(findPageBreadcrumb(navigation?.value, page.value)).map(({ icon, ...link }) => link))
+
+const headline = findPageHeadline(navigation.value, page?.value)
 </script>
 
 <template>
   <MPage v-if="page">
     <template #left>
       <MAside class="p-4">
-        <MContentNavigationTree :links="nav" />
+        <MContentNavigationTree v-if="navigation" :links="navigation" />
       </MAside>
     </template>
     <template #right>
@@ -24,10 +33,10 @@ const headline = findPageHeadline(page?.value)
         <MContentToc :links="page?.body?.toc?.links" />
       </MAside>
     </template>
-    <MPageHeader :title="page.title" :description="page.description" :links="page.links" :headline />
+    <MPageHeader :title="page.title" :description="page.description" :headline />
     <MPageBody prose>
       <ContentRenderer v-if="page.body" :value="page" />
     </MPageBody>
-    <MContentSurround :next :prev />
+    <MContentSurround :next="surround[1]" :prev="surround[0]" />
   </MPage>
 </template>
