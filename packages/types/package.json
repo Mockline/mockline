@@ -9,7 +9,9 @@
     "dev:prepare": "bun run build",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
-    "release": "bun run build && npm publish"
+    "release": "bun run build && npm publish",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "exports": {
     ".": {
