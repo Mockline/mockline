@@ -115,7 +115,7 @@ const button = tv({
     {
       color: 'primary',
       variant: 'link',
-      class: 'text-[var(--ui-${color})] hover:text-[var(--ui-${color})]/75 disabled:text-[var(--ui-${color})] aria-disabled:text-[var(--ui-${color})] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-${color})]'
+      class: 'text-[var(--ui-primary)] hover:underline hover:text-[var(--ui-primary)]/75 disabled:text-[var(--ui-primary)] aria-disabled:text-[var(--ui-primary)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)]'
     },
     {
       color: 'danger',
@@ -145,7 +145,7 @@ const button = tv({
     {
       color: 'danger',
       variant: 'link',
-      class: 'text-[var(--ui-${color})] hover:text-[var(--ui-${color})]/75 disabled:text-[var(--ui-${color})] aria-disabled:text-[var(--ui-${color})] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-${color})]'
+      class: 'text-[var(--ui-danger)] hover:underline hover:text-[var(--ui-danger)]/75 disabled:text-[var(--ui-danger)] aria-disabled:text-[var(--ui-danger)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-danger)]'
     },
     {
       color: 'neutral',
@@ -175,7 +175,7 @@ const button = tv({
     {
       color: 'neutral',
       variant: 'link',
-      class: 'text-[var(--ui-text-muted)] hover:text-[var(--ui-text)] disabled:text-[var(--ui-text-muted)] aria-disabled:text-[var(--ui-text-muted)] focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-[var(--ui-border-inverted)]'
+      class: 'text-[var(--ui-text-muted)] hover:underline hover:text-[var(--ui-text)] disabled:text-[var(--ui-text-muted)] aria-disabled:text-[var(--ui-text-muted)] focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-[var(--ui-border-inverted)]'
     },
     {
       size: 'xs',
@@ -219,7 +219,7 @@ const button = tv({
     },
   ],
   defaultVariants: {
-    color: 'neutral',
+    color: 'primary',
     variant: 'solid',
     rounded: 'md',
     size: 'md',
