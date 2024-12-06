@@ -59,8 +59,8 @@
     "typescript": "^5.7.2"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.6.3",
     "@nuxt/content": "3.0.0-alpha.7",
+    "@nuxt/devtools": "^1.6.3",
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/test-utils": "^3.14.4",
     "@types/node": "^22.10.1",
