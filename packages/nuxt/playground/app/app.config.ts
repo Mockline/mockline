@@ -3,8 +3,5 @@ export default defineAppConfig({
     colors: {
       primary: 'blue',
     },
-    icons: {
-      loading: 'lucide:loader',
-    }
   }
 })

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent } from 'radix-vue'
+import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent } from 'reka-ui'
 import { useSlots, computed, onMounted, watch } from 'vue'
 import { tv } from 'tailwind-variants'
 import { transformSlot } from '../../utils'

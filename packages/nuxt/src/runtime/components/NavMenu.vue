@@ -11,7 +11,7 @@ import {
   NavigationMenuRoot,
   NavigationMenuTrigger,
   NavigationMenuViewport,
-} from 'radix-vue'
+} from 'reka-ui'
 
 const navMenuStyle = tv({
   slots: {

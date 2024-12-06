@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NavigationMenuLink } from 'radix-vue'
+import { NavigationMenuLink } from 'reka-ui'
 
 definePageMeta({
   layout: 'component',
