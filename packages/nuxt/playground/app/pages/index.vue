@@ -14,14 +14,14 @@ const components = ['button', 'nav-menu', 'page']
         </NuxtLink>
       </li>
     </ul>
-    <!--    <div class="space-x-4">
+    <div class="space-x-4">
       <NuxtLink to="/getting-started/intro">
         <MButton label="Intro" />
       </NuxtLink>
       <NuxtLink to="/getting-started/installation">
         <MButton label="Installation" />
       </NuxtLink>
-    </div>-->
+    </div>
   </div>
 </template>
 

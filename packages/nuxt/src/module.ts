@@ -63,6 +63,12 @@ export default defineNuxtModule<ModuleOptions>({
     if (options.icon) {
       await registerModule('@nuxt/icon', {
         componentName: `${options.prefix}Icon`,
+        customCollections: [
+          {
+            prefix: 'custom',
+            dir: './app/assets/icons'
+          },
+        ],
       })
     }
 
@@ -79,7 +85,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors') })
 
-    /*if (hasNuxtModule('@nuxtjs/mdc') || options.mdc || (hasNuxtModule('@nuxt/content') || options.content)) {
+    if (hasNuxtModule('@nuxtjs/mdc') || options.mdc || (hasNuxtModule('@nuxt/content') || options.content)) {
       // @ts-expect-error - Nuxt doesn't have a type for this
       nuxt.options.mdc = defu(nuxt.options.mdc, {
         highlight: {
@@ -91,25 +97,12 @@ export default defineNuxtModule<ModuleOptions>({
         },
         components: {
           map: {
-            'accordion': 'ProseAccordion',
-            'accordion-item': 'ProseAccordionItem',
-            'badge': 'ProseBadge',
             'callout': 'ProseCallout',
-            'card': 'ProseCard',
-            'card-group': 'ProseCardGroup',
-            'caution': 'ProseCaution',
-            'code-collapse': 'ProseCodeCollapse',
             'code-group': 'ProseCodeGroup',
             'code-icon': 'ProseCodeIcon',
-            'code-tree': 'ProseCodeTree',
-            'collapsible': 'ProseCollapsible',
             'icon': 'ProseIcon',
             'kbd': 'ProseKbd',
-            'note': 'ProseNote',
-            'steps': 'ProseSteps',
             'tabs': 'ProseTabs',
-            'tip': 'ProseTip',
-            'warning': 'ProseWarning'
           }
         }
       })
@@ -127,7 +120,6 @@ export default defineNuxtModule<ModuleOptions>({
         prefix: options.prefix,
       })
     }
-    */
 
     if (options.components) {
       await addComponentsDir({

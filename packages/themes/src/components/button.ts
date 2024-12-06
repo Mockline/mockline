@@ -1,5 +1,4 @@
 import { tv, type VariantProps } from 'tailwind-variants'
-import { colors } from '@mockline/types'
 
 const button = tv({
   slots: {

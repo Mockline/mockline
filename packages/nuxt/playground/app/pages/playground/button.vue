@@ -12,7 +12,7 @@ definePageMeta({
 
 <template>
   <MPageBody>
-    <div class="flex gap-4">
+    <div class="flex flex-wrap gap-4">
       <MButton
         v-for="variant in variants"
         :key="variant"
