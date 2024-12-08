@@ -5,6 +5,7 @@ function formatTitle(title: string): string {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
 }
+const route = useRoute()
 </script>
 
 <template>
@@ -17,9 +18,9 @@ function formatTitle(title: string): string {
     </div>
     <MMain class="p-4">
       <div class="mb-4 flex flex-col gap-2">
-        <h3 class="text-gray-12 text-2xl font-bold">
-          {{ formatTitle($route.name) }}
-        </h3>
+        <ProseH1>
+          {{ formatTitle(route.name) }}
+        </ProseH1>
       </div>
       <MPage>
         <slot />
@@ -27,7 +28,3 @@ function formatTitle(title: string): string {
     </MMain>
   </div>
 </template>
-
-<style scoped>
-
-</style>

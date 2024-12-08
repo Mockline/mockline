@@ -33,16 +33,14 @@ export function findPageBreadcrumb(
   navigation: ContentNavigationItem[] | undefined,
   page: ContentCollectionItem | undefined | null
 ): ContentNavigationItem[] {
-  if (!navigation?.length || !page?.path) {
-    return []
-  }
+  if (!navigation?.length || !page) return []
 
   return navigation.reduce<ContentNavigationItem[]>((breadcrumb, link) => {
-    const isPathMatch = (page.path + '/').startsWith(link.path + '/')
-
-    if (isPathMatch && link.children) {
-      breadcrumb.push(link)
-      breadcrumb.push(...findPageBreadcrumb(link.children, page))
+    if (page.path && (page.path + '/').startsWith(link.path + '/')) {
+      if (link.children) {
+        breadcrumb.push(link)
+        breadcrumb.push(...findPageBreadcrumb(link.children, page))
+      }
     }
 
     return breadcrumb
@@ -54,24 +52,17 @@ export function findPageHeadline(
   page: ContentCollectionItem | null
 ): string | undefined {
   if (!navigation?.length || !page) {
-    return undefined
+    return
   }
-
   for (const link of navigation) {
     if (link.children) {
-      const directMatch = link.children.find(child => child.path === page.path)
-      if (directMatch) {
-        return link.title
+      for (const childLink of link.children) {
+        if (childLink.path === page.path) return link.title
       }
-
       const headline = findPageHeadline(link.children, page)
-      if (headline) {
-        return headline
-      }
+      if (headline) return headline
     }
   }
-
-  return undefined
 }
 
 export function mapContentNavigationItem(

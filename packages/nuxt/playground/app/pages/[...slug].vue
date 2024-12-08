@@ -44,6 +44,7 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
 })
 
 const headline = findPageHeadline(navigation?.value, page?.value)
+const breadcrumb = findPageBreadcrumb(navigation?.value, page?.value)
 </script>
 
 <template>
@@ -69,7 +70,15 @@ const headline = findPageHeadline(navigation?.value, page?.value)
         <MContentToc :links="page?.body?.toc?.links!" />
       </MAside>
     </template>
-    <MPageHeader :title="page.title" :description="page.description" :headline />
+    <MPageHeader :title="page.title" :description="page.description">
+      <template #headline>
+        <div class="flex items-center gap-4">
+          <div v-for="(item, index) in breadcrumb" :key="index" class="text-sm text-gray-500 dark:text-gray-400">
+            {{ item.title }}
+          </div>
+        </div>
+      </template>
+    </MPageHeader>
     <MPageBody>
       <ContentRenderer v-if="page.body" :value="page" />
     </MPageBody>
