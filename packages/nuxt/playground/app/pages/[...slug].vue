@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { ContentNavigationItem } from '@nuxt/content'
+
 definePageMeta({
   layout: 'docs'
 })
@@ -6,19 +8,17 @@ definePageMeta({
 const route = useRoute()
 
 const { data: page } = await useAsyncData(route.path, () => queryCollection('content').path(route.path).first())
+
 if (!page.value)
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content'))
-console.log('navigation', navigation)
+const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryCollectionItemSurroundings('content', route.path, {
   fields: ['description']
 }))
 
-// const breadcrumb = computed(() => mapContentNavigation(findPageBreadcrumb(navigation?.value, page.value)).map(({ icon, ...link }) => link))
-
-const headline = findPageHeadline(navigation.value, page?.value)
+const headline = findPageHeadline(navigation?.value, page?.value)
 </script>
 
 <template>
@@ -34,7 +34,7 @@ const headline = findPageHeadline(navigation.value, page?.value)
       </MAside>
     </template>
     <MPageHeader :title="page.title" :description="page.description" :headline />
-    <MPageBody prose>
+    <MPageBody>
       <ContentRenderer v-if="page.body" :value="page" />
     </MPageBody>
     <MContentSurround :surround />

@@ -27,7 +27,6 @@ export type ContentSurroundProps<T> = {
 }
 
 const { surround } = defineProps<ContentSurroundProps<T>>()
-console.log(surround)
 
 const prev = surround?.[0]
 const next = surround?.[1]

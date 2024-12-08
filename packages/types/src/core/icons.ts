@@ -14,5 +14,7 @@ export default {
   minus: 'lucide:minus',
   plus: 'lucide:plus',
   search: 'lucide:search',
-  chevronUp: 'lucide:chevron-up'
+  chevronUp: 'lucide:chevron-up',
+  copy: 'lucide:copy',
+  copyCheck: 'lucide:copy-check',
 }

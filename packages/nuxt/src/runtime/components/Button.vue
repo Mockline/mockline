@@ -4,6 +4,7 @@ import { twMerge } from 'tailwind-merge'
 import { computed } from 'vue'
 import { button, type ButtonProps } from '@mockline/themes'
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
+// import appConfig from '#build/app.config'
 
 export type ButtonSlots = {
   leading(props?: NonNullable<unknown>): any

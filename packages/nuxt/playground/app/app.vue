@@ -1,3 +1,9 @@
+<script setup lang="ts">
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content'))
+
+provide('navigation', navigation)
+</script>
+
 <template>
   <Html>
     <NuxtLoadingIndicator />
@@ -14,5 +20,5 @@
 @import "tailwindcss";
 @import "mockline";
 
-@source "../content/**/*.md";
+@source "../content";
 </style>

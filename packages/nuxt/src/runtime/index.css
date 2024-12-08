@@ -1,12 +1,7 @@
 @import "./animation.css";
 
 @variant dark (&:where(.dark, .dark *));
-
 @plugin "@tailwindcss/typography";
-
-@theme {
-  --color-neutral: var(--ui-bg);
-}
 
 @layer base {
   body {

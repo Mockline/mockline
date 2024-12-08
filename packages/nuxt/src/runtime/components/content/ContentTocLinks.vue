@@ -1,34 +1,20 @@
 <script setup lang="ts">
 import type { TocLink } from '@nuxt/content'
-import { useScrollspy, useNuxtApp, useRouter } from '#imports'
-
-const { activeHeadings, updateHeadings } = useScrollspy()
+import { useRouter } from '#imports'
 
 type ContentTocProps = {
   title?: string
   links: TocLink[]
-  active?: string
+  active?: string,
+  activeHeadings: string[]
 }
-
- 
 const { title = 'Table of Contents', links = [] } = defineProps<ContentTocProps>()
 
-const nuxtApp = useNuxtApp()
 const router = useRouter()
-
-nuxtApp.hooks.hookOnce('page:finish', () => {
-  updateHeadings([
-    ...document.querySelectorAll('h2'),
-    ...document.querySelectorAll('h3')
-  ])
-})
-
-const emit = defineEmits(['move'])
 
 const scrollToHeading = (id: string): void => {
   const encodedId = encodeURIComponent(id)
   router.push(`#${encodedId}`)
-  emit('move', id)
 }
 </script>
 
@@ -44,7 +30,7 @@ const scrollToHeading = (id: string): void => {
         {{ link.text }}
       </a>
 
-      <MContentTocLinks v-if="link.children" :links="link.children" />
+      <MContentTocLinks v-if="link.children" :links="link.children" :active-headings />
     </li>
   </ul>
 </template>
