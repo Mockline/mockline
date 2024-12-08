@@ -35,7 +35,7 @@ const model = defineModel<string>()
 
 const items = computed(() => slots.default?.()?.flatMap(transformSlot).filter(Boolean) || [])
 
-/*onMounted(() => {
+onMounted(() => {
   if (props.sync) {
     const syncKey = `code-group-${props.sync}`
     const syncValue = useState<string>(syncKey, () => localStorage.getItem(syncKey) as string)
@@ -53,11 +53,11 @@ const items = computed(() => slots.default?.()?.flatMap(transformSlot).filter(Bo
       localStorage.setItem(syncKey, model.value)
     })
   }
-})*/
+})
 </script>
 
 <template>
-<!--  <TabsRoot v-model="model" :default-value :class="codeGroup.root({ class: props.class })">
+  <TabsRoot v-model="model" :default-value :class="codeGroup.root({ class: props.class })">
     <TabsList :class="codeGroup.list()">
       <TabsIndicator :class="codeGroup.indicator()" />
 
@@ -68,8 +68,8 @@ const items = computed(() => slots.default?.()?.flatMap(transformSlot).filter(Bo
       </TabsTrigger>
     </TabsList>
 
-    <TabsContent v-for="(item, index) of items" :key="index" :value="String(index)" force-mount as-child>
-      <component :is="item.component" hide-header />
+    <TabsContent v-for="(item, index) of items" :key="index" :value="String(index)" as-child>
+      <component :is="item.component" hide-header tabindex="-1" />
     </TabsContent>
-  </TabsRoot>-->
+  </TabsRoot>
 </template>
