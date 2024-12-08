@@ -6,7 +6,6 @@ import { toRef, useId } from 'vue'
 
 export type AppProps = {
   tooltip?: TooltipProviderProps
-  defaultStyle?: boolean
 } & Omit<ConfigProviderProps, 'useId' | 'dir'>
 
 export type AppSlots = {
@@ -23,7 +22,7 @@ const tooltipProps = toRef(() => props.tooltip)
 <template>
   <ConfigProvider :use-id="() => (useId() as string)" v-bind="configProviderProps">
     <TooltipProvider v-bind="tooltipProps">
-      <div :class="defaultStyle ? 'h-full text-gray-900 bg-neutral dark:text-white' : ''">
+      <div>
         <slot />
       </div>
     </TooltipProvider>

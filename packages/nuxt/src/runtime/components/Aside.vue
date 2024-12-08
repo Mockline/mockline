@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
+import { computed } from 'vue'
 
 type AsideProps = {
   sticky?: boolean

@@ -55,5 +55,8 @@ definePageMeta({
         />
       </div>
     </div>
+    <div>
+      <MButton label="test" class="bg-surface dark:bg-surface" />
+    </div>
   </MPageBody>
 </template>

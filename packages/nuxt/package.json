@@ -42,7 +42,6 @@
     "@nuxt/schema": "^3.14.1592",
     "@nuxtjs/color-mode": "^3.5.2",
     "@tailwindcss/postcss": "4.0.0-beta.6",
-    "@tailwindcss/typography": "^0.5.15",
     "@tailwindcss/vite": "4.0.0-beta.6",
     "defu": "^6.1.4",
     "pathe": "^1.1.2",

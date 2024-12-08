@@ -9,7 +9,7 @@ type ContentTocProps = {
   links: TocLink[]
 }
 
-const { title = 'Table of Contents', links = [] } = defineProps<ContentTocProps>()
+const { title = 'On This Page', links = [] } = defineProps<ContentTocProps>()
 
 const nuxtApp = useNuxtApp()
 

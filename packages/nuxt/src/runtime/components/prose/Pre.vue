@@ -40,7 +40,7 @@ const ui = prosePre()
 
     <MButton
       :icon="copied ? appConfig.mockline.icons.copyCheck : appConfig.mockline.icons.copy"
-      :color="copied ? 'danger' : 'neutral'"
+      :color="copied ? 'primary' : 'neutral'"
       variant="outline"
       size="sm"
       aria-label="Copy code to clipboard"
