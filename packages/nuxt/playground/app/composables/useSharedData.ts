@@ -12,13 +12,12 @@ function useSharedDataBase(): UseSharedData {
       label: 'Nuxt',
       icon: 'i-logos-nuxt-icon',
       value: 'nuxt',
-      onSelect: () => framework.value = 'nuxt'
+      onSelect: (): string => framework.value = 'nuxt'
     }, {
       label: 'Vue',
       icon: 'i-logos-vue',
       value: 'vue',
-      disabled: module.value === 'ui-pro',
-      onSelect: () => framework.value = 'vue'
+      onSelect: (): string => framework.value = 'vue'
     }
   ].map(f => ({ ...f, active: framework.value === f.value })))
 
