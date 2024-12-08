@@ -1,5 +1,25 @@
 import type { ContentNavigationItem, PageCollectionItemBase } from '@nuxt/content'
 
+type ContentCollectionItem = {
+  links: {
+    label: string;
+    icon: string;
+    avatar?: {
+      src: string;
+      alt: string;
+    } | undefined;
+    to: string;
+    target?: string | undefined;
+  }[];
+  select: {
+    items: {
+      label: string;
+      icon: string;
+      to: string;
+    }[];
+  };
+} & PageCollectionItemBase
+
 type MappedNavigationItem = Omit<ContentNavigationItem, 'title' | 'path'> & {
   label?: string;
   to?: string;
@@ -11,7 +31,7 @@ type NavigationKeyMap = {
 
 export function findPageBreadcrumb(
   navigation: ContentNavigationItem[] | undefined,
-  page: PageCollectionItemBase | undefined | null
+  page: ContentCollectionItem | undefined | null
 ): ContentNavigationItem[] {
   if (!navigation?.length || !page?.path) {
     return []
@@ -31,7 +51,7 @@ export function findPageBreadcrumb(
 
 export function findPageHeadline(
   navigation: ContentNavigationItem[] | undefined,
-  page: PageCollectionItemBase | null
+  page: ContentCollectionItem | null
 ): string | undefined {
   if (!navigation?.length || !page) {
     return undefined
