@@ -4,6 +4,12 @@ import type { ContentNavigationItem } from '@nuxt/content'
 const { links } = defineProps<{
   links: ContentNavigationItem[]
 }>()
+
+const route = useRoute()
+
+const isLinkActive = (link: ContentNavigationItem): boolean => {
+  return route.path.startsWith(link.path)
+}
 </script>
 
 <template>
@@ -15,7 +21,11 @@ const { links } = defineProps<{
         </h3>
         <ul class="flex flex-col gap-1">
           <li v-for="(child, index_) in link.children" :key="index_">
-            <NuxtLink :to="child.path" class="text-sm hover:text-[var(--ui-primary)]" :class="$route.path === child.path ? 'text-[var(--ui-primary)]' : 'text-neutral-600 dark:text-neutral-400'">
+            <NuxtLink
+              :to="child.path"
+              class="text-sm hover:text-[var(--ui-primary)]"
+              :class="isLinkActive(child) ? 'text-[var(--ui-primary)]' : 'text-neutral-600 dark:text-neutral-400'"
+            >
               {{ child.title }}
             </NuxtLink>
           </li>

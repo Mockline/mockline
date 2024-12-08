@@ -7,5 +7,10 @@ export default defineNuxtConfig({
     '@nuxt/content'
   ],
   devtools: { enabled: true },
-  compatibilityDate: '2024-07-09'
+  compatibilityDate: '2024-07-09',
+
+
+  routeRules: {
+    '/getting-started/installation': { redirect: '/getting-started/installation/nuxt', prerender: false }
+  },
 })

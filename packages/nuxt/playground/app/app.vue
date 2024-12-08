@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content'))
-
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content', ['framework']))
 provide('navigation', navigation)
 </script>
 
@@ -21,4 +20,9 @@ provide('navigation', navigation)
 @import "mockline";
 
 @source "../content";
+
+html[data-framework="nuxt"] .vue-only,
+html[data-framework="vue"] .nuxt-only {
+  display: none;
+}
 </style>
