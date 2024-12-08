@@ -31,7 +31,7 @@ function copy(): void {
 </script>
 
 <template>
-  <div class="relative my-5 group" :class="{ '[&>pre]:rounded-t-none [&>pre]:my-0 my-5': filename && !hideHeader }">
+  <div class="relative my-5 group" :class="{ '[&>pre]:rounded-t-none [&>pre]:my-0': filename }">
     <div
       v-if="filename && !hideHeader"
       class="flex items-center gap-1.5 border border-[var(--ui-border-muted)] bg-[var(--ui-bg)] border-b-0 relative rounded-t-[calc(var(--ui-radius)*1.5)] px-4 py-3"
@@ -52,14 +52,16 @@ function copy(): void {
       @click="copy"
     />
 
-    <pre class="group font-mono text-sm/6 border border-[var(--ui-border-muted)] bg-[var(--ui-bg-muted)] rounded-[calc(var(--ui-radius)*1.5)] px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto" v-bind="$attrs">
+    <pre
+      :class="props.class"
+      class="group font-mono h-fit text-sm/6 border border-[var(--ui-border-muted)] bg-[var(--ui-bg-muted)] rounded-[calc(var(--ui-radius)*1.5)] px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto"
+      v-bind="$attrs"
+    >
       <slot />
     </pre>
   </div>
 </template>
 
-<!--
 <style>
-.shiki span.line{display:block}.shiki span.line.highlight{margin:0 -16px;padding:0 16px;@apply bg-[var(&#45;&#45;ui-bg-accented)]/50}
+.shiki span.line{display:block}.shiki span.line.highlight{margin:0 -16px;padding:0 16px;@apply bg-[var(--ui-bg-accented)]/50}
 </style>
--->
