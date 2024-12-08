@@ -2,6 +2,7 @@
 export { default as button, type ButtonProps, type ButtonSlots } from './components/button'
 
 // Prose
+export { default as proseA, type ProseAProps } from './components/prose/a'
 export { default as proseCode, type CodeProps } from './components/prose/code'
 export { default as prosePre, type ProsePreProps } from './components/prose/pre'
 export { default as proseCodeGroup, type CodeGroupProps } from './components/prose/codeGroup'

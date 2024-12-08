@@ -14,12 +14,12 @@ export type ContentSurroundProps<T> = {
   as?: any
   /**
    * The icon displayed in the prev link.
-   * @defaultValue appConfig.ui.icons.arrowLeft
+   * @defaultValue appConfig.mockline.icons.arrowLeft
    */
   prevIcon?: string
   /**
    * The icon displayed in the next link.
-   * @defaultValue appConfig.ui.icons.arrowRight
+   * @defaultValue appConfig.mockline.icons.arrowRight
    */
   nextIcon?: string
   surround?: T[]
@@ -38,12 +38,22 @@ const next = surround?.[1]
       <NuxtLink v-if="prev" :to="prev.path" class="bg-canvas-3 flex items-center rounded p-2">
         <div class="flex items-center gap-2">
           <MIcon name="lucide:arrow-left" class="size-4" />
-          <span>{{ prev.title }}</span>
+          <div class="flex flex-col">
+            <span>{{ prev.title }}</span>
+            <div class="text-xs text-neutral-500 dark:text-neutral-400">
+              {{ prev.description }}
+            </div>
+          </div>
         </div>
       </NuxtLink>
       <NuxtLink v-if="next" :to="next.path" class="bg-canvas-3 flex items-center rounded p-2">
         <div class="flex items-center gap-2">
-          <span>{{ next.title }}</span>
+          <div class="flex flex-col items-end">
+            <span>{{ next.title }}</span>
+            <div class="text-xs text-neutral-500 dark:text-neutral-400">
+              {{ next.description }}
+            </div>
+          </div>
           <MIcon name="lucide:arrow-right" class="size-4" />
         </div>
       </NuxtLink>

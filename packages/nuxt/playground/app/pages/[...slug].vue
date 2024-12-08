@@ -38,7 +38,7 @@ const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
   return queryCollectionItemSurroundings('content', route.path, {
     fields: ['description']
-  }).orWhere(group => group.where('framework', '=', framework.value).where('framework', 'IS NULL'))
+  })
 }, {
   watch: [framework]
 })
@@ -49,24 +49,24 @@ const headline = findPageHeadline(navigation?.value, page?.value)
 <template>
   <MPage v-if="page">
     <template #left>
-      <div>
-        <MButton
-          v-for="_framework in frameworks"
-          :key="_framework"
-          class="mb-2"
-          :color="framework === _framework.value ? 'primary' : 'neutral'"
-          @click="_framework.onSelect"
-        >
-          {{ _framework.label }}
-        </MButton>
-      </div>
       <MAside class="p-4">
+        <div>
+          <MButton
+            v-for="_framework in frameworks"
+            :key="_framework.value"
+            class="mb-2"
+            :color="framework === _framework.value ? 'primary' : 'neutral'"
+            @click="_framework.onSelect"
+          >
+            {{ _framework.label }}
+          </MButton>
+        </div>
         <MContentNavigationTree v-if="navigation" :links="navigation" />
       </MAside>
     </template>
     <template #right>
       <MAside class="p-4">
-        <MContentToc :links="page?.body?.toc?.links" />
+        <MContentToc :links="page?.body?.toc?.links!" />
       </MAside>
     </template>
     <MPageHeader :title="page.title" :description="page.description" :headline />
