@@ -1,8 +1,27 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
+import { tv } from 'tailwind-variants'
 import CodeIcon from './CodeIcon.vue'
 import appConfig from '#build/app.config'
+
+const prosePre = tv({
+  slots: {
+    root: 'relative my-5 group',
+    header: 'flex items-center gap-1.5 border border-[var(--ui-border-muted)] bg-[var(--ui-bg)] border-b-0 relative rounded-t-[calc(var(--ui-radius)*1.5)] px-4 py-3',
+    filename: 'text-[var(--ui-text)] text-sm/6',
+    icon: 'size-4 shrink-0',
+    copy: 'absolute top-[11px] right-[11px] opacity-0 group-hover:opacity-100 transition',
+    base: 'group font-mono text-sm/6 border border-[var(--ui-border-muted)] bg-[var(--ui-bg-muted)] rounded-[calc(var(--ui-radius)*1.5)] px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto'
+  },
+  variants: {
+    filename: {
+      true: {
+        root: '[&>pre]:rounded-t-none [&>pre]:my-0 my-5'
+      }
+    }
+  }
+})
 
 const props = defineProps<{
   icon?: string
@@ -28,17 +47,19 @@ function copy(): void {
     copied.value = false
   }, 2000)
 }
+
+const ui = prosePre()
 </script>
 
 <template>
-  <div class="relative my-5 group" :class="{ '[&>pre]:rounded-t-none [&>pre]:my-0': filename }">
+  <div :class="ui.root({ filename: !!filename })">
     <div
       v-if="filename && !hideHeader"
-      class="flex items-center gap-1.5 border border-[var(--ui-border-muted)] bg-[var(--ui-bg)] border-b-0 relative rounded-t-[calc(var(--ui-radius)*1.5)] px-4 py-3"
+      :class="ui.header()"
     >
-      <CodeIcon :icon :filename class="size-4 shrink-0" />
+      <CodeIcon :icon :filename :class="ui.icon()" />
 
-      <span class="text-[var(--ui-text)] text-sm/6">{{ filename }}</span>
+      <span :class="ui.filename">{{ filename }}</span>
     </div>
 
     <MButton
@@ -47,18 +68,12 @@ function copy(): void {
       variant="outline"
       size="sm"
       aria-label="Copy code to clipboard"
-      class="absolute top-[11px] right-[11px] opacity-0 group-hover:opacity-100 transition"
+      :class="ui.copy()"
       tabindex="-1"
       @click="copy"
     />
 
-    <pre
-      :class="props.class"
-      class="group font-mono h-fit text-sm/6 border border-[var(--ui-border-muted)] bg-[var(--ui-bg-muted)] rounded-[calc(var(--ui-radius)*1.5)] px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto"
-      v-bind="$attrs"
-    >
-      <slot />
-    </pre>
+    <pre :class="ui.base({ class: [props.class] })" v-bind="$attrs"><slot /></pre>
   </div>
 </template>
 
