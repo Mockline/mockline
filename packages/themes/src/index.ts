@@ -10,3 +10,4 @@ export { default as proseCodeGroup, type CodeGroupProps } from './components/pro
 export { default as proseH1, type ProseH1Props } from './components/prose/h1'
 export { default as proseH2, type ProseH2Props } from './components/prose/h2'
 export { default as proseH3, type ProseH3Props } from './components/prose/h3'
+export { default as proseH4, type ProseH4Props } from './components/prose/h4'
