@@ -2,15 +2,9 @@
 import { tv } from 'tailwind-variants'
 import { twMerge } from 'tailwind-merge'
 import { computed } from 'vue'
-import { button, type ButtonProps } from '@mockline/themes'
+import { button, type ButtonProps, type ButtonSlots } from '@mockline/themes'
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
 // import appConfig from '#build/app.config'
-
-export type ButtonSlots = {
-  leading(props?: NonNullable<unknown>): any
-  default(props?: NonNullable<unknown>): any
-  trailing(props?: NonNullable<unknown>): any
-}
 
 const props = defineProps<ButtonProps & UseComponentIconsProps>()
 const slots = defineSlots<ButtonSlots>()

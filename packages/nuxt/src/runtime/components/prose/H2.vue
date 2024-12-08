@@ -1,13 +1,11 @@
-
 <script setup lang="ts">
-const props = defineProps<{
-  id?: string
-  class?: any
-}>()
+import { proseH2, type ProseH2Props } from '@mockline/themes'
+
+const props = defineProps<ProseH2Props>()
 </script>
 
 <template>
-  <h2 :id class="text-2xl text-[var(--ui-text-highlighted)] font-bold mt-12 mb-6 scroll-mt-[calc(48px+45px+var(--ui-header-height))] lg:scroll-mt-[calc(48px+var(--ui-header-height))] [&>a]:focus-visible:outline-[var(--ui-primary)] [&>a>code]:border-dashed hover:[&>a>code]:border-[var(--ui-primary)] hover:[&>a>code]:text-[var(--ui-primary)] [&>a>code]:text-xl/7 [&>a>code]:font-bold">
+  <h2 :id :class="proseH2({ class: (props.class || '').split(',').join(' ') })">
     <slot />
   </h2>
 </template>

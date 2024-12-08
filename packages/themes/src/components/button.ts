@@ -241,4 +241,10 @@ export type ButtonProps = {
   labelClass?: string
 }
 
+export type ButtonSlots = {
+  leading(props?: NonNullable<unknown>): any
+  default(props?: NonNullable<unknown>): any
+  trailing(props?: NonNullable<unknown>): any
+}
+
 export default button
