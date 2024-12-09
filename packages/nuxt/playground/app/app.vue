@@ -23,6 +23,7 @@ provide('navigation', navigation)
 
 @theme {
   --font-geist: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', sans-serif;
 }
 
 :root {
