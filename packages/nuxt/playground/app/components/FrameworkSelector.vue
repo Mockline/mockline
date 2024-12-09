@@ -1,7 +1,5 @@
 <script setup lang="ts">
-// import { TabsRoot, TabsList, TabsIndicator, TabsTrigger } from 'reka-ui'
 const { framework, frameworks } = useSharedData()
-
 </script>
 
 <template>
@@ -9,7 +7,7 @@ const { framework, frameworks } = useSharedData()
     <div
       v-for="_framework in frameworks"
       :key="_framework.value"
-      class="flex items-center gap-1 text-xs cursor-pointer px-2 py-1 rounded-md"
+      class="flex items-center gap-1 text-xs cursor-pointer p-1 rounded-md"
       :class="[framework === _framework.value ? 'bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700' : 'border border-transparent']"
       @click="_framework.onSelect"
     >

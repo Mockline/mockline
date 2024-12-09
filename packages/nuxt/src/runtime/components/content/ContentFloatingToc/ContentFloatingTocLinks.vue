@@ -61,7 +61,7 @@ const scrollToHeading = (id: string): void => {
             {{ link.text }}
           </a>
 
-          <ContentTocLinks
+          <MContentFloatingTocLinks
             v-if="link.children"
             :links="link.children"
             :is-hover
@@ -87,7 +87,7 @@ const scrollToHeading = (id: string): void => {
             ]"
           />
 
-          <ContentTocLinks
+          <MContentFloatingTocLinks
             v-if="link.children"
             :links="link.children"
             :is-hover

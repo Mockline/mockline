@@ -67,6 +67,7 @@ watch(currentBreakpoint, () => {
         :collapsed-size="props.collapsedSize"
         :default-size="layout[0]"
         collapsible
+        class="max-sm:hidden"
       >
         <slot name="sidebar" />
       </SplitterPanel>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
-import FrameworkSelector from '~/components/FrameworkSelector.vue'
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 const { version } = useRuntimeConfig().public
@@ -9,19 +8,21 @@ const { version } = useRuntimeConfig().public
 <template>
   <MSidebarLayout>
     <template #sidebar>
-      <div class="p-4 h-full flex flex-col justify-between gap-4">
-        <div class="flex flex-col gap-4">
+      <MSidebar class="p-2">
+        <template #header>
           <FrameworkSelector />
-          <MContentNavigationTree v-if="navigation" :links="navigation" />
-        </div>
-        <div class="flex items-center justify-between">
-          <NuxtLink to="/" class="flex items-center gap-2">
-            <MIcon name="lucide:home" size="15px" />
-            <span class="text-sm font-semibold">Home</span>
-          </NuxtLink>
-          <MThemeToggle />
-        </div>
-      </div>
+        </template>
+        <MContentNavigationTree v-if="navigation" :links="navigation" />
+        <template #footer>
+          <div class="flex items-center justify-between">
+            <NuxtLink to="/" class="flex items-center gap-2">
+              <MIcon name="lucide:home" size="15px" />
+              <span class="text-sm font-semibold">Home</span>
+            </NuxtLink>
+            <MThemeToggle />
+          </div>
+        </template>
+      </MSidebar>
     </template>
     <template #default="{ toggleSidebar }">
       <MHeader sticky class="dark:bg-neutral-900 bg-white pl-1 pt-1 pr-4">
@@ -42,7 +43,7 @@ const { version } = useRuntimeConfig().public
           </span>
         </div>
       </MHeader>
-      <MMain>
+      <MMain class="p-4">
         <slot />
       </MMain>
     </template>

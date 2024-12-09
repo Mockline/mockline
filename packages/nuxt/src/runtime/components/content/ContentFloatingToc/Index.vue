@@ -2,8 +2,7 @@
 import type { TocLink } from '@nuxt/content'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
-import { useScrollspy } from '../../composables/useScrollspy'
-import ContentTocLinks from './ContentTocLinks.vue'
+import { useScrollspy } from '../../../composables/useScrollspy'
 import { useNuxtApp } from '#imports'
 
 const { links = [] } = defineProps<{
@@ -71,7 +70,7 @@ onClickOutside(target, event => {
     >
       <nav class="overflow-y-auto cursor-pointer">
         <div>
-          <ContentTocLinks
+          <MContentFloatingTocLinks
             :links
             :is-hover="isOpen"
             :active-headings

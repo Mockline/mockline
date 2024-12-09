@@ -49,7 +49,7 @@ const breadcrumb = findPageBreadcrumb(navigation?.value, page?.value)
 
 <template>
   <MPage v-if="page" class="mx-auto max-w-2xl">
-    <MContentToc :links="page?.body?.toc?.links!" />
+    <MContentFloatingToc :links="page?.body?.toc?.links!" />
     <MPageHeader :title="page.title" :description="page.description">
       <template #headline>
         <div class="flex items-center gap-4">
