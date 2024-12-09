@@ -9,7 +9,7 @@ export type MainProps = {
 const props = defineProps<MainProps>()
 
 const mainClasses = computed(() => twMerge(
-  'min-h-[calc(100vh-var(--header-height))]',
+  'h-full',
   props.class
 ))
 </script>

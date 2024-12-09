@@ -24,11 +24,11 @@ function copy(): void {
   }, 2000)
 }
 
-const ui = prosePre()
+const ui = prosePre({ filename: !!props.filename })
 </script>
 
 <template>
-  <div :class="ui.root({ filename: !!filename })">
+  <div :class="ui.root()">
     <div
       v-if="filename && !hideHeader"
       :class="ui.header()"
@@ -40,7 +40,7 @@ const ui = prosePre()
 
     <MButton
       :icon="copied ? appConfig.mockline.icons.copyCheck : appConfig.mockline.icons.copy"
-      :color="copied ? 'danger' : 'neutral'"
+      :color="copied ? 'primary' : 'neutral'"
       variant="outline"
       size="sm"
       aria-label="Copy code to clipboard"

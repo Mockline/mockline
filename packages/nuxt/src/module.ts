@@ -15,8 +15,6 @@ import type { ModuleOptions } from '@mockline/types'
 import { defaultModuleOptions, defaultAppConfig } from '@mockline/types'
 import { name, version } from '../package.json'
 
-export type * from './runtime/types'
-
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name,

@@ -48,28 +48,8 @@ const breadcrumb = findPageBreadcrumb(navigation?.value, page?.value)
 </script>
 
 <template>
-  <MPage v-if="page">
-    <template #left>
-      <MAside class="p-4">
-        <div>
-          <MButton
-            v-for="_framework in frameworks"
-            :key="_framework.value"
-            class="mb-2"
-            :color="framework === _framework.value ? 'primary' : 'neutral'"
-            @click="_framework.onSelect"
-          >
-            {{ _framework.label }}
-          </MButton>
-        </div>
-        <MContentNavigationTree v-if="navigation" :links="navigation" />
-      </MAside>
-    </template>
-    <template #right>
-      <MAside class="p-4">
-        <MContentToc :links="page?.body?.toc?.links!" />
-      </MAside>
-    </template>
+  <MPage v-if="page" class="mx-auto max-w-2xl">
+    <MContentFloatingToc :links="page?.body?.toc?.links!" />
     <MPageHeader :title="page.title" :description="page.description">
       <template #headline>
         <div class="flex items-center gap-4">

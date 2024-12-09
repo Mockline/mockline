@@ -23,7 +23,7 @@ const positions = {
     <template v-for="pos in ['top', 'bottom']" :key="pos">
       <div
         v-if="position === pos || position === 'both'"
-        :class="`fixed inset-x-0 ${positions[pos].class} isolate h-24`"
+        :class="`fixed w-full ${positions[pos].class} h-24`"
         :style="{ height: `${size}px` }"
       >
         <div

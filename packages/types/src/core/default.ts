@@ -16,11 +16,7 @@ export const defaultModuleOptions: ModuleOptions = {
 export const defaultAppConfig: MocklineConfig = {
   colors: {
     primary: 'blue',
-    secondary: 'blue',
     danger: 'red',
-    warning: 'yellow',
-    success: 'green',
-    info: 'blue',
     neutral: 'neutral',
   },
   toast: {
