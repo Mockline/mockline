@@ -21,6 +21,14 @@ provide('navigation', navigation)
 
 @source "../content";
 
+@theme {
+  --font-geist: 'Geist', sans-serif;
+}
+
+:root {
+  @apply font-geist;
+}
+
 html[data-framework="nuxt"] .vue-only,
 html[data-framework="vue"] .nuxt-only {
   display: none;

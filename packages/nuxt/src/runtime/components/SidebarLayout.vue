@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { SplitterGroup, SplitterPanel, SplitterResizeHandle } from 'reka-ui'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
-import { watch, computed } from 'vue'
+import { watch, computed, ref } from 'vue'
 import { useCookie } from '#imports'
 
 type SidebarLayoutProps = {
@@ -18,14 +18,27 @@ const props = withDefaults(defineProps<SidebarLayoutProps>(), {
   defaultSize: 20,
 })
 
+const layout = useCookie<number[]>('splitter:layout')
+const sidebar = ref<InstanceType<typeof SplitterPanel>>()
+
+
+const toggleSidebar = (): void => {
+  const isCollapsed = sidebar.value?.isCollapsed
+  if (isCollapsed) sidebar.value?.expand()
+  else
+    sidebar.value?.collapse()
+}
+
+defineExpose({
+  toggleSidebar
+})
+
 type SidebarLayoutSlots = {
-  sidebar(props?: NonNullable<unknown>): any
-  default(props?: NonNullable<unknown>): any
+  default(props: { toggleSidebar: () => void }): any
+  sidebar: any
 }
 
 const slots = defineSlots<SidebarLayoutSlots>()
-
-const layout = useCookie<number[]>('splitter:layout')
 
 /*const breakpoints = useBreakpoints(breakpointsTailwind)
 
@@ -39,33 +52,38 @@ watch(currentBreakpoint, () => {
 </script>
 
 <template>
-  <SplitterGroup
-    id="sidebar-layout"
-    direction="horizontal"
-    auto-save-id="mockline-sidebar"
-    @layout="layout = $event"
-  >
-    <SplitterPanel
-      id="sidebar-layout-sidebar"
-      :min-size="props.minSize"
-      :max-size="props.maxSize"
-      :collapsed-size="props.collapsedSize"
-      :default-size="layout[0]"
-      collapsible
+  <div class="h-screen">
+    <SplitterGroup
+      id="sidebar-layout"
+      direction="horizontal"
+      auto-save-id="mockline-sidebar"
+      @layout="layout = $event"
     >
-      <slot name="sidebar" />
-    </SplitterPanel>
-    <SplitterResizeHandle
-      id="sidebar-layout-resize-handle"
-      class="w-2"
-    />
-    <SplitterPanel
-      id="sidebar-layout-content"
-      :min-size="50"
-      :default-size="layout[1]"
-      style="overflow-y: auto;"
-    >
-      <slot name="default" />
-    </SplitterPanel>
-  </SplitterGroup>
+      <SplitterPanel
+        id="sidebar-layout-sidebar"
+        ref="sidebar"
+        :min-size="props.minSize"
+        :max-size="props.maxSize"
+        :collapsed-size="props.collapsedSize"
+        :default-size="layout[0]"
+        collapsible
+      >
+        <slot name="sidebar" />
+      </SplitterPanel>
+      <!--      <SplitterResizeHandle
+        id="sidebar-layout-resize-handle"
+        class="w-1"
+      />-->
+      <SplitterPanel
+        id="sidebar-layout-content"
+        :min-size="50"
+        :default-size="layout[1]"
+        style="overflow-y: auto;"
+      >
+        <div id="app-main-content" class="h-[calc(100vh-var(--spacing)*2)] overflow-y-auto relative m-1 p-4 rounded-lg dark:bg-neutral-900 bg-white border dark:border-neutral-800 border-neutral-200 shadow-lg dark:shadow-xl">
+          <slot name="default" :toggle-sidebar />
+        </div>
+      </SplitterPanel>
+    </SplitterGroup>
+  </div>
 </template>

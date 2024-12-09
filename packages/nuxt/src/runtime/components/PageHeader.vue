@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<PageHeaderProps>(), {
 </script>
 
 <template>
-  <div>
+  <div :class="props.class">
     <div v-if="headline || $slots.headline">
       <slot name="headline">
         {{ headline }}
@@ -43,11 +43,11 @@ const props = withDefaults(defineProps<PageHeaderProps>(), {
 
       <div class="flex-1">
         <div>
-          <h1>
+          <ProseH1>
             <slot name="title">
               {{ title }}
             </slot>
-          </h1>
+          </ProseH1>
 
           <div v-if="links?.length || $slots.links">
             <slot name="links">
