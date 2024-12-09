@@ -1,6 +1,6 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 
-const proseCode = tv({
+export const proseCode = tv({
   base: 'px-1.5 py-0.5 text-sm font-mono font-medium rounded-[calc(var(--ui-radius)*1.5)] inline-block',
   variants: {
     color: {
@@ -19,5 +19,3 @@ export type CodeProps = {
   color?: CodeVariants['color']
   class?: any
 }
-
-export default proseCode

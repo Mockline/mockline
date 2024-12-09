@@ -27,10 +27,6 @@ export type TailwindColor = typeof tailwindColors[number]
 
 export const colors = [
   'primary',
-  'secondary',
-  'success',
-  'info',
-  'warning',
   'danger',
   'neutral'
 ] as const

@@ -1,6 +1,6 @@
 import { tv } from 'tailwind-variants'
 
-const proseCodeGroup = tv({
+export const proseCodeGroup = tv({
   slots: {
     root: 'dark pb-2 px-2 code-group relative group [&>div:not(:first-child)]:!my-0 [&>div:not(:first-child)]:!static my-5 rounded-[calc(var(--ui-radius)*1.5)] border border-neutral-800 bg-neutral-950',
     list: 'relative flex items-center gap-1 overflow-x-auto py-2',
@@ -16,5 +16,3 @@ export type CodeGroupProps = {
   class?: any
   sync?: string
 }
-
-export default proseCodeGroup
