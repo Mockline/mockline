@@ -1,6 +1,6 @@
 {
   "name": "mockline",
-  "version": "0.8.0",
+  "version": "0.9.1",
   "type": "module",
   "exports": {
     ".": {
@@ -27,6 +27,7 @@
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "bun run lint && bun run prepack && npm publish",
     "release:edge": "bun run lint && bun run prepack && npm publish --tag edge",
+    "test": "bun run typecheck && bun run lint && bun run prepack",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit"

@@ -29,6 +29,7 @@
       "dependsOn": ["^release"]
     },
     "typecheck": {},
+    "test": {},
     "lint": {},
     "lint:fix": {}
   }

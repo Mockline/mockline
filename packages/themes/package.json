@@ -1,6 +1,6 @@
 {
   "name": "@mockline/themes",
-  "version": "0.8.0",
+  "version": "0.9.1",
   "type": "module",
   "publishConfig": {
     "access": "public"
@@ -9,7 +9,11 @@
     "dev:prepare": "bun run build",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
-    "release": "bun run build && npm publish"
+    "release": "bun run test && npm publish",
+    "test": "bun run typecheck && bun run lint && bun run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit"
   },
   "exports": {
     ".": {
