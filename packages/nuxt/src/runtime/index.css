@@ -42,8 +42,6 @@ html.dark {
   }
 
   :root {
-    color-scheme: light;
-
     --ui-text-dimmed: var(--ui-color-neutral-400);
     --ui-text-muted: var(--ui-color-neutral-500);
     --ui-text-toned: var(--ui-color-neutral-600);

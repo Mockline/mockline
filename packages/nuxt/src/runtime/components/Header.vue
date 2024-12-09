@@ -34,6 +34,3 @@ onMounted(() => {
   </component>
 </template>
 
-<style scoped>
-
-</style>
