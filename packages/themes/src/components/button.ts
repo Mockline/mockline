@@ -85,6 +85,9 @@ export const button = tv({
     loading: {
       true: '',
     },
+    transitions: {
+      true: '',
+    }
   },
   compoundVariants: [
     {
@@ -217,6 +220,12 @@ export const button = tv({
         trailingIcon: 'animate-spin',
       },
     },
+    {
+      transitions: true,
+      class: {
+        base: 'transition-colors duration-200 ease-in-out',
+      }
+    }
   ],
   defaultVariants: {
     color: 'primary',

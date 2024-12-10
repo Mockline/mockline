@@ -49,13 +49,10 @@ export type ModuleOptions = {
 export type MocklineConfig = {
   colors?: {
     primary?: Color
-    secondary?: Color
-    success?: Color
     danger?: Color
-    warning?: Color
-    info?: Color
     neutral?: Color
-  }
+  },
+  transitions?: false,
   toast?: {
     position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
     duration?: number

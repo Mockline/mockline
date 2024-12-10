@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge'
 import { computed } from 'vue'
 import { button, type ButtonProps, type ButtonSlots } from '@mockline/themes'
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
-// import appConfig from '#build/app.config'
+import appConfig from '#build/app.config'
 
 const props = defineProps<ButtonProps & UseComponentIconsProps>()
 const slots = defineSlots<ButtonSlots>()
@@ -16,6 +16,7 @@ const ui = computed(() => tv({ extend: button })({
   square: props.square || (!slots.default && !props.label),
   leading: isLeading.value,
   trailing: isTrailing.value,
+  transitions: appConfig.mockline.transitions
 }))
 </script>
 

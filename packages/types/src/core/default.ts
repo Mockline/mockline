@@ -8,7 +8,6 @@ export const defaultModuleOptions: ModuleOptions = {
   colorMode: true,
   content: false,
   mdc: false,
-  transitions: false,
   components: true,
   composables: true,
 }
@@ -19,6 +18,7 @@ export const defaultAppConfig: MocklineConfig = {
     danger: 'red',
     neutral: 'neutral',
   },
+  transitions: false,
   toast: {
     position: 'top-center',
   },
