@@ -1,5 +1,16 @@
+import * as components from '@mockline/themes'
 import type { Color } from './colors'
 import icons from './icons'
+
+type ExtractSlots<T> = T extends { slots: infer S } ? S : never
+
+type ComponentTheme<T = any> = {
+  slots?: Partial<Record<keyof ExtractSlots<T>, string>>
+}
+
+type Themes = {
+  [K in keyof typeof components]?: ComponentTheme<(typeof components)[K]>
+}
 
 export type ModuleOptions = {
   /**
@@ -20,15 +31,15 @@ export type ModuleOptions = {
    */
   colorMode?: boolean
   /**
-   * Enable Nuxt Content
-   * @defaultValue false
-   */
-  content?: boolean
-  /**
-   * Force the import of prose components even if @nuxtjs/mdc or @nuxt/content is not installed
-   * @defaultValue false
+   * Prose components are auto-imported if @nuxtjs/mdc or @nuxt/content is installed, set false to disable
+   * @defaultValue true
    */
   mdc?: boolean;
+  /**
+   * Nuxt Content related components are auto-imported if @nuxt/content is installed, set false to disable
+   * @defaultValue true
+   */
+  content?: boolean
   /**
    * Enable Color Transitions
    * @defaultValue false
@@ -49,16 +60,14 @@ export type ModuleOptions = {
 export type MocklineConfig = {
   colors?: {
     primary?: Color
-    secondary?: Color
-    success?: Color
     danger?: Color
-    warning?: Color
-    info?: Color
     neutral?: Color
-  }
+  },
+  transitions?: false,
   toast?: {
     position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
     duration?: number
   },
-  icons?: typeof icons
+  icons?: typeof icons,
+  themes?: Themes
 }

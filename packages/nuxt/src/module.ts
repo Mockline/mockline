@@ -15,8 +15,6 @@ import type { ModuleOptions } from '@mockline/types'
 import { defaultModuleOptions, defaultAppConfig } from '@mockline/types'
 import { name, version } from '../package.json'
 
-export type * from './runtime/types'
-
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name,
@@ -85,7 +83,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors') })
 
-    if (hasNuxtModule('@nuxtjs/mdc') || options.mdc || (hasNuxtModule('@nuxt/content') || options.content)) {
+    if (hasNuxtModule('@nuxtjs/mdc') || (hasNuxtModule('@nuxt/content'))) {
       // @ts-expect-error - Nuxt doesn't have a type for this
       nuxt.options.mdc = defu(nuxt.options.mdc, {
         highlight: {
@@ -106,19 +104,21 @@ export default defineNuxtModule<ModuleOptions>({
           }
         }
       })
-      await addComponentsDir({
-        path: resolve('./runtime/components/prose'),
-        prefix: 'Prose',
-        pathPrefix: false,
-        global: true
-      })
-    }
-    if (hasNuxtModule('@nuxt/content') || options.content) {
-      await addComponentsDir({
-        path: resolve('./runtime/components/content'),
-        pathPrefix: false,
-        prefix: options.prefix,
-      })
+      if (options.mdc) {
+        await addComponentsDir({
+          path: resolve('./runtime/components/prose'),
+          prefix: 'Prose',
+          pathPrefix: false,
+          global: true
+        })
+      }
+      if (options.content) {
+        await addComponentsDir({
+          path: resolve('./runtime/components/content'),
+          pathPrefix: false,
+          prefix: options.prefix,
+        })
+      }
     }
 
     if (options.components) {

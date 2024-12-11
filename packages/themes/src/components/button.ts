@@ -1,6 +1,6 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 
-const button = tv({
+export const button = tv({
   slots: {
     base: ['cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',],
     label: 'truncate',
@@ -85,6 +85,9 @@ const button = tv({
     loading: {
       true: '',
     },
+    transitions: {
+      true: '',
+    }
   },
   compoundVariants: [
     {
@@ -217,6 +220,12 @@ const button = tv({
         trailingIcon: 'animate-spin',
       },
     },
+    {
+      transitions: true,
+      class: {
+        base: 'transition-colors duration-200 ease-in-out',
+      }
+    }
   ],
   defaultVariants: {
     color: 'primary',
@@ -247,4 +256,3 @@ export type ButtonSlots = {
   trailing(props?: NonNullable<unknown>): any
 }
 
-export default button

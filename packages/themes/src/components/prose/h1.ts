@@ -1,6 +1,6 @@
 import { tv } from 'tailwind-variants'
 
-const proseH1 = tv({
+export const proseH1 = tv({
   base: 'text-4xl text-[var(--ui-text-highlighted)] font-bold mb-8 scroll-mt-[var(--ui-header-height)]'
 })
 

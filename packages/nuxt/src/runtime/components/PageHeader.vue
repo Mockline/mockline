@@ -15,7 +15,7 @@ export type PageHeaderProps = {
 }
 
 const props = withDefaults(defineProps<PageHeaderProps>(), {
-  class: 'relative border-b border-gray-200 dark:border-gray-800 py-8',
+  class: 'relative border-b border-neutral-200 dark:border-neutral-800 py-8',
   headline: undefined,
   icon: undefined,
   title: undefined,
@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<PageHeaderProps>(), {
 </script>
 
 <template>
-  <div>
+  <div :class="props.class">
     <div v-if="headline || $slots.headline">
       <slot name="headline">
         {{ headline }}
@@ -43,22 +43,11 @@ const props = withDefaults(defineProps<PageHeaderProps>(), {
 
       <div class="flex-1">
         <div>
-          <h1>
+          <ProseH1>
             <slot name="title">
               {{ title }}
             </slot>
-          </h1>
-
-          <div v-if="links?.length || $slots.links">
-            <slot name="links">
-              <MButton
-                v-for="(link, index) of links"
-                :key="index"
-                v-bind="{ ...link, target: link.target || '_blank', color: link.color || 'white' }"
-                @click="link.click"
-              />
-            </slot>
-          </div>
+          </ProseH1>
         </div>
 
         <p v-if="description || $slots.description">
