@@ -235,8 +235,6 @@ export const button = tv({
   },
 })
 
-export type ButtonTheme = typeof button
-
 type ButtonVariants = VariantProps<typeof button>
 
 export type ButtonProps = {

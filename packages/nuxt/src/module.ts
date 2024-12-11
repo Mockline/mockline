@@ -104,13 +104,16 @@ export default defineNuxtModule<ModuleOptions>({
           }
         }
       })
-      await addComponentsDir({
-        path: resolve('./runtime/components/prose'),
-        prefix: 'Prose',
-        pathPrefix: false,
-        global: true
-      })
+      if (!options.mdc) {
+        await addComponentsDir({
+          path: resolve('./runtime/components/prose'),
+          prefix: 'Prose',
+          pathPrefix: false,
+          global: true
+        })
+      }
     }
+
     if (hasNuxtModule('@nuxt/content') || options.content) {
       await addComponentsDir({
         path: resolve('./runtime/components/content'),

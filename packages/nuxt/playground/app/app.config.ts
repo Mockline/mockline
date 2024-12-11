@@ -3,6 +3,13 @@ export default defineAppConfig({
     colors: {
       primary: 'blue',
     },
-    transitions: true
+    transitions: true,
+    themes: {
+      button: {
+        slots: {
+          label: 'font-bold',
+        }
+      },
+    }
   }
 })

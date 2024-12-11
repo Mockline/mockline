@@ -9,6 +9,8 @@ import appConfig from '#build/app.config'
 const props = defineProps<ButtonProps & UseComponentIconsProps>()
 const slots = defineSlots<ButtonSlots>()
 
+const appConfigTheme = appConfig.mockline.themes.button.slots
+
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
 const ui = computed(() => tv({ extend: button })({
@@ -33,7 +35,7 @@ const ui = computed(() => tv({ extend: button })({
       />
     </slot>
 
-    <span v-if="label || !!slots.default" :class="twMerge(ui.label(), labelClass)">
+    <span v-if="label || !!slots.default" :class="twMerge(ui.label(), appConfigTheme.label, labelClass)">
       <slot>
         {{ label }}
       </slot>

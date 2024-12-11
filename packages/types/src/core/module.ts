@@ -1,5 +1,16 @@
+import * as components from '@mockline/themes'
 import type { Color } from './colors'
 import icons from './icons'
+
+type ExtractSlots<T> = T extends { slots: infer S } ? S : never
+
+type ComponentTheme<T = any> = {
+  slots?: Partial<Record<keyof ExtractSlots<T>, string>>
+}
+
+type Themes = {
+  [K in keyof typeof components]?: ComponentTheme<(typeof components)[K]>
+}
 
 export type ModuleOptions = {
   /**
@@ -20,7 +31,7 @@ export type ModuleOptions = {
    */
   colorMode?: boolean
   /**
-   * Enable Nuxt Content
+   * Force import Nuxt Content related components even if @nuxt/content is not installed
    * @defaultValue false
    */
   content?: boolean
@@ -57,5 +68,6 @@ export type MocklineConfig = {
     position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
     duration?: number
   },
-  icons?: typeof icons
+  icons?: typeof icons,
+  themes?: Themes
 }
