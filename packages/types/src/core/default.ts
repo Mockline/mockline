@@ -6,8 +6,8 @@ export const defaultModuleOptions: ModuleOptions = {
   fonts: true,
   icon: true,
   colorMode: true,
-  content: false,
-  mdc: false,
+  content: true,
+  mdc: true,
   components: true,
   composables: true,
 }

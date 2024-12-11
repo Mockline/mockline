@@ -31,15 +31,15 @@ export type ModuleOptions = {
    */
   colorMode?: boolean
   /**
-   * Force import Nuxt Content related components even if @nuxt/content is not installed
-   * @defaultValue false
-   */
-  content?: boolean
-  /**
-   * Force the import of prose components even if @nuxtjs/mdc or @nuxt/content is not installed
-   * @defaultValue false
+   * Prose components are auto-imported if @nuxtjs/mdc or @nuxt/content is installed, set false to disable
+   * @defaultValue true
    */
   mdc?: boolean;
+  /**
+   * Nuxt Content related components are auto-imported if @nuxt/content is installed, set false to disable
+   * @defaultValue true
+   */
+  content?: boolean
   /**
    * Enable Color Transitions
    * @defaultValue false

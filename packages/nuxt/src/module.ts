@@ -83,7 +83,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin({ src: resolve(runtimeDir, 'plugins', 'colors') })
 
-    if (hasNuxtModule('@nuxtjs/mdc') || options.mdc || (hasNuxtModule('@nuxt/content') || options.content)) {
+    if (hasNuxtModule('@nuxtjs/mdc') || (hasNuxtModule('@nuxt/content'))) {
       // @ts-expect-error - Nuxt doesn't have a type for this
       nuxt.options.mdc = defu(nuxt.options.mdc, {
         highlight: {
@@ -104,7 +104,7 @@ export default defineNuxtModule<ModuleOptions>({
           }
         }
       })
-      if (!options.mdc) {
+      if (options.mdc) {
         await addComponentsDir({
           path: resolve('./runtime/components/prose'),
           prefix: 'Prose',
@@ -112,14 +112,13 @@ export default defineNuxtModule<ModuleOptions>({
           global: true
         })
       }
-    }
-
-    if (hasNuxtModule('@nuxt/content') || options.content) {
-      await addComponentsDir({
-        path: resolve('./runtime/components/content'),
-        pathPrefix: false,
-        prefix: options.prefix,
-      })
+      if (options.content) {
+        await addComponentsDir({
+          path: resolve('./runtime/components/content'),
+          pathPrefix: false,
+          prefix: options.prefix,
+        })
+      }
     }
 
     if (options.components) {
