@@ -10,11 +10,11 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@nuxt/content": "3.0.0-alpha.7",
+    "@nuxt/content": "3.0.0-alpha.8",
     "nuxt": "^3.14.1592"
   },
   "devDependencies": {
-    "@iconify-json/vscode-icons": "^1.2.3",
+    "@iconify-json/vscode-icons": "^1.2.4",
     "typescript": "^5.7.2"
   }
 }
