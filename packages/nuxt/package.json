@@ -38,7 +38,7 @@
     "@mockline/themes": "*",
     "@mockline/types": "*",
     "@nuxt/fonts": "^0.10.3",
-    "@nuxt/icon": "^1.9.1",
+    "@nuxt/icon": "^1.10.0",
     "@nuxt/kit": "^3.14.1592",
     "@nuxt/schema": "^3.14.1592",
     "@nuxtjs/color-mode": "^3.5.2",
@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "shiki-transformer-color-highlight": "^0.2.0",
-    "@nuxt/content": "3.0.0-alpha.7",
+    "@nuxt/content": "3.0.0-alpha.8",
     "@nuxt/devtools": "^1.6.3",
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/test-utils": "^3.15.1",
@@ -68,7 +68,7 @@
     "nuxt": "^3.14.1592",
     "typescript": "5.7.2",
     "vue-tsc": "^2.1.10",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "publishConfig": {
     "access": "public"
