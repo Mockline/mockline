@@ -6,7 +6,6 @@ import { useComponent } from '../../utils/useComponent'
 const props = defineProps<ProseH1Props>()
 
 const { getClasses } = useComponent('proseH1', proseH1())
-console.log(getClasses())
 </script>
 
 <template>

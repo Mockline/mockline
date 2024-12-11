@@ -10,7 +10,7 @@ type TVReturn = {
 
 export function useComponent<T extends keyof typeof components>(
   componentName: T,
-  baseClasses: TVReturn | string
+  baseClasses: ReturnType<(typeof components)[T]>
 ): {
   getClasses: (slotName?: string) => string
 } {
@@ -21,6 +21,7 @@ export function useComponent<T extends keyof typeof components>(
   return {
     getClasses(slotName: string = 'default'): string {
       const base = typeof baseClasses === 'object'
+        // @ts-expect-error - This is a valid key TODO: Fix this
         ? (slotName === 'default' ? baseClasses.base : baseClasses[slotName]) || ''
         : baseClasses || ''
 
