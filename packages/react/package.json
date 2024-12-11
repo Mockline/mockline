@@ -7,8 +7,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@types/react": "^18.3.14",
-    "@types/react-dom": "^18.3.2",
+    "@types/react": "^18.3.15",
+    "@types/react-dom": "^18.3.4",
     "eslint": ">=9.16.0",
     "eslint-config-custom": "*",
     "prettier": "^3.4.2",
