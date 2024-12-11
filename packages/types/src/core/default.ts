@@ -22,5 +22,6 @@ export const defaultAppConfig: MocklineConfig = {
   toast: {
     position: 'top-center',
   },
-  icons
+  icons,
+  components: {}
 }

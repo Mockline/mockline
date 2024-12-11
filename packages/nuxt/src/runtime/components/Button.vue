@@ -3,13 +3,14 @@ import { tv } from 'tailwind-variants'
 import { twMerge } from 'tailwind-merge'
 import { computed } from 'vue'
 import { button, type ButtonProps, type ButtonSlots } from '@mockline/themes'
+import { useComponent } from '../utils/useComponent'
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
 import appConfig from '#build/app.config'
 
 const props = defineProps<ButtonProps & UseComponentIconsProps>()
 const slots = defineSlots<ButtonSlots>()
 
-const appConfigTheme = appConfig.mockline.themes.button.slots
+const { getClasses } = useComponent('button', button())
 
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
@@ -35,7 +36,7 @@ const ui = computed(() => tv({ extend: button })({
       />
     </slot>
 
-    <span v-if="label || !!slots.default" :class="twMerge(ui.label(), appConfigTheme.label, labelClass)">
+    <span v-if="label || !!slots.default" :class="twMerge(getClasses('label'), labelClass)">
       <slot>
         {{ label }}
       </slot>

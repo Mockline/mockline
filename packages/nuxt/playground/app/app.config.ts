@@ -4,12 +4,13 @@ export default defineAppConfig({
       primary: 'blue',
     },
     transitions: true,
-    themes: {
+    components: {
       button: {
         slots: {
           label: 'font-bold',
         }
       },
+      proseH1: 'text-xl'
     }
   }
 })
