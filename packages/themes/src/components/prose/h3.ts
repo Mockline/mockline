@@ -8,5 +8,3 @@ export type ProseH3Props = {
   id?: string
   class?: any
 }
-
-export default proseH3

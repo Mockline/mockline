@@ -10,7 +10,6 @@ export const proseCallout = tv({
     color: {
       neutral: {
         base: 'dark:bg-neutral-950/25 dark:border-neutral-500/20 border-neutral-400/10 bg-neutral-300/20',
-        icon: 'text-gray-600',
       },
       warning: {
         base: 'dark:border-yellow-500/20 dark:bg-yellow-800/5 border-yellow-500/30 bg-yellow-500/10 text-yellow-600',
@@ -68,5 +67,3 @@ export type ProseCalloutProps = {
 export type CalloutSlots = {
   default(props?: object): any
 }
-
-export default proseCallout
