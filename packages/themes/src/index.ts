@@ -1,5 +1,6 @@
 // Components
 export * from './components/button'
+export * from './components/switch'
 
 // Prose
 export * from './components/prose/a'
