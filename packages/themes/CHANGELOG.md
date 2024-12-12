@@ -1,5 +1,11 @@
 # @mockline/themes
 
+## 0.11.0
+
+### Minor Changes
+
+- Major themes handle improvements
+
 ## 0.10.0
 
 ### Minor Changes

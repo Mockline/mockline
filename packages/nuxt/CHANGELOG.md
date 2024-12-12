@@ -1,5 +1,17 @@
 # mockline
 
+## 0.11.0
+
+### Minor Changes
+
+- Major themes handle improvements
+
+### Patch Changes
+
+- Updated dependencies
+  - @mockline/themes@0.11.0
+  - @mockline/types@0.11.0
+
 ## 0.10.0
 
 ### Minor Changes
