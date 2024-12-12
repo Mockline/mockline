@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { proseA, type ProseAProps } from '@mockline/themes'
+import type { ProseAProps } from '@mockline/themes'
+import { useComponent } from '../../utils/useComponent'
 
 const props = defineProps<ProseAProps>()
+
+const { getClasses } = useComponent('proseA')
 </script>
 
 <template>
-  <NuxtLink :href="props.href" :target="props.target" :class="proseA({ class: props.class })">
+  <NuxtLink :href="props.href" :target="props.target" :class="getClasses('default', props.class)">
     <slot />
   </NuxtLink>
 </template>

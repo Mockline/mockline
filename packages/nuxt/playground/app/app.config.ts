@@ -4,5 +4,6 @@ export default defineAppConfig({
       primary: 'blue',
     },
     transitions: true,
+    components: {}
   }
 })

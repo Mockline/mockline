@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { proseH2, type ProseH2Props } from '@mockline/themes'
+import { type ProseH2Props } from '@mockline/themes'
+import { useComponent } from '../../utils/useComponent'
 
 const props = defineProps<ProseH2Props>()
+
+const { getClasses } = useComponent('proseH2')
 </script>
 
 <template>
-  <h2 :id :class="proseH2({ class: (props.class || '').split(',').join(' ') })">
+  <h2 :id :class="getClasses('default', props.class)">
     <slot />
   </h2>
 </template>
