@@ -1,5 +1,11 @@
 # @mockline/types
 
+## 0.10.0
+
+### Minor Changes
+
+- User can update components globally from app.config
+
 ## 0.9.1
 
 ### Patch Changes
