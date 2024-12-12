@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const components = ['button', 'nav-menu', 'page']
+const contentComponents = ['callout', 'typography']
 </script>
 
 <template>
@@ -14,14 +15,16 @@ const components = ['button', 'nav-menu', 'page']
         </NuxtLink>
       </li>
     </ul>
-    <div class="space-x-4">
-      <NuxtLink to="/getting-started/intro">
-        <MButton label="Intro" />
-      </NuxtLink>
-      <NuxtLink to="/getting-started/installation">
-        <MButton label="Installation" />
-      </NuxtLink>
-    </div>
+    <h2 class="text-gray-12 text-xl font-semibold">
+      Content Components
+    </h2>
+    <ul class="space-y-4">
+      <li v-for="component in contentComponents" :key="component">
+        <NuxtLink :to="`/components/${component}`" class="text-blue-600 hover:underline">
+          {{ component.charAt(0).toUpperCase() + component.slice(1) }}
+        </NuxtLink>
+      </li>
+    </ul>
   </div>
 </template>
 

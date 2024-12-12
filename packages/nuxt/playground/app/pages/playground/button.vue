@@ -3,10 +3,6 @@ import { button } from '@mockline/themes'
 
 const sizes = Object.keys(button.variants.size) as Array<keyof typeof button.variants.size>
 const variants = Object.keys(button.variants.variant) as Array<keyof typeof button.variants.variant>
-
-definePageMeta({
-  layout: 'component',
-})
 </script>
 
 <template>
