@@ -10,7 +10,7 @@ import appConfig from '#build/app.config'
 const props = defineProps<ButtonProps & UseComponentIconsProps>()
 const slots = defineSlots<ButtonSlots>()
 
-const { getClasses } = useComponent('button', button())
+const { getClasses } = useComponent('button')
 
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
@@ -36,7 +36,7 @@ const ui = computed(() => tv({ extend: button })({
       />
     </slot>
 
-    <span v-if="label || !!slots.default" :class="twMerge(getClasses('label'), labelClass)">
+    <span v-if="label || !!slots.default" :class="getClasses('label', labelClass)">
       <slot>
         {{ label }}
       </slot>

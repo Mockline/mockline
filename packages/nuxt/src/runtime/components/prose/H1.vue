@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { proseH1, type ProseH1Props } from '@mockline/themes'
+import { type ProseH1Props } from '@mockline/themes'
 import { twMerge } from 'tailwind-merge'
 import { useComponent } from '../../utils/useComponent'
 
 const props = defineProps<ProseH1Props>()
 
-const { getClasses } = useComponent('proseH1', proseH1())
+const { getClasses } = useComponent('proseH1')
 </script>
 
 <template>
