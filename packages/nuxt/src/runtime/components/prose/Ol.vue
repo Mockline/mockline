@@ -1,11 +1,14 @@
 <script setup lang="ts">
-const props = defineProps<{
-  class?: string
-}>()
+import type { ProseOlProps } from '@mockline/themes'
+import { useComponent } from '../../utils/useComponent'
+
+const props = defineProps<ProseOlProps>()
+
+const { getClasses } = useComponent('proseOl')
 </script>
 
 <template>
-  <ol class="list-decimal pl-6 my-5">
+  <ol :class="getClasses('default', props.class)">
     <slot />
   </ol>
 </template>
