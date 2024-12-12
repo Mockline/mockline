@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import { type ButtonProps, type ButtonSlots } from '@mockline/themes'
 import { useComponent } from '../utils/useComponent'
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
-import appConfig from '#build/app.config'
 
 const props = defineProps<ButtonProps & UseComponentIconsProps>()
 const slots = defineSlots<ButtonSlots>()
@@ -16,7 +15,6 @@ const componentProps = computed(() => {
     square: props.square || (!slots.default && !props.label),
     leading: isLeading.value,
     trailing: isTrailing.value,
-    transitions: appConfig.mockline.transitions
   }
 })
 

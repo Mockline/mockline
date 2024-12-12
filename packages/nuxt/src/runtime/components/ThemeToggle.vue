@@ -22,11 +22,11 @@ const themeToggle = tv({
   base: 'cursor-pointer text-neutral-950 dark:text-white',
   variants: {
     size: {
-      xs: 'size-4',
-      sm: 'size-6',
-      md: 'size-8',
-      lg: 'size-10',
-      xl: 'size-12',
+      xs: 'text-xs',
+      sm: 'text-sm',
+      md: 'text-base',
+      lg: 'text-lg',
+      xl: 'text-xl',
     },
   },
   defaultVariants: {

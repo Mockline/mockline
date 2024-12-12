@@ -17,4 +17,9 @@ export default {
   chevronUp: 'lucide:chevron-up',
   copy: 'lucide:copy',
   copyCheck: 'lucide:copy-check',
+  danger: 'lucide:circle-alert',
+  note: 'lucide:info',
+  system: 'lucide:monitor',
+  tip: 'lucide:lightbulb',
+  warning: 'lucide:triangle-alert'
 }

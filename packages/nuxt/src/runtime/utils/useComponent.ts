@@ -55,7 +55,7 @@ export function useComponent<
   const ui = computed(() => {
     const baseComponent = components[componentName]
     const resolvedProps = toValue(componentProps) || {}
-    return baseComponent(resolvedProps)
+    return baseComponent({ ...resolvedProps, transitions: appConfig.mockline?.transitions })
   })
 
   return {

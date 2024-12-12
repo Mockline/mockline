@@ -44,7 +44,7 @@ export type ModuleOptions = {
   content?: boolean
   /**
    * Enable Color Transitions
-   * @defaultValue false
+   * @defaultValue true
    */
   transitions?: boolean
   /**
@@ -65,7 +65,7 @@ export type MocklineConfig = {
     danger?: Color
     neutral?: Color
   },
-  transitions?: false,
+  transitions?: true,
   toast?: {
     position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
     duration?: number

@@ -18,7 +18,7 @@ export const defaultAppConfig: MocklineConfig = {
     danger: 'red',
     neutral: 'neutral',
   },
-  transitions: false,
+  transitions: true,
   toast: {
     position: 'top-center',
   },

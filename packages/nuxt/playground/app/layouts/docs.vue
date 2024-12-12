@@ -13,15 +13,6 @@ const { version } = useRuntimeConfig().public
           <FrameworkSelector />
         </template>
         <MContentNavigationTree v-if="navigation" :links="navigation" />
-        <template #footer>
-          <div class="flex items-center justify-between">
-            <NuxtLink to="/" class="flex items-center gap-2">
-              <MIcon name="lucide:home" size="15px" />
-              <span class="text-sm font-semibold">Home</span>
-            </NuxtLink>
-            <MThemeToggle />
-          </div>
-        </template>
       </MSidebar>
     </template>
     <template #default="{ toggleSidebar }">
@@ -34,13 +25,16 @@ const { version } = useRuntimeConfig().public
           @click="toggleSidebar"
         />
         <div class="flex text-xs items-center gap-4">
-          <div class="flex items-center gap-2">
+          <NuxtLink class="flex items-center gap-2" to="/">
             <MIcon name="custom:mockline" />
             <span class="font-semibold">Mockline</span>
-          </div>
+          </NuxtLink>
           <span class=" text-gray-500 dark:text-gray-400">
             v{{ version }}
           </span>
+          <div class="flex items-center justify-between">
+            <MThemeToggle size="sm" />
+          </div>
         </div>
       </MHeader>
       <MMain class="p-4">
