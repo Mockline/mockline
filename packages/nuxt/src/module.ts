@@ -101,6 +101,10 @@ export default defineNuxtModule<ModuleOptions>({
             'icon': 'ProseIcon',
             'kbd': 'ProseKbd',
             'tabs': 'ProseTabs',
+            'danger': 'ProseDanger',
+            'note': 'ProseNote',
+            'tip': 'ProseTip',
+            'warning': 'ProseWarning'
           }
         }
       })
