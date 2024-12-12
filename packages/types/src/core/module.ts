@@ -6,8 +6,8 @@ type ExtractTVSlots<T> = T extends { slots: infer S } ? keyof S : never
 
 type ComponentConfig<T> = {
   slots?: T extends { slots: any }
-    ? Partial<Record<ExtractTVSlots<T>, string>>
-    : never
+  ? Partial<Record<ExtractTVSlots<T>, string>>
+  : never
 } | string
 
 type ComponentsConfig = {

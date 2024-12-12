@@ -5,4 +5,11 @@ declare module '@nuxt/schema' {
     mockline?: MocklineConfig
   }
 }
+
+declare module '#build/app.config' {
+  type AppConfigInput = {
+    mockline?: MocklineConfig
+  }
+}
+
 export {}
