@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, type MaybeRefOrGetter, toValue } from 'vue'
 import { twMerge } from 'tailwind-merge'
 import * as components from '@mockline/themes'
 import { useAppConfig } from '#imports'
@@ -34,22 +34,29 @@ type ComponentSlots<T> = T extends { slots: infer S } ? keyof S : never
  * ```
  *
  * @param componentName - Name of the component from @mockline/themes
+ * @param componentProps - Optional props to pass to the component
  * @returns Object with getClasses function
  */
 export function useComponent<
   T extends keyof typeof components
 >(
   componentName: T,
+  componentProps?: MaybeRefOrGetter<any>
 ): {
   getClasses: (slotName?: ComponentSlots<(typeof components)[T]> | 'default', overrideClass?: string) => string
 } {
   // Get app config for potential component style overrides
   const appConfig = useAppConfig()
+
   // @ts-expect-error - This is a valid key
   const componentConfig = computed(() => appConfig.mockline?.components?.[componentName])
 
-  // Get base component styles
-  const baseClasses = (components[componentName])()
+  // Get base component styles from @mockline/themes
+  const ui = computed(() => {
+    const baseComponent = components[componentName]
+    const resolvedProps = toValue(componentProps) || {}
+    return baseComponent(resolvedProps)
+  })
 
   return {
     /**
@@ -64,20 +71,14 @@ export function useComponent<
       overrideClass?: string
     ): string {
       // Get base classes for the slot
-      const base = typeof baseClasses === 'object'
-        // @ts-expect-error - This is a valid key
-        ? (slotName === 'default' ? baseClasses.base : baseClasses[slotName as string]) || ''
-        : baseClasses || ''
+      // @ts-expect-error - This is a valid key
+      const base = slotName === 'default' ? (typeof ui.value === 'string' ? ui.value : ui.value.base) : (typeof ui.value[slotName] === 'function' ? ui.value[slotName]() : ui.value[slotName])
 
       // Get config override classes
       const config = typeof componentConfig.value === 'string'
         ? componentConfig.value
         : componentConfig.value?.slots?.[slotName as string] || ''
 
-      // Merge all classes in priority order:
-      // 1. Base component classes
-      // 2. App config overrides
-      // 3. Manual class overrides
       return twMerge(base, config, overrideClass)
     }
   }

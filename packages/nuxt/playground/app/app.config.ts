@@ -10,7 +10,6 @@ export default defineAppConfig({
           label: 'font-bold',
         }
       },
-      proseH1: 'text-lg'
     }
   }
 })

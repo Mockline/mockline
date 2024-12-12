@@ -56,7 +56,7 @@ definePageMeta({
       </div>
     </div>
     <div>
-      <MButton label="test" />
+      <MButton label="test" class="bg-yellow-500" />
     </div>
   </MPageBody>
 </template>

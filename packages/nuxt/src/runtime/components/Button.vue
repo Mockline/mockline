@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { tv } from 'tailwind-variants'
-import { twMerge } from 'tailwind-merge'
 import { computed } from 'vue'
-import { button, type ButtonProps, type ButtonSlots } from '@mockline/themes'
+import { type ButtonProps, type ButtonSlots } from '@mockline/themes'
 import { useComponent } from '../utils/useComponent'
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
 import appConfig from '#build/app.config'
@@ -10,29 +8,31 @@ import appConfig from '#build/app.config'
 const props = defineProps<ButtonProps & UseComponentIconsProps>()
 const slots = defineSlots<ButtonSlots>()
 
-const { getClasses } = useComponent('button')
-
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
-const ui = computed(() => tv({ extend: button })({
-  ...props,
-  square: props.square || (!slots.default && !props.label),
-  leading: isLeading.value,
-  trailing: isTrailing.value,
-  transitions: appConfig.mockline.transitions
-}))
+const componentProps = computed(() => {
+  return {
+    ...props,
+    square: props.square || (!slots.default && !props.label),
+    leading: isLeading.value,
+    trailing: isTrailing.value,
+    transitions: appConfig.mockline.transitions
+  }
+})
+
+const { getClasses } = useComponent('button', componentProps)
 </script>
 
 <template>
   <component
     :is="'button'"
-    :class="twMerge(ui.base(), props.class)"
+    :class="getClasses('base', props.class)"
   >
     <slot name="leading">
       <MIcon
         v-if="isLeading && leadingIconName"
         :name="leadingIconName"
-        :class="twMerge(ui.leadingIcon(), iconClass)"
+        :class="getClasses('leadingIcon', iconClass)"
       />
     </slot>
 
@@ -46,7 +46,7 @@ const ui = computed(() => tv({ extend: button })({
       <MIcon
         v-if="isTrailing && trailingIconName"
         :name="trailingIconName"
-        :class="twMerge(ui.trailingIcon(), iconClass)"
+        :class="getClasses('trailingIcon', iconClass)"
       />
     </slot>
   </component>
