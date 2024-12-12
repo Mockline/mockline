@@ -4,12 +4,5 @@ export default defineAppConfig({
       primary: 'blue',
     },
     transitions: true,
-    components: {
-      button: {
-        slots: {
-          label: 'font-bold',
-        }
-      },
-    }
   }
 })
