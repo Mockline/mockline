@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { NavigationMenuLink } from 'reka-ui'
 
-definePageMeta({
-  layout: 'component',
-})
-
 const nav = [
   {
     title: 'Home',

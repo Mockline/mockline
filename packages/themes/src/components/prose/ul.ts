@@ -7,5 +7,3 @@ export const proseUl = tv({
 export type ProseUlProps = {
   class?: any
 }
-
-export default proseUl

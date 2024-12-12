@@ -7,5 +7,3 @@ export const proseP = tv({
 export type ProsePProps = {
   class?: any
 }
-
-export default proseP

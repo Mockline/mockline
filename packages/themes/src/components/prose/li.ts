@@ -7,5 +7,3 @@ export const proseLi = tv({
 export type ProseLiProps = {
   class?: any
 }
-
-export default proseLi

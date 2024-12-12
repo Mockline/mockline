@@ -8,12 +8,18 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "dev:prepare": "nuxt prepare"
+    "dev:prepare": "nuxt prepare",
+    "start": "node .output/server/index.mjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@nuxt/content": "3.0.0-alpha.8",
     "mockline": "*",
-    "nuxt": "^3.14.1592",
-    "vue": "latest",
-    "vue-router": "latest"
+    "nuxt": "^3.14.1592"
+  },
+  "devDependencies": {
+    "@iconify-json/vscode-icons": "^1.2.4",
+    "typescript": "5.7.2"
   }
 }

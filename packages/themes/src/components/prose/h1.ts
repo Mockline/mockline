@@ -8,5 +8,3 @@ export type ProseH1Props = {
   id?: string
   class?: any
 }
-
-export default proseH1
