@@ -56,6 +56,15 @@ definePageMeta({
         indicator-class=""
         disabled
       />
+      <MSwitch
+        v-for="variant in variants"
+        :key="variant"
+        v-model="state"
+        :variant
+        label="Required"
+        indicator-class=""
+        required
+      />
     </div>
     <ProseH3>
       Sizes

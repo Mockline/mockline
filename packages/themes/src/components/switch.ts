@@ -33,6 +33,11 @@ export const switchTv = tv({
     loading: {
       true: ''
     },
+    required: {
+      true: {
+        label: 'after:content-[\'*\'] after:ms-0.5 after:text-[var(--ui-error)]'
+      },
+    },
     disabled: {
       true: ''
     },
@@ -110,6 +115,7 @@ export type SwitchProps = {
   uncheckedIcon?: string
   checkedIcon?: string
   disabled?: boolean
+  required?: boolean
 }
 export type SwitchSlots = {
   label(props?: NonNullable<unknown>): any
