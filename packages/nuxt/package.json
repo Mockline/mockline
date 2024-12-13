@@ -32,6 +32,7 @@
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.1",
     "@iconify-json/lucide": "^1.2.18",
+    "@mockline/themes": "*",
     "@nuxt/fonts": "^0.10.3",
     "@nuxt/icon": "^1.10.0",
     "@nuxt/kit": "^3.14.1592",
@@ -55,7 +56,6 @@
   "devDependencies": {
     "shiki-transformer-color-highlight": "^0.2.0",
     "@mockline/types": "*",
-    "@mockline/themes": "*",
     "@nuxt/content": "3.0.0-alpha.8",
     "@nuxt/devtools": "^1.6.3",
     "@nuxt/module-builder": "^0.8.4",
