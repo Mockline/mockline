@@ -47,6 +47,7 @@ export function useComponentTheme<
 } {
   // Get app config for potential component style overrides
   const appConfig = useAppConfig()
+  const props = computed(() => toValue(componentProps)) || {}
 
   // @ts-expect-error - This is a valid key
   const componentConfig = computed(() => appConfig.mockline?.components?.[componentName])
@@ -55,14 +56,14 @@ export function useComponentTheme<
   const ui = computed(() => {
     try {
       const baseComponent = components[componentName]
+      console.log('baseComponent type', typeof baseComponent !== 'function' ? typeof baseComponent : 'function')
       if (typeof baseComponent !== 'function') {
         console.warn(`Component "${componentName}" is not a function`)
         return {}
       }
 
-      const resolvedProps = toValue(componentProps) || {}
       return baseComponent({
-        ...resolvedProps,
+        ...props.value,
         transitions: appConfig.mockline?.transitions
       })
     } catch (e) {
