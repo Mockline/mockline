@@ -1,7 +1,5 @@
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
-  rollup: {
-    inlineDependencies: true
-  }
+  externals: ['@mockline/themes', '@mockline/types']
 })

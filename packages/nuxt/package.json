@@ -11,13 +11,10 @@
     },
     "./runtime/*": "./dist/runtime/*"
   },
-  "imports": {
-    "#build/mockline/*": "./.nuxt/mockline/*.ts"
-  },
   "style": "./dist/runtime/index.css",
   "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
   "files": [
-    ".nuxt/mockline",
     "dist"
   ],
   "scripts": {
