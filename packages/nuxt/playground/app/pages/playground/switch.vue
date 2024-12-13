@@ -16,51 +16,32 @@ definePageMeta({
     </ProseH3>
     <div class="flex flex-wrap gap-4">
       <MSwitch
-        v-for="variant in variants"
-        :key="variant"
         v-model="state"
-        :variant
-        :label="variant"
-        indicator-class=""
-        loading
-        unchecked-icon="lucide:x"
-        checked-icon="lucide:check"
-      />
-      <MSwitch
-        v-for="variant in variants"
-        :key="variant"
-        v-model="state"
-        :variant
-        label="raftoubafta"
-        indicator-class=""
-        loading
-        unchecked-icon="lucide:x"
-        checked-icon="lucide:check"
-      />
-      <MSwitch
-        v-for="variant in variants"
-        :key="variant"
-        v-model="state"
-        :variant
-        :label="variant"
-        indicator-class=""
-        unchecked-icon="lucide:x"
-        checked-icon="lucide:check"
-      />
-      <MSwitch
-        v-for="variant in variants"
-        :key="variant"
-        v-model="state"
-        :variant
-        :label="variant"
+        variant="solid"
+        label="Disabled"
         indicator-class=""
         disabled
       />
       <MSwitch
-        v-for="variant in variants"
-        :key="variant"
         v-model="state"
-        :variant
+        label="Loading"
+        indicator-class=""
+        variant="solid"
+        loading
+        unchecked-icon="lucide:x"
+        checked-icon="lucide:check"
+      />
+      <MSwitch
+        v-model="state"
+        variant="solid"
+        label="Normal"
+        indicator-class=""
+        unchecked-icon="lucide:x"
+        checked-icon="lucide:check"
+      />
+      <MSwitch
+        v-model="state"
+        variant="solid"
         label="Required"
         indicator-class=""
         required
@@ -78,6 +59,7 @@ definePageMeta({
           :size
           unchecked-icon="lucide:x"
           checked-icon="lucide:check"
+          variant="solid"
         />
       </div>
     </div>

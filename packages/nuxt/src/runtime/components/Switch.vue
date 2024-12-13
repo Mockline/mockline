@@ -24,10 +24,19 @@ const componentProps = computed(() => {
 })
 
 const { getClasses } = useComponent('switchTv', componentProps)
+
+
+function toggleState(): void {
+  if (!props.disabled && !props.loading) {
+    state.value = !state.value
+  }
+}
 </script>
 
 <template>
-  <div :class="getClasses('root')">
+  <div
+    :class="getClasses('root')"
+  >
     <SwitchRoot
       v-model="state"
       :class="getClasses('base')"
@@ -51,6 +60,7 @@ const { getClasses } = useComponent('switchTv', componentProps)
       v-if="label"
       :class="getClasses
         ('label', labelClass)"
+      @click="toggleState"
     >
       <slot name="label">
         {{ label }}
