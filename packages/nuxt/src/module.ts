@@ -29,11 +29,9 @@ export default defineNuxtModule<ModuleOptions>({
     const { resolve } = createResolver(import.meta.url)
 
     const runtimeDir = resolve('./runtime')
-    nuxt.options.build.transpile.push(runtimeDir)
 
     nuxt.options.router.options.scrollBehaviorType = 'smooth'
 
-    nuxt.options.build.transpile.push(runtimeDir)
     nuxt.options.alias['#mockline'] = resolve('./runtime')
 
     nuxt.options.mockline = options

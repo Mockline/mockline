@@ -56,7 +56,7 @@ export function useComponentTheme<
   const ui = computed(() => {
     try {
       const baseComponent = components[componentName]
-      console.log('baseComponent type', typeof baseComponent !== 'function' ? typeof baseComponent : 'function')
+
       if (typeof baseComponent !== 'function') {
         console.warn(`Component "${componentName}" is not a function`)
         return {}
