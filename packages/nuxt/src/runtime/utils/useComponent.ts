@@ -53,9 +53,22 @@ export function useComponent<
 
   // Get base component styles from @mockline/themes
   const ui = computed(() => {
-    const baseComponent = components[componentName]
-    const resolvedProps = toValue(componentProps) || {}
-    return baseComponent({ ...resolvedProps, transitions: appConfig.mockline?.transitions })
+    try {
+      const baseComponent = components[componentName]
+      if (typeof baseComponent !== 'function') {
+        console.warn(`Component "${componentName}" is not a function`)
+        return {}
+      }
+
+      const resolvedProps = toValue(componentProps) || {}
+      return baseComponent({
+        ...resolvedProps,
+        transitions: appConfig.mockline?.transitions
+      })
+    } catch (e) {
+      console.warn(`Error computing UI for "${componentName}"`, e)
+      return {}
+    }
   })
 
   return {
