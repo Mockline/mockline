@@ -1,4 +1,4 @@
-import { tv, type VariantProps } from 'tailwind-variants'
+import { tv } from 'tailwind-variants'
 
 export const proseCallout = tv({
   slots: {
@@ -52,18 +52,3 @@ export const proseCallout = tv({
     color: 'neutral'
   }
 })
-
-type CalloutVariants = VariantProps<typeof proseCallout>
-
-export type ProseCalloutProps = {
-  class?: any
-  type?: string
-  icon?: string
-  to?: string
-  target?: string
-  color?: CalloutVariants['color']
-}
-
-export type CalloutSlots = {
-  default(props?: object): any
-}

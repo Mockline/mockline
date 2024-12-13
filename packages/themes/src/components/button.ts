@@ -1,8 +1,9 @@
-import { tv, type VariantProps } from 'tailwind-variants'
+import { tv } from 'tailwind-variants'
+import { ButtonProps } from '../types'
 
-export const button = tv({
+export const buttonTheme = tv({
   slots: {
-    base: ['cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',],
+    base: 'cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
     label: 'truncate',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
@@ -235,24 +236,4 @@ export const button = tv({
   },
 })
 
-type ButtonVariants = VariantProps<typeof button>
-
-export type ButtonProps = {
-  label?: string
-  color?: ButtonVariants['color']
-  variant?: ButtonVariants['variant']
-  size?: ButtonVariants['size']
-  rounded?: ButtonVariants['rounded']
-  square?: boolean
-  block?: boolean
-  class?: string
-  iconClass?: string
-  labelClass?: string
-}
-
-export type ButtonSlots = {
-  leading(props?: NonNullable<unknown>): any
-  default(props?: NonNullable<unknown>): any
-  trailing(props?: NonNullable<unknown>): any
-}
-
+export const button = (props: ButtonProps) => buttonTheme(props)

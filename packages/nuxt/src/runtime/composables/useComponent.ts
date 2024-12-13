@@ -1,12 +1,8 @@
 import { computed, type MaybeRefOrGetter, toValue } from 'vue'
 import { twMerge } from 'tailwind-merge'
-import * as components from '@mockline/themes'
+import { components } from '@mockline/themes'
+import type { ComponentSlots } from '@mockline/themes'
 import { useAppConfig } from '#imports'
-
-/**
- * Type helper to extract slot names from a component
- */
-type ComponentSlots<T> = T extends { slots: infer S } ? keyof S : never
 
 /**
  * The hook follows this logic:
@@ -47,7 +43,6 @@ export function useComponentTheme<
 } {
   // Get app config for potential component style overrides
   const appConfig = useAppConfig()
-  const props = computed(() => toValue(componentProps)) || {}
 
   // @ts-expect-error - This is a valid key
   const componentConfig = computed(() => appConfig.mockline?.components?.[componentName])
@@ -56,6 +51,7 @@ export function useComponentTheme<
   const ui = computed(() => {
     try {
       const baseComponent = components[componentName]
+      const props = toValue(componentProps) || {}
 
       if (typeof baseComponent !== 'function') {
         console.warn(`Component "${componentName}" is not a function`)
@@ -63,7 +59,7 @@ export function useComponentTheme<
       }
 
       return baseComponent({
-        ...props.value,
+        ...props,
         transitions: appConfig.mockline?.transitions
       })
     } catch (e) {

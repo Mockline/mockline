@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { button } from '@mockline/themes'
+import { buttonTheme } from '@mockline/themes'
 
-const sizes = Object.keys(button.variants.size) as Array<keyof typeof button.variants.size>
-const variants = Object.keys(button.variants.variant) as Array<keyof typeof button.variants.variant>
+const sizes = Object.keys(buttonTheme.variants.size) as Array<keyof typeof buttonTheme.variants.size>
+const variants = Object.keys(buttonTheme.variants.variant) as Array<keyof typeof buttonTheme.variants.variant>
 </script>
 
 <template>
