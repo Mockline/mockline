@@ -1,18 +1,6 @@
-import * as components from '@mockline/themes'
+import type { Themes } from '@mockline/themes'
 import type { Color } from './colors'
 import icons from './icons'
-
-type ExtractTVSlots<T> = T extends { slots: infer S } ? keyof S : never
-
-type ComponentConfig<T> = {
-  slots?: T extends { slots: any }
-  ? Partial<Record<ExtractTVSlots<T>, string>>
-  : never
-} | string
-
-type ComponentsConfig = {
-  [K in keyof typeof components]?: ComponentConfig<(typeof components)[K]>
-}
 
 export type ModuleOptions = {
   /**
@@ -71,5 +59,5 @@ export type MocklineConfig = {
     duration?: number
   },
   icons?: typeof icons,
-  components?: ComponentsConfig
+  components?: Themes
 }

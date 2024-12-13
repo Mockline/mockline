@@ -3,6 +3,8 @@ export default defineAppConfig({
     colors: {
       primary: 'blue',
     },
-    components: {}
+    components: {
+      button: {}
+    }
   }
 })

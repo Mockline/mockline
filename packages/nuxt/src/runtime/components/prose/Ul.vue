@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { ProseUlProps } from '@mockline/themes'
-import { useComponent } from '../../utils/useComponent'
+import { useComponentTheme } from '#mockline/composables/useComponent'
 
 const props = defineProps<ProseUlProps>()
 
-const { getClasses } = useComponent('proseUl')
+const { getClasses } = useComponentTheme('proseUl')
 </script>
 
 <template>

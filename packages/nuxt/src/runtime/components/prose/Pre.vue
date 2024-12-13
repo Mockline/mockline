@@ -5,7 +5,7 @@ import { toast } from 'vue-sonner'
 import type { ProsePreProps } from '@mockline/themes'
 import CodeIcon from './CodeIcon.vue'
 import appConfig from '#build/app.config'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponentTheme } from '#mockline/composables/useComponent'
 
 const props = defineProps<ProsePreProps>()
 
@@ -32,7 +32,7 @@ const componentProps = computed(() => {
   }
 })
 
-const { getClasses } = useComponent('prosePre', componentProps)
+const { getClasses } = useComponentTheme('prosePre', componentProps)
 </script>
 
 <template>

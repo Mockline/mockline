@@ -1,12 +1,8 @@
 import { computed, type MaybeRefOrGetter, toValue } from 'vue'
 import { twMerge } from 'tailwind-merge'
-import * as components from '@mockline/themes'
+import { components } from '@mockline/themes'
+import type { ComponentSlots } from '@mockline/themes'
 import { useAppConfig } from '#imports'
-
-/**
- * Type helper to extract slot names from a component
- */
-type ComponentSlots<T> = T extends { slots: infer S } ? keyof S : never
 
 /**
  * The hook follows this logic:
@@ -16,13 +12,13 @@ type ComponentSlots<T> = T extends { slots: infer S } ? keyof S : never
  *
  * @example Basic usage with default slot
  * ```ts
- * const { getClasses } = useComponent('button')
+ * const { getClasses } = useComponentTheme('button')
  * getClasses() // Returns base classes
  * ```
  *
  * @example Using named slots with overrides
  * ```ts
- * const { getClasses } = useComponent('button')
+ * const { getClasses } = useComponentTheme('button')
  * getClasses('leadingIcon', 'my-custom-class')
  * ```
  *
@@ -37,7 +33,7 @@ type ComponentSlots<T> = T extends { slots: infer S } ? keyof S : never
  * @param componentProps - Optional props to pass to the component
  * @returns Object with getClasses function
  */
-export function useComponent<
+export function useComponentTheme<
   T extends keyof typeof components
 >(
   componentName: T,
@@ -53,9 +49,23 @@ export function useComponent<
 
   // Get base component styles from @mockline/themes
   const ui = computed(() => {
-    const baseComponent = components[componentName]
-    const resolvedProps = toValue(componentProps) || {}
-    return baseComponent({ ...resolvedProps, transitions: appConfig.mockline?.transitions })
+    try {
+      const baseComponent = components[componentName]
+      const props = toValue(componentProps) || {}
+
+      if (typeof baseComponent !== 'function') {
+        console.warn(`Component "${componentName}" is not a function`)
+        return {}
+      }
+
+      return baseComponent({
+        ...props,
+        transitions: appConfig.mockline?.transitions
+      })
+    } catch (e) {
+      console.warn(`Error computing UI for "${componentName}"`, e)
+      return {}
+    }
   })
 
   return {
