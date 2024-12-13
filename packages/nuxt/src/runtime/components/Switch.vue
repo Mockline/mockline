@@ -27,22 +27,34 @@ const { getClasses } = useComponent('switchTv', componentProps)
 </script>
 
 <template>
-  <SwitchRoot
-    v-model="state"
-    :class="getClasses('base')"
-  >
-    <SwitchThumb
-      :class="getClasses('indicator', props.indicatorClass)"
+  <div :class="getClasses('root')">
+    <SwitchRoot
+      v-model="state"
+      :class="getClasses('base')"
+      :disabled="loading || disabled"
     >
-      <MIcon
-        v-if="loading"
-        :name="loadingIcon || appConfig.mockline.icons.loading"
-        :class="getClasses('loadingIcon')"
-      />
-      <template v-else>
-        <MIcon v-if="checkedIcon && state" :name="checkedIcon" :class="getClasses('icon')" />
-        <MIcon v-if="uncheckedIcon && !state" :name="uncheckedIcon" :class="getClasses('icon')" />
-      </template>
-    </SwitchThumb>
-  </SwitchRoot>
+      <SwitchThumb
+        :class="getClasses('indicator', props.indicatorClass)"
+      >
+        <MIcon
+          v-if="loading"
+          :name="loadingIcon || appConfig.mockline.icons.loading"
+          :class="getClasses('loadingIcon')"
+        />
+        <template v-else>
+          <MIcon v-if="checkedIcon && state" :name="checkedIcon" :class="getClasses('icon')" />
+          <MIcon v-if="uncheckedIcon && !state" :name="uncheckedIcon" :class="getClasses('icon')" />
+        </template>
+      </SwitchThumb>
+    </SwitchRoot>
+    <span
+      v-if="label"
+      :class="getClasses
+        ('label', labelClass)"
+    >
+      <slot name="label">
+        {{ label }}
+      </slot>
+    </span>
+  </div>
 </template>

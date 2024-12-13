@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { switchTv } from '@mockline/themes'
 
-// const sizes = Object.keys(switchTv.variants.size) as Array<keyof typeof switchTv.variants.size>
+const sizes = Object.keys(switchTv.variants.size) as Array<keyof typeof switchTv.variants.size>
 const variants = Object.keys(switchTv.variants.variant) as Array<keyof typeof switchTv.variants.variant>
 const state = ref(false)
 definePageMeta({
@@ -31,11 +31,46 @@ definePageMeta({
         :key="variant"
         v-model="state"
         :variant
+        label="raftoubafta"
+        indicator-class=""
+        loading
+        unchecked-icon="lucide:x"
+        checked-icon="lucide:check"
+      />
+      <MSwitch
+        v-for="variant in variants"
+        :key="variant"
+        v-model="state"
+        :variant
         :label="variant"
         indicator-class=""
         unchecked-icon="lucide:x"
         checked-icon="lucide:check"
       />
+      <MSwitch
+        v-for="variant in variants"
+        :key="variant"
+        v-model="state"
+        :variant
+        :label="variant"
+        indicator-class=""
+        disabled
+      />
+    </div>
+    <ProseH3>
+      Sizes
+    </ProseH3>
+    <div class="flex gap-4">
+      <div v-for="size in sizes" :key="size" class="flex items-center gap-2">
+        <MSwitch
+          :key="size"
+          v-model="state"
+          :label="size"
+          :size
+          unchecked-icon="lucide:x"
+          checked-icon="lucide:check"
+        />
+      </div>
     </div>
   </MPageBody>
 </template>
