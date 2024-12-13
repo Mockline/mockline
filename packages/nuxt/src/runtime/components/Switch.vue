@@ -19,15 +19,11 @@ const state = defineModel({
 const componentProps = computed(() => {
   return {
     ...props,
-    square: props.square || (!props.label),
-    leading: isLeading.value,
-    trailing: isTrailing.value,
     transitions: appConfig.mockline.transitions
   }
 })
 
 const { getClasses } = useComponent('switchTv', componentProps)
-console.log('getClasses', getClasses('base'))
 </script>
 
 <template>
@@ -37,6 +33,16 @@ console.log('getClasses', getClasses('base'))
   >
     <SwitchThumb
       :class="getClasses('indicator', props.indicatorClass)"
-    />
+    >
+      <MIcon
+        v-if="loading"
+        :name="loadingIcon || appConfig.mockline.icons.loading"
+        :class="getClasses('loadingIcon')"
+      />
+      <template v-else>
+        <MIcon v-if="checkedIcon && state" :name="checkedIcon" :class="getClasses('icon')" />
+        <MIcon v-if="uncheckedIcon && !state" :name="uncheckedIcon" :class="getClasses('icon')" />
+      </template>
+    </SwitchThumb>
   </SwitchRoot>
 </template>

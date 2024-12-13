@@ -21,8 +21,20 @@ definePageMeta({
         v-model="state"
         :variant
         :label="variant"
-        indicator-class="bg-yellow-500"
+        indicator-class=""
         loading
+        unchecked-icon="lucide:x"
+        checked-icon="lucide:check"
+      />
+      <MSwitch
+        v-for="variant in variants"
+        :key="variant"
+        v-model="state"
+        :variant
+        :label="variant"
+        indicator-class=""
+        unchecked-icon="lucide:x"
+        checked-icon="lucide:check"
       />
     </div>
   </MPageBody>
