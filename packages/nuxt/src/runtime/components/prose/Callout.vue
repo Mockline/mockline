@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ProseCalloutProps, CalloutSlots } from '@mockline/themes'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponentTheme } from '#mockline/composables/useComponent'
 import appConfig from '#build/app.config'
 
 const props = defineProps<ProseCalloutProps>()
@@ -14,7 +14,7 @@ const componentProps = computed(() => {
   }
 })
 
-const { getClasses } = useComponent('proseCallout', componentProps)
+const { getClasses } = useComponentTheme('proseCallout', componentProps)
 
 const target = computed(() => props.target || (!!props.to && true && props.to.startsWith('http') ? '_blank' : undefined))
 </script>

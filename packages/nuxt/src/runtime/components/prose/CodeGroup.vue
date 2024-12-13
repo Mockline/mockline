@@ -4,7 +4,7 @@ import { useSlots, computed, onMounted, watch } from 'vue'
 import { type CodeGroupProps } from '@mockline/themes'
 import { transformSlot } from '../../utils'
 import CodeIcon from './CodeIcon.vue'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponentTheme } from '#mockline/composables/useComponent'
 import { useState } from '#imports'
 
 const props = withDefaults(defineProps<CodeGroupProps>(), {
@@ -17,7 +17,7 @@ const componentProps = computed(() => {
   }
 })
 
-const { getClasses } = useComponent('proseCodeGroup', componentProps)
+const { getClasses } = useComponentTheme('proseCodeGroup', componentProps)
 
 const slots = useSlots()
 

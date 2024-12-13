@@ -16,13 +16,13 @@ type ComponentSlots<T> = T extends { slots: infer S } ? keyof S : never
  *
  * @example Basic usage with default slot
  * ```ts
- * const { getClasses } = useComponent('button')
+ * const { getClasses } = useComponentTheme('button')
  * getClasses() // Returns base classes
  * ```
  *
  * @example Using named slots with overrides
  * ```ts
- * const { getClasses } = useComponent('button')
+ * const { getClasses } = useComponentTheme('button')
  * getClasses('leadingIcon', 'my-custom-class')
  * ```
  *
@@ -37,7 +37,7 @@ type ComponentSlots<T> = T extends { slots: infer S } ? keyof S : never
  * @param componentProps - Optional props to pass to the component
  * @returns Object with getClasses function
  */
-export function useComponent<
+export function useComponentTheme<
   T extends keyof typeof components
 >(
   componentName: T,

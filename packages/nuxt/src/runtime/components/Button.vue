@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { type ButtonProps, type ButtonSlots } from '@mockline/themes'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponentTheme } from '#mockline/composables/useComponent'
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
 
 const props = defineProps<ButtonProps & UseComponentIconsProps>()
@@ -18,7 +18,7 @@ const componentProps = computed(() => {
   }
 })
 
-const { getClasses } = useComponent('button', componentProps)
+const { getClasses } = useComponentTheme('button', componentProps)
 </script>
 
 <template>
