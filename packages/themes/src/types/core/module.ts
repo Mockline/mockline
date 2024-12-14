@@ -1,6 +1,6 @@
-import * as components from '@mockline/themes'
-import type { Color } from './colors'
+import * as components from '../../index'
 import icons from './icons'
+import type { Color } from './colors'
 
 type ExtractTVSlots<T> = T extends { slots: infer S } ? keyof S : never
 

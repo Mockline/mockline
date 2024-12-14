@@ -1,35 +1,66 @@
 {
   "name": "@mockline/themes",
   "version": "0.11.0",
+  "description": "Mockline UI component themes and variants",
   "type": "module",
-  "publishConfig": {
-    "access": "public"
+  "private": false,
+  "license": "MIT",
+  "author": "HugoRCD",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mockline/mockline.git",
+    "directory": "packages/themes"
   },
-  "scripts": {
-    "dev:prepare": "bun run build",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
-    "release": "bun run test && npm publish",
-    "test": "bun run typecheck && bun run lint && bun run build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit"
+  "bugs": {
+    "url": "https://github.com/yourusername/mockline/issues"
   },
+  "keywords": [
+    "ui",
+    "components",
+    "themes",
+    "tailwind",
+    "design-system"
+  ],
+  "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "default": "./dist/index.js"
-    }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
+  "scripts": {
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "build": "tsup src/index.ts --format esm,cjs --dts --minify",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "bun run typecheck && bun run lint && bun run build",
+    "prepublishOnly": "bun run clean && bun run build",
+    "release": "bun run test && npm publish",
+    "dev:prepare": "bun run build"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.0.0"
+  },
+  "dependencies": {
+    "tailwind-variants": "^0.2.0"
+  },
   "devDependencies": {
-    "tsup": "^8.3.5",
-    "typescript": "latest",
-    "@mockline/types": "workspace:*"
+    "tsup": "8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

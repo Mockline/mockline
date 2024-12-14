@@ -1,4 +1,4 @@
-import type { MocklineConfig } from '@mockline/types'
+import type { MocklineConfig } from '@mockline/themes'
 
 declare module '@nuxt/schema' {
   type AppConfigInput = {

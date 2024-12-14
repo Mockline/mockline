@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { type ButtonProps, type ButtonSlots } from '@mockline/themes'
+import type { ButtonProps, ButtonSlots } from '@mockline/themes'
 import { useComponent } from '../utils/useComponent'
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
 

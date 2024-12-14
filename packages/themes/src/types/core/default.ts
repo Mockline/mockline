@@ -1,5 +1,5 @@
-import type { MocklineConfig, ModuleOptions } from './module'
 import icons from './icons'
+import type { MocklineConfig, ModuleOptions } from './module'
 
 export const defaultModuleOptions: ModuleOptions = {
   prefix: 'M',

@@ -22,7 +22,6 @@
 
 - Updated dependencies
   - @mockline/themes@0.10.0
-  - @mockline/types@0.10.0
 
 ## 0.9.1
 
@@ -31,7 +30,6 @@
 - Fix themes build export
 - Updated dependencies
   - @mockline/themes@0.9.1
-  - @mockline/types@0.9.1
 
 ## 0.9.0
 
@@ -43,7 +41,6 @@
 
 - Updated dependencies
   - @mockline/themes@0.9.0
-  - @mockline/types@0.9.0
 
 ## 0.8.0
 
@@ -55,4 +52,3 @@
 
 - Updated dependencies
   - @mockline/themes@0.8.0
-  - @mockline/types@0.8.0

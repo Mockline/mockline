@@ -1,6 +1,6 @@
 import { computed, type MaybeRefOrGetter, toValue } from 'vue'
 import { twMerge } from 'tailwind-merge'
-import * as components from '@mockline/themes'
+import { components } from '@mockline/themes'
 import { useAppConfig } from '#imports'
 
 /**
