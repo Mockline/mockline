@@ -1,5 +1,16 @@
 # mockline
 
+## 0.12.0
+
+### Minor Changes
+
+- Remove types package
+
+### Patch Changes
+
+- Updated dependencies
+  - @mockline/themes@0.12.0
+
 ## 0.11.0
 
 ### Minor Changes

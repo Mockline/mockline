@@ -1,6 +1,6 @@
 {
   "name": "@mockline/themes",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Mockline UI component themes and variants",
   "type": "module",
   "private": false,
