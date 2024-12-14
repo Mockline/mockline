@@ -5,14 +5,14 @@
   "type": "module",
   "private": false,
   "license": "MIT",
-  "author": "HugoRCD",
+  "author": "mockline",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mockline/mockline.git",
     "directory": "packages/themes"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/mockline/issues"
+    "url": "https://github.com/mockline/mockline/issues"
   },
   "keywords": [
     "ui",
@@ -25,13 +25,12 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./package.json": "./package.json"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
@@ -40,7 +39,7 @@
   ],
   "scripts": {
     "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
-    "build": "tsup src/index.ts --format esm,cjs --dts --minify",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",

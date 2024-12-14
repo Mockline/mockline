@@ -1,4 +1,4 @@
-import * as components from '../../index'
+import { components } from '../../index'
 import icons from './icons'
 import type { Color } from './colors'
 
