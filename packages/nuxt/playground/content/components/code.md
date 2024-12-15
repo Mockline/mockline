@@ -1,0 +1,37 @@
+### Basic code block
+
+```vue
+<template>
+  <div>
+    <h1>{{ msg }}</h1>
+  </div>
+</template>
+```
+
+### Code block with filename
+
+```ts [nuxt.config.ts]
+export default defineNuxtConfig({
+  modules: ['mockline']
+})
+```
+
+### Code group
+
+::code-group{sync="pm"}
+```bash [bun]
+bun add mockline
+```
+
+```bash [pnpm]
+pnpm add mockline
+```
+
+```bash [yarn]
+yarn add mockline
+```
+
+```bash [npm]
+npm install mockline
+```
+::

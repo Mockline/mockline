@@ -8,13 +8,13 @@ function formatTitle(title: string): string {
 const route = useRoute()
 
 const components = ['button', 'nav-menu', 'page']
-const contentComponents = ['callout', 'typography']
+const contentComponents = ['code', 'callout', 'typography', 'list']
 </script>
 
 <template>
   <MSidebarLayout>
     <template #sidebar>
-      <div class="p-2 flex flex-col gap-2">
+      <MSidebar>
         <div class="p-2 flex flex-col gap-1">
           <span>Base</span>
           <div class="p-2 flex flex-col gap-2 text-sm">
@@ -35,7 +35,7 @@ const contentComponents = ['callout', 'typography']
             </div>
           </div>
         </div>
-      </div>
+      </MSidebar>
     </template>
     <MMain class="p-4 relative">
       <MThemeToggle size="sm" class="absolute top-4 right-4 z-50" />

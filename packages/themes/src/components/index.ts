@@ -1,10 +1,9 @@
 // Components
 export * from './button'
+export * from './sidebar'
 
 // Prose
-export * from './prose/li'
-export * from './prose/ul'
-export * from './prose/ol'
+export * from './prose/list'
 export * from './prose/code'
 export * from './prose/pre'
 export * from './prose/codeGroup'

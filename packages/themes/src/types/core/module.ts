@@ -2,16 +2,26 @@ import { components } from '../../index'
 import icons from './icons'
 import type { Color } from './colors'
 
+type IsComponent<T> = T extends { slots: any } | { base: string } ? T : never
+
+type ComponentTypes = {
+  [K in keyof typeof components]: IsComponent<(typeof components)[K]>
+}
+
+type ComponentKeys = {
+  [K in keyof ComponentTypes]: ComponentTypes[K] extends never ? never : K
+}[keyof ComponentTypes]
+
 type ExtractTVSlots<T> = T extends { slots: infer S } ? keyof S : never
 
 type ComponentConfig<T> = {
   slots?: T extends { slots: any }
-  ? Partial<Record<ExtractTVSlots<T>, string>>
-  : never
+    ? Partial<Record<ExtractTVSlots<T>, string>>
+    : never
 } | string
 
-type ComponentsConfig = {
-  [K in keyof typeof components]?: ComponentConfig<(typeof components)[K]>
+export type ComponentsConfig = {
+  [K in ComponentKeys]?: ComponentConfig<(typeof components)[K]>
 }
 
 export type ModuleOptions = {

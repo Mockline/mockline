@@ -1,8 +1,3 @@
----
-title: Introduction
-description: 'Mockline provides a set of typography utilities to help you style your text.'
----
-
 # Heading 1
 
 ## Heading 2

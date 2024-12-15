@@ -1,8 +1,3 @@
----
-title: Callout
-description: 'Learn how to use the callout component in your Nuxt project.'
----
-
 A callout is a component that can be used to draw attention to important information.
 
 ### Basic
