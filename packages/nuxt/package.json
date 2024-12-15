@@ -6,8 +6,7 @@
     ".": {
       "types": "./dist/module.d.ts",
       "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs",
-      "style": "./dist/runtime/index.css"
+      "require": "./dist/module.cjs"
     },
     "./runtime/*": "./dist/runtime/*"
   },

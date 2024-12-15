@@ -24,6 +24,7 @@
   "sideEffects": false,
   "exports": {
     ".": {
+      "style": "./dist/index.css",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
@@ -38,26 +39,24 @@
     "LICENSE"
   ],
   "scripts": {
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
-    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "dev:prepare": "bun run build",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "bun run typecheck && bun run lint && bun run build",
     "prepublishOnly": "bun run clean && bun run build",
-    "release": "bun run test && npm publish",
-    "dev:prepare": "bun run build"
-  },
-  "peerDependencies": {
-    "tailwindcss": "^3.0.0"
+    "release": "bun run test && npm publish"
   },
   "dependencies": {
     "tailwind-variants": "^0.2.0"
   },
   "devDependencies": {
     "tsup": "8.3.5",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "unbuild": "^3.0.1"
   },
   "publishConfig": {
     "access": "public"
