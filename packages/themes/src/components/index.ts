@@ -1,5 +1,6 @@
 // Components
 export * from './button'
+export * from './switch'
 export * from './sidebar'
 
 // Prose
