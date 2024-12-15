@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { SplitterGroup, SplitterPanel, SplitterResizeHandle } from 'reka-ui'
-import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
-import { watch, computed, ref } from 'vue'
+import { SplitterGroup, SplitterPanel } from 'reka-ui'
+import { ref } from 'vue'
 import { useCookie } from '#imports'
 
 type SidebarLayoutProps = {
@@ -18,7 +17,10 @@ const props = withDefaults(defineProps<SidebarLayoutProps>(), {
   defaultSize: 20,
 })
 
-const layout = useCookie<number[]>('splitter:layout')
+const layout = useCookie<number[]>('splitter:layout', {
+  default: () => [props.defaultSize, 80],
+})
+
 const sidebar = ref<InstanceType<typeof SplitterPanel>>()
 
 
@@ -39,16 +41,6 @@ type SidebarLayoutSlots = {
 }
 
 const slots = defineSlots<SidebarLayoutSlots>()
-
-/*const breakpoints = useBreakpoints(breakpointsTailwind)
-
-const breakpoint = useCookie<string>('sidebar-breakpoint')
-
-const currentBreakpoint = computed(() => breakpoints.active())
-
-watch(currentBreakpoint, () => {
-  breakpoint.value = currentBreakpoint.value
-})*/
 </script>
 
 <template>
@@ -71,10 +63,6 @@ watch(currentBreakpoint, () => {
       >
         <slot name="sidebar" />
       </SplitterPanel>
-      <!--      <SplitterResizeHandle
-        id="sidebar-layout-resize-handle"
-        class="w-1"
-      />-->
       <SplitterPanel
         id="sidebar-layout-content"
         :min-size="50"

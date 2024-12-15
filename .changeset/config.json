@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/@changesets/config@3.0.4/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "fixed": [["mockline", "@mockline/themes", "@mockline/types"]],
+  "fixed": [["mockline", "@mockline/themes"]],
   "linked": [],
   "access": "public",
   "baseBranch": "main",

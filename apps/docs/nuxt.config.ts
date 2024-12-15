@@ -1,6 +1,33 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import pkg from '../../packages/nuxt/package.json'
+
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+  future: {
+    compatibilityVersion: 4
+  },
+  modules: [
+    '../../packages/nuxt/src/module',
+    '@nuxt/content'
+  ],
   devtools: { enabled: true },
-  modules: ['mockline'],
+  compatibilityDate: '2024-07-09',
+
+  mdc: {
+    highlight: {
+      theme: {
+        dark: 'github-dark',
+        default: 'github-dark',
+        light: 'github-dark',
+      }
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      version: pkg.version
+    }
+  },
+
+  routeRules: {
+    '/getting-started/installation': { redirect: '/getting-started/installation/nuxt', prerender: false }
+  },
 })

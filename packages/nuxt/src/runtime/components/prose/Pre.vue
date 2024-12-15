@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
 import { toast } from 'vue-sonner'
-import { prosePre, type ProsePreProps } from '@mockline/themes'
+import type { ProsePreProps } from '@mockline/themes'
 import CodeIcon from './CodeIcon.vue'
 import appConfig from '#build/app.config'
+import { useComponent } from '#mockline/utils/useComponent'
 
 const props = defineProps<ProsePreProps>()
 
@@ -24,18 +25,25 @@ function copy(): void {
   }, 2000)
 }
 
-const ui = prosePre({ filename: !!props.filename })
+const componentProps = computed(() => {
+  return {
+    ...props,
+    filename: !!props.filename,
+  }
+})
+
+const { getClasses } = useComponent('prosePre', componentProps)
 </script>
 
 <template>
-  <div :class="ui.root()">
+  <div :class="getClasses('root')">
     <div
       v-if="filename && !hideHeader"
-      :class="ui.header()"
+      :class="getClasses('header')"
     >
-      <CodeIcon :icon :filename :class="ui.icon()" />
+      <CodeIcon :icon :filename :class="getClasses('icon')" />
 
-      <span :class="ui.filename()">{{ filename }}</span>
+      <span :class="getClasses('filename')">{{ filename }}</span>
     </div>
 
     <MButton
@@ -44,12 +52,12 @@ const ui = prosePre({ filename: !!props.filename })
       variant="outline"
       size="sm"
       aria-label="Copy code to clipboard"
-      :class="ui.copy()"
+      :class="getClasses('copy')"
       tabindex="-1"
       @click="copy"
     />
 
-    <pre :class="ui.base({ class: [props.class] })" v-bind="$attrs"><slot /></pre>
+    <pre :class="getClasses('base', props.class)" v-bind="$attrs"><slot /></pre>
   </div>
 </template>
 

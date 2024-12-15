@@ -1,5 +1,28 @@
 # mockline
 
+## 0.12.0
+
+### Minor Changes
+
+- Remove types package
+
+### Patch Changes
+
+- Updated dependencies
+  - @mockline/themes@0.12.0
+
+## 0.11.0
+
+### Minor Changes
+
+- Major themes handle improvements
+
+### Patch Changes
+
+- Updated dependencies
+  - @mockline/themes@0.11.0
+  - @mockline/types@0.11.0
+
 ## 0.10.0
 
 ### Minor Changes
@@ -10,7 +33,6 @@
 
 - Updated dependencies
   - @mockline/themes@0.10.0
-  - @mockline/types@0.10.0
 
 ## 0.9.1
 
@@ -19,7 +41,6 @@
 - Fix themes build export
 - Updated dependencies
   - @mockline/themes@0.9.1
-  - @mockline/types@0.9.1
 
 ## 0.9.0
 
@@ -31,7 +52,6 @@
 
 - Updated dependencies
   - @mockline/themes@0.9.0
-  - @mockline/types@0.9.0
 
 ## 0.8.0
 
@@ -43,4 +63,3 @@
 
 - Updated dependencies
   - @mockline/themes@0.8.0
-  - @mockline/types@0.8.0

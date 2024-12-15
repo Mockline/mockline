@@ -1,5 +1,8 @@
 {
   "extends": "@mockline/tsconfig/base.json",
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src"
+  },
+  "include": ["src/**/*.ts"]
 }

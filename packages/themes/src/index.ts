@@ -1,15 +1,7 @@
 // Components
-export * from './components/button'
-export * from './components/switch'
+import * as components from './components'
 
-// Prose
-export * from './components/prose/a'
-export * from './components/prose/code'
-export * from './components/prose/pre'
-export * from './components/prose/codeGroup'
+export * from './components'
+export { components }
 
-// Typography
-export * from './components/prose/h1'
-export * from './components/prose/h2'
-export * from './components/prose/h3'
-export * from './components/prose/h4'
+export * from './types'

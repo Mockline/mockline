@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { type ButtonProps, type ButtonSlots } from '@mockline/themes'
+import type { ButtonProps, ButtonSlots } from '@mockline/themes'
 import { useComponent } from '../utils/useComponent'
 import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
-import appConfig from '#build/app.config'
 
 const props = defineProps<ButtonProps & UseComponentIconsProps>()
 const slots = defineSlots<ButtonSlots>()
@@ -16,7 +15,6 @@ const componentProps = computed(() => {
     square: props.square || (!slots.default && !props.label),
     leading: isLeading.value,
     trailing: isTrailing.value,
-    transitions: appConfig.mockline.transitions
   }
 })
 
@@ -24,10 +22,7 @@ const { getClasses } = useComponent('button', componentProps)
 </script>
 
 <template>
-  <component
-    :is="'button'"
-    :class="getClasses('base', props.class)"
-  >
+  <component :is="'button'" :class="getClasses('base', props.class)">
     <slot name="leading">
       <MIcon
         v-if="isLeading && leadingIconName"

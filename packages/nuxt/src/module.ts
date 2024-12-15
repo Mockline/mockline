@@ -11,8 +11,8 @@ import {
 } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { Nuxt } from '@nuxt/schema'
-import type { ModuleOptions } from '@mockline/types'
-import { defaultModuleOptions, defaultAppConfig } from '@mockline/types'
+import type { ModuleOptions } from '@mockline/themes'
+import { defaultModuleOptions, defaultAppConfig } from '@mockline/themes'
 import { name, version } from '../package.json'
 
 export default defineNuxtModule<ModuleOptions>({
@@ -101,6 +101,10 @@ export default defineNuxtModule<ModuleOptions>({
             'icon': 'ProseIcon',
             'kbd': 'ProseKbd',
             'tabs': 'ProseTabs',
+            'danger': 'ProseDanger',
+            'note': 'ProseNote',
+            'tip': 'ProseTip',
+            'warning': 'ProseWarning'
           }
         }
       })

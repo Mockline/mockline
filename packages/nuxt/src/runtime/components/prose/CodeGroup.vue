@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent } from 'reka-ui'
 import { useSlots, computed, onMounted, watch } from 'vue'
-import { proseCodeGroup, type CodeGroupProps } from '@mockline/themes'
+import { type CodeGroupProps } from '@mockline/themes'
 import { transformSlot } from '../../utils'
+import { useComponent } from '../../utils/useComponent'
 import CodeIcon from './CodeIcon.vue'
 import { useState } from '#imports'
 
@@ -10,7 +11,13 @@ const props = withDefaults(defineProps<CodeGroupProps>(), {
   defaultValue: '0'
 })
 
-const codeGroup = proseCodeGroup()
+const componentProps = computed(() => {
+  return {
+    ...props,
+  }
+})
+
+const { getClasses } = useComponent('proseCodeGroup', componentProps)
 
 const slots = useSlots()
 
@@ -40,14 +47,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <TabsRoot v-model="model" :default-value :class="codeGroup.root({ class: props.class })">
-    <TabsList :class="codeGroup.list()">
-      <TabsIndicator :class="codeGroup.indicator()" />
+  <TabsRoot v-model="model" :default-value :class="getClasses('root', props.class)">
+    <TabsList :class="getClasses('list')">
+      <TabsIndicator :class="getClasses('indicator')" />
 
-      <TabsTrigger v-for="(item, index) of items" :key="index" :value="String(index)" :class="codeGroup.trigger()">
-        <CodeIcon :icon="item.icon" :filename="item.label" :class="codeGroup.triggerIcon()" />
+      <TabsTrigger v-for="(item, index) of items" :key="index" :value="String(index)" :class="getClasses('trigger')">
+        <CodeIcon :icon="item.icon" :filename="item.label" :class="getClasses('triggerIcon')" />
 
-        <span :class="codeGroup.triggerLabel()">{{ item.label }}</span>
+        <span :class="getClasses('triggerLabel')">{{ item.label }}</span>
       </TabsTrigger>
     </TabsList>
 

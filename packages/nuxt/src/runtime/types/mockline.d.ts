@@ -1,13 +1,15 @@
-import type { MocklineConfig } from '@mockline/types'
+import type { MocklineConfig } from '@mockline/themes'
 
 declare module '@nuxt/schema' {
-  type AppConfigInput = {
+  // eslint-disable-next-line
+  interface AppConfigInput {
     mockline?: MocklineConfig
   }
 }
 
 declare module '#build/app.config' {
-  type AppConfigInput = {
+  // eslint-disable-next-line
+  interface AppConfigInput {
     mockline?: MocklineConfig
   }
 }

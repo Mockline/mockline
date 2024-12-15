@@ -1,11 +1,14 @@
 <script setup lang="ts">
-const props = defineProps<{
-  class?: string
-}>()
+import type { ProseLiProps } from '@mockline/themes'
+import { useComponent } from '../../utils/useComponent'
+
+const props = defineProps<ProseLiProps>()
+
+const { getClasses } = useComponent('proseLi')
 </script>
 
 <template>
-  <li class="my-1.5 ps-1.5 leading-7 [&>ul]:my-0">
+  <li :class="getClasses('default', props.class)">
     <slot />
   </li>
 </template>

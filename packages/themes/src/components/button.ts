@@ -2,7 +2,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 export const button = tv({
   slots: {
-    base: ['cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',],
+    base: 'cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
     label: 'truncate',
     leadingIcon: 'shrink-0',
     leadingAvatar: 'shrink-0',
