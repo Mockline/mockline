@@ -4,9 +4,6 @@ import { switchTv } from '@mockline/themes'
 const sizes = Object.keys(switchTv.variants.size) as Array<keyof typeof switchTv.variants.size>
 const variants = Object.keys(switchTv.variants.variant) as Array<keyof typeof switchTv.variants.variant>
 const state = ref(false)
-definePageMeta({
-  layout: 'component',
-})
 </script>
 
 <template>

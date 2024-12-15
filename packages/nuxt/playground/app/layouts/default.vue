@@ -7,7 +7,7 @@ function formatTitle(title: string): string {
 }
 const route = useRoute()
 
-const components = ['button', 'nav-menu', 'page']
+const components = ['button', 'switch', 'nav-menu', 'page']
 const contentComponents = ['code', 'callout', 'typography', 'list']
 </script>
 
