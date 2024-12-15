@@ -22,10 +22,7 @@ const { getClasses } = useComponent('button', componentProps)
 </script>
 
 <template>
-  <component
-    :is="'button'"
-    :class="getClasses('base', props.class)"
-  >
+  <component :is="'button'" :class="getClasses('base', props.class)">
     <slot name="leading">
       <MIcon
         v-if="isLeading && leadingIconName"

@@ -1,12 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-type SidebarProps = {
-  minSize?: number
-  maxSize?: number
-  collapsedSize?: number
-  defaultSize?: number
-}
+import type { SidebarProps, SidebarSlots } from '@mockline/themes'
+import { computed, ref } from 'vue'
+import { useComponent } from '#mockline/utils/useComponent'
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   minSize: 15,
@@ -15,21 +10,23 @@ const props = withDefaults(defineProps<SidebarProps>(), {
   defaultSize: 20,
 })
 
-type SidebarSlots = {
-  header: any
-  default: any
-  footer: any
-}
-
 const slots = defineSlots<SidebarSlots>()
 
 const collapsed = ref(false)
 
 const sidebarRef = ref<HTMLElement | null>(null)
+
+const componentProps = computed(() => {
+  return {
+    ...props,
+  }
+})
+
+const { getClasses } = useComponent('sidebar', componentProps)
 </script>
 
 <template>
-  <nav ref="sidebarRef" class="flex flex-col h-full justify-between">
+  <nav ref="sidebarRef" :class="getClasses('root', props.class)">
     <div class="flex flex-col gap-4">
       <div>
         <slot name="header" />
