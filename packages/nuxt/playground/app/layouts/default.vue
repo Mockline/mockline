@@ -99,12 +99,14 @@ const { version } = useRuntimeConfig().public
                 Mockline
               </span>
             </div>
-            <span class="bg-[var(--color-bg-translucent)] px-2 py-1 rounded-full">
-              v{{ version }}
-            </span>
           </div>
         </template>
-        <MContentNavigationTree :links />
+        <MContentNavigationTree :links color="neutral" />
+        <template #footer>
+          <span class="bg-[var(--color-bg-translucent)] px-2 py-1 rounded-full text-xs">
+            v{{ version }}
+          </span>
+        </template>
       </MSidebar>
     </template>
     <MHeader sticky class="px-4 py-2 bg-[var(--ui-bg-elevated)]">

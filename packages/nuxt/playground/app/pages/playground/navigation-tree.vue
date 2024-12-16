@@ -5,23 +5,23 @@ const links: ContentNavigationItem[] = [
   {
     children: [
       {
-        path: '/guides/getting-started',
+        path: '#',
         title: 'Getting Started',
         icon: 'lucide:rocket',
         children: [
           {
-            path: '/guides/getting-started/installation',
+            path: '#',
             stem: 'guides/getting-started/installation',
             title: 'Installation'
           },
           {
-            path: '/guides/getting-started/configuration',
+            path: '#',
             title: 'Configuration'
           }
         ]
       },
       {
-        path: '/guides/development',
+        path: '#',
         title: 'Development',
         icon: 'lucide:code',
         active: true
@@ -35,22 +35,22 @@ const links: ContentNavigationItem[] = [
   {
     children: [
       {
-        path: '/components/button',
+        path: '#',
         title: 'Button',
         icon: 'lucide:square-mouse-pointer',
         children: [
           {
-            path: '/components/button/primary',
+            path: '#',
             title: 'Primary Button',
           },
           {
-            path: '/components/button/secondary',
+            path: '#',
             title: 'Secondary Button',
           }
         ]
       },
       {
-        path: '/components/form',
+        path: '#',
         title: 'Form',
         icon: 'lucide:align-left',
         children: [
@@ -59,48 +59,47 @@ const links: ContentNavigationItem[] = [
             title: 'Input',
             children: [
               {
-                path: '/components/form/input/text',
+                path: '#',
                 title: 'Text Input'
               },
               {
-                path: '/components/form/input/number',
+                path: '#',
                 title: 'Number Input'
               }
             ]
           },
           {
-            path: '/components/form/select',
+            path: '#',
             title: 'Select'
           }
         ]
       },
       {
-        path: '/components/layout',
-        stem: 'components/layout',
+        path: '#',
         title: 'Layout',
         icon: 'lucide:layout',
         children: [
           {
-            path: '/components/layout/grid',
+            path: '#',
             title: 'Grid'
           },
           {
-            path: '/components/layout/container',
+            path: '#',
             title: 'Container'
           }
         ]
       },
       {
-        path: '/components/navigation',
+        path: '#',
         title: 'Navigation',
         icon: 'lucide:menu',
         children: [
           {
-            path: '/components/navigation/menu',
+            path: '#',
             title: 'Menu'
           },
           {
-            path: '/components/navigation/breadcrumb',
+            path: '#',
             title: 'Breadcrumb'
           }
         ]
@@ -113,7 +112,40 @@ const links: ContentNavigationItem[] = [
 </script>
 
 <template>
-  <div>
-    <MContentNavigationTree :links color="neutral" />
+  <div class="flex flex-col gap-6">
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="space-y-4">
+        <ProseH2>
+          Neutral navigation tree
+        </ProseH2>
+        <MContentNavigationTree :links color="neutral" />
+      </div>
+      <div class="space-y-4">
+        <ProseH2>
+          Accent navigation tree
+        </ProseH2>
+        <MContentNavigationTree :links color="accent" />
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="space-y-4">
+        <ProseH2>
+          Size: xs
+        </ProseH2>
+        <MContentNavigationTree :links color="neutral" size="xs" />
+      </div>
+      <div class="space-y-4">
+        <ProseH2>
+          Size: sm (default)
+        </ProseH2>
+        <MContentNavigationTree :links color="neutral" size="sm" />
+      </div>
+      <div class="space-y-4">
+        <ProseH2>
+          Size: md
+        </ProseH2>
+        <MContentNavigationTree :links color="neutral" size="md" />
+      </div>
+    </div>
   </div>
 </template>

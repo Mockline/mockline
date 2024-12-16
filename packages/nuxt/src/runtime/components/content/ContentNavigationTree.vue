@@ -5,7 +5,6 @@ import { useRoute } from '#imports'
 import { useComponent } from '#mockline/utils/useComponent'
 
 const props = defineProps<NavigationTreeProps & { links: ContentNavigationItem[] }>()
-console.log(props)
 
 const route = useRoute()
 
