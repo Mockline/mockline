@@ -7,7 +7,7 @@ import {
   addPlugin,
   hasNuxtModule,
   addVitePlugin,
-  addImportsSources,
+  addImportsSources, addTemplate,
 } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { Nuxt } from '@nuxt/schema'
@@ -141,6 +141,16 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.hook('prepare:types', ({ references }) => {
       references.push({ path: resolve('./runtime/types/app.config.d.ts') })
       references.push({ path: resolve('./runtime/types/mockline.d.ts') })
+    })
+
+    addTemplate({
+      filename: 'mockline-image-component.ts',
+      write: true,
+      getContents: ({ app }) => {
+        const image = app?.components?.find(c => c.pascalName === 'NuxtImg' && !c.filePath.includes('nuxt/dist/app'))
+
+        return image ? `export { default } from "${image.filePath}"` : 'export default "img"'
+      }
     })
   },
 })

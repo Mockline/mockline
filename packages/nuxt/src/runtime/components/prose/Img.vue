@@ -4,6 +4,7 @@ import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
 import type { ProseImgProps } from '@mockline/themes'
 import { useRuntimeConfig } from '#imports'
 import { useComponent } from '#mockline/utils/useComponent'
+import ImageComponent from '#build/mockline-image-component'
 
 const props = defineProps<ProseImgProps>()
 
@@ -21,13 +22,14 @@ const { getClasses } = useComponent('proseImg', props)
 </script>
 
 <template>
-  <img
+  <component
+    :is="ImageComponent"
     :src="refinedSrc"
     :alt
     :width
     :height
     :class="getClasses('default', props.class)"
-  >
+  />
 </template>
 
 <style scoped>
