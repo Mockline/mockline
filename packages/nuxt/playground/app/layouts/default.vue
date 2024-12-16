@@ -8,7 +8,7 @@ function formatTitle(title: string): string {
 const route = useRoute()
 
 const components = ['button', 'nav-menu', 'page']
-const contentComponents = ['code', 'callout', 'typography', 'list']
+const contentComponents = ['code', 'callout', 'typography', 'list', 'icon', 'img']
 </script>
 
 <template>
@@ -19,7 +19,7 @@ const contentComponents = ['code', 'callout', 'typography', 'list']
           <span>Base</span>
           <div class="p-2 flex flex-col gap-2 text-sm">
             <div v-for="component in components" :key="component">
-              <NuxtLink :to="`/playground/${component}`" class="hover:underline" :class="$route.path.includes(component) ? 'font-semibold text-blue-600' : ''">
+              <NuxtLink :to="`/playground/${component}`" class="hover:underline" :class="$route.path.includes(component) ? 'font-semibold text-accent' : 'hover:text-accent-hover'">
                 {{ component.charAt(0).toUpperCase() + component.slice(1) }}
               </NuxtLink>
             </div>
@@ -29,7 +29,7 @@ const contentComponents = ['code', 'callout', 'typography', 'list']
           <span>Content</span>
           <div class="p-2 flex flex-col gap-2 text-sm">
             <div v-for="component in contentComponents" :key="component">
-              <NuxtLink :to="`/components/${component}`" class="hover:underline" :class="$route.path.includes(component) ? 'font-semibold text-blue-600' : ''">
+              <NuxtLink :to="`/components/${component}`" class="hover:underline" :class="$route.path.includes(component) ? 'font-semibold text-accent' : 'hover:text-accent-hover'">
                 {{ component.charAt(0).toUpperCase() + component.slice(1) }}
               </NuxtLink>
             </div>

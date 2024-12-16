@@ -123,32 +123,32 @@ export const button = tv({
     {
       color: 'danger',
       variant: 'solid',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-danger)] hover:bg-[var(--ui-danger)]/75 disabled:bg-[var(--ui-danger)] aria-disabled:bg-[var(--ui-danger)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-danger)]'
+      class: 'text-white bg-danger hover:bg-danger-hover disabled:bg-danger aria-disabled:bg-danger focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-danger'
     },
     {
       color: 'danger',
       variant: 'outline',
-      class: 'ring ring-inset ring-[var(--ui-danger)]/50 text-[var(--ui-danger)] hover:bg-[var(--ui-danger)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-[var(--ui-danger)]'
+      class: 'ring ring-inset ring-danger/50 text-danger hover:bg-danger/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-danger'
     },
     {
       color: 'danger',
       variant: 'soft',
-      class: 'text-[var(--ui-danger)] bg-[var(--ui-danger)]/10 hover:bg-[var(--ui-danger)]/15 focus-visible:bg-[var(--ui-danger)]/15 disabled:bg-[var(--ui-danger)]/10 aria-disabled:bg-[var(--ui-danger)]/10'
+      class: 'text-danger bg-danger/10 hover:bg-danger/15 focus-visible:bg-danger/15 disabled:bg-danger/10 aria-disabled:bg-danger/10'
     },
     {
       color: 'danger',
       variant: 'subtle',
-      class: 'text-[var(--ui-danger)] ring ring-inset ring-[var(--ui-danger)]/25 bg-[var(--ui-danger)]/10 hover:bg-[var(--ui-danger)]/15 disabled:bg-[var(--ui-danger)]/10 aria-disabled:bg-[var(--ui-danger)]/10 focus-visible:ring-2 focus-visible:ring-[var(--ui-danger)]'
+      class: 'text-danger ring ring-inset ring-danger/25 bg-danger/10 hover:bg-danger/15 disabled:bg-danger/10 aria-disabled:bg-danger/10 focus-visible:ring-2 focus-visible:ring-danger'
     },
     {
       color: 'danger',
       variant: 'ghost',
-      class: 'text-[var(--ui-danger)] hover:bg-[var(--ui-danger)]/10 focus-visible:bg-[var(--ui-danger)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
+      class: 'text-danger hover:bg-danger/10 focus-visible:bg-danger/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
     },
     {
       color: 'danger',
       variant: 'link',
-      class: 'text-[var(--ui-danger)] hover:underline hover:text-[var(--ui-danger)]/75 disabled:text-[var(--ui-danger)] aria-disabled:text-[var(--ui-danger)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-danger)]'
+      class: 'text-danger hover:underline hover:text-danger/75 disabled:text-danger aria-disabled:text-danger focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-danger'
     },
     {
       color: 'neutral',

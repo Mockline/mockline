@@ -52,8 +52,6 @@
   --color-fg-quaternary: #86848d;
 
   /* Interactive Elements */
-  --color-link-primary: #7070ff;
-  --color-link-hover: var(--color-text-primary);
   --color-selection-text: var(--color-text-primary);
   --color-selection-bg: #c8c8c8;
   --color-selection-dim: hsla(0,0%,0%,.2);
@@ -68,11 +66,19 @@
   --color-accent: #7170ff;
   --color-accent-hover: #8989f0;
   --color-accent-tint: #f1f1ff;
+  --color-danger: #e11d48;
+  --color-danger-hover: #be123c;
+  --color-danger-tint: #f9e8ed;
 
   /* System */
   --base-radius: 0.25rem;
   --scrollbar-width: thin;
-  scrollbar-color: rgba(var(--color-accent), 0.5) transparent;
+
+  scrollbar-color: var(--color-accent) transparent;
+  ::selection {
+    color: var(--color-selection-text);
+    background-color: var(--color-selection-bg);
+  }
 }
 
 .dark {
@@ -123,8 +129,6 @@
   --color-fg-quaternary: #62666d;
 
   /* Interactive Elements */
-  --color-link-primary: #828fff;
-  --color-link-hover: #ffffff;
   --color-selection-text: #ffffff;
   --color-selection-bg: #474747;
   --color-selection-dim: hsla(0,0%,100%,.2);
@@ -139,12 +143,18 @@
   --color-accent: #7170ff;
   --color-accent-hover: #828fff;
   --color-accent-tint: #18182f;
+  --color-danger: #e11d48;
+  --color-danger-hover: #be123c;
+  --color-danger-tint: #f9e8ed;
 }
 
 @theme {
   --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
   --color-accent-tint: var(--color-accent-tint);
+  --color-danger: var(--color-danger);
+  --color-danger-hover: var(--color-danger-hover);
+  --color-danger-tint: var(--color-danger-tint);
 }
 
 @layer base {

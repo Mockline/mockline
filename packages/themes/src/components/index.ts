@@ -3,6 +3,8 @@ export * from './button'
 export * from './sidebar'
 
 // Prose
+export * from './prose/icon'
+export * from './prose/img'
 export * from './prose/list'
 export * from './prose/code'
 export * from './prose/pre'

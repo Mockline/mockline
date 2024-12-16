@@ -29,7 +29,7 @@ const nav = [
       <template #trailing>
         <div class="flex items-center gap-3">
           <MThemeToggle />
-          <MButton size="sm" rounded="md" label="Sign in" class="ring-gray-1 ring-2" />
+          <MButton size="sm" rounded="md" label="Sign in" class="ring-[var(--color-border-primary)] ring-2" />
         </div>
       </template>
       <template #home>
@@ -37,10 +37,10 @@ const nav = [
           <li class="row-span-3 grid">
             <NavigationMenuLink as-child>
               <a
-                class="from-[var(--ui-primary)] to-black/50 flex size-full select-none flex-col justify-end rounded-[6px] bg-gradient-to-b p-[25px] no-underline outline-none focus:shadow-[0_0_0_2px]"
+                class="from-accent to-accent-hover/50 flex size-full select-none flex-col justify-end rounded-[6px] bg-gradient-to-b p-[25px] no-underline outline-none focus:shadow-[0_0_0_2px]"
                 href="/"
               >
-                <MIcon name="custom:mockline" class="size-10" />
+                <MIcon name="custom:mockline" class="size-10 text-white" />
                 <div class="mb-[7px] mt-4 text-[18px] font-medium leading-[1.2] text-white">Radix Primitives</div>
                 <p class="text-[14px] leading-[1.3]">Unstyled, accessible components for Vue.</p>
               </a>
@@ -51,9 +51,9 @@ const nav = [
       </template>
       <template #docs>
         <div class="flex flex-col gap-y-[10px] p-[22px] sm:w-[500px]">
-          <a class="text-[18px] font-medium leading-[1.2]" href="/docs/elements">Elements</a>
-          <a class="text-[18px] font-medium leading-[1.2]" href="/docs/composites">Layouts</a>
-          <a class="text-[18px] font-medium leading-[1.2]" href="/docs/primitives">Primitives</a>
+          <a class="text-[18px] font-medium leading-[1.2]" href="/playground/button">Button</a>
+          <a class="text-[18px] font-medium leading-[1.2]" href="/playground/nav-menu">Nav Menu</a>
+          <a class="text-[18px] font-medium leading-[1.2]" href="/playground/page">Page</a>
         </div>
       </template>
     </MNavMenu>
