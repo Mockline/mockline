@@ -40,9 +40,9 @@ const contentComponents = ['code', 'callout', 'typography', 'list']
     <MMain class="p-4 relative">
       <MThemeToggle size="sm" class="absolute top-4 right-4 z-50" />
       <MPage>
-        <h1 class="text-gray-12 text-2xl font-semibold">
+        <ProseH2 class="mt-0">
           {{ formatTitle(route.name as string) }}
-        </h1>
+        </ProseH2>
         <slot />
       </MPage>
     </MMain>

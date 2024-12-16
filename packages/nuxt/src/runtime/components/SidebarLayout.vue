@@ -69,7 +69,7 @@ const slots = defineSlots<SidebarLayoutSlots>()
         :default-size="layout[1]"
         style="overflow-y: auto;"
       >
-        <div id="app-main-content" class="h-[calc(100vh-var(--spacing)*2)] overflow-y-auto relative m-1 rounded-lg dark:bg-neutral-900 bg-white border dark:border-neutral-800 border-neutral-200 shadow-lg dark:shadow-xl">
+        <div id="app-main-content" class="h-[calc(100vh-var(--spacing)*2)] overflow-y-auto relative m-1 rounded-lg bg-[var(--ui-bg-elevated)] border dark:border-neutral-800 border-neutral-200 shadow-lg dark:shadow-xl">
           <slot name="default" :toggle-sidebar />
         </div>
       </SplitterPanel>
