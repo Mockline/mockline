@@ -1,5 +1,11 @@
 # @mockline/themes
 
+## 0.13.0
+
+### Minor Changes
+
+- Improve global css handling
+
 ## 0.12.0
 
 ### Minor Changes
