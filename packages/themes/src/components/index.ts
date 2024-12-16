@@ -1,6 +1,7 @@
 // Components
 export * from './button'
 export * from './sidebar'
+export * from './contentArea'
 
 // Prose
 export * from './prose/icon'

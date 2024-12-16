@@ -24,6 +24,9 @@ export const button = tv({
     },
     rounded: {
       none: '',
+      base: {
+        base: 'rounded-base',
+      },
       sm: {
         base: 'rounded-sm',
       },
@@ -230,7 +233,7 @@ export const button = tv({
   defaultVariants: {
     color: 'primary',
     variant: 'solid',
-    rounded: 'md',
+    rounded: 'base',
     size: 'md',
   },
 })
@@ -238,16 +241,59 @@ export const button = tv({
 type ButtonVariants = VariantProps<typeof button>
 
 export type ButtonProps = {
+  /**
+   * Label of the button
+   */
   label?: string
+  /**
+   * Color of the button
+   * @default primary
+   * @values primary, danger, neutral
+   */
   color?: ButtonVariants['color']
+  /**
+   * Variant of the button
+   * @default solid
+   * @values solid, outline, soft, subtle, ghost, link
+   */
   variant?: ButtonVariants['variant']
+  /**
+   * Size of the button
+   * @default md
+   * @values xs, sm, md, lg, xl
+   */
   size?: ButtonVariants['size']
+  /**
+   * Rounded corners of the button
+   * @default base
+   * @values none, sm, md, lg, xl, full
+   */
   rounded?: ButtonVariants['rounded']
+  /**
+   * Apply square shape to the button (same padding on all sides)
+   */
   square?: boolean
+  /**
+   * Button will take the full width of the parent container
+   * @default false
+   */
   block?: boolean
+  /**
+   * Class to override default styles
+   */
   class?: string
+  /**
+   * Class applied to the icon
+   */
   iconClass?: string
+  /**
+   * Class applied to the label
+   */
   labelClass?: string
+  /**
+   * Show a loading spinner
+   */
+  loading?: boolean
 }
 
 export type ButtonSlots = {
@@ -255,4 +301,3 @@ export type ButtonSlots = {
   default(props?: NonNullable<unknown>): any
   trailing(props?: NonNullable<unknown>): any
 }
-

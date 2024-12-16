@@ -14,8 +14,8 @@ export type ThemeToggleProps = {
 
 const props = withDefaults(defineProps<ThemeToggleProps>(), {
   size: 'xs',
-  lightIcon: 'heroicons:moon-solid',
-  darkIcon: 'heroicons:sun-solid',
+  lightIcon: 'lucide:moon',
+  darkIcon: 'lucide:sun',
 })
 
 const themeToggle = tv({
@@ -41,11 +41,13 @@ const themeToggleClasses = computed(() => twMerge(
 </script>
 
 <template>
-  <MIcon
-    v-if="!$slots.default"
-    :name="$colorMode.value === 'light' ? props.lightIcon : props.darkIcon"
-    :class="twMerge(themeToggleClasses)"
-    class="select-none"
-    @click="$colorMode.value === 'light' ? ($colorMode.preference = 'dark') : ($colorMode.preference = 'light')"
-  />
+  <ClientOnly>
+    <MIcon
+      v-if="!$slots.default"
+      :name="$colorMode.value === 'light' ? props.lightIcon : props.darkIcon"
+      :class="twMerge(themeToggleClasses)"
+      class="select-none"
+      @click="$colorMode.value === 'light' ? ($colorMode.preference = 'dark') : ($colorMode.preference = 'light')"
+    />
+  </ClientOnly>
 </template>

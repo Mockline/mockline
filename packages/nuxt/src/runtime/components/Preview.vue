@@ -8,6 +8,8 @@ const MIN_ZOOM_SCALE = 1.5
 type PreviewStyles = {
   transform: string
   cursor: string
+  position?: string
+  zIndex?: string
 }
 
 const route = useRoute()
@@ -15,7 +17,7 @@ const mounted = ref(false)
 
 const preview = tv({
   slots: {
-    wrapper: 'inline-block',
+    wrapper: 'inline-block isolate',
     image: [
       'transition-transform duration-200 ease-out',
       'origin-top-left cursor-zoom-in'
@@ -39,7 +41,7 @@ const imageStyle = ref<PreviewStyles>({
   cursor: 'zoom-in'
 })
 
-function resetState() {
+function resetState(): void {
   isZoomedIn.value = false
   imageStyle.value = {
     transform: '',
