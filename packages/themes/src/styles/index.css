@@ -48,7 +48,10 @@
   --color-accent-hover: #8989f0;
   --color-accent-tint: #f1f1ff;
 
-  --border-radius: 0.25rem;
+  --base-radius: 0.25rem;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--color-accent), 0.5) transparent;
 }
 
 .dark {
@@ -59,7 +62,6 @@
   --color-bg-secondary: #1c1c1f;
   --color-bg-tertiary: #232326;
   --color-bg-quaternary: #28282c;
-  --color-bg-marketing: #010102;
   --color-bg-translucent: hsla(0,0%,100%,.05);
   --color-bg-quinary: #282828;
   --color-border-primary: #23252a;
@@ -129,9 +131,6 @@
 
     --ui-radius: var(--base-radius);
     --ui-container: var(--container-7xl);
-
-    scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-color) transparent;
   }
 
   .dark {

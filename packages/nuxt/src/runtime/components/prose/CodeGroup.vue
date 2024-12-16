@@ -3,8 +3,8 @@ import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent } from 'rek
 import { useSlots, computed, onMounted, watch } from 'vue'
 import { type CodeGroupProps } from '@mockline/themes'
 import { transformSlot } from '../../utils'
-import { useComponent } from '../../utils/useComponent'
 import CodeIcon from './CodeIcon.vue'
+import { useComponent } from '#mockline/utils/useComponent'
 import { useState } from '#imports'
 
 const props = withDefaults(defineProps<CodeGroupProps>(), {
