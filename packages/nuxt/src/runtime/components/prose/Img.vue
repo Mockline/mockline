@@ -31,7 +31,3 @@ const { getClasses } = useComponent('proseImg', props)
     :class="getClasses('default', props.class)"
   />
 </template>
-
-<style scoped>
-
-</style>
