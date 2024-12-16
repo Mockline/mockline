@@ -106,7 +106,6 @@ const links: ContentNavigationItem[] = [
         ]
       }
     ],
-    page: false,
     path: '/components',
     title: 'Components'
   },

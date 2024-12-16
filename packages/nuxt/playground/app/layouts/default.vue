@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { NavigationTreeLink } from '@mockline/themes'
+
 function formatTitle(title: string): string {
   return title
     .split('-')
@@ -10,42 +12,99 @@ const route = useRoute()
 const components = ['button', 'nav-menu', 'page']
 const contentComponents = ['navigation-tree']
 const proseComponents = ['code', 'callout', 'typography', 'list', 'icon', 'img']
+
+const links: NavigationTreeLink[] = [
+  {
+    title: 'Base',
+    path: '/playground',
+    children: [
+      {
+        title: 'Button',
+        path: '/playground/button',
+        icon: 'lucide:square-mouse-pointer',
+      },
+      {
+        title: 'Nav Menu',
+        path: '/playground/nav-menu',
+        icon: 'lucide:menu',
+      },
+      {
+        title: 'Page',
+        path: '/playground/page',
+        icon: 'lucide:file-text',
+      }
+    ],
+  },
+  {
+    title: 'Prose',
+    path: '/components',
+    children: [
+      {
+        title: 'Code',
+        path: '/components/code',
+        icon: 'lucide:code',
+      },
+      {
+        title: 'Callout',
+        path: '/components/callout',
+        icon: 'lucide:info',
+      },
+      {
+        title: 'Typography',
+        path: '/components/typography',
+        icon: 'lucide:text',
+      },
+      {
+        title: 'List',
+        path: '/components/list',
+        icon: 'lucide:list',
+      },
+      {
+        title: 'Icon',
+        path: '/components/icon',
+        icon: 'lucide:star',
+      },
+      {
+        title: 'Image',
+        path: '/components/img',
+        icon: 'lucide:image',
+      }
+    ]
+  },
+  {
+    title: 'Content',
+    path: '/content',
+    children: [
+      {
+        title: 'Navigation Tree',
+        path: '/playground/navigation-tree',
+        icon: 'lucide:menu',
+      }
+    ]
+  }
+]
+
+const { version } = useRuntimeConfig().public
 </script>
 
 <template>
   <MSidebarLayout>
     <template #sidebar>
-      <MSidebar>
-        <div class="p-2 flex flex-col gap-1">
-          <span>Base</span>
-          <div class="p-2 flex flex-col gap-2 text-sm">
-            <div v-for="component in components" :key="component">
-              <NuxtLink :to="`/playground/${component}`" class="hover:underline" :class="$route.path.includes(component) ? 'font-semibold text-accent' : 'hover:text-accent-hover'">
-                {{ component.charAt(0).toUpperCase() + component.slice(1) }}
-              </NuxtLink>
+      <MSidebar class="pl-3 py-2">
+        <template #header>
+          <div class="flex items-center justify-between text-xs mb-4">
+            <div class="flex items-center gap-1">
+              <MIcon name="custom:mockline" />
+              <span class="font-bold">
+                Mockline
+              </span>
             </div>
+            <span class="bg-[var(--color-bg-translucent)] px-2 py-1 rounded-full">
+              v{{ version }}
+            </span>
           </div>
-        </div>
-        <div class="p-2 flex flex-col gap-1">
-          <span>Prose</span>
-          <div class="p-2 flex flex-col gap-2 text-sm">
-            <div v-for="component in proseComponents" :key="component">
-              <NuxtLink :to="`/components/${component}`" class="hover:underline" :class="$route.path.includes(component) ? 'font-semibold text-accent' : 'hover:text-accent-hover'">
-                {{ component.charAt(0).toUpperCase() + component.slice(1) }}
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
-        <div class="p-2 flex flex-col gap-1">
-          <span>Content</span>
-          <div class="p-2 flex flex-col gap-2 text-sm">
-            <div v-for="component in contentComponents" :key="component">
-              <NuxtLink :to="`/playground/${component}`" class="hover:underline" :class="$route.path.includes(component) ? 'font-semibold text-accent' : 'hover:text-accent-hover'">
-                {{ component.charAt(0).toUpperCase() + component.slice(1) }}
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
+        </template>
+        <MContentNavigationTree :links />
       </MSidebar>
     </template>
     <MHeader sticky class="px-4 py-2 bg-[var(--ui-bg-elevated)]">
