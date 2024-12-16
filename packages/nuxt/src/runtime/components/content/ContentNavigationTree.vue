@@ -1,31 +1,35 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
+import type { NavigationTreeProps, NavigationTreeLink } from '@mockline/themes'
+import { useRoute } from '#imports'
+import { useComponent } from '#mockline/utils/useComponent'
 
-const { links } = defineProps<{
-  links: ContentNavigationItem[]
-}>()
+const props = defineProps<NavigationTreeProps & { links: ContentNavigationItem[] }>()
+console.log(props)
 
 const route = useRoute()
 
-const isLinkActive = (link: ContentNavigationItem): boolean => {
-  return route.path.startsWith(link.path)
+const isLinkActive = (link: ContentNavigationItem | NavigationTreeLink): boolean => {
+  return route.path.startsWith(link.path) || link.active as boolean
 }
+
+const { getClasses } = useComponent('navigationTree', props)
 </script>
 
 <template>
-  <nav v-if="links?.length" class="space-y-3">
+  <nav v-if="links?.length" :class="getClasses('root', props.class)">
     <template v-for="(link, index) in links" :key="index">
       <div>
-        <h3 class="truncate text-sm/6 font-semibold">
+        <h3 :class="getClasses('sectionTitle', props.class)">
           {{ link.title }}
         </h3>
-        <ul class="flex flex-col gap-1">
+        <ul :class="getClasses('section', props.class)">
           <li v-for="(child, index_) in link.children" :key="index_">
             <NuxtLink
               :to="child.path"
-              class="text-sm hover:text-[var(--ui-primary)]"
-              :class="isLinkActive(child) ? 'text-[var(--ui-primary)]' : 'text-neutral-600 dark:text-neutral-400'"
+              :class="[ isLinkActive(child) ? getClasses('activeLink', props.class) : getClasses('link', props.class)]"
             >
+              <MIcon v-if="child.icon" :name="child.icon" />
               {{ child.title }}
             </NuxtLink>
           </li>

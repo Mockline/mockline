@@ -3,6 +3,9 @@ export * from './button'
 export * from './sidebar'
 export * from './contentArea'
 
+// Content
+export * from './content/navigationTree'
+
 // Prose
 export * from './prose/icon'
 export * from './prose/img'
