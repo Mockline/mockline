@@ -37,12 +37,16 @@ const contentComponents = ['code', 'callout', 'typography', 'list']
         </div>
       </MSidebar>
     </template>
-    <MMain class="p-4 relative">
-      <MThemeToggle size="sm" class="absolute top-4 right-4 z-50" />
-      <MPage>
-        <h1 class="text-gray-12 text-2xl font-semibold">
+    <MHeader sticky class="px-4 py-2 bg-[var(--ui-bg-elevated)]">
+      <div class="flex justify-between items-center">
+        <ProseH2 class="m-0">
           {{ formatTitle(route.name as string) }}
-        </h1>
+        </ProseH2>
+        <MThemeToggle size="sm" class="absolute top-4 right-4 z-50" />
+      </div>
+    </MHeader>
+    <MMain class="p-4 relative">
+      <MPage>
         <slot />
       </MPage>
     </MMain>

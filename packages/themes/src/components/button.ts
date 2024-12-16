@@ -93,32 +93,32 @@ export const button = tv({
     {
       color: 'primary',
       variant: 'solid',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-primary)] hover:bg-[var(--ui-primary)]/75 disabled:bg-[var(--ui-primary)] aria-disabled:bg-[var(--ui-primary)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-primary)]'
+      class: 'text-white bg-accent hover:bg-accent-hover disabled:bg-accent aria-disabled:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
     },
     {
       color: 'primary',
       variant: 'outline',
-      class: 'ring ring-inset ring-[var(--ui-primary)]/50 text-[var(--ui-primary)] hover:bg-[var(--ui-primary)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-[var(--ui-primary)]'
+      class: 'ring ring-inset ring-accent/50 text-accent hover:bg-accent/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-accent'
     },
     {
       color: 'primary',
       variant: 'soft',
-      class: 'text-[var(--ui-primary)] bg-[var(--ui-primary)]/10 hover:bg-[var(--ui-primary)]/15 focus-visible:bg-[var(--ui-primary)]/15 disabled:bg-[var(--ui-primary)]/10 aria-disabled:bg-[var(--ui-primary)]/10'
+      class: 'text-accent bg-accent/10 hover:bg-accent/15 focus-visible:bg-accent/15 disabled:bg-accent/10 aria-disabled:bg-accent/10'
     },
     {
       color: 'primary',
       variant: 'subtle',
-      class: 'text-[var(--ui-primary)] ring ring-inset ring-[var(--ui-primary)]/25 bg-[var(--ui-primary)]/10 hover:bg-[var(--ui-primary)]/15 disabled:bg-[var(--ui-primary)]/10 aria-disabled:bg-[var(--ui-primary)]/10 focus-visible:ring-2 focus-visible:ring-[var(--ui-primary)]'
+      class: 'text-accent ring ring-inset ring-accent/25 bg-accent/10 hover:bg-accent/15 disabled:bg-accent/10 aria-disabled:bg-accent/10 focus-visible:ring-2 focus-visible:ring-accent'
     },
     {
       color: 'primary',
       variant: 'ghost',
-      class: 'text-[var(--ui-primary)] hover:bg-[var(--ui-primary)]/10 focus-visible:bg-[var(--ui-primary)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
+      class: 'text-accent hover:bg-accent/10 focus-visible:bg-accent/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
     },
     {
       color: 'primary',
       variant: 'link',
-      class: 'text-[var(--ui-primary)] hover:underline hover:text-[var(--ui-primary)]/75 disabled:text-[var(--ui-primary)] aria-disabled:text-[var(--ui-primary)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)]'
+      class: 'text-accent hover:underline hover:text-accent/75 disabled:text-accent aria-disabled:text-accent focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent'
     },
     {
       color: 'danger',
