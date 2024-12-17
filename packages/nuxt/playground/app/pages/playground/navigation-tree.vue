@@ -154,7 +154,7 @@ const links: ContentNavigationItem[] = [
         <ProseH2>
           With custom slots
         </ProseH2>
-        <MContentNavigationTree :links color="neutral">
+        <MContentNavigationTree :links color="neutral" link-class="hover:bg-yellow-500/10">
           <template #icon="{ item, active }">
             <MIcon
               v-if="item.icon"

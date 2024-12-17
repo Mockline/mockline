@@ -1,3 +1,7 @@
+### Inline code
+
+This is a `inline code` example.
+
 ### Basic code block
 
 ```vue

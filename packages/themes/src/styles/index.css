@@ -47,6 +47,7 @@
   --color-text-secondary: #3c4149;
   --color-text-tertiary: #6f6e77;
   --color-text-quaternary: #86848d;
+  --color-text-inverted: #ffffff;
 
   /* Typography - Foreground */
   --color-fg-primary: #282a2f;
@@ -125,6 +126,7 @@
   --color-text-secondary: #d0d6e0;
   --color-text-tertiary: #8a8f98;
   --color-text-quaternary: #62666d;
+  --color-text-inverted: #282a30;
 
   /* Typography - Foreground */
   --color-fg-primary: #f7f8f8;
@@ -154,8 +156,11 @@
   --color-accent-hover: var(--color-accent-hover);
   --color-danger: var(--color-danger);
   --color-danger-hover: var(--color-danger-hover);
+  --color-fg-primary: var(--color-fg-primary);
+
   --color-content-area: var(--content-area-bg);
   --color-content-area-border: var(--content-area-border);
+
   --radius-base: var(--base-radius);
 }
 

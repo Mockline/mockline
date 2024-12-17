@@ -51,6 +51,17 @@ const variants = Object.keys(button.variants.variant) as Array<keyof typeof butt
         />
       </div>
     </div>
+    <ProseH3>
+      Disabled
+    </ProseH3>
+    <div class="flex gap-4">
+      <MButton label="disabled" disabled />
+      <MButton label="disabled" disabled color="neutral" />
+      <MButton label="disabled" disabled color="danger" />
+    </div>
+    <ProseH3>
+      Custom
+    </ProseH3>
     <div>
       <MButton label="test" class="bg-yellow-500" icon="lucide:rocket" />
     </div>
