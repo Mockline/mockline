@@ -6,7 +6,7 @@ provide('navigation', navigation)
 <template>
   <Html>
     <NuxtLoadingIndicator />
-    <MApp>
+    <MApp class="font-geist">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
@@ -24,9 +24,5 @@ provide('navigation', navigation)
 @theme {
   --font-geist: 'Geist', sans-serif;
   --font-mono: 'Geist Mono', sans-serif;
-}
-
-:root {
-  @apply font-geist;
 }
 </style>

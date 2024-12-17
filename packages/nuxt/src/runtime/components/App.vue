@@ -3,8 +3,11 @@ import type { ConfigProviderProps, TooltipProviderProps } from 'reka-ui'
 import { ConfigProvider, TooltipProvider, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { toRef, useId } from 'vue'
+import { useComponent } from '#mockline/utils/useComponent'
 
 export type AppProps = {
+  class?: string
+  transparent?: boolean
   tooltip?: TooltipProviderProps
 } & Omit<ConfigProviderProps, 'useId' | 'dir'>
 
@@ -17,12 +20,13 @@ defineSlots<AppSlots>()
 
 const configProviderProps = useForwardProps(reactivePick(props, 'scrollBody'))
 const tooltipProps = toRef(() => props.tooltip)
+const { getClasses } = useComponent('app', props)
 </script>
 
 <template>
   <ConfigProvider :use-id="() => (useId() as string)" v-bind="configProviderProps">
     <TooltipProvider v-bind="tooltipProps">
-      <div>
+      <div :class="getClasses('root', props.class)">
         <slot />
       </div>
     </TooltipProvider>

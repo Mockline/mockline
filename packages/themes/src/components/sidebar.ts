@@ -2,7 +2,7 @@ import { tv } from 'tailwind-variants'
 
 export const sidebar = tv({
   slots: {
-    root: 'flex flex-col h-full justify-between'
+    root: 'flex flex-col h-full justify-between px-3 py-2'
   }
 })
 

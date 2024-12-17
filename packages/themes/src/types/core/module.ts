@@ -75,7 +75,8 @@ export type MocklineConfig = {
     danger?: Color
     neutral?: Color
   },
-  transitions?: true,
+  transitions?: boolean,
+  darkCode?: boolean,
   toast?: {
     position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
     duration?: number

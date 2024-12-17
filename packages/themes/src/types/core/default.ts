@@ -19,6 +19,7 @@ export const defaultAppConfig: MocklineConfig = {
     neutral: 'neutral',
   },
   transitions: true,
+  darkCode: true,
   toast: {
     position: 'top-center',
   },

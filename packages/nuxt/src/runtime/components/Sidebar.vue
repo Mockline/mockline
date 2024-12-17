@@ -4,8 +4,8 @@ import { computed, ref } from 'vue'
 import { useComponent } from '#mockline/utils/useComponent'
 
 const props = withDefaults(defineProps<SidebarProps>(), {
-  minSize: 15,
-  maxSize: 15,
+  minSize: 20,
+  maxSize: 20,
   collapsedSize: 0,
   defaultSize: 20,
 })
@@ -40,7 +40,3 @@ const { getClasses } = useComponent('sidebar', componentProps)
     </div>
   </nav>
 </template>
-
-<style scoped>
-
-</style>

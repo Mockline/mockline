@@ -1,33 +1,24 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
-import { twMerge } from 'tailwind-merge'
+import { onMounted, ref } from 'vue'
 import { useElementSize } from '@vueuse/core'
+import type { HeaderProps, HeaderSlots } from '@mockline/themes'
+import { useComponent } from '#mockline/utils/useComponent'
 
-export type HeaderProps = {
-  class?: string,
-  sticky?: boolean,
-}
-
-const props = withDefaults(defineProps<HeaderProps>(), {
-  sticky: false,
-})
+const props = defineProps<HeaderProps>()
+const slots = defineSlots<HeaderSlots>()
 
 const header = ref(null)
 const { height } = useElementSize(header)
 
-const headerClasses = computed(() => twMerge(
-  'flex items-center justify-between w-full h-[var(--header-height)]',
-  props.sticky && 'sticky top-0 z-10',
-  props.class,
-))
-
 onMounted(() => {
   document.documentElement.style.setProperty('--header-height', `${height.value}px`)
 })
+
+const { getClasses } = useComponent('header', props)
 </script>
 
 <template>
-  <component :is="'header'" ref="header" :class="headerClasses">
+  <component :is="'header'" ref="header" :class="getClasses('default', props.class)">
     <slot name="left" />
     <slot name="default" />
     <slot name="right" />

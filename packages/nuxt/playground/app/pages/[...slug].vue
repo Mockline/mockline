@@ -9,7 +9,7 @@ if (!page.value)
 </script>
 
 <template>
-  <MPage v-if="page" class="mx-auto max-w-2xl">
+  <MPage v-if="page">
     <MPageBody>
       <ContentRenderer v-if="page.body" :value="page" />
     </MPageBody>
