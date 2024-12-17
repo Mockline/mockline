@@ -28,6 +28,7 @@ const props = withDefaults(defineProps<ToasterProps>(), {
   visibleToasts: VISIBLE_TOASTS_AMOUNT,
   toastOptions: () => ({
     style: {
+      color: 'var(--color-text-primary)',
       borderColor: 'var(--color-border-primary)',
       backgroundColor: 'var(--color-bg-secondary)'
     }

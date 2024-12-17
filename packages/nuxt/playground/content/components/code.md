@@ -14,7 +14,15 @@ This is a `inline code` example.
 
 ### Code block with filename
 
-```ts [nuxt.config.ts]
+```ts [nuxt.config.ts] transparent test
+export default defineNuxtConfig({
+  modules: ['mockline']
+})
+```
+
+### Enable light mode
+
+```ts [nuxt.config.ts] light
 export default defineNuxtConfig({
   modules: ['mockline']
 })

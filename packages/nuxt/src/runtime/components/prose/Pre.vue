@@ -28,6 +28,8 @@ function copy(): void {
 const componentProps = computed(() => {
   return {
     ...props,
+    forceDark: !props.meta?.includes('light') ? appConfig.mockline.darkCode : false,
+    transparent: props.meta?.includes('transparent'),
     filename: !!props.filename,
   }
 })
