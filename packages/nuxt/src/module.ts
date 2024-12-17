@@ -106,6 +106,7 @@ export default defineNuxtModule<ModuleOptions>({
             'tip': 'ProseTip',
             'warning': 'ProseWarning',
             'img': 'ProseImg',
+            'hr': 'ProseHr',
           }
         }
       })

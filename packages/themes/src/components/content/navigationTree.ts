@@ -35,18 +35,18 @@ export const navigationTree = tv({
     size: {
       xs: {
         sectionTitle: 'text-xs',
-        link: 'px-1 py-1 text-xs',
-        icon: 'w-3 h-3',
+        link: 'px-2 py-1 text-xs',
+        icon: 'size-3',
       },
       sm: {
         sectionTitle: 'text-sm',
-        link: 'px-2 py-1.5 text-sm',
-        icon: 'w-4 h-4',
+        link: 'px-2 py-1 text-sm',
+        icon: 'size-4',
       },
       md: {
         sectionTitle: 'text-base',
-        link: 'px-3 py-2 text-base',
-        icon: 'w-5 h-5',
+        link: 'px-3 py-1.5 text-base',
+        icon: 'size-5',
       },
     },
     indent: {

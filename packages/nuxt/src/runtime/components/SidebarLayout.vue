@@ -12,8 +12,8 @@ type SidebarLayoutProps = {
 }
 
 const props = withDefaults(defineProps<SidebarLayoutProps>(), {
-  minSize: 15,
-  maxSize: 15,
+  minSize: 20,
+  maxSize: 20,
   collapsedSize: 0,
   defaultSize: 20,
 })

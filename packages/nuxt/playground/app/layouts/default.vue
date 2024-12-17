@@ -25,6 +25,11 @@ const links: NavigationTreeLink[] = [
         icon: 'lucide:menu',
       },
       {
+        title: 'Divider',
+        path: '/playground/divider',
+        icon: 'lucide:minus',
+      },
+      {
         title: 'Page',
         path: '/playground/page',
         icon: 'lucide:file-text',
@@ -64,6 +69,11 @@ const links: NavigationTreeLink[] = [
         title: 'Image',
         path: '/components/img',
         icon: 'lucide:image',
+      },
+      {
+        title: 'Hr',
+        path: '/components/hr',
+        icon: 'lucide:minus',
       }
     ]
   },
