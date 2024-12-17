@@ -9,10 +9,6 @@ function formatTitle(title: string): string {
 }
 const route = useRoute()
 
-const components = ['button', 'nav-menu', 'page']
-const contentComponents = ['navigation-tree']
-const proseComponents = ['code', 'callout', 'typography', 'list', 'icon', 'img']
-
 const links: NavigationTreeLink[] = [
   {
     title: 'Base',
@@ -103,7 +99,7 @@ const { version } = useRuntimeConfig().public
         </template>
         <MContentNavigationTree :links color="neutral" />
         <template #footer>
-          <span class="bg-[var(--color-bg-translucent)] px-2 py-1 rounded-full text-xs">
+          <span class="bg-[var(--color-bg-translucent)] px-2 py-1 rounded-base text-xs">
             v{{ version }}
           </span>
         </template>
@@ -114,7 +110,7 @@ const { version } = useRuntimeConfig().public
         <ProseH2 class="m-0">
           {{ formatTitle(route.name as string) }}
         </ProseH2>
-        <MThemeToggle size="sm" class="absolute top-4 right-4 z-50" />
+        <MThemeToggle size="md" class="absolute top-4 right-4 z-50" />
       </div>
     </MHeader>
     <MMain class="p-4 relative">

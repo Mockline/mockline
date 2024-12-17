@@ -164,6 +164,7 @@ const links: ContentNavigationItem[] = [
                 'text-red-500': !active
               }"
             />
+            <MIcon v-if="!active" name="lucide:x" class="text-red-500" />
           </template>
           <template #title="{ item, active }">
             <span
@@ -172,7 +173,7 @@ const links: ContentNavigationItem[] = [
                 'text-red-500': !active
               }"
             >
-              {{ item.title }}
+              {{ item.title }} <span v-if="item.active" class="text-xs bg-green-500 text-white px-1 rounded">Active</span>
             </span>
           </template>
         </MContentNavigationTree>
