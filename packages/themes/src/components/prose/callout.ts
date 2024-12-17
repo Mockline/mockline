@@ -2,7 +2,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 export const proseCallout = tv({
   slots: {
-    base: 'group border relative block rounded-[calc(var(--ui-radius)*1.5)] px-4 py-3 text-sm/6 my-5',
+    base: 'group border relative block rounded-base px-4 py-3 text-sm/6 my-5',
     icon: 'size-4 shrink-0 align-middle mr-1.5',
     externalIcon: 'size-4 align-top absolute right-2 top-2 pointer-events-none',
   },

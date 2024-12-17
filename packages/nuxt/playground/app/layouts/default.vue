@@ -90,7 +90,7 @@ const { version } = useRuntimeConfig().public
 <template>
   <MSidebarLayout>
     <template #sidebar>
-      <MSidebar class="pl-3 py-2">
+      <MSidebar>
         <template #header>
           <div class="flex items-center justify-between text-xs mb-4">
             <div class="flex items-center gap-1">

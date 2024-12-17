@@ -38,6 +38,7 @@ const links: ContentNavigationItem[] = [
         path: '#',
         title: 'Button',
         icon: 'lucide:square-mouse-pointer',
+        badge: 'New',
         children: [
           {
             path: '#',
@@ -78,6 +79,7 @@ const links: ContentNavigationItem[] = [
         path: '#',
         title: 'Layout',
         icon: 'lucide:layout',
+        disabled: true,
         children: [
           {
             path: '#',
@@ -114,13 +116,13 @@ const links: ContentNavigationItem[] = [
 <template>
   <div class="flex flex-col gap-6">
     <div class="grid sm:grid-cols-2 gap-4">
-      <div class="space-y-4">
+      <div class="space-y-4 max-w-xs">
         <ProseH2>
           Neutral navigation tree
         </ProseH2>
         <MContentNavigationTree :links color="neutral" />
       </div>
-      <div class="space-y-4">
+      <div class="space-y-4 max-w-xs">
         <ProseH2>
           Accent navigation tree
         </ProseH2>
@@ -128,23 +130,52 @@ const links: ContentNavigationItem[] = [
       </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div class="space-y-4">
+      <div class="space-y-4 max-w-xs">
         <ProseH2>
           Size: xs
         </ProseH2>
         <MContentNavigationTree :links color="neutral" size="xs" />
       </div>
-      <div class="space-y-4">
+      <div class="space-y-4 max-w-xs">
         <ProseH2>
           Size: sm (default)
         </ProseH2>
         <MContentNavigationTree :links color="neutral" size="sm" />
       </div>
-      <div class="space-y-4">
+      <div class="space-y-4 max-w-xs">
         <ProseH2>
           Size: md
         </ProseH2>
         <MContentNavigationTree :links color="neutral" size="md" />
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="space-y-4 max-w-xs">
+        <ProseH2>
+          With custom slots
+        </ProseH2>
+        <MContentNavigationTree :links color="neutral">
+          <template #icon="{ item, active }">
+            <MIcon
+              v-if="item.icon"
+              :name="item.icon"
+              :class="{
+                'text-green-500': active,
+                'text-red-500': !active
+              }"
+            />
+          </template>
+          <template #title="{ item, active }">
+            <span
+              :class="{
+                'text-green-500': active,
+                'text-red-500': !active
+              }"
+            >
+              {{ item.title }}
+            </span>
+          </template>
+        </MContentNavigationTree>
       </div>
     </div>
   </div>
