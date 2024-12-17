@@ -33,7 +33,12 @@ const links: NavigationTreeLink[] = [
         title: 'Page',
         path: '/playground/page',
         icon: 'lucide:file-text',
-      }
+      },
+      {
+        title: 'Toasts',
+        path: '/playground/toasts',
+        icon: 'lucide:bell',
+      },
     ],
   },
   {
