@@ -26,7 +26,16 @@ const target = computed(() => props.target || (!!props.to && true && props.to.st
     </NuxtLink>
 
     <MIcon v-if="icon" :name="icon" :class="getClasses('icon')" />
-    <MIcon v-if="!!to && target === '_blank'" :name="appConfig.mockline.icons.external" :class="getClasses('externalIcon')" />
+    <div v-if="!!to && target === '_blank'" :class="getClasses('externalWrapper')">
+      <MButton
+        variant="subtle"
+        :icon="appConfig.mockline.icons.external"
+        size="xs"
+        color="neutral"
+        rounded="full"
+        :class="getClasses('externalIcon')"
+      />
+    </div>
 
     <slot mdc-unwrap="p" />
   </div>
