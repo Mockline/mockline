@@ -115,7 +115,7 @@ const { version } = useRuntimeConfig().public
         </template>
       </MSidebar>
     </template>
-    <MHeader sticky class="px-4 py-2 bg-[var(--ui-bg-elevated)]">
+    <MHeader sticky>
       <div class="flex justify-between items-center">
         <ProseH2 class="m-0">
           {{ formatTitle(route.name as string) }}
