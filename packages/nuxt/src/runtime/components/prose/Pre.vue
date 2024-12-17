@@ -49,7 +49,7 @@ const { getClasses } = useComponent('prosePre', componentProps)
     <MButton
       :icon="copied ? appConfig.mockline.icons.copyCheck : appConfig.mockline.icons.copy"
       :color="copied ? 'primary' : 'neutral'"
-      variant="outline"
+      variant="ghost"
       size="sm"
       aria-label="Copy code to clipboard"
       :class="getClasses('copy')"
@@ -60,7 +60,7 @@ const { getClasses } = useComponent('prosePre', componentProps)
     <pre :class="getClasses('base', props.class)" v-bind="$attrs"><slot /></pre>
   </div>
 </template>
-
+<!--
 <style>
-.shiki span.line{display:block}.shiki span.line.highlight{margin:0 -16px;padding:0 16px;@apply bg-[var(--ui-bg-accented)]/50}
-</style>
+.shiki span.line{display:block}.shiki span.line.highlight{margin:0 -16px;padding:0 16px;}
+</style>-->

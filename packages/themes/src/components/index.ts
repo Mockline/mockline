@@ -15,9 +15,7 @@ export * from './prose/icon'
 export * from './prose/img'
 export * from './prose/list'
 export * from './prose/code'
-export * from './prose/pre'
 export * from './prose/hr'
-export * from './prose/codeGroup'
 export * from './prose/callout'
 
 // Typography
