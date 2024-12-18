@@ -8,5 +8,5 @@ const { getClasses } = useComponent('proseIcon', props)
 </script>
 
 <template>
-  <MIcon :name :class="getClasses('default', props.class)" />
+  <Icon :name :class="getClasses('default', props.class)" />
 </template>

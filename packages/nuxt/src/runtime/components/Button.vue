@@ -24,7 +24,7 @@ const { getClasses } = useComponent('button', componentProps)
 <template>
   <component :is="'button'" :class="getClasses('base', props.class)">
     <slot name="leading">
-      <MIcon
+      <Icon
         v-if="isLeading && leadingIconName"
         :name="leadingIconName"
         :class="getClasses('leadingIcon', iconClass)"
@@ -38,7 +38,7 @@ const { getClasses } = useComponent('button', componentProps)
     </span>
 
     <slot name="trailing">
-      <MIcon
+      <Icon
         v-if="isTrailing && trailingIconName"
         :name="trailingIconName"
         :class="getClasses('trailingIcon', iconClass)"

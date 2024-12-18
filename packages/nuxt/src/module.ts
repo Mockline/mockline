@@ -60,7 +60,6 @@ export default defineNuxtModule<ModuleOptions>({
 
     if (options.icon) {
       await registerModule('@nuxt/icon', {
-        componentName: `${options.prefix}Icon`,
         customCollections: [
           {
             prefix: 'custom',
@@ -136,7 +135,7 @@ export default defineNuxtModule<ModuleOptions>({
       })
     }
 
-    if (options.composables)
+    if (!hasNuxtModule('@nuxt/ui') && options.composables)
       addImportsDir(resolve('./runtime/composables'))
 
     nuxt.hook('prepare:types', ({ references }) => {

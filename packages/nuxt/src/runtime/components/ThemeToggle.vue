@@ -12,7 +12,7 @@ const { getClasses } = useComponent('themeToggle', props)
 
 <template>
   <ClientOnly>
-    <MIcon
+    <Icon
       :name="$colorMode.value === 'light' ? props.lightIcon : props.darkIcon"
       :class="getClasses('default', props.class)"
       @click="$colorMode.value === 'light' ? ($colorMode.preference = 'dark') : ($colorMode.preference = 'light')"

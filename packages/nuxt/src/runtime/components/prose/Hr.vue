@@ -28,7 +28,7 @@ const { getClasses } = useComponent('proseHr', componentProps)
           <span v-if="label" :class="getClasses('label', labelClass)">
             {{ label }}
           </span>
-          <MIcon
+          <Icon
             v-else-if="icon"
             :name="icon"
             :class="getClasses('icon', iconClass)"

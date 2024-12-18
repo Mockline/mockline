@@ -37,7 +37,7 @@ const next = surround?.[1]
     <div class="flex justify-between">
       <NuxtLink v-if="prev" :to="prev.path" class="bg-canvas-3 flex items-center rounded p-2">
         <div class="flex items-center gap-2">
-          <MIcon name="lucide:arrow-left" class="size-4" />
+          <Icon name="lucide:arrow-left" class="size-4" />
           <div class="flex flex-col">
             <span>{{ prev.title }}</span>
             <div class="text-xs text-neutral-500 dark:text-neutral-400">
@@ -54,7 +54,7 @@ const next = surround?.[1]
               {{ next.description }}
             </div>
           </div>
-          <MIcon name="lucide:arrow-right" class="size-4" />
+          <Icon name="lucide:arrow-right" class="size-4" />
         </div>
       </NuxtLink>
     </div>

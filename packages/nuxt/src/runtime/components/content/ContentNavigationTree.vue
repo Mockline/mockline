@@ -31,7 +31,7 @@ const isLinkActive = (link: NavigationTreeLink): boolean => {
               :aria-disabled="child.disabled"
             >
               <slot name="icon" :item="child" :active="isLinkActive(child)">
-                <MIcon
+                <Icon
                   v-if="child.icon"
                   :name="child.icon"
                   :class="getClasses('icon', props.iconClass)"

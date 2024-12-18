@@ -23,7 +23,7 @@ const nav = [
   <div>
     <MNavMenu :items="nav">
       <template #leading>
-        <MIcon name="custom:mockline" class="size-8" />
+        <Icon name="custom:mockline" class="size-8" />
       </template>
 
       <template #trailing>
@@ -40,7 +40,7 @@ const nav = [
                 class="from-accent to-accent-hover/50 flex size-full select-none flex-col justify-end rounded-[6px] bg-gradient-to-b p-[25px] no-underline outline-none focus:shadow-[0_0_0_2px]"
                 href="/"
               >
-                <MIcon name="custom:mockline" class="size-10 text-white" />
+                <Icon name="custom:mockline" class="size-10 text-white" />
                 <div class="mb-[7px] mt-4 text-[18px] font-medium leading-[1.2] text-white">Radix Primitives</div>
                 <p class="text-[14px] leading-[1.3]">Unstyled, accessible components for Vue.</p>
               </a>
