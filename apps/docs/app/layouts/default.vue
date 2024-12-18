@@ -26,7 +26,7 @@ const { version } = useRuntimeConfig().public
         />
         <div class="flex text-xs items-center gap-4">
           <NuxtLink class="flex items-center gap-2" to="/">
-            <MIcon name="custom:mockline" />
+            <Icon name="custom:mockline" />
             <span class="font-semibold">Mockline</span>
           </NuxtLink>
           <span class=" text-gray-500 dark:text-gray-400">

@@ -25,7 +25,7 @@ const target = computed(() => props.target || (!!props.to && true && props.to.st
       <span class="absolute inset-0" aria-hidden="true" />
     </NuxtLink>
 
-    <MIcon v-if="icon" :name="icon" :class="getClasses('icon')" />
+    <Icon v-if="icon" :name="icon" :class="getClasses('icon')" />
     <div v-if="!!to && target === '_blank'" :class="getClasses('externalWrapper')">
       <MButton
         variant="subtle"

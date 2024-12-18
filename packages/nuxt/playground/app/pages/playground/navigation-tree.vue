@@ -156,7 +156,7 @@ const links: ContentNavigationItem[] = [
         </ProseH2>
         <MContentNavigationTree :links color="neutral" link-class="hover:bg-yellow-500/10">
           <template #icon="{ item, active }">
-            <MIcon
+            <Icon
               v-if="item.icon"
               :name="item.icon"
               :class="{
@@ -164,7 +164,7 @@ const links: ContentNavigationItem[] = [
                 'text-red-500': !active
               }"
             />
-            <MIcon v-if="!active" name="lucide:x" class="text-red-500" />
+            <Icon v-if="!active" name="lucide:x" class="text-red-500" />
           </template>
           <template #title="{ item, active }">
             <span

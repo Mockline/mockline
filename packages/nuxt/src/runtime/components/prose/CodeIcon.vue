@@ -83,5 +83,5 @@ const icon = computed(() => {
 </script>
 
 <template>
-  <MIcon v-if="icon" :name="icon" />
+  <Icon v-if="icon" :name="icon" />
 </template>

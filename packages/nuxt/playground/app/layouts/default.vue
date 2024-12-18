@@ -105,7 +105,7 @@ const { version } = useRuntimeConfig().public
         <template #header>
           <div class="flex items-center justify-between text-xs mb-4">
             <div class="flex items-center gap-1">
-              <MIcon name="custom:mockline" />
+              <Icon name="custom:mockline" />
               <span class="font-bold">
                 Mockline
               </span>

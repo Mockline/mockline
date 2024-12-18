@@ -11,7 +11,7 @@ const { framework, frameworks } = useSharedData()
       :class="[framework === _framework.value ? 'bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700' : 'border border-transparent']"
       @click="_framework.onSelect"
     >
-      <MIcon :name="_framework.icon" />
+      <Icon :name="_framework.icon" />
     </div>
   </div>
 </template>
