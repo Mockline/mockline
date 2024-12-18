@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button > can mount component 1`] = `
+"<div id="test-wrapper"><button class="relative inline-flex items-center justify-center font-medium cursor-pointer select-none focus-visible:outline-none touch-none tap-highlight-none rounded-[var(--radius-base)] text-sm gap-1.5 text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 disabled:bg-[var(--color-accent)]/75 shadow-sm p-1.5 transition-colors duration-200 ease-in-out active:translate-y-px">
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </button></div>"
+`;
+
+exports[`Button > can mount some component 1`] = `
+"<div id="test-wrapper"><button class="relative inline-flex items-center justify-center font-medium cursor-pointer select-none focus-visible:outline-none touch-none tap-highlight-none rounded-[var(--radius-base)] text-sm gap-1.5 text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 disabled:bg-[var(--color-accent)]/75 shadow-sm p-1.5 transition-colors duration-200 ease-in-out active:translate-y-px">
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </button></div>"
+`;
