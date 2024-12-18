@@ -2,7 +2,7 @@ A callout is a component that can be used to draw attention to important informa
 
 ### Basic
 ::callout
-This is a simple callout component.
+Irure occaecat qui enim aliquip nisi consectetur magna minim esse cillum Lorem incididunt pariatur sit minim. Deserunt ex incididunt et amet eu ut magna laboris laboris veniam ut.
 ::
 
 ### Basic with slot
@@ -19,31 +19,31 @@ This is a simple callout component with a slot.
 ::
 
 ### Custom Icon and Internal Link
-::callout{to="/getting-started/installation/vue" icon="i-logos-vue"}
-With a link and custom icon.
+::callout{to="#" icon="lucide:code"}
+Irure occaecat qui enim aliquip nisi consectetur magna minim esse cillum Lorem incididunt pariatur sit minim. Deserunt ex incididunt et amet eu ut magna laboris laboris veniam ut.
 ::
 
 ### External Link
 ::callout{to="https://nuxtjs.org" target="_blank"}
-This is an external link.
+Irure occaecat qui enim aliquip nisi consectetur magna minim esse cillum Lorem incididunt pariatur sit minim. Deserunt ex incididunt et amet eu ut magna laboris laboris veniam ut.
 ::
 
 ### Warning
 ::warning
-This is a warning callout.
+Irure occaecat qui enim aliquip nisi consectetur magna minim esse cillum Lorem incididunt pariatur sit minim. Deserunt ex incididunt et amet eu ut magna laboris laboris veniam ut.
 ::
 
 ### Tip
 ::tip
-This is a tip callout.
+Irure occaecat qui enim aliquip nisi consectetur magna minim esse cillum Lorem incididunt pariatur sit minim. Deserunt ex incididunt et amet eu ut magna laboris laboris veniam ut.
 ::
 
 ### Note
 ::note
-This is a success callout.
+Irure occaecat qui enim aliquip nisi consectetur magna minim esse cillum Lorem incididunt pariatur sit minim. Deserunt ex incididunt et amet eu ut magna laboris laboris veniam ut.
 ::
 
 ### Danger
 ::danger
-This is a danger callout.
+Irure occaecat qui enim aliquip nisi consectetur magna minim esse cillum Lorem incididunt pariatur sit minim. Deserunt ex incididunt et amet eu ut magna laboris laboris veniam ut.
 ::

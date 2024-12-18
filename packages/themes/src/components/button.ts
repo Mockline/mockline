@@ -2,11 +2,15 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 export const button = tv({
   slots: {
-    base: 'cursor-pointer font-medium inline-flex items-center justify-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75',
-    label: 'truncate',
-    leadingIcon: 'shrink-0',
-    leadingAvatar: 'shrink-0',
-    trailingIcon: 'shrink-0',
+    base: [
+      'relative inline-flex items-center justify-center',
+      'font-medium cursor-pointer select-none',
+      'focus-visible:outline-none',
+      'touch-none tap-highlight-none',
+    ],
+    label: 'truncate relative',
+    leadingIcon: 'shrink-0 relative',
+    trailingIcon: 'shrink-0 relative',
   },
   variants: {
     color: {
@@ -16,7 +20,6 @@ export const button = tv({
     },
     variant: {
       solid: '',
-      outline: '',
       soft: '',
       subtle: '',
       ghost: '',
@@ -24,21 +27,12 @@ export const button = tv({
     },
     rounded: {
       none: '',
-      sm: {
-        base: 'rounded-sm',
-      },
-      md: {
-        base: 'rounded-md',
-      },
-      lg: {
-        base: 'rounded-lg',
-      },
-      xl: {
-        base: 'rounded-xl',
-      },
-      full: {
-        base: 'rounded-full',
-      },
+      base: { base: 'rounded-[var(--radius-base)]' },
+      sm: { base: 'rounded-[calc(var(--radius-base)*0.75)]' },
+      md: { base: 'rounded-[calc(var(--radius-base)*1.25)]' },
+      lg: { base: 'rounded-[calc(var(--radius-base)*1.5)]' },
+      xl: { base: 'rounded-[calc(var(--radius-base)*2)]' },
+      full: { base: 'rounded-full' },
     },
     size: {
       xs: {
@@ -85,6 +79,11 @@ export const button = tv({
     loading: {
       true: '',
     },
+    disabled: {
+      true: {
+        base: 'cursor-not-allowed opacity-75',
+      },
+    },
     transitions: {
       true: '',
     }
@@ -93,92 +92,196 @@ export const button = tv({
     {
       color: 'primary',
       variant: 'solid',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-primary)] hover:bg-[var(--ui-primary)]/75 disabled:bg-[var(--ui-primary)] aria-disabled:bg-[var(--ui-primary)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-primary)]'
-    },
-    {
-      color: 'primary',
-      variant: 'outline',
-      class: 'ring ring-inset ring-[var(--ui-primary)]/50 text-[var(--ui-primary)] hover:bg-[var(--ui-primary)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-[var(--ui-primary)]'
+      class: {
+        base: [
+          'text-white bg-[var(--color-accent)]',
+          'hover:bg-[var(--color-accent-hover)]',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2',
+          'disabled:bg-[var(--color-accent)]/75',
+          'shadow-sm',
+        ],
+      }
     },
     {
       color: 'primary',
       variant: 'soft',
-      class: 'text-[var(--ui-primary)] bg-[var(--ui-primary)]/10 hover:bg-[var(--ui-primary)]/15 focus-visible:bg-[var(--ui-primary)]/15 disabled:bg-[var(--ui-primary)]/10 aria-disabled:bg-[var(--ui-primary)]/10'
+      class: {
+        base: [
+          'text-[var(--color-accent)] bg-[var(--color-accent)]/10',
+          'hover:bg-[var(--color-accent)]/15',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/50',
+          'disabled:bg-[var(--color-accent)]/5',
+        ],
+      }
     },
     {
       color: 'primary',
       variant: 'subtle',
-      class: 'text-[var(--ui-primary)] ring ring-inset ring-[var(--ui-primary)]/25 bg-[var(--ui-primary)]/10 hover:bg-[var(--ui-primary)]/15 disabled:bg-[var(--ui-primary)]/10 aria-disabled:bg-[var(--ui-primary)]/10 focus-visible:ring-2 focus-visible:ring-[var(--ui-primary)]'
+      class: {
+        base: [
+          'text-[var(--color-accent)] bg-accent/10',
+          'ring-1 ring-[var(--color-accent)]/25',
+          'hover:bg-[var(--color-accent)]/10',
+          'active:bg-[var(--color-accent)]/15',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]',
+          'disabled:ring-[var(--color-accent)]/15',
+        ],
+      }
     },
     {
       color: 'primary',
       variant: 'ghost',
-      class: 'text-[var(--ui-primary)] hover:bg-[var(--ui-primary)]/10 focus-visible:bg-[var(--ui-primary)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
+      class: {
+        base: [
+          'text-[var(--color-accent)]',
+          'hover:bg-[var(--color-accent)]/10',
+          'active:bg-[var(--color-accent)]/15',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/50 focus-visible:ring-inset',
+          'disabled:hover:bg-transparent',
+        ],
+      }
     },
     {
       color: 'primary',
       variant: 'link',
-      class: 'text-[var(--ui-primary)] hover:underline hover:text-[var(--ui-primary)]/75 disabled:text-[var(--ui-primary)] aria-disabled:text-[var(--ui-primary)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)]'
+      class: {
+        base: [
+          'text-[var(--color-accent)]',
+          'hover:underline hover:underline-offset-4',
+          'active:text-[var(--color-accent-hover)]',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/50 focus-visible:ring-inset',
+          'disabled:no-underline',
+        ],
+      }
     },
     {
       color: 'danger',
       variant: 'solid',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-danger)] hover:bg-[var(--ui-danger)]/75 disabled:bg-[var(--ui-danger)] aria-disabled:bg-[var(--ui-danger)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-danger)]'
-    },
-    {
-      color: 'danger',
-      variant: 'outline',
-      class: 'ring ring-inset ring-[var(--ui-danger)]/50 text-[var(--ui-danger)] hover:bg-[var(--ui-danger)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-[var(--ui-danger)]'
+      class: {
+        base: [
+          'text-white bg-[var(--color-danger)]',
+          'shadow-sm',
+          'hover:bg-[var(--color-danger-hover)]',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-danger)] focus-visible:ring-offset-2',
+          'disabled:bg-[var(--color-danger)]/75',
+        ],
+      }
     },
     {
       color: 'danger',
       variant: 'soft',
-      class: 'text-[var(--ui-danger)] bg-[var(--ui-danger)]/10 hover:bg-[var(--ui-danger)]/15 focus-visible:bg-[var(--ui-danger)]/15 disabled:bg-[var(--ui-danger)]/10 aria-disabled:bg-[var(--ui-danger)]/10'
+      class: {
+        base: [
+          'text-[var(--color-danger)] bg-[var(--color-danger)]/10',
+          'hover:bg-[var(--color-danger)]/15',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-danger)]/50',
+          'disabled:bg-[var(--color-danger)]/5',
+        ],
+      }
     },
     {
       color: 'danger',
       variant: 'subtle',
-      class: 'text-[var(--ui-danger)] ring ring-inset ring-[var(--ui-danger)]/25 bg-[var(--ui-danger)]/10 hover:bg-[var(--ui-danger)]/15 disabled:bg-[var(--ui-danger)]/10 aria-disabled:bg-[var(--ui-danger)]/10 focus-visible:ring-2 focus-visible:ring-[var(--ui-danger)]'
+      class: {
+        base: [
+          'text-[var(--color-danger)] bg-danger/10',
+          'ring-1 ring-[var(--color-danger)]/25',
+          'hover:bg-[var(--color-danger)]/10',
+          'active:bg-[var(--color-danger)]/15',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-danger)]',
+          'disabled:ring-[var(--color-danger)]/15',
+        ],
+      }
     },
     {
       color: 'danger',
       variant: 'ghost',
-      class: 'text-[var(--ui-danger)] hover:bg-[var(--ui-danger)]/10 focus-visible:bg-[var(--ui-danger)]/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
+      class: {
+        base: [
+          'text-[var(--color-danger)]',
+          'hover:bg-[var(--color-danger)]/10',
+          'active:bg-[var(--color-danger)]/15',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-danger)]/50 focus-visible:ring-inset',
+          'disabled:hover:bg-transparent',
+        ],
+      }
     },
     {
       color: 'danger',
       variant: 'link',
-      class: 'text-[var(--ui-danger)] hover:underline hover:text-[var(--ui-danger)]/75 disabled:text-[var(--ui-danger)] aria-disabled:text-[var(--ui-danger)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-danger)]'
+      class: {
+        base: [
+          'text-[var(--color-danger)]',
+          'hover:underline hover:underline-offset-4',
+          'active:text-[var(--color-danger-hover)]',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-danger)]/50 focus-visible:ring-inset',
+          'disabled:no-underline',
+        ],
+      }
     },
     {
       color: 'neutral',
       variant: 'solid',
-      class: 'text-[var(--ui-bg)] bg-[var(--ui-bg-inverted)] hover:bg-[var(--ui-bg-inverted)]/90 disabled:bg-[var(--ui-bg-inverted)] aria-disabled:bg-[var(--ui-bg-inverted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-border-inverted)]'
-    },
-    {
-      color: 'neutral',
-      variant: 'outline',
-      class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg)] hover:bg-[var(--ui-bg-elevated)] disabled:bg-[var(--ui-bg)] aria-disabled:bg-[var(--ui-bg)] focus-visible:ring-2 focus-visible:ring-[var(--ui-border-inverted)]'
+      class: {
+        base: [
+          'text-[var(--color-text-inverted)] bg-[var(--color-fg-primary)]',
+          'hover:bg-[var(--color-fg-primary)]/90',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-fg-primary)] focus-visible:ring-offset-2',
+          'disabled:bg-[var(--color-bg-translucent)]',
+        ],
+      }
     },
     {
       color: 'neutral',
       variant: 'soft',
-      class: 'text-[var(--ui-text)] bg-[var(--ui-bg-elevated)] hover:bg-[var(--ui-bg-accented)]/75 focus-visible:bg-[var(--ui-bg-accented)]/75 disabled:bg-[var(--ui-bg-elevated)] aria-disabled:bg-[var(--ui-bg-elevated)]'
+      class: {
+        base: [
+          'text-[var(--color-fg-primary)] bg-[var(--color-bg-translucent)]',
+          'hover:bg-[var(--color-bg-quaternary)]',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-fg-primary)]/50',
+          'disabled:bg-[var(--color-bg-translucent)]/75',
+        ],
+      }
     },
     {
       color: 'neutral',
       variant: 'subtle',
-      class: 'ring ring-inset ring-[var(--ui-border-accented)] text-[var(--ui-text)] bg-[var(--ui-bg-elevated)] hover:bg-[var(--ui-bg-accented)]/75 disabled:bg-[var(--ui-bg-elevated)] aria-disabled:bg-[var(--ui-bg-elevated)] focus-visible:ring-2 focus-visible:ring-[var(--ui-border-inverted)]'
+      class: {
+        base: [
+          'text-[var(--color-fg-primary)] bg-[var(--color-bg-translucent)]',
+          'ring-1 ring-[var(--color-fg-primary)]/15',
+          'hover:bg-[var(--color-bg-quaternary)]',
+          'active:bg-[var(--color-bg-quaternary)]',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-fg-primary)]',
+          'disabled:ring-[var(--color-fg-primary)]/15',
+        ],
+      }
     },
     {
       color: 'neutral',
       variant: 'ghost',
-      class: 'text-[var(--ui-text)] hover:bg-[var(--ui-bg-elevated)] focus-visible:bg-[var(--ui-bg-elevated)] hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent'
+      class: {
+        base: [
+          'text-[var(--color-fg-primary)]',
+          'hover:bg-[var(--color-bg-quaternary)]',
+          'active:bg-[var(--color-bg-quaternary)]',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-fg-primary)]/50 focus-visible:ring-inset',
+          'disabled:hover:bg-transparent',
+        ],
+      }
     },
     {
       color: 'neutral',
       variant: 'link',
-      class: 'text-[var(--ui-text-muted)] hover:underline hover:text-[var(--ui-text)] disabled:text-[var(--ui-text-muted)] aria-disabled:text-[var(--ui-text-muted)] focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-[var(--ui-border-inverted)]'
+      class: {
+        base: [
+          'text-[var(--color-fg-primary)]',
+          'hover:underline hover:underline-offset-4',
+          'active:text-[var(--color-fg-primary)]',
+          'focus-visible:ring-2 focus-visible:ring-[var(--color-fg-primary)]/50 focus-visible:ring-inset',
+          'disabled:no-underline',
+        ],
+      }
     },
     {
       size: 'xs',
@@ -222,15 +325,16 @@ export const button = tv({
     },
     {
       transitions: true,
+      disabled: false,
       class: {
-        base: 'transition-colors duration-200 ease-in-out',
+        base: 'transition-colors duration-200 ease-in-out active:translate-y-px',
       }
     }
   ],
   defaultVariants: {
     color: 'primary',
     variant: 'solid',
-    rounded: 'md',
+    rounded: 'base',
     size: 'md',
   },
 })
@@ -238,16 +342,63 @@ export const button = tv({
 type ButtonVariants = VariantProps<typeof button>
 
 export type ButtonProps = {
+  /**
+   * Label of the button
+   */
   label?: string
+  /**
+   * Color of the button
+   * @default primary
+   * @values primary, danger, neutral
+   */
   color?: ButtonVariants['color']
+  /**
+   * Variant of the button
+   * @default solid
+   * @values solid, soft, subtle, ghost, link
+   */
   variant?: ButtonVariants['variant']
+  /**
+   * Size of the button
+   * @default md
+   * @values xs, sm, md, lg, xl
+   */
   size?: ButtonVariants['size']
+  /**
+   * Rounded corners of the button
+   * @default base
+   * @values base, none, sm, md, lg, xl, full
+   */
   rounded?: ButtonVariants['rounded']
+  /**
+   * Apply square shape to the button (same padding on all sides)
+   */
   square?: boolean
+  /**
+   * Button will take the full width of the parent container
+   * @default false
+   */
   block?: boolean
+  /**
+   * Class to override default styles
+   */
   class?: string
+  /**
+   * Class applied to the icon
+   */
   iconClass?: string
+  /**
+   * Class applied to the label
+   */
   labelClass?: string
+  /**
+   * Show a loading spinner
+   */
+  loading?: boolean
+  /**
+   * Disable the button
+   */
+  disabled?: boolean
 }
 
 export type ButtonSlots = {
@@ -255,4 +406,3 @@ export type ButtonSlots = {
   default(props?: NonNullable<unknown>): any
   trailing(props?: NonNullable<unknown>): any
 }
-

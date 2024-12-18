@@ -1,3 +1,7 @@
+### Inline code
+
+This is a `inline code` example.
+
 ### Basic code block
 
 ```vue
@@ -11,6 +15,14 @@
 ### Code block with filename
 
 ```ts [nuxt.config.ts]
+export default defineNuxtConfig({
+  modules: ['mockline']
+})
+```
+
+### Enable light mode
+
+```ts [nuxt.config.ts] light
 export default defineNuxtConfig({
   modules: ['mockline']
 })

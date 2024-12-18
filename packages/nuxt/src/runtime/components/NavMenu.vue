@@ -12,51 +12,23 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from 'reka-ui'
-
-const navMenuStyle = tv({
-  slots: {
-    content: 'absolute left-0 top-0 w-full data-[motion=from-end]:animate-[enter-from-right_200ms_ease] data-[motion=from-start]:animate-[enter-from-left_200ms_ease] data-[motion=to-end]:animate-[exit-to-right_200ms_ease] data-[motion=to-start]:animate-[exit-to-left_200ms_ease] sm:w-auto',
-    viewport: 'bg-neutral border border-[var(--ui-border)] relative mt-[10px] h-[var(--reka-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-[10px] transition-[width,_height] duration-300 data-[state=closed]:animate-[scale-out_200ms_ease] data-[state=open]:animate-[scale-in_200ms_ease] sm:w-[var(--reka-navigation-menu-viewport-width)]'
-  },
-  variants: {
-    color: {
-      primary: 'text-primary-500 hover:bg-[var(--ui-bg-accented)] focus:shadow-[var(--ui-bg-inverted)]',
-      white: 'hover:bg-[var(--ui-bg-accented)] focus:shadow-[var(--ui-bg-inverted)] text-neutral-700',
-    },
-  },
-  defaultVariants: {
-    color: 'primary',
-  },
-})
-
-export type NavMenuProps = {
-  orientation?: 'horizontal' | 'vertical'
-  color?: VariantProps<typeof navMenuStyle>['color'];
-  items: {
-    title: string
-    path: string
-    slot?: string
-  }[]
-}
+import type { NavMenuProps } from '@mockline/themes'
+import { useComponent } from '#mockline/utils/useComponent'
 
 const props = withDefaults(defineProps<NavMenuProps>(), {
   orientation: 'horizontal',
 })
 
-const navTitleStyle = computed(() => {
-  return twMerge([
-    'group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]',
-    navMenuStyle(),
-  ])
-})
+const { getClasses } = useComponent('navMenu', props)
 </script>
 
 <template>
-  <NavigationMenuRoot class="relative z-[1] flex w-full justify-center" :orientation>
-    <NavigationMenuList class="bg-neutral border-[var(--ui-border)] m-0 flex list-none items-center justify-between gap-8 rounded-lg border px-4 py-1.5 shadow-lg">
+  TODO
+<!--  <NavigationMenuRoot class="relative z-[1] flex w-full justify-center" :orientation>
+    <NavigationMenuList class="bg-neutral border-[var(&#45;&#45;ui-border)] m-0 flex list-none items-center justify-between gap-8 rounded-lg border px-4 py-1.5 shadow-lg">
       <slot name="leading" />
       <div class="flex list-none items-center justify-between">
-        <NavigationMenuItem v-for="item in items" :key="item.title">
+        <NavigationMenuItem v-for="item in items" :key="item.label">
           <NavigationMenuTrigger
             v-if="item.slot"
             :class="navTitleStyle"
@@ -82,5 +54,5 @@ const navTitleStyle = computed(() => {
     <div class="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
       <NavigationMenuViewport :class="navMenuStyle.slots.viewport" />
     </div>
-  </NavigationMenuRoot>
+  </NavigationMenuRoot>-->
 </template>

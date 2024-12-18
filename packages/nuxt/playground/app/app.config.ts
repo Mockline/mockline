@@ -3,6 +3,7 @@ export default defineAppConfig({
     colors: {
       primary: 'blue',
     },
+    darkCode: false,
     components: {}
   }
 })

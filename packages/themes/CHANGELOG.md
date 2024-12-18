@@ -1,5 +1,17 @@
 # @mockline/themes
 
+## 0.14.0
+
+### Minor Changes
+
+- Mockline theme v1
+
+## 0.13.0
+
+### Minor Changes
+
+- Improve global css handling
+
 ## 0.12.0
 
 ### Minor Changes

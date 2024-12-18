@@ -3,9 +3,10 @@ import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent } from 'rek
 import { useSlots, computed, onMounted, watch } from 'vue'
 import { type CodeGroupProps } from '@mockline/themes'
 import { transformSlot } from '../../utils'
-import { useComponent } from '../../utils/useComponent'
 import CodeIcon from './CodeIcon.vue'
+import { useComponent } from '#mockline/utils/useComponent'
 import { useState } from '#imports'
+import appConfig from '#build/app.config'
 
 const props = withDefaults(defineProps<CodeGroupProps>(), {
   defaultValue: '0'
@@ -14,6 +15,7 @@ const props = withDefaults(defineProps<CodeGroupProps>(), {
 const componentProps = computed(() => {
   return {
     ...props,
+    forceDark: appConfig.mockline.darkCode,
   }
 })
 

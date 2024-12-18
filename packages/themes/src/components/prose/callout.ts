@@ -2,14 +2,15 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 export const proseCallout = tv({
   slots: {
-    base: 'group border relative block rounded-[calc(var(--ui-radius)*1.5)] px-4 py-3 text-sm/6 my-5',
+    base: 'group border relative block rounded-base px-4 py-3 text-sm/6 my-5',
     icon: 'size-4 shrink-0 align-middle mr-1.5',
-    externalIcon: 'size-4 align-top absolute right-2 top-2 pointer-events-none',
+    externalWrapper: 'align-top absolute -right-2.5 -top-2.5',
+    externalIcon: 'bg-[var(--color-bg-level-2)] border-[var(--color-border-tertiary)]/50 text-[var(--color-text-primary)] group-hover:bg-[var(--color-bg-level-3)] group-hover:border-[var(--color-border-tertiary)]'
   },
   variants: {
     color: {
       neutral: {
-        base: 'dark:bg-neutral-950/25 dark:border-neutral-500/20 border-neutral-400/10 bg-neutral-300/20',
+        base: 'bg-[var(--color-bg-level-2)] border-[var(--color-border-tertiary)]/50 text-[var(--color-text-primary)]',
       },
       warning: {
         base: 'dark:border-yellow-500/20 dark:bg-yellow-800/5 border-yellow-500/30 bg-yellow-500/10 text-yellow-600',
@@ -31,7 +32,7 @@ export const proseCallout = tv({
     link: {
       true: '',
     },
-    transition: {
+    transitions: {
       true: '',
     }
   },
@@ -39,7 +40,9 @@ export const proseCallout = tv({
     {
       color: 'neutral',
       link: true,
-      class: 'hover:bg-neutral-600/10 dark:hover:bg-neutral-750/30 hover:border-neutral-600/20 dark:hover:border-neutral-700/20'
+      class: {
+        base: 'hover:bg-[var(--color-bg-level-3)] hover:border-[var(--color-border-tertiary)]',
+      },
     },
     {
       transitions: true,
@@ -61,6 +64,7 @@ export type ProseCalloutProps = {
   icon?: string
   to?: string
   target?: string
+  transitions?: boolean
   color?: CalloutVariants['color']
 }
 

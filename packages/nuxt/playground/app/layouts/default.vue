@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { NavigationTreeLink } from '@mockline/themes'
+
 function formatTitle(title: string): string {
   return title
     .split('-')
@@ -7,42 +9,127 @@ function formatTitle(title: string): string {
 }
 const route = useRoute()
 
-const components = ['button', 'switch', 'nav-menu', 'page']
-const contentComponents = ['code', 'callout', 'typography', 'list']
+const links: NavigationTreeLink[] = [
+  {
+    title: 'Base',
+    path: '/playground',
+    children: [
+      {
+        title: 'Button',
+        path: '/playground/button',
+        icon: 'lucide:square-mouse-pointer',
+      },
+      {
+        title: 'Nav Menu',
+        path: '/playground/nav-menu',
+        icon: 'lucide:menu',
+      },
+      {
+        title: 'Divider',
+        path: '/playground/divider',
+        icon: 'lucide:minus',
+      },
+      {
+        title: 'Page',
+        path: '/playground/page',
+        icon: 'lucide:file-text',
+      },
+      {
+        title: 'Toasts',
+        path: '/playground/toasts',
+        icon: 'lucide:bell',
+      },
+    ],
+  },
+  {
+    title: 'Prose',
+    path: '/components',
+    children: [
+      {
+        title: 'Code',
+        path: '/components/code',
+        icon: 'lucide:code',
+      },
+      {
+        title: 'Callout',
+        path: '/components/callout',
+        icon: 'lucide:info',
+      },
+      {
+        title: 'Typography',
+        path: '/components/typography',
+        icon: 'lucide:text',
+      },
+      {
+        title: 'List',
+        path: '/components/list',
+        icon: 'lucide:list',
+      },
+      {
+        title: 'Icon',
+        path: '/components/icon',
+        icon: 'lucide:star',
+      },
+      {
+        title: 'Image',
+        path: '/components/img',
+        icon: 'lucide:image',
+      },
+      {
+        title: 'Hr',
+        path: '/components/hr',
+        icon: 'lucide:minus',
+      }
+    ]
+  },
+  {
+    title: 'Content',
+    path: '/content',
+    children: [
+      {
+        title: 'Navigation Tree',
+        path: '/playground/navigation-tree',
+        icon: 'lucide:menu',
+      }
+    ]
+  }
+]
+
+const { version } = useRuntimeConfig().public
 </script>
 
 <template>
   <MSidebarLayout>
     <template #sidebar>
       <MSidebar>
-        <div class="p-2 flex flex-col gap-1">
-          <span>Base</span>
-          <div class="p-2 flex flex-col gap-2 text-sm">
-            <div v-for="component in components" :key="component">
-              <NuxtLink :to="`/playground/${component}`" class="hover:underline" :class="$route.path.includes(component) ? 'font-semibold text-blue-600' : ''">
-                {{ component.charAt(0).toUpperCase() + component.slice(1) }}
-              </NuxtLink>
+        <template #header>
+          <div class="flex items-center justify-between text-xs mb-4">
+            <div class="flex items-center gap-1">
+              <Icon name="custom:mockline" />
+              <span class="font-bold">
+                Mockline
+              </span>
             </div>
           </div>
-        </div>
-        <div class="p-2 flex flex-col gap-1">
-          <span>Content</span>
-          <div class="p-2 flex flex-col gap-2 text-sm">
-            <div v-for="component in contentComponents" :key="component">
-              <NuxtLink :to="`/components/${component}`" class="hover:underline" :class="$route.path.includes(component) ? 'font-semibold text-blue-600' : ''">
-                {{ component.charAt(0).toUpperCase() + component.slice(1) }}
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
+        </template>
+        <MContentNavigationTree :links color="neutral" />
+        <template #footer>
+          <span class="bg-[var(--color-bg-translucent)] px-2 py-1 rounded-base text-xs">
+            v{{ version }}
+          </span>
+        </template>
       </MSidebar>
     </template>
-    <MMain class="p-4 relative">
-      <MThemeToggle size="sm" class="absolute top-4 right-4 z-50" />
-      <MPage>
-        <h1 class="text-gray-12 text-2xl font-semibold">
+    <MHeader sticky>
+      <div class="flex justify-between items-center">
+        <ProseH2 class="m-0">
           {{ formatTitle(route.name as string) }}
-        </h1>
+        </ProseH2>
+        <MThemeToggle size="md" class="absolute top-4 right-4 z-50" />
+      </div>
+    </MHeader>
+    <MMain class="p-4 relative">
+      <MPage>
         <slot />
       </MPage>
     </MMain>

@@ -1,0 +1,171 @@
+@import "./animation.css";
+
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Base Colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Header */
+  --header-bg: hsla(0,0%,96%,.8);
+  --header-border: hsla(0,0%,0%,.08);
+
+  /* Background System */
+  --color-bg-primary: var(--color-bg-level-1);
+  --color-bg-secondary: #f9f8f9;
+  --color-bg-tertiary: #f4f2f4;
+  --color-bg-quaternary: #eeedef;
+  --color-bg-quinary: #e9e8ea;
+  --color-bg-translucent: hsla(0,0%,0%,.05);
+
+  /* Background Levels */
+  --color-bg-level-0: #ffffff;
+  --color-bg-level-1: #f8f8f8;
+  --color-bg-level-2: #f4f4f4;
+  --color-bg-level-3: #f0f0f0;
+
+  /* Content Area */
+  --content-area-bg: var(--color-bg-level-0);
+  --content-area-border: var(--color-border-primary);
+  --content-area-shadow: none;
+
+  /* Border System */
+  --color-border-primary: #e9e8ea;
+  --color-border-secondary: #e4e2e4;
+  --color-border-tertiary: #dcdbdd;
+  --color-border-translucent: hsla(0,0%,0%,.05);
+
+  /* Line System */
+  --color-line-primary: #d4d4d6;
+  --color-line-secondary: #eaeaeb;
+  --color-line-tertiary: #f0f0f0;
+  --color-line-quaternary: #f4f4f4;
+
+  /* Typography - Text */
+  --color-text-primary: #282a30;
+  --color-text-secondary: #3c4149;
+  --color-text-tertiary: #6f6e77;
+  --color-text-quaternary: #86848d;
+  --color-text-inverted: #ffffff;
+
+  /* Typography - Foreground */
+  --color-fg-primary: #282a2f;
+  --color-fg-secondary: #3c4149;
+  --color-fg-tertiary: #6f6e77;
+  --color-fg-quaternary: #86848d;
+
+  /* Interactive Elements */
+  --color-selection-text: var(--color-text-primary);
+  --color-selection-bg: #c8c8c8;
+  --color-selection-dim: hsla(0,0%,0%,.2);
+
+  /* Shadows */
+  --shadow-low: 0px 1px 4px rgba(0,0,0,.09);
+  --shadow-medium: 0px 3px 12px rgba(0,0,0,.09);
+  --shadow-high: 0px 7px 24px rgba(0,0,0,.06);
+
+  /* Accent Colors */
+  --color-accent: #7170ff;
+  --color-accent-hover: #8989f0;
+  --focus-ring-color: lch(47.918% 59.303 288.421);
+  --color-danger: #e11d48;
+  --color-danger-hover: #be123c;
+
+  /* System */
+  --base-radius: 0.3rem;
+  --scrollbar-width: thin;
+
+  scrollbar-color: var(--color-bg-quaternary) var(--color-bg-secondary);
+  ::selection {
+    color: var(--color-selection-text);
+    background-color: var(--color-selection-bg);
+  }
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* Header */
+  --header-bg: hsla(0,0%,4%,.8);
+  --header-border: hsla(0,0%,100%,.08);
+
+  /* Background System */
+  --color-bg-primary: var(--color-bg-level-0);
+  --color-bg-secondary: #1c1c1f;
+  --color-bg-tertiary: #232326;
+  --color-bg-quaternary: #28282c;
+  --color-bg-quinary: #282828;
+  --color-bg-translucent: hsla(0,0%,100%,.05);
+
+  /* Background Levels */
+  --color-bg-level-0: #08090a;
+  --color-bg-level-1: #0f1011;
+  --color-bg-level-2: #141516;
+  --color-bg-level-3: #191a1b;
+
+  /* Content Area */
+  --content-area-bg: var(--color-bg-level-1);
+  --content-area-border: var(--color-border-primary);
+  --content-area-shadow: var(--shadow-low);
+
+  /* Border System */
+  --color-border-primary: #23252a;
+  --color-border-secondary: #34343a;
+  --color-border-tertiary: #3e3e44;
+  --color-border-translucent: hsla(0,0%,100%,.05);
+
+  /* Line System */
+  --color-line-primary: #37393a;
+  --color-line-secondary: #202122;
+  --color-line-tertiary: #18191a;
+  --color-line-quaternary: #141515;
+
+  /* Typography - Text */
+  --color-text-primary: #f7f8f8;
+  --color-text-secondary: #d0d6e0;
+  --color-text-tertiary: #8a8f98;
+  --color-text-quaternary: #62666d;
+  --color-text-inverted: #282a30;
+
+  /* Typography - Foreground */
+  --color-fg-primary: #f7f8f8;
+  --color-fg-secondary: #d0d6e0;
+  --color-fg-tertiary: #8a8f98;
+  --color-fg-quaternary: #62666d;
+
+  /* Interactive Elements */
+  --color-selection-text: #ffffff;
+  --color-selection-bg: #474747;
+  --color-selection-dim: hsla(0,0%,100%,.2);
+
+  /* Shadows */
+  --shadow-low: 0px 2px 4px rgba(0,0,0,.1);
+  --shadow-medium: 0px 4px 24px rgba(0,0,0,.2);
+  --shadow-high: 0px 7px 32px rgba(0,0,0,.35);
+
+  /* Accent Colors */
+  --color-accent: #7170ff;
+  --color-accent-hover: #828fff;
+  --color-danger: #e11d48;
+  --color-danger-hover: #be123c;
+}
+
+@theme {
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-danger: var(--color-danger);
+  --color-danger-hover: var(--color-danger-hover);
+  --color-fg-primary: var(--color-fg-primary);
+
+  --color-content-area: var(--content-area-bg);
+  --color-content-area-border: var(--content-area-border);
+
+  --radius-base: var(--base-radius);
+}
+
+@layer base {
+  body {
+    @apply antialiased text-[var(--color-text-primary)] scheme-light dark:scheme-dark;
+  }
+}

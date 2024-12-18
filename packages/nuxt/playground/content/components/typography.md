@@ -1,3 +1,8 @@
+---
+title: Typography
+description: Typography components
+---
+
 # Heading 1
 
 ## Heading 2

@@ -98,7 +98,7 @@ A typical Mockline component follows this structure:
 <script setup lang="ts">
   import { computed } from 'vue'
   import type { MyComponentProps } from '@mockline/themes'
-  import { useComponent } from '../../utils/useComponent'
+  import { useComponent } from '#mockline/utils/useComponent'
   const props = defineProps<MyComponentProps>()
   // Computed props for useComponent
   const componentProps = computed(() => {

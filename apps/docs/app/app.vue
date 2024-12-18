@@ -17,7 +17,7 @@ provide('navigation', navigation)
 
 <style>
 @import "tailwindcss";
-@import "mockline";
+@import "@mockline/themes";
 
 @source "../content";
 
