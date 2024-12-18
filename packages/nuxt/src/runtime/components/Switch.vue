@@ -1,70 +1,72 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { type SwitchProps, type SwitchSlots } from '@mockline/themes'
-import { SwitchRoot, SwitchThumb } from 'reka-ui'
-import { useComponent } from '../utils/useComponent'
-import { useComponentIcons, type UseComponentIconsProps } from '#mockline/composables/useComponentIcons'
-import appConfig from '#build/app.config'
+import { computed, useId } from 'vue'
+import { Primitive, SwitchRoot, SwitchThumb, Label } from 'reka-ui'
+import type { SwitchProps, SwitchSlots, SwitchEmits } from '@mockline/themes'
+import { useAppConfig } from '#imports'
+import { useComponent } from '#mockline/utils/useComponent'
 
+const appConfig = useAppConfig()
 
-const props = defineProps<SwitchProps & UseComponentIconsProps>()
+const props = defineProps<SwitchProps>()
 const slots = defineSlots<SwitchSlots>()
+const emits = defineEmits<SwitchEmits>()
 
-const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
+const loadingIcon = props.loadingIcon || appConfig.mockline.icons.loading
 
-const state = defineModel({
-  type: Boolean,
-})
+const modelValue = defineModel<boolean>({ default: undefined })
+const id = useId()
 
 const componentProps = computed(() => {
   return {
     ...props,
-    transitions: appConfig.mockline.transitions
+    checked: modelValue.value,
+    unchecked: !modelValue.value,
   }
 })
 
 const { getClasses } = useComponent('switchTv', componentProps)
 
-
-function toggleState(): void {
-  if (!props.disabled && !props.loading) {
-    state.value = !state.value
-  }
+function onUpdate(value: any): void {
+  // @ts-expect-error - 'target' does not exist in type 'EventInit'
+  const event = new Event('change', { target: { value } })
+  emits('change', event)
 }
 </script>
 
 <template>
-  <div
-    :class="getClasses('root')"
-  >
-    <SwitchRoot
-      v-model="state"
-      :class="getClasses('base')"
-      :disabled="loading || disabled"
-    >
-      <SwitchThumb
-        :class="getClasses('indicator', props.indicatorClass)"
+  <Primitive :as :class="getClasses('root', props.class)">
+    <div :class="getClasses('container')">
+      <SwitchRoot
+        :id
+        v-model="modelValue"
+        :disabled="disabled || loading"
+        :class="getClasses('base')"
+        @update:model-value="onUpdate"
       >
-        <MIcon
-          v-if="loading"
-          :name="loadingIcon || appConfig.mockline.icons.loading"
-          :class="getClasses('loadingIcon')"
-        />
-        <template v-else>
-          <MIcon v-if="checkedIcon && state" :name="checkedIcon" :class="getClasses('icon')" />
-          <MIcon v-if="uncheckedIcon && !state" :name="uncheckedIcon" :class="getClasses('icon')" />
-        </template>
-      </SwitchThumb>
-    </SwitchRoot>
-    <span
-      v-if="label"
-      :class="getClasses
-        ('label', labelClass)"
-      @click="toggleState"
-    >
-      <slot name="label">
-        {{ label }}
-      </slot>
-    </span>
-  </div>
+        <SwitchThumb :class="getClasses('thumb')">
+          <Icon
+            v-if="loading"
+            :name="loadingIcon || appConfig.mockline.icons.loading"
+            :class="getClasses('icon')"
+          />
+          <template v-else>
+            <Icon v-if="checkedIcon && modelValue" :name="checkedIcon" :class="getClasses('icon')" />
+            <Icon v-if="uncheckedIcon && !modelValue" :name="uncheckedIcon" :class="getClasses('icon')" />
+          </template>
+        </SwitchThumb>
+      </SwitchRoot>
+    </div>
+    <div v-if="(label || !!slots.label) || (description || !!slots.description)" :class="getClasses('wrapper')">
+      <Label v-if="label || !!slots.label" :for="id" :class="getClasses('label', labelClass)">
+        <slot name="label" :label>
+          {{ label }}
+        </slot>
+      </Label>
+      <p v-if="description || !!slots.description" :class="getClasses('description')">
+        <slot name="description" :description>
+          {{ description }}
+        </slot>
+      </p>
+    </div>
+  </Primitive>
 </template>
