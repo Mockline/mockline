@@ -20,6 +20,11 @@ const links: NavigationTreeLink[] = [
         icon: 'lucide:square-mouse-pointer',
       },
       {
+        title: 'Switch',
+        path: '/playground/switch',
+        icon: 'lucide:toggle-right',
+      },
+      {
         title: 'Nav Menu',
         path: '/playground/nav-menu',
         icon: 'lucide:menu',
