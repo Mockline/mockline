@@ -165,6 +165,32 @@ export default defineAppConfig({
 })
 ```
 
+## Step 3: Testing
+
+1. In your scope (nuxt/react/...) create a `/test` folder if it does not exist.
+2. Install `vitest` dependencies
+3. Create a test file `<component-name>.spec.ts`
+4. Add a `test` script in your `package.json` if not exists.
+5. Run your tests!
+
+Here is what a test looks like in the `nuxt` package:
+
+```typescript
+// nuxt/test/components/Button.spec.ts
+
+import { describe, it, expect } from 'vitest'
+import { renderSuspended } from '@nuxt/test-utils/runtime'
+import Button from '../../src/runtime/components/Button.vue'
+
+describe('Button', () => {
+  it('can mount component', async () => {
+    const html = await renderSuspended(Button)
+    expect(html.html()).toMatchSnapshot()
+  })
+})
+```
+
+
 ## Best Practices
 
 1. **Variants**
