@@ -25,6 +25,11 @@ const links: NavigationTreeLink[] = [
         icon: 'lucide:toggle-right',
       },
       {
+        title: 'Input',
+        path: '/playground/input',
+        icon: 'lucide:text-cursor-input',
+      },
+      {
         title: 'Nav Menu',
         path: '/playground/nav-menu',
         icon: 'lucide:menu',
