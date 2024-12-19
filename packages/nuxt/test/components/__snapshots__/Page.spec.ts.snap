@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Page > can mount component 1`] = `
+"<div id="test-wrapper">
+  <div class="flex sm:flex-row flex-col">
+    <!--v-if-->
+    <div class="flex flex-col gap-4 w-full"></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;

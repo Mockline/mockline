@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App > can mount component 1`] = `
+"<div id="test-wrapper">
+  <div class="bg-[var(--color-bg-primary)]"></div>
+</div>"
+`;

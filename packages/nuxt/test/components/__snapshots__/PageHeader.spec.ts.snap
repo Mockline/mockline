@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PageHeader > can mount component 1`] = `
+"<div id="test-wrapper">
+  <div class="relative border-b border-neutral-200 dark:border-neutral-800 py-8">
+    <!--v-if-->
+    <div class="flex flex-col items-start gap-6 lg:flex-row">
+      <!--v-if-->
+      <div class="flex-1">
+        <div>
+          <proseh1></proseh1>
+        </div>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+</div>"
+`;

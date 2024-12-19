@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header > can mount component 1`] = `
+"<div id="test-wrapper">
+  <header class="flex items-center justify-between w-full h-[var(--header-height)] px-4 py-2 bg-[var(--content-area-bg)]"></header>
+</div>"
+`;
