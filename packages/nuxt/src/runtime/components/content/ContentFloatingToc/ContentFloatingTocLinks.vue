@@ -54,7 +54,7 @@ const scrollToHeading = (id: string): void => {
         >
           <a
             class="block truncate text-xs/4 transition-all duration-500 ease-in-out"
-            :class="activeHeadings.includes(link.id) ? 'text-[var(--ui-primary)]' : 'text-[var(--ui-text-secondary)] hover:text-[var(--ui-text-primary)] dark:hover:text-[var(--ui-text-primary-dark)]'"
+            :class="activeHeadings.includes(link.id) ? 'text-accent' : 'text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]'"
             :href="`#${link.id}`"
             @click.prevent="scrollToHeading(link.id)"
           >
@@ -80,8 +80,8 @@ const scrollToHeading = (id: string): void => {
             class="h-[4px] transition-all duration-500 ease-in-out"
             :class="[
               activeHeadings.includes(link.id)
-                ? 'w-11 bg-[var(--ui-primary)]'
-                : 'bg-[var(--ui-bg-accented)]',
+                ? 'w-11 bg-accent'
+                : 'bg-[var(--color-bg-quaternary)]',
               link.depth === 1 ? 'w-12' : link.depth === 2 ? 'w-10' : 'w-8',
               isMobile ? 'cursor-default' : 'cursor-pointer'
             ]"
