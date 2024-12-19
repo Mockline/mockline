@@ -17,11 +17,11 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.10",
+    "@changesets/cli": "^2.27.11",
     "@hrcd/eslint-config": "edge",
-    "@shelve/cli": "^2.9.0",
+    "@shelve/cli": "^2.10.0",
     "automd": "^0.3.12",
-    "eslint": "^9.16.0",
+    "eslint": "^9.17.0",
     "turbo": "^2.3.3"
   },
   "workspaces": [
