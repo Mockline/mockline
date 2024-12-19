@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CodeIcon > can mount component 1`] = `
+"<div id="test-wrapper">
+  <!--v-if-->
+</div>"
+`;
