@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContentFloatingTocLinks > can mount component 1`] = `
+"<div id="test-wrapper">
+  <div>
+    <transition-stub enteractiveclass="transition-all duration-100 ease-in-out" enterfromclass="opacity-0" entertoclass="opacity-100" leaveactiveclass="transition-all duration-100 ease-in-out" leavefromclass="opacity-100" leavetoclass="opacity-0" mode="out-in" appear="false" persisted="false" css="true">
+      <!--v-if-->
+    </transition-stub>
+  </div>
+</div>"
+`;
