@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContentSurround > can mount component 1`] = `
+"<div id="test-wrapper">
+  <div class="p-4">
+    <div class="flex justify-between">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+  </div>
+</div>"
+`;
