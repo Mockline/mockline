@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContentTocLinks > can mount component 1`] = `
+"<div id="test-wrapper">
+  <ul class="space-y-2"></ul>
+</div>"
+`;
