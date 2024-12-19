@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`A > can mount component 1`] = `
+"<div id="test-wrapper">
+  <div class="group border relative block rounded-base px-4 py-3 text-sm/6 my-5 bg-[var(--color-bg-level-2)] border-[var(--color-border-tertiary)]/50 text-[var(--color-text-primary)] transition-colors duration-200 ease-in-out">
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
