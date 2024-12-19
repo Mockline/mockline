@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PageBody > can mount component 1`] = `
+"<div id="test-wrapper">
+  <div class="flex flex-col gap-4 w-full"></div>
+</div>"
+`;
