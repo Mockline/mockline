@@ -51,7 +51,7 @@
     "release": "bun run test && npm publish"
   },
   "dependencies": {
-    "tailwind-variants": "^0.2.0"
+    "tailwind-variants": "^0.3.0"
   },
   "devDependencies": {
     "tsup": "8.3.5",

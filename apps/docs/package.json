@@ -19,7 +19,7 @@
     "nuxt": "^3.14.1592"
   },
   "devDependencies": {
-    "@iconify-json/vscode-icons": "^1.2.4",
+    "@iconify-json/vscode-icons": "^1.2.6",
     "typescript": "5.7.2"
   }
 }
