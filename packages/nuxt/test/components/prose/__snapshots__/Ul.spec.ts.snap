@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Ul > can mount component 1`] = `
+"<div id="test-wrapper">
+  <ul class="list-disc pl-6 my-5 marker:text-[var(--ui-border-accented)]"></ul>
+</div>"
+`;

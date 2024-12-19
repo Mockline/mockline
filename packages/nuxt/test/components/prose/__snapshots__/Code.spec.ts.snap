@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Code > can mount component 1`] = `"<div id="test-wrapper"><code class="px-1.5 py-0.5 text-sm font-mono font-medium rounded-base inline-block border border-[var(--color-border-primary)] text-[var(--color-text-primary)] bg-[var(--color-bg-level-2)]"></code></div>"`;
