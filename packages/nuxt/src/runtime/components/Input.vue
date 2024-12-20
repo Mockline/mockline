@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, useId } from 'vue'
-import type { InputSlots, InputEmits, InputProps } from '@mockline/themes'
+import type { InputSlots, InputEmits, InputProps, Placeholder } from '@mockline/themes'
+import { Primitive } from 'reka-ui'
 import { useComponent } from '#mockline/utils/useComponent'
 import { useAppConfig } from '#imports'
 
@@ -12,7 +13,7 @@ const emits = defineEmits<InputEmits>()
 
 const loadingIcon = props.loadingIcon || appConfig.mockline.icons.loading
 
-const modelValue = defineModel<boolean>({ default: undefined })
+const modelValue = defineModel<string>({ default: undefined })
 const id = useId()
 
 // Computed props for useComponent
@@ -32,11 +33,16 @@ function onUpdate(value: any): void {
 }
 </script>
 <template>
-  <div :class="getClasses('root')">
-    <slot name="icon" :class="getClasses('icon')" />
-    prout
-    <span :class="getClasses('label')">
-      <slot />
-    </span>
-  </div>
+  <Primitive :as :class="getClasses('root', props.class)">
+    <div :class="getClasses('container')">
+      <input
+        :id
+        v-model="modelValue"
+        :disabled="loading"
+        :class="getClasses('base')"
+        :placeholder
+        @update:model-value="onUpdate"
+      >
+    </div>
+  </Primitive>
 </template>

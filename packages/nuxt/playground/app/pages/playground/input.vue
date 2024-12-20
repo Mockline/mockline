@@ -2,7 +2,7 @@
 import { input } from '@mockline/themes'
 
 const sizes = Object.keys(input.variants.size) as Array<keyof typeof input.variants.size>
-const search = ref('toto')
+const inputText = ref('')
 </script>
 
 <template>
@@ -13,8 +13,8 @@ const search = ref('toto')
       </ProseH3>
       <div class="flex flex-wrap gap-4">
         <MInput
-          v-model="search"
-          label="Disabled"
+          v-model="inputText"
+          placeholder="placeholder"
           disabled
         />
       </div>
