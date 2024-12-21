@@ -44,6 +44,7 @@ export const MSidebar: React.FC<MSidebarProps> = ({
         </button>
       </MHeader>
 
+
       {/* Navigation */}
       <MContentNavigationTree links={links} getClasses={(key: string, classes: Record<string, boolean>) => {
         if (classes?.active) {
