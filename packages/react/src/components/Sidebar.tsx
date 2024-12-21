@@ -34,7 +34,7 @@ export const MSidebar: React.FC<MSidebarProps> = ({
   return (
     <nav
       className={`flex flex-col h-screen bg-gray-800 text-white transition-all duration-300`}
-      style={{width: sidebarWidth}}
+      style={{width: sidebarWidth, minWidth: `${minSize}px`, maxWidth: `${maxSize}px`}}
     >
       {/* Header */}
       <MHeader className="flex items-center justify-between px-4 py-3 border-b border-gray-700">
