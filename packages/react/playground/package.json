@@ -3,13 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "15.1.1",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "mockline-react": "file:../dist",
+    "next": "15.1.2",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
@@ -18,7 +22,7 @@
     "@types/react": "^18.3.17",
     "@types/react-dom": "^18.3.5",
     "eslint": "^9.17.0",
-    "eslint-config-next": "15.1.1",
+    "eslint-config-next": "15.1.2",
     "typescript": "5.7.2"
   }
 }

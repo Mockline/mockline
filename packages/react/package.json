@@ -1,10 +1,14 @@
 {
   "name": "@mockline/react",
   "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mockline/mockline.git",
+    "directory": "packages/mockline-react"
+  },
+  "dependencies": {
+    "react-splitter-layout": "^4.0.0",
+    "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {
     "@types/react": "^18.3.17",
@@ -12,25 +16,19 @@
     "eslint": ">=9.17.0",
     "eslint-config-custom": "*",
     "prettier": "^3.4.2",
-    "react": "^18.3.1",
     "tsconfig": "*",
     "turbo": "^2.3.3",
     "typescript": "5.7.2"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mockline/mockline.git",
-    "directory": "packages/mockline-react"
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "bugs": {
     "url": "https://github.com/mockline/mockline/issues"
   },
-  "license": "Apache-2.0",
-  "homepage": "https://mockline.dev",
   "description": "Mockline is a premium UI Kit for Nuxt and VueJS based on TailwindCSS. It provides a set of components and utilities to help you build your next project.",
+  "homepage": "https://mockline.dev",
   "keywords": [
     "nuxt",
     "nuxt3",
@@ -40,5 +38,16 @@
     "vue3",
     "tailwindcss",
     "tailwind"
-  ]
+  ],
+  "license": "Apache-2.0",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json --watch"
+  },
+  "type": "module"
 }
