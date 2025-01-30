@@ -14,12 +14,12 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@nuxt/content": "3.0.0-alpha.8",
+    "@nuxt/content": "3.0.1",
     "mockline": "*",
-    "nuxt": "^3.15.0"
+    "nuxt": "^3.15.4"
   },
   "devDependencies": {
-    "@iconify-json/vscode-icons": "^1.2.6",
-    "typescript": "5.7.2"
+    "@iconify-json/vscode-icons": "^1.2.11",
+    "typescript": "5.7.3"
   }
 }
