@@ -15,3 +15,37 @@ exports[`Button > can mount some component 1`] = `
     <!--v-if-->
   </button></div>"
 `;
+
+exports[`Button > renders <UButton icon="i-heroicons-pencil-square" size="sm" color="primary" square variant="solid" /> correctly 1`] = `
+"<button class="relative inline-flex items-center justify-center font-medium cursor-pointer select-none focus-visible:outline-none touch-none tap-highlight-none rounded-[var(--radius-base)] text-xs gap-1.5 text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 disabled:bg-[var(--color-accent)]/75 shadow-sm p-1.5 transition-colors duration-200 ease-in-out active:translate-y-px"><span class="iconify i-heroicons:pencil-square shrink-0 relative size-4" aria-hidden="true"></span>
+  <!--v-if-->
+  <!--v-if-->
+</button>"
+`;
+
+exports[`Button > renders basic case correctly 1`] = `
+"<button class="relative inline-flex items-center justify-center font-medium cursor-pointer select-none focus-visible:outline-none touch-none tap-highlight-none rounded-[var(--radius-base)] px-2.5 py-1 text-sm gap-1.5 text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 disabled:bg-[var(--color-accent)]/75 shadow-sm transition-colors duration-200 ease-in-out active:translate-y-px">
+  <!--v-if--><span class="truncate relative">label</span>
+  <!--v-if-->
+</button>"
+`;
+
+exports[`Button > renders black solid correctly 1`] = `
+"<button class="relative inline-flex items-center justify-center font-medium cursor-pointer select-none focus-visible:outline-none touch-none tap-highlight-none rounded-[var(--radius-base)] px-2.5 py-1 text-sm gap-1.5 transition-colors duration-200 ease-in-out active:translate-y-px">
+  <!--v-if--><span class="truncate relative">label</span>
+  <!--v-if-->
+</button>"
+`;
+
+exports[`Button > renders leading icon correctly 1`] = `
+"<button class="relative inline-flex items-center justify-center font-medium cursor-pointer select-none focus-visible:outline-none touch-none tap-highlight-none rounded-[var(--radius-base)] px-2.5 py-1 text-sm gap-1.5 text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 disabled:bg-[var(--color-accent)]/75 shadow-sm transition-colors duration-200 ease-in-out active:translate-y-px"><span class="iconify i-heroicons:check shrink-0 relative size-4" aria-hidden="true"></span><span class="truncate relative">label</span>
+  <!--v-if-->
+</button>"
+`;
+
+exports[`Button > renders rounded full correctly 1`] = `
+"<button class="relative inline-flex items-center justify-center font-medium cursor-pointer select-none focus-visible:outline-none touch-none tap-highlight-none rounded-[var(--radius-base)] px-2.5 py-1 text-sm gap-1.5 text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 disabled:bg-[var(--color-accent)]/75 shadow-sm transition-colors duration-200 ease-in-out active:translate-y-px" ui="[object Object]">
+  <!--v-if--><span class="truncate relative">label</span>
+  <!--v-if-->
+</button>"
+`;
