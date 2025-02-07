@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Index > can mount component 1`] = `
+"<div id="test-wrapper">
+  <div>
+    <h2 class="text-xs/4 font-bold">On This Page</h2>
+    <nav>
+      <ul class="space-y-2"></ul>
+    </nav>
+  </div>
+</div>"
+`;

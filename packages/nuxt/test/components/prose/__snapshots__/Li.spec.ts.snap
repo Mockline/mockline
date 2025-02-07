@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Li > can mount component 1`] = `
+"<div id="test-wrapper">
+  <li class="my-1.5 ps-1.5 leading-7 [&amp;>ul]:my-0"></li>
+</div>"
+`;
