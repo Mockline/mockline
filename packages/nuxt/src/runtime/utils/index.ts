@@ -8,3 +8,5 @@ export function transformSlot(slot: any, index: number): any {
     component: slot
   }
 }
+
+export * from './useComponent'
