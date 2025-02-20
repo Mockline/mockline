@@ -37,8 +37,9 @@
   "scripts": {
     "prepack": "nuxt-module-build build",
     "dev": "DEV=true nuxi dev playground",
+    "dev:vue": "DEV=true vite playground-vue",
     "build": "nuxt-module-build build",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && vite build playground-vue",
     "release": "bun run lint && bun run prepack && npm publish",
     "release:edge": "bun run lint && bun run prepack && npm publish --tag edge",
     "test": "bun run typecheck && bun run lint && bun run prepack",

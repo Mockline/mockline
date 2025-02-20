@@ -1,21 +1,22 @@
 import type { UnpluginOptions } from 'unplugin'
 
-import type { NuxtUIOptions } from '../unplugin'
+import type { MocklineOptions } from '../unplugin'
 
 /**
- * This plugin injects Nuxt UI configuration into the runtime build so Nuxt UI components can
+ * This plugin injects Mockline configuration into the runtime build so Mockline components can
  * access it.
  */
-export default function AppConfigPlugin(options: NuxtUIOptions & { theme: NonNullable<NuxtUIOptions['theme']> }, appConfig: Record<string, any>) {
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export default function AppConfigPlugin(options: MocklineOptions, appConfig: Record<string, any>) {
   return {
-    name: 'nuxt:ui:app-config',
+    name: 'mockline:app-config',
     enforce: 'pre',
     resolveId(id) {
       if (id === '#build/app.config') {
-        return 'virtual:nuxt-ui-app-config'
+        return 'virtual:mockline-app-config'
       }
     },
-    loadInclude: id => id === 'virtual:nuxt-ui-app-config',
+    loadInclude: id => id === 'virtual:mockline-app-config',
     load() {
       return `
           export default ${JSON.stringify(appConfig!)}

@@ -4,28 +4,28 @@ import { genSafeVariableName } from 'knitwork'
 import MagicString from 'magic-string'
 import { resolvePathSync } from 'mlly'
 
-import { runtimeDir, type NuxtUIOptions } from '../unplugin'
-
 import type { UnpluginOptions } from 'unplugin'
+import { runtimeDir, type MocklineOptions } from '../unplugin'
+
 
 /**
  * This plugin provides the necessary transforms to allow loading the
- * Nuxt UI _Nuxt_ plugins in `src/runtime/plugins/` in a pure Vue environment.
+ * Mockline _Nuxt_ plugins in `src/runtime/plugins/` in a pure Vue environment.
  */
-export default function PluginsPlugin(options: NuxtUIOptions) {
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export default function PluginsPlugin(options: MocklineOptions) {
   const plugins = globSync(['**/*', '!*.d.ts'], { cwd: join(runtimeDir, 'plugins'), absolute: true })
 
-  plugins.unshift(resolvePathSync('../runtime/vue/plugins/head', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url }))
   if (options.colorMode) {
     plugins.push(resolvePathSync('../runtime/vue/plugins/color-mode', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url }))
   }
 
   return {
-    name: 'nuxt:ui:plugins',
+    name: 'mockline:plugins',
     enforce: 'pre',
     resolveId(id) {
-      if (id === '@nuxt/ui/vue-plugin') {
-        return 'virtual:nuxt-ui-plugins'
+      if (id === 'mockline/vue-plugin') {
+        return 'virtual:mockline-plugins'
       }
     },
     transform(code, id) {
@@ -41,7 +41,7 @@ export default function PluginsPlugin(options: NuxtUIOptions) {
         }
       }
     },
-    loadInclude: id => id === 'virtual:nuxt-ui-plugins',
+    loadInclude: id => id === 'virtual:mockline-plugins',
     load() {
       return `
         ${plugins.map(p => `import ${genSafeVariableName(p)} from "${p}"`).join('\n')}
@@ -56,10 +56,10 @@ ${plugins.map(p => `    app.use(${genSafeVariableName(p)})`).join('\n')}
     vite: {
       config() {
         return {
-          // Opt-out Nuxt UI from Vite's pre-bundling,
+          // Opt-out Mockline from Vite's pre-bundling,
           // as we need Vite's pipeline to resolve imports like `#imports`
           optimizeDeps: {
-            exclude: ['@nuxt/ui']
+            exclude: ['mockline']
           }
         }
       }

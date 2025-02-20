@@ -6,8 +6,9 @@ import MagicString from 'magic-string'
 import { runtimeDir } from '../unplugin'
 
 /**
- * This plugin normalises Nuxt environment (#imports) and `import.meta.client` within the Nuxt UI components.
+ * This plugin normalizes Nuxt environment (#imports) and `import.meta.client` within the Nuxt UI components.
  */
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export default function NuxtEnvironmentPlugin() {
   const stubPath = resolvePathSync('../runtime/vue/stubs', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url })
 

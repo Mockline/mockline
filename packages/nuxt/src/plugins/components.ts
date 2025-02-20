@@ -4,14 +4,15 @@ import { globSync } from 'tinyglobby'
 import AutoImportComponents from 'unplugin-vue-components'
 import type { Options as ComponentsOptions } from 'unplugin-vue-components/types'
 
-import { runtimeDir } from '../unplugin'
-import type { NuxtUIOptions } from '../unplugin'
 import { defu } from 'defu'
+import { runtimeDir } from '../unplugin'
+import type { MocklineOptions } from '../unplugin'
 
 /**
  * This plugin adds all the Nuxt UI components as auto-imports.
  */
-export default function ComponentImportPlugin(options: NuxtUIOptions & { prefix: NonNullable<NuxtUIOptions['prefix']> }, meta: UnpluginContextMeta) {
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export default function ComponentImportPlugin(options: MocklineOptions, meta: UnpluginContextMeta) {
   const components = globSync('**/*.vue', { cwd: join(runtimeDir, 'components') })
   const componentNames = new Set(components.map(c => `${options.prefix}${c.replace(/\.vue$/, '')}`))
 
@@ -24,9 +25,9 @@ export default function ComponentImportPlugin(options: NuxtUIOptions & { prefix:
     resolvers: [
       (componentName) => {
         if (overrideNames.has(componentName))
-          return { name: 'default', from: join(runtimeDir, 'vue/components', `${componentName.slice(options.prefix.length)}.vue`) }
+          return { name: 'default', from: join(runtimeDir, 'vue/components', `${componentName.slice('M'.length)}.vue`) }
         if (componentNames.has(componentName))
-          return { name: 'default', from: join(runtimeDir, 'components', `${componentName.slice(options.prefix.length)}.vue`) }
+          return { name: 'default', from: join(runtimeDir, 'components', `${componentName.slice('M'.length)}.vue`) }
       }
     ]
   })
@@ -37,7 +38,7 @@ export default function ComponentImportPlugin(options: NuxtUIOptions & { prefix:
      * <UIcon> and <ULink> currently.
      */
     {
-      name: 'nuxt:ui:components',
+      name: 'mockline:components',
       enforce: 'pre',
       resolveId(id, importer) {
         // only apply to runtime nuxt ui components

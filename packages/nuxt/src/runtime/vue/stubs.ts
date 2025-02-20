@@ -4,7 +4,6 @@ import type { Ref, Plugin as VuePlugin } from 'vue'
 import appConfig from '#build/app.config'
 import type { NuxtApp } from '#app'
 
-export { useHead } from '@unhead/vue'
 export { useRoute, useRouter } from 'vue-router'
 
 export const useAppConfig = () => appConfig
