@@ -1,7 +1,21 @@
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
+  entries: [
+    // Vue support
+    './src/unplugin',
+    './src/vite'
+  ],
   rollup: {
-    inlineDependencies: true
-  }
+    emitCJS: true
+  },
+  replace: {
+    'process.env.DEV': 'false',
+  },
+  hooks: {
+    'mkdist:entry:options'(ctx, entry, options) {
+      options.addRelativeDeclarationExtensions = false
+    }
+  },
+  externals: ['#build/mockline', '#build/app.config', 'vite']
 })
