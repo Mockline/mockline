@@ -17,7 +17,7 @@ import NuxtEnvironmentPlugin from './plugins/nuxt-environment'
 
 import AutoImportPlugin from './plugins/auto-import'
 
-export interface MocklineOptions extends Omit<ModuleOptions, 'components'> {
+export interface MocklineOptions {
   /** Whether to generate declaration files for auto-imported components. */
   dts?: boolean
   mockline?: MocklineConfig
@@ -35,7 +35,7 @@ export const runtimeDir = normalize(fileURLToPath(new URL('./runtime', import.me
 
 // eslint-disable-next-line @typescript-eslint/naming-convention,@typescript-eslint/default-param-last
 export const MocklinePlugin = createUnplugin<MocklineOptions | undefined>((_options = {}, meta) => {
-  const options = defu(_options, { }, defaultModuleOptions)
+  const options = defu(_options, { })
 
   const appConfig = defu({ mockline: options.mockline })
 
@@ -44,8 +44,8 @@ export const MocklinePlugin = createUnplugin<MocklineOptions | undefined>((_opti
     ComponentImportPlugin(options, meta),
     AutoImportPlugin(options, meta),
     tailwind(),
-    PluginsPlugin(options),
-    AppConfigPlugin(options, appConfig),
+    PluginsPlugin(),
+    AppConfigPlugin(appConfig),
     <UnpluginOptions>{
       name: 'mockline:plugins-duplication-detection',
       vite: {

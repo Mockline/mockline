@@ -7,7 +7,7 @@ import type { MocklineOptions } from '../unplugin'
  * access it.
  */
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export default function AppConfigPlugin(options: MocklineOptions, appConfig: Record<string, any>) {
+export default function AppConfigPlugin(appConfig: Record<string, any>) {
   return {
     name: 'mockline:app-config',
     enforce: 'pre',

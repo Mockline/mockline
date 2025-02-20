@@ -9,19 +9,19 @@ import { runtimeDir } from '../unplugin'
 import type { MocklineOptions } from '../unplugin'
 
 /**
- * This plugin adds all the Nuxt UI components as auto-imports.
+ * This plugin adds all the Mockline components as auto-imports.
  */
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export default function ComponentImportPlugin(options: MocklineOptions, meta: UnpluginContextMeta) {
   const components = globSync('**/*.vue', { cwd: join(runtimeDir, 'components') })
-  const componentNames = new Set(components.map(c => `${options.prefix}${c.replace(/\.vue$/, '')}`))
+  const componentNames = new Set(components.map(c => `M${c.replace(/\.vue$/, '')}`))
 
   const overrides = globSync('**/*.vue', { cwd: join(runtimeDir, 'vue/components') })
-  const overrideNames = new Set(overrides.map(c => `${options.prefix}${c.replace(/\.vue$/, '')}`))
+  const overrideNames = new Set(overrides.map(c => `M${c.replace(/\.vue$/, '')}`))
 
   const pluginOptions = defu(options.components, <ComponentsOptions>{
     dts: options.dts ?? true,
-    exclude: [/[\\/]node_modules[\\/](?!\.pnpm|@nuxt\/ui)/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
+    exclude: [/[\\/]node_modules[\\/](?!\.pnpm|mockline)/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
     resolvers: [
       (componentName) => {
         if (overrideNames.has(componentName))
@@ -35,13 +35,13 @@ export default function ComponentImportPlugin(options: MocklineOptions, meta: Un
   return [
     /**
      * This plugin aims to ensure we override certain components with Vue-compatible versions:
-     * <UIcon> and <ULink> currently.
+     * <MIcon> and <MLink> currently.
      */
     {
       name: 'mockline:components',
       enforce: 'pre',
       resolveId(id, importer) {
-        // only apply to runtime nuxt ui components
+        // only apply to runtime Mockline components
         if (!importer || !normalize(importer).includes(runtimeDir)) {
           return
         }
@@ -52,7 +52,7 @@ export default function ComponentImportPlugin(options: MocklineOptions, meta: Un
         }
 
         const filename = id.match(/([^/]+)\.vue$/)?.[1]
-        if (filename && overrideNames.has(`${options.prefix}${filename}`)) {
+        if (filename && overrideNames.has(`M${filename}`)) {
           return join(runtimeDir, 'vue/components', `${filename}.vue`)
         }
       }

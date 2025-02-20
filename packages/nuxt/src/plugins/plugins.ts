@@ -13,12 +13,10 @@ import { runtimeDir, type MocklineOptions } from '../unplugin'
  * Mockline _Nuxt_ plugins in `src/runtime/plugins/` in a pure Vue environment.
  */
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export default function PluginsPlugin(options: MocklineOptions) {
+export default function PluginsPlugin() {
   const plugins = globSync(['**/*', '!*.d.ts'], { cwd: join(runtimeDir, 'plugins'), absolute: true })
 
-  if (options.colorMode) {
-    plugins.push(resolvePathSync('../runtime/vue/plugins/color-mode', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url }))
-  }
+  plugins.push(resolvePathSync('../runtime/vue/plugins/color-mode', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url }))
 
   return {
     name: 'mockline:plugins',
