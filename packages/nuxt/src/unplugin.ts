@@ -14,6 +14,7 @@ import PluginsPlugin from './plugins/plugins'
 import AppConfigPlugin from './plugins/app-config'
 import ComponentImportPlugin from './plugins/components'
 import NuxtEnvironmentPlugin from './plugins/nuxt-environment'
+import UseComponentPlugin from './plugins/use-component'
 
 import AutoImportPlugin from './plugins/auto-import'
 
@@ -45,6 +46,7 @@ export const MocklinePlugin = createUnplugin<MocklineOptions | undefined>((_opti
     AutoImportPlugin(options, meta),
     tailwind(),
     PluginsPlugin(),
+    UseComponentPlugin(),
     AppConfigPlugin(appConfig),
     <UnpluginOptions>{
       name: 'mockline:plugins-duplication-detection',
