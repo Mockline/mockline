@@ -7,7 +7,7 @@ import mocklinePlugin from 'mockline/vue-plugin'
 import App from './app.vue'
 
 const pages = import.meta.glob('../../playground/app/pages/**/*.vue')
-const components = import.meta.glob('../../playground/app/components/**/*.vue')
+const components = import.meta.glob('../../playground/app/playground/**/*.vue')
 
 const routes = Object.keys(pages).map((path) => {
   const name = path.match(/\.\.\/\.\.\/playground\/app\/pages(.*)\.vue$/)![1].toLowerCase()

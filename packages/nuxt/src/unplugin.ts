@@ -46,8 +46,8 @@ export const MocklinePlugin = createUnplugin<MocklineOptions | undefined>((_opti
     AutoImportPlugin(options, meta),
     tailwind(),
     PluginsPlugin(),
-    UseComponentPlugin(),
     AppConfigPlugin(appConfig),
+    UseComponentPlugin(),
     <UnpluginOptions>{
       name: 'mockline:plugins-duplication-detection',
       vite: {

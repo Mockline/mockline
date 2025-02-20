@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Icon: typeof import('./../src/runtime/vue/components/Icon.vue')['default']
     MApp: typeof import('./../src/runtime/components/App.vue')['default']
     MButton: typeof import('./../src/runtime/components/Button.vue')['default']
     MDivider: typeof import('./../src/runtime/components/Divider.vue')['default']

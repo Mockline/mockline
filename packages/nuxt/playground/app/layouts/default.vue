@@ -127,9 +127,9 @@ const { version } = useRuntimeConfig().public
     </template>
     <MHeader sticky>
       <div class="flex justify-between items-center">
-        <ProseH2 class="m-0">
+        <div class="m-0">
           {{ formatTitle(route.name as string) }}
-        </ProseH2>
+        </div>
         <MThemeToggle size="md" class="absolute top-4 right-4 z-50" />
       </div>
     </MHeader>

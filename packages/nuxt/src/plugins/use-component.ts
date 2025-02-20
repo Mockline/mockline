@@ -1,21 +1,17 @@
 import path from 'node:path'
-import * as fs from 'node:fs'
-import type { UnpluginOptions } from 'unplugin'
+import type { Plugin } from 'vite'
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export default function UseComponentPlugin() {
+export default function mocklineAliasPlugin(): Plugin {
   return {
-    name: 'mockline:use-component',
-    enforce: 'pre',
-    resolveId(id) {
-      if (id === '#mockline/utils/useComponent') {
-        return 'virtual:mockline-use-component'
+    name: 'mockline-alias-plugin',
+    config(config) {
+      if (!config.resolve) {
+        config.resolve = {}
       }
+      if (!config.resolve.alias) {
+        config.resolve.alias = {}
+      }
+      config.resolve.alias['#mockline'] = path.resolve(__dirname, '../runtime')
     },
-    loadInclude: id => id === 'virtual:mockline-use-component',
-    load() {
-      const filePath = path.resolve(__dirname, '../runtime/utils/useComponent.ts')
-      return fs.readFileSync(filePath, 'utf-8')
-    }
-  } satisfies UnpluginOptions
+  }
 }

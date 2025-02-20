@@ -118,7 +118,6 @@ const route = computed(() => {
 const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'raw', 'class'))
 
 const ui = computed(() => tv({
-  extend: link,
   variants: {
     active: {
       true: props.activeClass,
@@ -153,7 +152,7 @@ function isLinkActive({ route: linkRoute, isActive, isExactActive }: any) {
 
   if (props.exactQuery === 'partial') {
     if (!isPartiallyEqual(linkRoute.query, route.value.query)) return false
-  } else if (props.exactQuery === true) {
+  } else if (props.exactQuery) {
     if (!isEqual(linkRoute.query, route.value.query)) return false
   }
 
@@ -165,11 +164,7 @@ function isLinkActive({ route: linkRoute, isActive, isExactActive }: any) {
     return true
   }
 
-  if (!props.exact && isActive) {
-    return true
-  }
-
-  return false
+  return !!(!props.exact && isActive)
 }
 
 function resolveLinkClass({ route, isActive, isExactActive }: any) {
@@ -208,7 +203,7 @@ const handleNavigation = (href: string) => {
           }"
         />
       </template>
-      <ULinkBase
+      <MLinkBase
         v-else
         v-bind="{
           ...$attrs,
@@ -221,7 +216,7 @@ const handleNavigation = (href: string) => {
         :class="resolveLinkClass({ route: linkRoute, isActive, isExactActive })"
       >
         <slot :active="isLinkActive({ route: linkRoute, isActive, isExactActive })" />
-      </ULinkBase>
+      </MLinkBase>
     </RouterLink>
   </template>
 
@@ -239,7 +234,7 @@ const handleNavigation = (href: string) => {
         }"
       />
     </template>
-    <ULinkBase
+    <MLinkBase
       v-else
       v-bind="{
         ...$attrs,
@@ -252,6 +247,6 @@ const handleNavigation = (href: string) => {
       @click="to && handleNavigation(to as string)"
     >
       <slot :active="false" />
-    </ULinkBase>
+    </MLinkBase>
   </template>
 </template>
