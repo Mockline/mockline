@@ -7,7 +7,7 @@ export * from './navMenu'
 export * from './header'
 export * from './contentArea'
 export * from './themeToggle'
-
+export * from './avatar'
 // Content
 export * from './content/navigationTree'
 
