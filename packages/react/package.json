@@ -11,7 +11,7 @@
     "@types/react-dom": "^19.0.4",
     "eslint": ">=9.21.0",
     "eslint-config-custom": "*",
-    "prettier": "^3.5.1",
+    "prettier": "^3.5.2",
     "react": "^19.0.0",
     "tsconfig": "*",
     "turbo": "^2.4.2",
