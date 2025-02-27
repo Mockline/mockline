@@ -1,7 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ContentArea > can mount component 1`] = `
-"<div id="test-wrapper">
-  <div class="overflow-y-auto relative rounded-[calc(var(--radius-base)*2)] bg-content-area border border-content-area-border h-[calc(100vh-var(--spacing)*2)] m-1"></div>
-</div>"
-`;
+exports[`ContentArea > renders <MContentArea margin>Super Slot</MContentArea>> correctly 1`] = `"<div class="overflow-y-auto relative rounded-[calc(var(--radius-base)*2)] bg-content-area border border-content-area-border h-[calc(100vh-var(--spacing)*2)] m-1"></div>"`;
+
+exports[`ContentArea > renders base case correctly 1`] = `"<div class="overflow-y-auto relative rounded-[calc(var(--radius-base)*2)] bg-content-area border border-content-area-border h-[calc(100vh-var(--spacing)*2)] m-1"></div>"`;
+
+exports[`ContentArea > renders with margin correctly 1`] = `"<div class="h-[100vh] overflow-y-auto relative rounded-[calc(var(--radius-base)*2)] bg-content-area border border-content-area-border"></div>"`;
+
+exports[`ContentArea > renders without margin correctly 1`] = `"<div class="overflow-y-auto relative rounded-[calc(var(--radius-base)*2)] bg-content-area border border-content-area-border h-[calc(100vh-var(--spacing)*2)] m-1"></div>"`;

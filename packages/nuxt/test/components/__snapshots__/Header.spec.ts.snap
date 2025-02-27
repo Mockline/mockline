@@ -1,7 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Header > can mount component 1`] = `
-"<div id="test-wrapper">
-  <header class="flex items-center justify-between w-full h-[var(--header-height)] px-4 py-2 bg-[var(--content-area-bg)]"></header>
-</div>"
+exports[`Header > renders <MHeader><template #left>left</template><template #default>default</template><template #right>right</template></MHeader>> correctly 1`] = `
+"<header class="flex items-center justify-between w-full h-[var(--header-height)] px-4 py-2 bg-[var(--content-area-bg)]">leftdefaultright</header>
+&gt;"
 `;
+
+exports[`Header > renders base case correctly 1`] = `"<header class="flex items-center justify-between w-full h-[var(--header-height)] px-4 py-2 bg-[var(--content-area-bg)]"></header>"`;
+
+exports[`Header > renders sticky correctly 1`] = `"<header class="flex items-center justify-between w-full h-[var(--header-height)] px-4 py-2 bg-[var(--content-area-bg)] sticky top-0 z-10"></header>"`;
+
+exports[`Header > renders transparent correctly 1`] = `"<header class="flex items-center justify-between w-full h-[var(--header-height)] px-4 py-2 bg-transparent"></header>"`;

@@ -8,7 +8,7 @@ export default async function(nameOrHtml: string, options: any, component: any) 
   if (options === undefined) {
     const app = {
       template: nameOrHtml,
-      components: { [`U${name}`]: component }
+      components: { [`M${name}`]: component }
     }
     const result = await mountSuspended(app)
     html = result.html()

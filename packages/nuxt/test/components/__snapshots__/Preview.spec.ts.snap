@@ -1,11 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Preview > can mount component 1`] = `
-"<div id="test-wrapper">
-  <div class="inline-block isolate">
-    <div class="transition-transform duration-200 ease-out origin-top-left cursor-zoom-in" style="cursor: zoom-in;"></div>
-    <!--teleport start-->
-    <!--teleport end-->
-  </div>
+exports[`Preview > renders <Preview>Slot</Preview> correctly 1`] = `"<preview>Slot</preview>"`;
+
+exports[`Preview > renders base case correctly 1`] = `
+"<div class="inline-block isolate">
+  <div class="transition-transform duration-200 ease-out origin-top-left cursor-zoom-in" style="cursor: zoom-in;"></div>
+  <!--teleport start-->
+  <!--teleport end-->
 </div>"
 `;

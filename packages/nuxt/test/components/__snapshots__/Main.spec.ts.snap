@@ -1,7 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Main > can mount component 1`] = `
-"<div id="test-wrapper">
-  <main class="h-full"></main>
-</div>"
-`;
+exports[`Main > renders base case correctly 1`] = `"<main class="h-full"></main>"`;

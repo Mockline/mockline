@@ -1,8 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`NavMenu > can mount component 1`] = `
-"<div id="test-wrapper"> TODO
-  <!--  <NavigationMenuRoot class="relative z-[1] flex w-full justify-center" :orientation>
+exports[`NavMenu > renders base case correctly 1`] = `
+" TODO
+<!--  <NavigationMenuRoot class="relative z-[1] flex w-full justify-center" :orientation>
     <NavigationMenuList class="bg-neutral border-[var(&#45;&#45;ui-border)] m-0 flex list-none items-center justify-between gap-8 rounded-lg border px-4 py-1.5 shadow-lg">
       <slot name="leading" />
       <div class="flex list-none items-center justify-between">
@@ -32,6 +32,75 @@ exports[`NavMenu > can mount component 1`] = `
     <div class="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
       <NavigationMenuViewport :class="navMenuStyle.slots.viewport" />
     </div>
-  </NavigationMenuRoot>-->
-</div>"
+  </NavigationMenuRoot>-->"
+`;
+
+exports[`NavMenu > renders horizontal correctly 1`] = `
+" TODO
+<!--  <NavigationMenuRoot class="relative z-[1] flex w-full justify-center" :orientation>
+    <NavigationMenuList class="bg-neutral border-[var(&#45;&#45;ui-border)] m-0 flex list-none items-center justify-between gap-8 rounded-lg border px-4 py-1.5 shadow-lg">
+      <slot name="leading" />
+      <div class="flex list-none items-center justify-between">
+        <NavigationMenuItem v-for="item in items" :key="item.label">
+          <NavigationMenuTrigger
+            v-if="item.slot"
+            :class="navTitleStyle"
+          >
+            {{ item.title }}
+          </NavigationMenuTrigger>
+          <NavigationMenuContent
+            v-if="item.slot"
+            :class="navMenuStyle.slots.content"
+          >
+            <slot :name="item.title.toLowerCase()" />
+          </NavigationMenuContent>
+          <NavigationMenuLink v-if="!item.slot" :href="item.path" :class="navTitleStyle">
+            {{ item.title }}
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+      </div>
+
+      <NavigationMenuIndicator />
+      <slot name="trailing" />
+    </NavigationMenuList>
+
+    <div class="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
+      <NavigationMenuViewport :class="navMenuStyle.slots.viewport" />
+    </div>
+  </NavigationMenuRoot>-->"
+`;
+
+exports[`NavMenu > renders vertical correctly 1`] = `
+" TODO
+<!--  <NavigationMenuRoot class="relative z-[1] flex w-full justify-center" :orientation>
+    <NavigationMenuList class="bg-neutral border-[var(&#45;&#45;ui-border)] m-0 flex list-none items-center justify-between gap-8 rounded-lg border px-4 py-1.5 shadow-lg">
+      <slot name="leading" />
+      <div class="flex list-none items-center justify-between">
+        <NavigationMenuItem v-for="item in items" :key="item.label">
+          <NavigationMenuTrigger
+            v-if="item.slot"
+            :class="navTitleStyle"
+          >
+            {{ item.title }}
+          </NavigationMenuTrigger>
+          <NavigationMenuContent
+            v-if="item.slot"
+            :class="navMenuStyle.slots.content"
+          >
+            <slot :name="item.title.toLowerCase()" />
+          </NavigationMenuContent>
+          <NavigationMenuLink v-if="!item.slot" :href="item.path" :class="navTitleStyle">
+            {{ item.title }}
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+      </div>
+
+      <NavigationMenuIndicator />
+      <slot name="trailing" />
+    </NavigationMenuList>
+
+    <div class="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
+      <NavigationMenuViewport :class="navMenuStyle.slots.viewport" />
+    </div>
+  </NavigationMenuRoot>-->"
 `;

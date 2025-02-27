@@ -1,10 +1,14 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import Main from '../../src/runtime/components/Main.vue'
+import type {TypeOf} from "zod";
+import ComponentRender from "../component-render";
+// @ts-ignore
+import { MMain } from '#components'
 
 describe('Main', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(Main)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['base case', {}]
+  ])('renders %s correctly', async (nameOrHtml, options: TypeOf<typeof MMain.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MMain)
+    expect(html).toMatchSnapshot()
   })
 })

@@ -1,10 +1,39 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Divider > can mount component 1`] = `
-"<div id="test-wrapper">
-  <div class="flex items-center align-center text-center w-full flex-row">
-    <div class="border-[var(--color-border-primary)] w-full border-solid border-t"></div>
-    <!--v-if-->
-  </div>
+exports[`Divider > renders <MDivider orientation="horizontal" label="Test" /> correctly 1`] = `
+"<div class="flex items-center align-center text-center w-full flex-row">
+  <div class="border-[var(--color-border-primary)] w-full border-solid border-t"></div>
+  <div class="font-medium text-[var(--color-fg-secondary)] flex mx-3 whitespace-nowrap"><span class="text-sm">Test</span></div>
+  <div class="border-[var(--color-border-primary)] w-full border-solid border-t"></div>
+</div>"
+`;
+
+exports[`Divider > renders base case correctly 1`] = `
+"<div class="flex items-center align-center text-center w-full flex-row">
+  <div class="border-[var(--color-border-primary)] w-full border-solid border-t"></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Divider > renders horizontal correctly 1`] = `
+"<div class="flex items-center align-center text-center w-full flex-row">
+  <div class="border-[var(--color-border-primary)] w-full border-solid border-t"></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Divider > renders with full props correctly 1`] = `
+"<div class="flex items-center align-center text-center w-full flex-row">
+  <div class="w-full border-solid border-t-[3px]"></div>
+  <div class="font-medium text-[var(--color-fg-secondary)] flex mx-3 whitespace-nowrap"><span class="text-sm">super label</span></div>
+  <div class="w-full border-solid border-t-[3px]"></div>
+</div>"
+`;
+
+exports[`Divider > renders with label correctly 1`] = `
+"<div class="flex items-center align-center text-center w-full flex-row">
+  <div class="border-[var(--color-border-primary)] w-full border-solid border-t"></div>
+  <div class="font-medium text-[var(--color-fg-secondary)] flex mx-3 whitespace-nowrap"><span class="text-sm">super label</span></div>
+  <div class="border-[var(--color-border-primary)] w-full border-solid border-t"></div>
 </div>"
 `;

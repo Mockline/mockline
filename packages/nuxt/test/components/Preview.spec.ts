@@ -1,10 +1,16 @@
-import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import Preview from '../../src/runtime/components/Preview.vue'
+import { describe, it, expect } from "vitest";
+import type {TypeOf} from "zod";
+// @ts-ignore
+import { MPreview } from "#components"
+import ComponentRender from "../component-render";
 
 describe('Preview', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(Preview)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['base case', {}],
+    ['<Preview>Slot</Preview>']
+    // @ts-expect-error
+  ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof MPreview.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MPreview)
+    expect(html).toMatchSnapshot()
   })
 })

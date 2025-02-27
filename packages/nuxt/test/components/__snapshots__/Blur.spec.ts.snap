@@ -1,16 +1,59 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Blur > can mount component 1`] = `
-"<div id="test-wrapper">
-  <div data-v-109d0642="">
-    <div data-v-109d0642="" class="fixed w-full top-0 h-24" style="height: 75px;">
-      <div data-v-109d0642="" style="backdrop-filter: blur(1px);" class="absolute inset-0 gradient-mask-b-0 blur-[1px]"></div>
-      <div data-v-109d0642="" style="backdrop-filter: blur(2px);" class="absolute inset-0 gradient-mask-b-0 blur-[2px]"></div>
-      <div data-v-109d0642="" style="backdrop-filter: blur(3px);" class="absolute inset-0 gradient-mask-b-0 blur-[3px]"></div>
-      <div data-v-109d0642="" style="backdrop-filter: blur(6px);" class="absolute inset-0 gradient-mask-b-0 blur-[6px]"></div>
-      <div data-v-109d0642="" style="backdrop-filter: blur(12px);" class="absolute inset-0 gradient-mask-b-0 blur-[12px]"></div>
-    </div>
-    <!--v-if-->
+exports[`Blur > renders <MBlur positoin="top" /> correctly 1`] = `
+"<div data-v-109d0642="" positoin="top">
+  <div data-v-109d0642="" class="fixed w-full top-0 h-24" style="height: 75px;">
+    <div data-v-109d0642="" style="backdrop-filter: blur(1px);" class="absolute inset-0 gradient-mask-b-0 blur-[1px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(2px);" class="absolute inset-0 gradient-mask-b-0 blur-[2px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(3px);" class="absolute inset-0 gradient-mask-b-0 blur-[3px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(6px);" class="absolute inset-0 gradient-mask-b-0 blur-[6px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(12px);" class="absolute inset-0 gradient-mask-b-0 blur-[12px]"></div>
   </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Blur > renders both correctly 1`] = `
+"<div data-v-109d0642="">
+  <div data-v-109d0642="" class="fixed w-full top-0 h-24" style="height: 12px;">
+    <div data-v-109d0642="" style="backdrop-filter: blur(1px);" class="absolute inset-0 gradient-mask-b-0 blur-[1px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(2px);" class="absolute inset-0 gradient-mask-b-0 blur-[2px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(3px);" class="absolute inset-0 gradient-mask-b-0 blur-[3px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(6px);" class="absolute inset-0 gradient-mask-b-0 blur-[6px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(12px);" class="absolute inset-0 gradient-mask-b-0 blur-[12px]"></div>
+  </div>
+  <div data-v-109d0642="" class="fixed w-full bottom-0 h-24" style="height: 12px;">
+    <div data-v-109d0642="" style="backdrop-filter: blur(1px);" class="absolute inset-0 gradient-mask-t-0 blur-[1px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(2px);" class="absolute inset-0 gradient-mask-t-0 blur-[2px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(3px);" class="absolute inset-0 gradient-mask-t-0 blur-[3px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(6px);" class="absolute inset-0 gradient-mask-t-0 blur-[6px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(12px);" class="absolute inset-0 gradient-mask-t-0 blur-[12px]"></div>
+  </div>
+</div>"
+`;
+
+exports[`Blur > renders bottom correctly 1`] = `
+"<div data-v-109d0642="">
+  <!--v-if-->
+  <div data-v-109d0642="" class="fixed w-full bottom-0 h-24" style="height: 12px;">
+    <div data-v-109d0642="" style="backdrop-filter: blur(1px);" class="absolute inset-0 gradient-mask-t-0 blur-[1px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(2px);" class="absolute inset-0 gradient-mask-t-0 blur-[2px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(3px);" class="absolute inset-0 gradient-mask-t-0 blur-[3px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(6px);" class="absolute inset-0 gradient-mask-t-0 blur-[6px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(12px);" class="absolute inset-0 gradient-mask-t-0 blur-[12px]"></div>
+  </div>
+</div>"
+`;
+
+exports[`Blur > renders top correctly 1`] = `
+"<div data-v-109d0642="">
+  <div data-v-109d0642="" class="fixed w-full top-0 h-24" style="height: 12px;">
+    <div data-v-109d0642="" style="backdrop-filter: blur(1px);" class="absolute inset-0 gradient-mask-b-0 blur-[1px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(2px);" class="absolute inset-0 gradient-mask-b-0 blur-[2px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(3px);" class="absolute inset-0 gradient-mask-b-0 blur-[3px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(6px);" class="absolute inset-0 gradient-mask-b-0 blur-[6px]"></div>
+    <div data-v-109d0642="" style="backdrop-filter: blur(12px);" class="absolute inset-0 gradient-mask-b-0 blur-[12px]"></div>
+  </div>
+  <!--v-if-->
 </div>"
 `;

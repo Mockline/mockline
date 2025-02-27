@@ -1,10 +1,17 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import ContentArea from '../../src/runtime/components/ContentArea.vue'
+// @ts-ignore
+import {MContentArea} from "#components";
+import ComponentRender from "../component-render";
 
 describe('ContentArea', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(ContentArea)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['base case', {}],
+    ['with margin', { props: { margin: false } }],
+    ['without margin', { props: { margin: true } }],
+    ['<MContentArea margin>Super Slot</MContentArea>>', { props: { margin: true } }],
+    // @ts-expect-error
+  ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof MContentArea.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MContentArea)
+    expect(html).toMatchSnapshot()
   })
 })

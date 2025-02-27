@@ -1,11 +1,42 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Page > can mount component 1`] = `
-"<div id="test-wrapper">
-  <div class="flex sm:flex-row flex-col">
-    <!--v-if-->
-    <div class="flex flex-col gap-4 w-full"></div>
-    <!--v-if-->
-  </div>
+exports[`Page > renders <MPage><template #left>left</template><template #default>default</template><template #right>right</template></MPage>> correctly 1`] = `
+"<div class="flex sm:flex-row flex-col">
+  <div class="flex flex-col">left</div>
+  <div class="flex flex-col gap-4 w-full">default</div>
+  <div class="flex flex-col">right</div>
+</div>
+&gt;"
+`;
+
+exports[`Page > renders base case correctly 1`] = `
+"<div class="flex sm:flex-row flex-col">
+  <!--v-if-->
+  <div class="flex flex-col gap-4 w-full"></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Page > renders left correctly 1`] = `
+"<div class="flex sm:flex-row flex-col">
+  <!--v-if-->
+  <div class="flex flex-col gap-4 w-full"></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Page > renders right correctly 1`] = `
+"<div class="flex sm:flex-row flex-col">
+  <!--v-if-->
+  <div class="flex flex-col gap-4 w-full"></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Page > renders wrapper correctly 1`] = `
+"<div class="flex sm:flex-row flex-col relative">
+  <!--v-if-->
+  <div class="flex flex-col gap-4 w-full"></div>
+  <!--v-if-->
 </div>"
 `;
