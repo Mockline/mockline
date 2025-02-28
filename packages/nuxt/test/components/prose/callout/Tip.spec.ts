@@ -1,10 +1,17 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import Tip from '../../src/runtime/components/prose/callout/Tip.vue'
+import type {TypeOf} from "zod";
+// @ts-ignore
+import { MTip } from '#components'
+import ComponentRender from "../../../component-render";
 
 describe('Tip', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(Tip)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', { props: {} }],
+    ['<MTip>Tip slot</MTip>'],
+    // @ts-expect-error
+  ])('renders %s correctly', async (nameOrHtml, options: TypeOf<typeof MTip.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MTip)
+    expect(html).toMatchSnapshot()
   })
 })
+

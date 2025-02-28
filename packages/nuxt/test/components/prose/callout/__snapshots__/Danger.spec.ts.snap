@@ -8,3 +8,19 @@ exports[`Danger > can mount component 1`] = `
   </div>
 </div>"
 `;
+
+exports[`Danger > renders <Danger>Danger slot</Danger> correctly 1`] = `"<danger>Danger slot</danger>"`;
+
+exports[`Danger > renders <MDanger>Danger slot</MDanger> correctly 1`] = `
+"<div class="group border relative block rounded-base px-4 py-3 text-sm/6 my-5 dark:border-red-500/20 dark:bg-red-800/5 border-red-500/30 bg-red-500/10 text-red-600 transition-colors duration-200 ease-in-out">
+  <!--v-if--><span class="iconify i-lucide:circle-alert size-4 shrink-0 align-middle mr-1.5 text-red-600" aria-hidden="true"></span>
+  <!--v-if-->Danger slot
+</div>"
+`;
+
+exports[`Danger > renders basic case correctly 1`] = `
+"<div class="group border relative block rounded-base px-4 py-3 text-sm/6 my-5 dark:border-red-500/20 dark:bg-red-800/5 border-red-500/30 bg-red-500/10 text-red-600 transition-colors duration-200 ease-in-out">
+  <!--v-if--><span class="iconify i-lucide:circle-alert size-4 shrink-0 align-middle mr-1.5 text-red-600" aria-hidden="true"></span>
+  <!--v-if-->
+</div>"
+`;

@@ -1,10 +1,17 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import Note from '../../src/runtime/components/prose/callout/Note.vue'
+import type {TypeOf} from "zod";
+// @ts-ignore
+import { MNote } from '#components'
+import ComponentRender from "../../../component-render";
 
 describe('Note', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(Note)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', { props: {} }],
+    ['<MNote>Note slot</MNote>'],
+    // @ts-expect-error
+  ])('renders %s correctly', async (nameOrHtml, options: TypeOf<typeof MNote.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MNote)
+    expect(html).toMatchSnapshot()
   })
 })
+

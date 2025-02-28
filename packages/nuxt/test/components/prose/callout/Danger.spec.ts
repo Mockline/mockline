@@ -1,10 +1,16 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import Danger from '../../src/runtime/components/prose/callout/Danger.vue'
+import type {TypeOf} from "zod";
+// @ts-ignore
+import { MDanger } from '#components'
+import ComponentRender from "../../../component-render";
 
 describe('Danger', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(Danger)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', { props: {} }],
+    ['<MDanger>Danger slot</MDanger>'],
+    // @ts-expect-error
+  ])('renders %s correctly', async (nameOrHtml, options: TypeOf<typeof MDanger.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MDanger)
+    expect(html).toMatchSnapshot()
   })
 })
