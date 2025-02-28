@@ -22,21 +22,3 @@ exports[`ContentFloatingToc > renders basic case correctly 1`] = `
   </div>
 </div>"
 `;
-
-exports[`Index > can mount component 1`] = `
-"<div id="test-wrapper">
-  <div class="fixed z-50 scale-[0.9] sm:scale-[0.6] transition-all duration-300 ease-in-out right-2 sm:right-6 top-1/2 -translate-y-1/2 origin-right hover:scale-110">
-    <div class="rounded-md mx-auto transition-all duration-300 ease-in-out p-0 border-transparent">
-      <nav class="overflow-y-auto cursor-pointer">
-        <div>
-          <div>
-            <transition-stub enteractiveclass="transition-all duration-100 ease-in-out" enterfromclass="opacity-0" entertoclass="opacity-100" leaveactiveclass="transition-all duration-100 ease-in-out" leavefromclass="opacity-100" leavetoclass="opacity-0" mode="out-in" appear="false" persisted="false" css="true">
-              <!--v-if-->
-            </transition-stub>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </div>
-</div>"
-`;
