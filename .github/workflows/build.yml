@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  autofix:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,3 +23,6 @@ jobs:
 
       - name: 🛠️ Build
         run: bun run build
+
+      - name: 🎓 Test
+        run: bun run test:unit

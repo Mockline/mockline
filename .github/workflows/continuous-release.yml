@@ -48,5 +48,8 @@ jobs:
       - name: 🛠️ Build
         run: bun run build
 
+      - name: 🎓 Test
+        run: bun run test:unit
+
       - name: 🚀 Continuous Release
         run: bunx pkg-pr-new publish './packages/nuxt'

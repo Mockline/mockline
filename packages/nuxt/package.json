@@ -29,7 +29,8 @@
     "test": "bun run typecheck && bun run lint && bun run prepack",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:unit": "vitest run"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.2",

@@ -11,6 +11,7 @@
     "build:docs": "turbo build --filter=@mockline/docs",
     "release": "turbo test && changeset",
     "test": "turbo test",
+    "test:unit": "turbo test:unit",
     "dev:prepare": "turbo dev:prepare",
     "lint": "turbo lint",
     "lint:fix": "turbo lint:fix",
