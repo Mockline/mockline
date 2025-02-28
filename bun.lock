@@ -29,7 +29,7 @@
       "version": "0.15.0",
       "dependencies": {
         "@iconify-json/heroicons": "^1.2.2",
-        "@iconify-json/lucide": "^1.2.26",
+        "@iconify-json/lucide": "^1.2.27",
         "@mockline/themes": "*",
         "@nuxt/fonts": "^0.10.3",
         "@nuxt/icon": "^1.10.3",
@@ -304,7 +304,7 @@
 
     "@iconify-json/heroicons": ["@iconify-json/heroicons@1.2.2", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-qoW4pXr5kTTL6juEjgTs83OJIwpePu7q1tdtKVEdj+i0zyyVHgg/dd9grsXJQnpTpBt6/VwNjrXBvFjRsKPENg=="],
 
-    "@iconify-json/lucide": ["@iconify-json/lucide@1.2.26", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-arD/8mK0lRxFY2LgLf345NhWVWiOtV8sOxJuLnq4QRz3frMiOwVwGxEgp5Xe/bRGzxO2CxxCBok0bPRpCkYZQQ=="],
+    "@iconify-json/lucide": ["@iconify-json/lucide@1.2.27", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-Q1Msf39/6TuY3DL9vKkrAbGaK7/28E0/9oWnwcgfSQ9zJvOV1bY9OzK14vIBIqtaGyYI5st/wwNiJNi+16WEkQ=="],
 
     "@iconify-json/vscode-icons": ["@iconify-json/vscode-icons@1.2.16", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-hstc2yVq2UJ6v6FrgjftzXRvphGZBsKxvSeXoFLP1Hgx89TPZKrGE5SV6vqsoeIlLYaQ7OZbXmAoVGroTfGmVQ=="],
 
