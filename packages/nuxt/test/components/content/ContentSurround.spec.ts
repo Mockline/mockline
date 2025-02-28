@@ -1,10 +1,18 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import ContentSurround from '../../src/runtime/components/content/ContentSurround.vue'
+import type {TypeOf} from "zod";
+// @ts-ignore
+import { MContentSurround } from '#components'
+import ComponentRender from "../../component-render";
 
 describe('ContentSurround', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(ContentSurround)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', { props: { surround: [{title: 'title', path: 'path'}]}}],
+    ['<MContentSurround>ContentSurround slot</MContentSurround>'],
+    // @ts-expect-error
+  ])('renders %s correctly', async (nameOrHtml, options: TypeOf<typeof MContentSurround.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MContentSurround)
+    expect(html).toMatchSnapshot()
   })
 })
+
+

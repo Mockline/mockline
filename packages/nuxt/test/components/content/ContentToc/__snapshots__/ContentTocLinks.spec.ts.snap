@@ -1,7 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ContentTocLinks > can mount component 1`] = `
-"<div id="test-wrapper">
-  <ul class="space-y-2"></ul>
-</div>"
+exports[`ContentTocLinks > renders <MContentTocLinks :links="[{id: 'id', text: 'text', depth: 1}]" :activeHeadings="['id']" /> correctly 1`] = `
+"<ul class="space-y-2">
+  <li class=""><a class="block truncate text-xs/4 transition-all duration-500 ease-in-out text-[var(--ui-primary)]" href="#id">text</a>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`ContentTocLinks > renders basic case correctly 1`] = `
+"<ul class="space-y-2">
+  <li class=""><a class="block truncate text-xs/4 transition-all duration-500 ease-in-out text-[var(--ui-primary)]" href="#id">text</a>
+    <!--v-if-->
+  </li>
+</ul>"
 `;

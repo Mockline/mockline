@@ -1,12 +1,24 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ContentSurround > can mount component 1`] = `
-"<div id="test-wrapper">
-  <div class="p-4">
-    <div class="flex justify-between">
-      <!--v-if-->
-      <!--v-if-->
-    </div>
+exports[`ContentSurround > renders <MContentSurround>ContentSurround slot</MContentSurround> correctly 1`] = `
+"<div class="p-4">
+  <div class="flex justify-between">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`ContentSurround > renders basic case correctly 1`] = `
+"<div class="p-4">
+  <div class="flex justify-between"><a href="path" class="bg-canvas-3 flex items-center rounded p-2">
+      <div class="flex items-center gap-2"><span class="iconify i-lucide:arrow-left size-4" aria-hidden="true"></span>
+        <div class="flex flex-col"><span>title</span>
+          <div class="text-xs text-neutral-500 dark:text-neutral-400"></div>
+        </div>
+      </div>
+    </a>
+    <!--v-if-->
   </div>
 </div>"
 `;

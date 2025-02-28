@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContentNavigationTree > renders <MContentNavigationTree :links="[{ title: 'title', path: '/path' }]">ContentNavigationTree slot</MContentNavigationTree> correctly 1`] = `
+"<nav class="flex flex-col gap-4">
+  <div>
+    <h3 class="truncate font-semibold mb-2 text-sm">title</h3>
+    <ul class="flex flex-col gap-0.5"></ul>
+  </div>
+</nav>"
+`;
+
+exports[`ContentNavigationTree > renders basic case correctly 1`] = `
+"<nav class="flex flex-col gap-4">
+  <div>
+    <h3 class="truncate font-semibold mb-2 text-sm">title</h3>
+    <ul class="flex flex-col gap-0.5"></ul>
+  </div>
+</nav>"
+`;

@@ -1,10 +1,25 @@
-import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import ContentTocLinks from '../../src/runtime/components/content/ContentToc/ContentTocLinks.vue'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
+import type {TypeOf} from "zod";
+// @ts-ignore
+import { MContentTocLinks } from '#components'
+import ComponentRender from "../../../component-render";
 
 describe('ContentTocLinks', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(ContentTocLinks)
-    expect(html.html()).toMatchSnapshot()
+  beforeEach(() => {
+    vi.mock('vue-router', () => ({
+      'useRouter': () => ({
+        push: (_: string) => null
+      })
+    }))
+  })
+  it.each([
+    ['basic case', { props: { links: [{id: 'id', text: 'text', depth: 1}], activeHeadings: ['id'] }}],
+    ['<MContentTocLinks :links="[{id: \'id\', text: \'text\', depth: 1}]" :activeHeadings="[\'id\']" />'],
+    // @ts-expect-error
+  ])('renders %s correctly', async (nameOrHtml, options: TypeOf<typeof MContentTocLinks.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MContentTocLinks)
+    expect(html).toMatchSnapshot()
   })
 })
+
+
