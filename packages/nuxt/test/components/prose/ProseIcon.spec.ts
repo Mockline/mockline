@@ -1,10 +1,14 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import ProseIcon from '../../src/runtime/components/prose/ProseIcon.vue'
+import type {TypeOf} from "zod";
+// @ts-ignore
+import { MProseIcon } from '#components'
+import ComponentRender from "../../component-render";
 
 describe('ProseIcon', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(ProseIcon)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', { props: { name: 'name' } }]
+  ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof MProseIcon.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MProseIcon)
+    expect(html).toMatchSnapshot()
   })
 })

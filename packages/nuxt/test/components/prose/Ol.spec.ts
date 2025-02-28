@@ -1,10 +1,16 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import Ol from '../../src/runtime/components/prose/Ol.vue'
+// @ts-ignore
+import { MOl } from '#components'
+import type { TypeOf } from 'zod'
+import ComponentRender from "../../component-render";
 
 describe('Ol', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(Ol)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', {}],
+    ['<MOl><li>li</li></MOl>'],
+    // @ts-expect-error
+  ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof MOl.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MOl)
+    expect(html).toMatchSnapshot()
   })
 })

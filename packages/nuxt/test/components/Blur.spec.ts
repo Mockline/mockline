@@ -9,7 +9,7 @@ describe('Blur', () => {
     ['top', { props: { position: 'top', size: 12 }}],
     ['bottom', { props: { position: 'bottom', size: 12 }}],
     ['both', { props: { position: 'both', size: 12 }}],
-    ['<MBlur positoin="top" />'],
+    ['<MBlur position="top" />'],
     // @ts-expect-error
   ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof MBlur.props>) => {
     const html = await ComponentRender(nameOrHtml, options, MBlur)

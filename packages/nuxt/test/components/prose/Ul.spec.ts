@@ -1,10 +1,16 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import Ul from '../../src/runtime/components/prose/Ul.vue'
+import type {TypeOf} from "zod";
+// @ts-ignore
+import { MUl } from '#components'
+import ComponentRender from "../../component-render";
 
 describe('Ul', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(Ul)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', {}],
+    ['<MUl><li>li</li></MUl>']
+    // @ts-expect-error
+  ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof MUl.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MUl)
+    expect(html).toMatchSnapshot()
   })
 })

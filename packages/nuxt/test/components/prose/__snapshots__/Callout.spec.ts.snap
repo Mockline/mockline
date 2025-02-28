@@ -1,11 +1,19 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`A > can mount component 1`] = `
-"<div id="test-wrapper">
-  <div class="group border relative block rounded-base px-4 py-3 text-sm/6 my-5 bg-[var(--color-bg-level-2)] border-[var(--color-border-tertiary)]/50 text-[var(--color-text-primary)] transition-colors duration-200 ease-in-out">
-    <!--v-if-->
-    <!--v-if-->
-    <!--v-if-->
-  </div>
+exports[`ProseCallout > renders basic case correctly 1`] = `
+"<div class="group border relative block rounded-base px-4 py-3 text-sm/6 my-5 bg-[var(--color-bg-level-2)] border-[var(--color-border-tertiary)]/50 text-[var(--color-text-primary)] transition-colors duration-200 ease-in-out">
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`ProseCallout > renders with link correctly 1`] = `
+"<div class="group border relative block rounded-base px-4 py-3 text-sm/6 my-5 bg-[var(--color-bg-level-2)] border-[var(--color-border-tertiary)]/50 text-[var(--color-text-primary)] hover:bg-[var(--color-bg-level-3)] hover:border-[var(--color-border-tertiary)] transition-colors duration-200 ease-in-out"><a href="/" rel="noopener noreferrer" target="_blank" class="focus:outline-none" tabindex="-1"><span class="absolute inset-0" aria-hidden="true"></span></a>
+  <!--v-if-->
+  <div class="align-top absolute -right-2.5 -top-2.5"><button class="relative inline-flex items-center justify-center font-medium cursor-pointer select-none focus-visible:outline-none touch-none tap-highlight-none rounded-full text-xs gap-1 ring-1 ring-[var(--color-fg-primary)]/15 hover:bg-[var(--color-bg-quaternary)] active:bg-[var(--color-bg-quaternary)] focus-visible:ring-2 focus-visible:ring-[var(--color-fg-primary)] disabled:ring-[var(--color-fg-primary)]/15 p-1 transition-colors duration-200 ease-in-out active:translate-y-px bg-[var(--color-bg-level-2)] border-[var(--color-border-tertiary)]/50 text-[var(--color-text-primary)] group-hover:bg-[var(--color-bg-level-3)] group-hover:border-[var(--color-border-tertiary)]"><span class="iconify i-lucide:arrow-up-right shrink-0 relative size-4" aria-hidden="true"></span>
+      <!--v-if-->
+      <!--v-if-->
+    </button></div>
 </div>"
 `;

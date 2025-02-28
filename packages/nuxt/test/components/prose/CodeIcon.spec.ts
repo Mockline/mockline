@@ -1,10 +1,16 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import CodeIcon from '../../src/runtime/components/prose/CodeIcon.vue'
+// @ts-ignore
+import { MCodeIcon } from '#components'
+import type { TypeOf } from "zod";
+import ComponentRender from "../../component-render";
 
 describe('CodeIcon', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(CodeIcon)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', {}],
+    ['with filename', { props: { filename: './filename.txt' }}],
+    ['with icon', { props: { icon: 'heroicons-check' }}],
+  ])('renders %s correctly', async (nameOrHtml, options: TypeOf<typeof MCodeIcon.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MCodeIcon)
+    expect(html).toMatchSnapshot()
   })
 })

@@ -1,10 +1,16 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import Li from '../../src/runtime/components/prose/Li.vue'
+// @ts-ignore
+import { MLi } from '#components'
+import type { TypeOf } from 'zod'
+import ComponentRender from "../../component-render";
 
 describe('Li', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(Li)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', {}],
+    ['<MLi>with slots</MLi>']
+    // @ts-ignore
+  ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof MLi.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MLi)
+    expect(html).toMatchSnapshot()
   })
 })

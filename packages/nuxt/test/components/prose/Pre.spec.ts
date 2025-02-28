@@ -1,10 +1,18 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import Pre from '../../src/runtime/components/prose/Pre.vue'
+// @ts-ignore
+import { MPre } from '#components'
+import type { TypeOf } from 'zod'
+import ComponentRender from "../../component-render";
 
 describe('Pre', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(Pre)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', {}],
+    ['full props', { props: { icon: 'heroicons-check', code: '// comment', language: 'typescript'} }],
+    ['<MPre />'],
+    // @ts-expect-error
+  ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof MPre.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MPre)
+    expect(html).toMatchSnapshot()
   })
 })
+

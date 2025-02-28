@@ -1,10 +1,15 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import A from '../../src/runtime/components/prose/Callout.vue'
+// @ts-ignore
+import { MCallout } from '#components'
+import type { TypeOf } from 'zod'
+import ComponentRender from "../../component-render";
 
-describe('A', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(A)
-    expect(html.html()).toMatchSnapshot()
+describe('ProseCallout', () => {
+  it.each([
+    ['basic case', {}],
+    ['with link', { props: { to: '/', target: '_blank' } }],
+  ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof MCallout.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MCallout)
+    expect(html).toMatchSnapshot()
   })
 })

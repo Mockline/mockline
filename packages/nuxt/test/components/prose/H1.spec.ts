@@ -1,10 +1,14 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import H1 from '../../src/runtime/components/prose/H1.vue'
+// @ts-ignore
+import { MH1 } from '#components'
+import type { TypeOf } from 'zod'
+import ComponentRender from "../../component-render";
 
 describe('H1', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(H1)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', {}]
+  ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof MH1.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MH1)
+    expect(html).toMatchSnapshot()
   })
 })

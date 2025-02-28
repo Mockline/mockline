@@ -1,18 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SidebarLayout > can mount component 1`] = `
-"<div id="test-wrapper">
-  <div class="h-screen">
-    <div style="display: flex; flex-direction: row; height: 100%; overflow: hidden; width: 100%;" data-panel-group="" data-orientation="horizontal" data-panel-group-id="sidebar-layout">
-      <div id="sidebar-layout-sidebar" style="flex-basis: 0px; flex-grow: 20; flex-shrink: 1; overflow: hidden;" data-panel="" data-panel-collapsible="true" data-panel-group-id="sidebar-layout" data-panel-id="sidebar-layout-sidebar" data-panel-size="20.0" data-state="expanded" class="max-sm:hidden"></div>
-      <div id="sidebar-layout-content" style="flex-basis: 0px; flex-grow: 80; flex-shrink: 1; overflow: hidden; overflow-y: auto;" data-panel="" data-panel-group-id="sidebar-layout" data-panel-id="sidebar-layout-content" data-panel-size="80.0">
-        <div class="overflow-y-auto relative rounded-[calc(var(--radius-base)*2)] bg-content-area border border-content-area-border h-[calc(100vh-var(--spacing)*2)] m-1"></div>
-      </div>
-    </div>
-  </div>
-</div>"
-`;
-
 exports[`SidebarLayout > renders base case correctly 1`] = `
 "<div class="h-screen">
   <div style="display: flex; flex-direction: row; height: 100%; overflow: hidden; width: 100%;" data-panel-group="" data-orientation="horizontal" data-panel-group-id="sidebar-layout">

@@ -1,10 +1,15 @@
 import { describe, it, expect } from 'vitest'
-import { renderSuspended } from '@nuxt/test-utils/runtime'
-import CodeGroup from '../../src/runtime/components/prose/CodeGroup.vue'
+// @ts-ignore
+import { MCodeGroup } from '#components'
+import type { TypeOf } from "zod";
+import ComponentRender from "../../component-render";
 
 describe('CodeGroup', () => {
-  it('can mount component', async () => {
-    const html = await renderSuspended(CodeGroup)
-    expect(html.html()).toMatchSnapshot()
+  it.each([
+    ['basic case', {}],
+    ['with defaultValue', { props: { defaultValue: 'typescript' }}],
+  ])('renders %s correctly', async (nameOrHtml, options: TypeOf<typeof MCodeGroup.props>) => {
+    const html = await ComponentRender(nameOrHtml, options, MCodeGroup)
+    expect(html).toMatchSnapshot()
   })
 })

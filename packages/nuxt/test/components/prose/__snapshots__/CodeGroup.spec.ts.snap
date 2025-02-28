@@ -1,11 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`CodeGroup > can mount component 1`] = `
-"<div id="test-wrapper">
-  <div dir="ltr" data-orientation="horizontal" class="pb-2 px-2 code-group relative group [&amp;>div:not(:first-child)]:!my-0 [&amp;>div:not(:first-child)]:!static my-5 rounded-base border border-[var(--color-border-primary)] bg-[var(--color-bg-primary)] dark">
-    <div role="tablist" aria-orientation="horizontal" tabindex="-1" data-orientation="horizontal" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" class="relative flex items-center gap-1 overflow-x-auto py-2">
-      <!---->
-    </div>
+exports[`CodeGroup > renders basic case correctly 1`] = `
+"<div dir="ltr" data-orientation="horizontal" class="pb-2 px-2 code-group relative group [&amp;>div:not(:first-child)]:!my-0 [&amp;>div:not(:first-child)]:!static my-5 rounded-base border border-[var(--color-border-primary)] bg-[var(--color-bg-primary)] dark">
+  <div role="tablist" aria-orientation="horizontal" tabindex="-1" data-orientation="horizontal" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" class="relative flex items-center gap-1 overflow-x-auto py-2">
+    <!---->
+  </div>
+</div>"
+`;
+
+exports[`CodeGroup > renders with defaultValue correctly 1`] = `
+"<div dir="ltr" data-orientation="horizontal" class="pb-2 px-2 code-group relative group [&amp;>div:not(:first-child)]:!my-0 [&amp;>div:not(:first-child)]:!static my-5 rounded-base border border-[var(--color-border-primary)] bg-[var(--color-bg-primary)] dark">
+  <div role="tablist" aria-orientation="horizontal" tabindex="-1" data-orientation="horizontal" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" class="relative flex items-center gap-1 overflow-x-auto py-2">
+    <!---->
   </div>
 </div>"
 `;

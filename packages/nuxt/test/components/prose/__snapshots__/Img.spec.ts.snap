@@ -1,3 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Img > can mount component 1`] = `"<div id="test-wrapper"><img class="cursor-zoom-in"></div>"`;
+exports[`Img > renders basic case correctly 1`] = `"<img src="./src-file.img" class="cursor-zoom-in">"`;
+
+exports[`Img > renders with alt correctly 1`] = `"<img src="./src-file.img" alt="alt for image" class="cursor-zoom-in">"`;
