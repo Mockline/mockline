@@ -34,7 +34,7 @@ jobs:
               - 'apps/docs/**'
               - 'packages/nuxt/**'
               - 'packages/utils/**'
-              - 'bun.lockb'
+              - 'bun.lock'
 
   build-and-push:
     needs: check-changes
