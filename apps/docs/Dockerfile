@@ -11,7 +11,7 @@ ENV NODE_ENV=production
 WORKDIR /app
 
 COPY package.json ./
-COPY bun.lockb ./
+COPY bun.lock ./
 
 COPY apps/docs/package.json ./apps/docs/package.json
 

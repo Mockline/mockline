@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Li > renders <MLi>with slots</MLi> correctly 1`] = `"<li class="my-1.5 ps-1.5 leading-7 [&amp;>ul]:my-0">with slots</li>"`;
+
+exports[`Li > renders basic case correctly 1`] = `"<li class="my-1.5 ps-1.5 leading-7 [&amp;>ul]:my-0"></li>"`;

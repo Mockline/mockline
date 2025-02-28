@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Ul > renders <MUl><li>li</li></MUl> correctly 1`] = `
+"<ul class="list-disc pl-6 my-5 marker:text-[var(--ui-border-accented)]">
+  <li>li</li>
+</ul>"
+`;
+
+exports[`Ul > renders basic case correctly 1`] = `"<ul class="list-disc pl-6 my-5 marker:text-[var(--ui-border-accented)]"></ul>"`;

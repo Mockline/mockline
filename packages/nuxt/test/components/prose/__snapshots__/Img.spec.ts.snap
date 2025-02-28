@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Img > renders basic case correctly 1`] = `"<img src="./src-file.img" class="cursor-zoom-in">"`;
+
+exports[`Img > renders with alt correctly 1`] = `"<img src="./src-file.img" alt="alt for image" class="cursor-zoom-in">"`;

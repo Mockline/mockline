@@ -5,4 +5,4 @@ export default createConfig({
     strict: true,
     any: true
   }
-})
+}, { ignores: ['test']})
