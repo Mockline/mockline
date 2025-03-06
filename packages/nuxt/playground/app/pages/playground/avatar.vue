@@ -19,7 +19,7 @@ const sizes = Object.keys(avatar.variants.size) as Array<keyof typeof avatar.var
       <MAvatar
         src=""
         alt="Johann Cavallucci"
-        size="lg"
+        size="md"
       />
     </div>
     <ProseH3>

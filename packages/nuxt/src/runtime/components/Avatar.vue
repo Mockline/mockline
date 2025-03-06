@@ -17,6 +17,15 @@ const componentProps = computed(() => {
 const text = props.alt
 
 const { getClasses } = useComponent('avatar', componentProps)
+
+const getInitials = (name: string) => {
+  if (!name) return ''
+  return name
+    .split(' ')
+    .map(word => word.charAt(0))
+    .join('')
+}
+
 </script>
 
 <template>
@@ -31,7 +40,7 @@ const { getClasses } = useComponent('avatar', componentProps)
       :class="getClasses('fallback')"
       :delay-ms="600"
     >
-      CT
+      {{ getInitials(text) }}
     </AvatarFallback>
   </AvatarRoot>
 </template>

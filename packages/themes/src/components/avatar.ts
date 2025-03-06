@@ -5,7 +5,7 @@ export const avatar = tv({
   slots: {
     base: 'relative inline-flex items-center justify-center',
     image: 'h-full w-full rounded-[inherit] object-cover',
-    fallback: 'flex items-center justify-center bg-[var(--color-bg-quaternary)] text-[var(--color-text-primary)] border-[0.3px] border-[var(--color-text-primary)]',
+    fallback: 'h-full w-full rounded-[inherit] flex items-center justify-center bg-[var(--color-bg-quaternary)]/60  text-[var(--color-text-primary)]/70 font-medium border-[0.3px] border-[var(--color-text-primary)]/40',
   },
   variants: {
     rounded: {
