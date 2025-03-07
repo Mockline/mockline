@@ -1,3 +1,5 @@
+"use client";
+
 import {ReactNode} from 'react';
 import {AppConfigProvider} from '../utils/AppConfigContext.tsx';
 import {useComponent} from "../utils/useComponent.tsx";
