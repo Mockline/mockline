@@ -1,3 +1,5 @@
+"use client";
+
 import {FC, ReactNode} from "react";
 import {Icon} from './Icon.tsx';
 import {useComponent} from '../utils/useComponent.tsx';

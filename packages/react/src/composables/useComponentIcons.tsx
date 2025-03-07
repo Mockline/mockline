@@ -1,3 +1,5 @@
+"use client";
+
 import {useMemo} from 'react';
 import {useAppConfig} from "../utils/AppConfigContext";
 

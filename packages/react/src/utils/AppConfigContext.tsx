@@ -1,3 +1,5 @@
+"use client";
+
 import {FC, ReactNode, createContext, useContext} from 'react';
 import {MocklineConfig, defaultAppConfig} from "@mockline/themes";
 
