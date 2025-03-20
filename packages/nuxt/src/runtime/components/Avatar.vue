@@ -40,19 +40,11 @@ const { getClasses } = useComponent('avatar', componentProps)
       :class="getClasses('image')"
     />
     <AvatarFallback
-      v-if="text"
-      :class="getClasses('fallback')"
-      :delay-ms="600"
-    >
-      <span>{{ text }}</span>
-    </AvatarFallback>
-    <AvatarFallback
-      v-else
       :class="getClasses('fallback')"
       :delay-ms="600"
     >
       <Icon v-if="icon" :name="icon" :class="getClasses('icon')" />
-      <span v-else>{{ getInitials(text) }}</span>
+      <span v-else>{{ text }}</span>
     </AvatarFallback>
   </AvatarRoot>
 </template>

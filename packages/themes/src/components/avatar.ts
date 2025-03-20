@@ -4,7 +4,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 export const avatar = tv({
   slots: {
     base: 'relative inline-flex items-center justify-center',
-    image: 'size-full rounded-[inherit] object-cover',
+    image: 'size-full rounded-[inherit] object-cover ring-[2px] ring-[var(--content-area-bg)]',
     fallback: 'size-full rounded-[inherit] flex items-center justify-center bg-[var(--color-bg-quaternary)]/60  text-[var(--color-text-secondary)] font-medium border-[0.3px] border-[var(--color-text-secondary)]/40',
   },
   variants: {
