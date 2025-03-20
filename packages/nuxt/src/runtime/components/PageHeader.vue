@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ProseH1 from './prose/H1.vue'
+
 export type PageHeaderProps = {
   class?: string,
   headline?: string,

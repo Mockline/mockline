@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App > renders <MApp :tooltip="{ delayDuration: 5 }" class="mt-5" transparent>Slot Filled here</MApp> correctly 1`] = `"<div class="bg-transparent mt-5">Slot Filled here</div>"`;
+
+exports[`App > renders transparent correctly 1`] = `"<div class="bg-[var(--color-bg-primary)]"></div>"`;

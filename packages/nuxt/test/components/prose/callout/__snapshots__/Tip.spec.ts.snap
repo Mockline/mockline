@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tip > renders <MTip>Tip slot</MTip> correctly 1`] = `
+"<div class="group border relative block rounded-base px-4 py-3 text-sm/6 my-5 dark:border-green-500/20 dark:bg-green-800/5 border-green-500/30 bg-green-500/10 text-green-600 transition-colors duration-200 ease-in-out">
+  <!--v-if--><span class="iconify i-lucide:lightbulb size-4 shrink-0 align-middle mr-1.5 text-green-600" aria-hidden="true"></span>
+  <!--v-if-->Tip slot
+</div>"
+`;
+
+exports[`Tip > renders basic case correctly 1`] = `
+"<div class="group border relative block rounded-base px-4 py-3 text-sm/6 my-5 dark:border-green-500/20 dark:bg-green-800/5 border-green-500/30 bg-green-500/10 text-green-600 transition-colors duration-200 ease-in-out">
+  <!--v-if--><span class="iconify i-lucide:lightbulb size-4 shrink-0 align-middle mr-1.5 text-green-600" aria-hidden="true"></span>
+  <!--v-if-->
+</div>"
+`;

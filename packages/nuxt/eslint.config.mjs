@@ -4,4 +4,4 @@ export default createConfig({
   typescript: {
     any: true
   }
-})
+}, { ignores: ['test']})

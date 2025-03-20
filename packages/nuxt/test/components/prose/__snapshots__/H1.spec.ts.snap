@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`H1 > renders basic case correctly 1`] = `"<h1 class="text-4xl font-bold mb-8 scroll-mt-[var(--ui-header-height)]"></h1>"`;

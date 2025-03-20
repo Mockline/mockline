@@ -31,6 +31,7 @@
     "typecheck": {},
     "test": {},
     "lint": {},
-    "lint:fix": {}
+    "lint:fix": {},
+    "test:unit": {}
   }
 }

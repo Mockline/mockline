@@ -18,11 +18,11 @@ jobs:
             src:
               - 'packages/nuxt/src/**'
               - 'packages/nuxt/package.json'
-              - 'packages/nuxt/bun.lockb'
+              - 'packages/nuxt/bun.lock'
               - 'packages/utils/src/**'
               - 'packages/utils/package.json'
-              - 'packages/utils/bun.lockb'
-              - 'bun.lockb'
+              - 'packages/utils/bun.lock'
+              - 'bun.lock'
 
   build:
     needs: check-changes
@@ -47,6 +47,9 @@ jobs:
 
       - name: 🛠️ Build
         run: bun run build
+
+      - name: 🎓 Test
+        run: bun run test:unit
 
       - name: 🚀 Continuous Release
         run: bunx pkg-pr-new publish './packages/nuxt'

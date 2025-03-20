@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`H2 > renders basic case correctly 1`] = `"<h2 class="text-2xl font-bold mt-12 mb-6 scroll-mt-[calc(var(--header-height))] [&amp;>a]:focus-visible:outline-[var(--ui-primary)] [&amp;>a>code]:border-dashed hover:[&amp;>a>code]:border-[var(--ui-primary)] hover:[&amp;>a>code]:text-[var(--ui-primary)] [&amp;>a>code]:text-xl/7 [&amp;>a>code]:font-bold"></h2>"`;

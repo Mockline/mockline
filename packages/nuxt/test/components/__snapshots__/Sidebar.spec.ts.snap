@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Sidebar > renders base case correctly 1`] = `
+"<nav class="flex flex-col h-full justify-between px-3 py-2">
+  <div class="flex flex-col gap-4">
+    <div>header</div>
+    <div>default</div>
+  </div>
+  <div>footer</div>
+</nav>"
+`;
+
+exports[`Sidebar > renders sizes correctly 1`] = `
+"<nav class="flex flex-col h-full justify-between px-3 py-2">
+  <div class="flex flex-col gap-4">
+    <div>header</div>
+    <div>default</div>
+  </div>
+  <div>footer</div>
+</nav>"
+`;
