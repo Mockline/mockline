@@ -26,7 +26,7 @@ defineShortcuts({
 
 <template>
   <MApp>
-    <div class="h-screen w-screen overflow-hidden flex min-h-0 bg-(--ui-bg)">
+    <div class="h-screen w-screen overflow-hidden flex">
       <div class="fixed top-15 lg:top-3 right-4 flex items-center gap-2">
         <MButton
           :icon="mode === 'dark' ? 'i-lucide-moon' : 'i-lucide-sun'"
@@ -37,7 +37,7 @@ defineShortcuts({
         />
       </div>
 
-      <div class="flex-1 flex flex-col items-center overflow-y-auto w-full py-14 px-4">
+      <div class="flex-1 flex flex-col items-center w-full py-14 px-4">
         <div class="flex flex-wrap gap-4">
           <MButton
             v-for="component in components"
