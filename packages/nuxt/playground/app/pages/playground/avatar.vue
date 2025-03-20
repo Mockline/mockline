@@ -21,6 +21,12 @@ const sizes = Object.keys(avatar.variants.size) as Array<keyof typeof avatar.var
         alt="Johann Cavallucci"
         size="md"
       />
+      <MAvatar
+        src=""
+        alt="Johann Cavallucci"
+        icon="lucide:image"
+        size="md"
+      />
     </div>
     <ProseH3>
       Sizes
@@ -36,6 +42,43 @@ const sizes = Object.keys(avatar.variants.size) as Array<keyof typeof avatar.var
         />
       </div>
     </div>
+
+    <ProseH3>
+      Group
+    </ProseH3>
+    <MAvatarGroup size="md">
+      <MAvatar
+        src="https://avatars.githubusercontent.com/u/72015679?v=4"
+        alt="Avatar"
+      />
+      <MAvatar
+        src="https://avatars.githubusercontent.com/u/5158436?v=4"
+        alt="Avatar"
+      />
+      <MAvatar
+        src="https://avatars.githubusercontent.com/u/71938701?v=4"
+        alt="Avatar"
+      />
+    </MAvatarGroup>
+    <MAvatarGroup :max="2" size="md">
+      <MAvatar
+        src="https://avatars.githubusercontent.com/u/72015679?v=4"
+        alt="Avatar"
+      />
+      <MAvatar
+        src="https://avatars.githubusercontent.com/u/5158436?v=4"
+        alt="Avatar"
+      />
+      <MAvatar
+        src="https://avatars.githubusercontent.com/u/71938701?v=4"
+        alt="Avatar"
+      />
+
+      <MAvatar
+        src="https://avatars.githubusercontent.com/u/71938701?v=4"
+        alt="Avatar"
+      />
+    </MAvatarGroup>
   </MPageBody>
 </template>
 

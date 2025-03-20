@@ -15,6 +15,7 @@ const componentProps = computed(() => {
 })
 
 const text = props.alt
+const { icon } = props
 
 const { getClasses } = useComponent('avatar', componentProps)
 
@@ -36,11 +37,13 @@ const getInitials = (name: string) => {
       :src="props.src"
       :class="getClasses('image')"
     />
+
     <AvatarFallback
       :class="getClasses('fallback')"
       :delay-ms="600"
     >
-      {{ getInitials(text) }}
+      <Icon v-if="icon" :name="icon" :class="getClasses('icon')" />
+      <span v-else>{{ getInitials(text) }}</span>
     </AvatarFallback>
   </AvatarRoot>
 </template>

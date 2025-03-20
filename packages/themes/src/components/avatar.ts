@@ -4,8 +4,8 @@ import { tv, type VariantProps } from 'tailwind-variants'
 export const avatar = tv({
   slots: {
     base: 'relative inline-flex items-center justify-center',
-    image: 'h-full w-full rounded-[inherit] object-cover',
-    fallback: 'h-full w-full rounded-[inherit] flex items-center justify-center bg-[var(--color-bg-quaternary)]/60  text-[var(--color-text-primary)]/70 font-medium border-[0.3px] border-[var(--color-text-primary)]/40',
+    image: 'size-full rounded-[inherit] object-cover',
+    fallback: 'size-full rounded-[inherit] flex items-center justify-center bg-[var(--color-bg-quaternary)]/60  text-[var(--color-text-secondary)] font-medium border-[0.3px] border-[var(--color-text-secondary)]/40',
   },
   variants: {
     rounded: {
@@ -48,4 +48,5 @@ export type AvatarProps = {
   src?: string
   size?: AvatarVariants['size']
   alt?: string
+  icon?: string
 }
