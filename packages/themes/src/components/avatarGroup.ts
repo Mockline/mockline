@@ -2,16 +2,38 @@ import { tv } from 'tailwind-variants'
 
 export const avatarGroup = tv({
   slots: {
-    base: 'flex items-center -space-x-[var(--overlap)] relative',
-    remainder: 'flex items-center justify-center ring-[2px] ring-[var(--content-area-bg)] bg-[var(--color-bg-quaternary)] text-[var(--color-text-secondary)] font-medium',
+    root: 'flex items-center -space-x-[var(--overlap)] relative',
+    base: 'relative rounded-full first:me-0 ring-[var(--content-area-bg)] bg-[var(--color-bg-quaternary)] text-[var(--color-text-secondary)]',
   },
   variants: {
     size: {
-      xs: '',
-      sm: '',
-      md: '',
-      lg: '',
-      xl: '',
+      '3xs': {
+        base: 'ring -me-0.5'
+      },
+      '2xs': {
+        base: 'ring -me-0.5'
+      },
+      xs: {
+        base: 'ring -me-0.5'
+      },
+      sm: {
+        base: 'ring-2 -me-1.5'
+      },
+      md: {
+        base: 'ring-2 -me-1.5'
+      },
+      lg: {
+        base: 'ring-2 -me-1.5'
+      },
+      xl: {
+        base: 'ring-3 -me-2'
+      },
+      '2xl': {
+        base: 'ring-3 -me-2'
+      },
+      '3xl': {
+        base: 'ring-3 -me-2'
+      }
     },
   },
   defaultVariants: {

@@ -14,6 +14,7 @@ const componentProps = computed(() => {
   }
 })
 
+// Get the initials of the name
 const getInitials = (name: string) => {
   if (!name) return ''
   return name
@@ -22,8 +23,10 @@ const getInitials = (name: string) => {
     .join('')
 }
 
-
+// Get the text to display in the fallback
 const text = props.text ? props.text : getInitials(props.alt)
+
+// Get the icon to display in the fallback
 const { icon } = props
 
 const { getClasses } = useComponent('avatar', componentProps)

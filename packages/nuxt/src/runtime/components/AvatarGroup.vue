@@ -1,15 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { AvatarGroupSlots } from '@mockline/themes'
+import { AvatarGroupProps } from '@mockline/themes'
 import { useComponent } from '#mockline/utils/useComponent'
-
-// Définir les props spécifiques pour AvatarGroup
-interface AvatarGroupProps {
-  max?: number | string
-  size?: string
-  overlap?: number | string
-  // Autres props nécessaires
-}
 
 const props = withDefaults(defineProps<AvatarGroupProps>(), {
   max: Infinity,
@@ -25,21 +18,20 @@ const componentProps = computed(() => {
 
 const slots = defineSlots<AvatarGroupSlots>()
 
+// Get the max number of avatars to display
 const max = computed(() => typeof props.max === 'string' ? Number.parseInt(props.max, 10) : props.max)
 
+// Get the children of the AvatarGroup
 const children = computed(() => {
   let children = slots.default?.()
   if (children?.length) {
     children = children.flatMap((child: any) => {
       if (typeof child.type === 'symbol') {
-        // `v-if="false"` or commented node
         if (typeof child.children === 'string') {
           return
         }
-
         return child.children
       }
-
       return child
     }).filter(Boolean)
   }
@@ -47,6 +39,7 @@ const children = computed(() => {
   return children || []
 })
 
+// Calculate the visible avatars
 const visibleAvatars = computed(() => {
   if (!children.value.length) {
     return []
@@ -59,6 +52,7 @@ const visibleAvatars = computed(() => {
   return [...children.value].slice(0, max.value)
 })
 
+// Calculate the number of hidden avatars
 const hiddenCount = computed(() => {
   if (!children.value.length) {
     return 0
@@ -68,16 +62,17 @@ const hiddenCount = computed(() => {
 })
 
 const { getClasses } = useComponent('avatarGroup', componentProps)
+
 </script>
 
 <template>
-  <div :class="getClasses('base')" :style="{ '--overlap': typeof overlap === 'number' ? `${overlap}rem` : overlap }">
-    <!-- Rendre uniquement les avatars visibles -->
+  <div :class="getClasses('root')" :style="{ '--overlap': typeof overlap === 'number' ? `${overlap}rem` : overlap }">
+    <!-- Display the visible avatars -->
     <template v-for="(avatar, index) in visibleAvatars" :key="index">
-      <component :is="avatar" />
+      <component :is="avatar" :size />
     </template>
 
-    <!-- Afficher le compteur d'avatars cachés -->
-    <MAvatar v-if="hiddenCount > 0" :text="`+${hiddenCount}`" :class="getClasses('remainder')" />
+    <!-- Display the remainder count -->
+    <MAvatar v-if="hiddenCount > 0" :text="`+${hiddenCount}`" :class="getClasses('base')" />
   </div>
 </template>

@@ -103,6 +103,28 @@ const sizes = Object.keys(avatar.variants.size) as Array<keyof typeof avatar.var
         alt="Avatar"
       />
     </MAvatarGroup>
+
+    <MAvatarGroup :max="4" size="md">
+      <MAvatar
+        src="https://avatars.githubusercontent.com/u/72015679?v=4"
+        alt="Avatar"
+      />
+      <MAvatar
+        src="https://avatars.githubusercontent.com/u/71938701?v=4"
+        alt="Avatar"
+      />
+    </MAvatarGroup>
+
+    <MAvatarGroup :max="4" size="xl">
+      <MAvatar
+        src="https://avatars.githubusercontent.com/u/72015679?v=4"
+        alt="Avatar"
+      />
+      <MAvatar
+        src="https://avatars.githubusercontent.com/u/71938701?v=4"
+        alt="Avatar"
+      />
+    </MAvatarGroup>
   </MPageBody>
 </template>
 
