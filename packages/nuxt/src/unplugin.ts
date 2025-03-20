@@ -38,7 +38,7 @@ export const runtimeDir = normalize(fileURLToPath(new URL('./runtime', import.me
 export const MocklinePlugin = createUnplugin<MocklineOptions | undefined>((_options = {}, meta) => {
   const options = defu(_options, { })
 
-  const appConfig = defu({ mockline: options.mockline })
+  const appConfig = defu({ mockline: options.mockline }, { mockline: defaultAppConfig })
 
   return [
     NuxtEnvironmentPlugin(),
