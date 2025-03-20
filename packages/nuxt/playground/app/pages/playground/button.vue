@@ -7,9 +7,9 @@ const variants = Object.keys(button.variants.variant) as Array<keyof typeof butt
 
 <template>
   <MPageBody>
-    <ProseH3>
+    <h3>
       Variants
-    </ProseH3>
+    </h3>
     <div class="flex flex-wrap gap-4">
       <MButton
         v-for="variant in variants"
@@ -39,9 +39,9 @@ const variants = Object.keys(button.variants.variant) as Array<keyof typeof butt
         loading
       />
     </div>
-    <ProseH3>
+    <h3>
       Sizes
-    </ProseH3>
+    </h3>
     <div class="flex gap-4">
       <div v-for="size in sizes" :key="size" class="flex items-center gap-2">
         <MButton
@@ -51,19 +51,19 @@ const variants = Object.keys(button.variants.variant) as Array<keyof typeof butt
         />
       </div>
     </div>
-    <ProseH3>
+    <h3>
       Disabled
-    </ProseH3>
+    </h3>
     <div class="flex gap-4">
       <MButton label="disabled" disabled />
       <MButton label="disabled" disabled color="neutral" />
       <MButton label="disabled" disabled color="danger" />
     </div>
-    <ProseH3>
+    <h3>
       Custom
-    </ProseH3>
+    </h3>
     <div>
-      <MButton label="test" class="bg-yellow-500" icon="lucide:rocket" />
+      <MButton to="/" label="test" class="bg-yellow-500" icon="lucide:rocket" />
     </div>
   </MPageBody>
 </template>

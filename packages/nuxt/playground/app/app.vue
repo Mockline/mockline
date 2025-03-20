@@ -14,15 +14,3 @@ provide('navigation', navigation)
     <MToasts close-button />
   </Html>
 </template>
-
-<style>
-@import "tailwindcss";
-@import "@mockline/themes";
-
-@source "../content";
-
-@theme {
-  --font-geist: 'Geist', sans-serif;
-  --font-mono: 'Geist Mono', sans-serif;
-}
-</style>

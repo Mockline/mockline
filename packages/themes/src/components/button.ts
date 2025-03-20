@@ -4,7 +4,7 @@ export const button = tv({
   slots: {
     base: [
       'relative inline-flex items-center justify-center',
-      'font-medium cursor-pointer select-none',
+      'font-medium select-none',
       'focus-visible:outline-none',
       'touch-none tap-highlight-none',
     ],
@@ -224,7 +224,7 @@ export const button = tv({
       variant: 'solid',
       class: {
         base: [
-          'text-[var(--color-text-inverted)] bg-[var(--color-fg-primary)]',
+          'bg-[var(--color-fg-primary)]',
           'hover:bg-[var(--color-fg-primary)]/90',
           'focus-visible:ring-2 focus-visible:ring-[var(--color-fg-primary)] focus-visible:ring-offset-2',
           'disabled:bg-[var(--color-bg-translucent)]',
