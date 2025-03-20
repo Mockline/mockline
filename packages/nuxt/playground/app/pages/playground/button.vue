@@ -63,7 +63,7 @@ const variants = Object.keys(button.variants.variant) as Array<keyof typeof butt
       Custom
     </ProseH3>
     <div>
-      <MButton label="test" class="bg-yellow-500" icon="lucide:rocket" />
+      <MButton to="/" label="test" class="bg-yellow-500" icon="lucide:rocket" />
     </div>
   </MPageBody>
 </template>

@@ -4,7 +4,7 @@ export const button = tv({
   slots: {
     base: [
       'relative inline-flex items-center justify-center',
-      'font-medium cursor-pointer select-none',
+      'font-medium select-none',
       'focus-visible:outline-none',
       'touch-none tap-highlight-none',
     ],

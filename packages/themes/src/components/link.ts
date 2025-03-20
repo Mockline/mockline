@@ -4,11 +4,11 @@ import type { ButtonHTMLAttributes } from 'vue'
 import { tv } from 'tailwind-variants'
 
 export const link = tv({
-  base: 'focus-visible:outline-(--ui-primary)',
+  base: 'focus-visible:outline-(--color-accent)',
   variants: {
     active: {
-      true: 'text-(--ui-primary)',
-      false: ['text-(--ui-text-muted) hover:text-(--ui-text)']
+      true: 'text-(--color-accent)',
+      false: ['text-(--color-text-secondary) hover:text-(--color-text-primary)']
     },
     disabled: {
       true: 'cursor-not-allowed opacity-75'
