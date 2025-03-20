@@ -49,4 +49,5 @@ export type AvatarProps = {
   size?: AvatarVariants['size']
   alt?: string
   icon?: string
+  text?: string
 }

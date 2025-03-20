@@ -5,7 +5,6 @@ export const avatarGroup = tv({
     base: 'flex items-center -space-x-[var(--overlap)] relative',
     remainder: 'flex items-center justify-center bg-gray-100 text-gray-800 font-medium',
   },
-  name: 'avatarGroup',
   variants: {
     size: {
       xs: '',

@@ -14,11 +14,6 @@ const componentProps = computed(() => {
   }
 })
 
-const text = props.alt
-const { icon } = props
-
-const { getClasses } = useComponent('avatar', componentProps)
-
 const getInitials = (name: string) => {
   if (!name) return ''
   return name
@@ -26,6 +21,13 @@ const getInitials = (name: string) => {
     .map(word => word.charAt(0))
     .join('')
 }
+
+
+const text = props.text ? props.text : getInitials(props.alt)
+const { icon } = props
+
+const { getClasses } = useComponent('avatar', componentProps)
+
 
 </script>
 
@@ -37,8 +39,15 @@ const getInitials = (name: string) => {
       :src="props.src"
       :class="getClasses('image')"
     />
-
     <AvatarFallback
+      v-if="text"
+      :class="getClasses('fallback')"
+      :delay-ms="600"
+    >
+      <span>{{ text }}</span>
+    </AvatarFallback>
+    <AvatarFallback
+      v-else
       :class="getClasses('fallback')"
       :delay-ms="600"
     >

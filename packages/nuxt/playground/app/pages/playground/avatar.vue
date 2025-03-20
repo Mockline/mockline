@@ -27,6 +27,10 @@ const sizes = Object.keys(avatar.variants.size) as Array<keyof typeof avatar.var
         icon="lucide:image"
         size="md"
       />
+      <MAvatar
+        text="moi"
+        size="md"
+      />
     </div>
     <ProseH3>
       Sizes
