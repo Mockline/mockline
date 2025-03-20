@@ -4,6 +4,7 @@ import { createApp, defineAsyncComponent, ref } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import mocklinePlugin from 'mockline/vue-plugin'
 
+// @ts-expect-error - this works
 import App from './app.vue'
 
 const pages = import.meta.glob('../../playground/app/pages/**/*.vue')

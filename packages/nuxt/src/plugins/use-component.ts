@@ -11,6 +11,7 @@ export default function mocklineAliasPlugin(): Plugin {
       if (!config.resolve.alias) {
         config.resolve.alias = {}
       }
+      // @ts-expect-error - this works
       config.resolve.alias['#mockline'] = path.resolve(__dirname, '../runtime')
     },
   }
