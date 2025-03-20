@@ -1,2 +1,9 @@
-@import "tailwindcss";
+@import "tailwindcss" theme(static) source("../../../../../");
 @import "@mockline/themes";
+
+@source "../content";
+
+@theme static {
+  --font-geist: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', sans-serif;
+}

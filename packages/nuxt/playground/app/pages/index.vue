@@ -7,9 +7,7 @@
       This is a playground for testing and showcasing Nuxt components.
     </p>
     <div class="mt-4">
-      <NuxtLink to="/playground/button" class="text-blue-600 hover:underline">
-        Button
-      </NuxtLink>
+      <MButton to="/playground/button" label="Button" />
     </div>
   </div>
 </template>
