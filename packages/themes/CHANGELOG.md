@@ -1,5 +1,11 @@
 # @mockline/themes
 
+## 0.16.0
+
+### Minor Changes
+
+- add vue support
+
 ## 0.15.0
 
 ### Minor Changes
