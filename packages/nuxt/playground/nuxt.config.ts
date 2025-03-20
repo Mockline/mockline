@@ -30,4 +30,6 @@ export default defineNuxtConfig({
   routeRules: {
     '/getting-started/installation': { redirect: '/getting-started/installation/nuxt', prerender: false }
   },
+
+  css: ['~/assets/css/main.css'],
 })

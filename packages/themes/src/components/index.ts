@@ -7,6 +7,7 @@ export * from './navMenu'
 export * from './header'
 export * from './contentArea'
 export * from './themeToggle'
+export * from './link'
 
 // Content
 export * from './content/navigationTree'

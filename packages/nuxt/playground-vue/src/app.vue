@@ -1,31 +1,13 @@
 <script setup lang="ts">
-import { splitByCase, upperFirst } from 'scule'
-import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import { useColorMode } from '@vueuse/core'
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore included for compatibility with Nuxt playground
-import { useAppConfig } from '#imports'
 
-const appConfig = useAppConfig()
 const mode = useColorMode()
 
-const router = useRouter()
-
-const components = ['button',]
-
-const items = components.map(component => ({ label: upperName(component), to: `/components/${component}` }))
-
-function upperName(name: string) {
-  return splitByCase(name).map(p => upperFirst(p)).join('')
-}
-
 const isCommandPaletteOpen = ref(false)
-
-function onSelect(item: any) {
-  router.push(item.to)
-}
 
 defineShortcuts({
   meta_k: () => isCommandPaletteOpen.value = true
