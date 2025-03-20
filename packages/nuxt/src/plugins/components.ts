@@ -38,6 +38,7 @@ export default function ComponentImportPlugin(options: MocklineOptions, meta: Un
     ],
     resolvers: [
       (componentName) => {
+        console.log('componentName', componentName)
         if (overrideNames.has(componentName)) {
           const realName = removeMPrefix(componentName)
           return {
@@ -68,6 +69,7 @@ export default function ComponentImportPlugin(options: MocklineOptions, meta: Un
           return
 
         const filename = id.match(/([^/]+)\.vue$/)?.[1] ?? ''
+        console.log('filename', filename)
         if (overrideNames.has('M' + filename) || overrideNames.has(filename)) {
           return join(runtimeDir, 'vue/components', filename + '.vue')
         }
