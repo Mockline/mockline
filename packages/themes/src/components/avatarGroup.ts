@@ -3,7 +3,7 @@ import { tv } from 'tailwind-variants'
 export const avatarGroup = tv({
   slots: {
     base: 'flex items-center -space-x-[var(--overlap)] relative',
-    remainder: 'flex items-center justify-center bg-gray-100 text-gray-800 font-medium',
+    remainder: 'flex items-center justify-center ring-[2px] ring-[var(--content-area-bg)] bg-[var(--color-bg-quaternary)] text-[var(--color-text-secondary)] font-medium',
   },
   variants: {
     size: {
