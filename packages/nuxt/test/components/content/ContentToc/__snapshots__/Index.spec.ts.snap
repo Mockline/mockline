@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContentToc > renders <MContentToc :links="[{id: 'id', text: 'text', depth: 1}]"/> correctly 1`] = `"<mcontenttoc links="[object Object]"></mcontenttoc>"`;
+
+exports[`ContentToc > renders basic case correctly 1`] = `
+"<div>
+  <h2 class="text-xs/4 font-bold">On This Page</h2>
+  <nav>
+    <ul class="space-y-2">
+      <li class=""><a class="block truncate text-xs/4 transition-all duration-500 ease-in-out text-[var(--ui-text-secondary)] hover:text-[var(--ui-text-primary)] dark:hover:text-[var(--ui-text-primary-dark)]" href="#id">text</a>
+        <!--v-if-->
+      </li>
+    </ul>
+  </nav>
+</div>"
+`;

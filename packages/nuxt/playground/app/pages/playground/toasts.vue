@@ -1,8 +1,8 @@
 <template>
   <div>
-    <ProseH3>
+    <h3>
       Toasts
-    </ProseH3>
+    </h3>
     <MButton @click="() => toast.success('Copied to clipboard')">
       Regular toast
     </MButton>

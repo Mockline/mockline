@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`P > renders <MP>paragraph</MP> correctly 1`] = `"<p class="my-5 leading-7">paragraph</p>"`;
+
+exports[`P > renders basic case correctly 1`] = `"<p class="my-5 leading-7"></p>"`;

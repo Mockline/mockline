@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-4 w-full mx-auto max-w-3xl">
     <ProseH4>
       Horizontal Divider (default)
     </ProseH4>

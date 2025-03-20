@@ -8,9 +8,9 @@ const state = ref(false)
 <template>
   <MPageBody>
     <div>
-      <ProseH3>
+      <h3>
         Variants (primary)
-      </ProseH3>
+      </h3>
       <div class="flex flex-wrap gap-4">
         <MSwitch
           v-model="state"
@@ -37,9 +37,9 @@ const state = ref(false)
         />
       </div>
       <div>
-        <ProseH3>
+        <h3>
           Variants (neutral)
-        </ProseH3>
+        </h3>
         <div class="flex flex-wrap gap-4">
           <MSwitch
             v-model="state"
@@ -72,9 +72,9 @@ const state = ref(false)
       </div>
     </div>
     <div>
-      <ProseH3>
+      <h3>
         Sizes
-      </ProseH3>
+      </h3>
       <div class="flex gap-4">
         <div v-for="size in sizes" :key="size" class="flex items-center gap-2">
           <MSwitch
@@ -90,9 +90,9 @@ const state = ref(false)
       </div>
     </div>
     <div>
-      <ProseH3>
+      <h3>
         With description
-      </ProseH3>
+      </h3>
       <div class="flex flex-wrap gap-4">
         <MSwitch
           v-model="state"

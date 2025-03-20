@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CodeIcon > renders basic case correctly 1`] = `"<!--v-if-->"`;
+
+exports[`CodeIcon > renders with filename correctly 1`] = `"<span class="iconify i-vscode-icons:file-type-txt" aria-hidden="true"></span>"`;
+
+exports[`CodeIcon > renders with icon correctly 1`] = `"<span class="iconify i-heroicons:check" aria-hidden="true"></span>"`;

@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Aside > renders <MAside class="text-red-500" sticky><template #default>default</template><template #bottom>bottom</template></MAside> correctly 1`] = `
+"<aside class="overflow-y-auto sticky top-[var(--header-height)] text-red-500">
+  <div class="relative">defaultbottom</div>
+</aside>"
+`;
+
+exports[`Aside > renders not sticky correctly 1`] = `
+"<aside class="overflow-y-auto">
+  <div class="relative"></div>
+</aside>"
+`;
+
+exports[`Aside > renders sticky correctly 1`] = `
+"<aside class="overflow-y-auto sticky top-[var(--header-height)]">
+  <div class="relative"></div>
+</aside>"
+`;

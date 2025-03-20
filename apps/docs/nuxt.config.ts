@@ -4,13 +4,11 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4
   },
-  modules: [
-    '../../packages/nuxt/src/module',
-    '@nuxt/content'
-  ],
+  modules: ['../../packages/nuxt/src/module', '@nuxt/content', 'nuxt-llms'],
   devtools: { enabled: true },
   compatibilityDate: '2024-07-09',
 
+  css: ['~/assets/css/main.css'],
   mdc: {
     highlight: {
       theme: {
@@ -24,6 +22,16 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       version: pkg.version
+    }
+  },
+
+  llms: {
+    domain: 'https://mockline.hrcd.fr',
+    title: 'Mockline Docs',
+    description: 'Mockline is a premium UI Kit for Nuxt and VueJS based on TailwindCSS. It provides a set of components and utilities to help you build your next project.',
+    full: {
+      title: 'Mockline Docs',
+      description: 'The complete Mockline documentation, blog posts and changelog written in Markdown (MDC syntax).'
     }
   },
 

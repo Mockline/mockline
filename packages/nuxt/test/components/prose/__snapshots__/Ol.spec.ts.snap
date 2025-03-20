@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Ol > renders <MOl><li>li</li></MOl> correctly 1`] = `
+"<ol class="list-decimal pl-6 my-5">
+  <li>li</li>
+</ol>"
+`;
+
+exports[`Ol > renders basic case correctly 1`] = `"<ol class="list-decimal pl-6 my-5"></ol>"`;
