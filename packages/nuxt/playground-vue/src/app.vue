@@ -5,6 +5,16 @@ import { useColorMode } from '@vueuse/core'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore included for compatibility with Nuxt playground
 
+const components = [
+  'button',
+  'switch',
+  'avatar',
+  'link',
+  'toasts',
+  'page',
+  'divider',
+]
+
 const mode = useColorMode()
 
 const isCommandPaletteOpen = ref(false)
@@ -27,7 +37,17 @@ defineShortcuts({
         />
       </div>
 
-      <div class="flex-1 flex flex-col items-center justify-around overflow-y-auto w-full py-14 px-4">
+      <div class="flex-1 flex flex-col items-center overflow-y-auto w-full py-14 px-4">
+        <div class="flex flex-wrap gap-4">
+          <MButton
+            v-for="component in components"
+            :key="component"
+            :label="component"
+            color="neutral"
+            variant="link"
+            :to="`/playground/${component}`"
+          />
+        </div>
         <Suspense>
           <RouterView />
         </Suspense>

@@ -117,43 +117,43 @@ const links: ContentNavigationItem[] = [
   <div class="flex flex-col gap-6">
     <div class="grid sm:grid-cols-2 gap-4">
       <div class="space-y-4 max-w-xs">
-        <ProseH2>
+        <h3>
           Neutral navigation tree
-        </ProseH2>
+        </h3>
         <MContentNavigationTree :links color="neutral" />
       </div>
       <div class="space-y-4 max-w-xs">
-        <ProseH2>
+        <h3>
           Accent navigation tree
-        </ProseH2>
+        </h3>
         <MContentNavigationTree :links color="accent" />
       </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div class="space-y-4 max-w-xs">
-        <ProseH2>
+        <h3>
           Size: xs
-        </ProseH2>
+        </h3>
         <MContentNavigationTree :links color="neutral" size="xs" />
       </div>
       <div class="space-y-4 max-w-xs">
-        <ProseH2>
+        <h3>
           Size: sm (default)
-        </ProseH2>
+        </h3>
         <MContentNavigationTree :links color="neutral" size="sm" />
       </div>
       <div class="space-y-4 max-w-xs">
-        <ProseH2>
+        <h3>
           Size: md
-        </ProseH2>
+        </h3>
         <MContentNavigationTree :links color="neutral" size="md" />
       </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div class="space-y-4 max-w-xs">
-        <ProseH2>
+        <h3>
           With custom slots
-        </ProseH2>
+        </h3>
         <MContentNavigationTree :links color="neutral" link-class="hover:bg-yellow-500/10">
           <template #icon="{ item, active }">
             <Icon
