@@ -31,7 +31,6 @@ const { icon } = props
 
 const { getClasses } = useComponent('avatar', componentProps)
 
-
 </script>
 
 <template>
