@@ -1,5 +1,21 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Avatar > renders basic case correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-10"><!--v-if--><!----></span>"`;
+exports[`Avatar > renders basic case with src correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-10"><img role="img" src="https://avatars.githubusercontent.com/u/72015679?v=4" is="img" class="size-full rounded-[inherit] object-cover ring-[2px] ring-[var(--content-area-bg)]" style="display: none;"><!----></span>"`;
 
-exports[`Avatar > renders icon correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-10"><!--v-if--><!----></span>"`;
+exports[`Avatar > renders with custom text correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-10"><!--v-if--><!----></span>"`;
+
+exports[`Avatar > renders with fallback initials correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-10"><!--v-if--><!----></span>"`;
+
+exports[`Avatar > renders with icon fallback correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-10"><!--v-if--><!----></span>"`;
+
+exports[`Avatar > renders with no props correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-10"><!--v-if--><!----></span>"`;
+
+exports[`Avatar > renders with size lg correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-12"><img role="img" src="https://avatars.githubusercontent.com/u/72015679?v=4" is="img" class="size-full rounded-[inherit] object-cover ring-[2px] ring-[var(--content-area-bg)]" style="display: none;"><!----></span>"`;
+
+exports[`Avatar > renders with size md correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-10"><img role="img" src="https://avatars.githubusercontent.com/u/72015679?v=4" is="img" class="size-full rounded-[inherit] object-cover ring-[2px] ring-[var(--content-area-bg)]" style="display: none;"><!----></span>"`;
+
+exports[`Avatar > renders with size sm correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-8"><img role="img" src="https://avatars.githubusercontent.com/u/72015679?v=4" is="img" class="size-full rounded-[inherit] object-cover ring-[2px] ring-[var(--content-area-bg)]" style="display: none;"><!----></span>"`;
+
+exports[`Avatar > renders with size xl correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-14"><img role="img" src="https://avatars.githubusercontent.com/u/72015679?v=4" is="img" class="size-full rounded-[inherit] object-cover ring-[2px] ring-[var(--content-area-bg)]" style="display: none;"><!----></span>"`;
+
+exports[`Avatar > renders with size xs correctly 1`] = `"<span class="relative inline-flex items-center justify-center rounded-full size-6"><img role="img" src="https://avatars.githubusercontent.com/u/72015679?v=4" is="img" class="size-full rounded-[inherit] object-cover ring-[2px] ring-[var(--content-area-bg)]" style="display: none;"><!----></span>"`;

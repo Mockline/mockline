@@ -6,13 +6,67 @@ import { MAvatar } from '#components'
 
 describe('Avatar', () => {
   it.each([
-    ['basic case', { }],
-    ['icon', { props: { src: "", alt: "test",  icon: 'lucide:image' } }],
+    ['basic case with src', {
+      props: {
+        src: "https://avatars.githubusercontent.com/u/72015679?v=4",
+        alt: "Avatar"
+      }
+    }],
+    ['with fallback initials', {
+      props: {
+        src: "",
+        alt: "Johann Cavallucci"
+      }
+    }],
+    ['with icon fallback', {
+      props: {
+        src: "",
+        alt: "Johann Cavallucci",
+        icon: "lucide:image"
+      }
+    }],
+    ['with custom text', {
+      props: {
+        text: "moi"
+      }
+    }],
+    ['with size xs', {
+      props: {
+        src: "https://avatars.githubusercontent.com/u/72015679?v=4",
+        alt: "Avatar",
+        size: "xs"
+      }
+    }],
+    ['with size sm', {
+      props: {
+        src: "https://avatars.githubusercontent.com/u/72015679?v=4",
+        alt: "Avatar",
+        size: "sm"
+      }
+    }],
+    ['with size md', {
+      props: {
+        src: "https://avatars.githubusercontent.com/u/72015679?v=4",
+        alt: "Avatar",
+        size: "md"
+      }
+    }],
+    ['with size lg', {
+      props: {
+        src: "https://avatars.githubusercontent.com/u/72015679?v=4",
+        alt: "Avatar",
+        size: "lg"
+      }
+    }],
+    ['with size xl', {
+      props: {
+        src: "https://avatars.githubusercontent.com/u/72015679?v=4",
+        alt: "Avatar",
+        size: "xl",
+      }
+    }],
+    ['with no props', { }],
   ])('renders %s correctly', async (nameOrHtml: string, options: TypeOf<typeof MAvatar.props>) => {
-    if (options !== undefined) {
-      options.slots = options.slots || { default: () => 'label' }
-      options.slots.default = options.slots.default || (() => 'label')
-    }
     const html = await ComponentRender(nameOrHtml, options, MAvatar)
     expect(html).toMatchSnapshot()
   })

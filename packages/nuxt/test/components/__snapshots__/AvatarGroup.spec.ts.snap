@@ -1,0 +1,41 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AvatarGroup > renders basic group correctly 1`] = `
+"<div class="flex items-center -space-x-[var(--overlap)] relative" style="--overlap: 0.25rem;">
+  <!-- Display the visible avatars -->
+  <!-- Display the remainder count -->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`AvatarGroup > renders with exact max correctly 1`] = `
+"<div class="flex items-center -space-x-[var(--overlap)] relative" style="--overlap: 0.25rem;">
+  <!-- Display the visible avatars -->
+  <!-- Display the remainder count -->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`AvatarGroup > renders with fewer than max correctly 1`] = `
+"<div class="flex items-center -space-x-[var(--overlap)] relative" style="--overlap: 0.25rem;">
+  <!-- Display the visible avatars -->
+  <!-- Display the remainder count -->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`AvatarGroup > renders with larger size correctly 1`] = `
+"<div class="flex items-center -space-x-[var(--overlap)] relative" style="--overlap: 0.25rem;">
+  <!-- Display the visible avatars -->
+  <!-- Display the remainder count -->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`AvatarGroup > renders with max limit correctly 1`] = `
+"<div class="flex items-center -space-x-[var(--overlap)] relative" style="--overlap: 0.25rem;">
+  <!-- Display the visible avatars -->
+  <!-- Display the remainder count -->
+  <!--v-if-->
+</div>"
+`;
