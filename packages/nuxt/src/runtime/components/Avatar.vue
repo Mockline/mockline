@@ -24,7 +24,7 @@ const getInitials = (name: string) => {
 }
 
 // Get the text to display in the fallback
-const text = props.text ? props.text : getInitials(props.alt)
+const text = props.text ? props.text : getInitials(props.alt!)
 
 // Get the icon to display in the fallback
 const { icon } = props
@@ -45,7 +45,7 @@ const { getClasses } = useComponent('avatar', componentProps)
       :class="getClasses('fallback')"
       :delay-ms="600"
     >
-      <Icon v-if="icon" :name="icon" :class="getClasses('icon')" />
+      <Icon v-if="icon" :name="icon" />
       <span v-else>{{ text }}</span>
     </AvatarFallback>
   </AvatarRoot>
