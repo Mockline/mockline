@@ -8,7 +8,8 @@ export * from './header'
 export * from './contentArea'
 export * from './themeToggle'
 export * from './link'
-
+export * from './avatar'
+export * from './avatarGroup'
 // Content
 export * from './content/navigationTree'
 

@@ -49,6 +49,11 @@ const links: NavigationTreeLink[] = [
         path: '/playground/toasts',
         icon: 'lucide:bell',
       },
+      {
+        title: 'Avatar',
+        path: '/playground/avatar',
+        icon: 'lucide:user-round',
+      },
     ],
   },
   {
