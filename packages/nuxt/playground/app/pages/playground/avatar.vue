@@ -77,6 +77,7 @@ const sizes = Object.keys(avatar.variants.size) as Array<keyof typeof avatar.var
         src="https://avatars.githubusercontent.com/u/71938701?v=4"
         alt="Avatar"
       />
+      <MAvatar />
 
       <MAvatar
         src="https://avatars.githubusercontent.com/u/71938701?v=4"

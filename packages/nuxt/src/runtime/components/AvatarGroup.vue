@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { AvatarGroupSlots } from '@mockline/themes'
-import { AvatarGroupProps } from '@mockline/themes'
+import type { AvatarGroupSlots, AvatarGroupProps } from '@mockline/themes'
 import { useComponent } from '#mockline/utils/useComponent'
 
 const props = withDefaults(defineProps<AvatarGroupProps>(), {
