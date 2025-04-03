@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   },
   modules: ['../../packages/nuxt/src/module', '@nuxt/content', 'nuxt-llms'],
   devtools: { enabled: true },
+
   compatibilityDate: '2024-07-09',
 
   css: ['~/assets/css/main.css'],
