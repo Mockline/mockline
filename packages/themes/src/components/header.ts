@@ -15,6 +15,7 @@ export const header = tv({
 export type HeaderVariants = VariantProps<typeof header>
 
 export type HeaderProps = {
+  as?: string
   class?: string,
   sticky?: boolean,
   transparent?: boolean,

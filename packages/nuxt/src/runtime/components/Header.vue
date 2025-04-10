@@ -18,7 +18,7 @@ const { getClasses } = useComponent('header', props)
 </script>
 
 <template>
-  <component :is="'header'" ref="header" :class="getClasses('default', props.class)">
+  <component :is="props.as" ref="header" :class="getClasses('default', props.class)">
     <slot name="left" />
     <slot name="default" />
     <slot name="right" />
