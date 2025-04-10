@@ -4,7 +4,10 @@ import { useElementSize } from '@vueuse/core'
 import type { HeaderProps, HeaderSlots } from '@mockline/themes'
 import { useComponent } from '#mockline/utils/useComponent'
 
-const props = defineProps<HeaderProps>()
+const props = withDefaults(defineProps<HeaderProps>(), {
+  as: 'header',
+})
+
 const slots = defineSlots<HeaderSlots>()
 
 const header = ref(null)
