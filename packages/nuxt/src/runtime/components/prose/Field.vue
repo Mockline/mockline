@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Primitive } from 'reka-ui'
 import type { FieldProps, FieldSlots } from '@mockline/themes'
 import { useComponent } from '#mockline/utils/useComponent'
 
@@ -9,10 +10,7 @@ const { getClasses } = useComponent('proseField')
 </script>
 
 <template>
-  <div :class="getClasses('default', props.class)">
-    <slot />
-  </div>
-  <div :class="getClasses('root', props.class)">
+  <Primitive as="div" :class="getClasses('root', props.class)">
     <div :class="getClasses('container', props.class)">
       <span v-if="name" :class="getClasses('name', props.class)">
         {{ name }}
@@ -34,5 +32,5 @@ const { getClasses } = useComponent('proseField')
         {{ description }}
       </slot>
     </p>
-  </div>
+  </Primitive>
 </template>

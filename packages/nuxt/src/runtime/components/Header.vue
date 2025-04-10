@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Primitive } from 'reka-ui'
 import { onMounted, ref } from 'vue'
 import { useElementSize } from '@vueuse/core'
 import type { HeaderProps, HeaderSlots } from '@mockline/themes'
@@ -21,10 +22,10 @@ const { getClasses } = useComponent('header', props)
 </script>
 
 <template>
-  <component :is="props.as" ref="header" :class="getClasses('default', props.class)">
+  <Primitive ref="header" :as="props.as" :class="getClasses('default', props.class)">
     <slot name="left" />
     <slot name="default" />
     <slot name="right" />
-  </component>
+  </Primitive>
 </template>
 

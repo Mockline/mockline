@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Primitive } from 'reka-ui'
 import { type FieldGroupProps } from '@mockline/themes'
 import { useComponent } from '#mockline/utils/useComponent'
 
@@ -8,7 +9,7 @@ const { getClasses } = useComponent('proseFieldGroup')
 </script>
 
 <template>
-  <div :class="getClasses('default', props.class)">
+  <Primitive as="div" :class="getClasses('default', props.class)">
     <slot />
-  </div>
+  </Primitive>
 </template>
