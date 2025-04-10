@@ -2,32 +2,32 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 export const cardTv = tv({
   slots: {
-    root: 'relative flex flex-col gap-2 rounded-lg border bg-[var(--color-bg-primary)] shadow-sm border-none',
+    root: 'relative flex flex-col gap-2 rounded-lg',
     header: 'flex items-center justify-between p-4',
     footer: 'flex items-center justify-between p-4',
     body: 'p-4',
   },
   variants: {
     variant: {
-      primary: {
-        root: 'border-transparent',
-        header: 'border-b border-(--color-bg-secondary)',
-        footer: 'border-t border-(--color-bg-secondary)'
+      outline: {
+        root: 'border border-(--color-bg-quaternary)',
+        header: 'border-b border-(--color-bg-quaternary)',
+        footer: 'border-t border-(--color-bg-quaternary)'
       },
-      secondary: {
-        root: 'border-(--color-bg-secondary)',
-        header: 'border-b border-(--color-bg-tertiary)',
-        footer: 'border-t border-(--color-bg-tertiary)'
+      soft: {
+        root: 'bg-(--color-bg-secondary)',
+        header: 'border-b border-(--color-bg-quinary) bg-transparent',
+        footer: 'border-t border-(--color-bg-quinary) bg-transparent'
       },
-      neutral: {
-        root: 'border-(--color-fg-primary)',
-        header: 'border-b border-(--color-fg-secondary)',
-        footer: 'border-t border-(--color-fg-secondary)'
+      subtle: {
+        root: 'bg-(--color-bg-secondary) border border-(--color-bg-quinary)',
+        header: 'border-b border-(--color-bg-quinary) bg-transparent',
+        footer: 'border-t border-(--color-bg-quinary) bg-transparent'
       }
     }
   },
   defaultVariants: {
-    variant: 'primary'
+    variant: 'outline'
   },
 })
 
