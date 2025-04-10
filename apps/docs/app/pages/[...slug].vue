@@ -9,7 +9,7 @@ definePageMeta({
 const route = useRoute()
 const { framework } = useSharedData()
 
-const { data: page } = await useAsyncData(kebabCase(route.path), () => queryCollection('content').path(route.path).first())
+const { data: page } = await useAsyncData(kebabCase(route.path), () => queryCollection('docs').path(route.path).first())
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
@@ -37,7 +37,7 @@ watch(page, () => {
 }, { immediate: true })
 
 const { data: surround } = await useAsyncData(`${kebabCase(route.path)}-surround`, () => {
-  return queryCollectionItemSurroundings('content', route.path, {
+  return queryCollectionItemSurroundings('docs', route.path, {
     fields: ['description']
   }).orWhere(group => group.where('framework', '=', framework.value).where('framework', 'IS NULL'))
 }, {

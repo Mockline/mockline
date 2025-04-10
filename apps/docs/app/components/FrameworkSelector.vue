@@ -16,6 +16,3 @@ const { framework, frameworks } = useSharedData()
   </div>
 </template>
 
-<style scoped>
-
-</style>
