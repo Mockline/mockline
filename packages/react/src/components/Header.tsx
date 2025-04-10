@@ -1,21 +1,15 @@
-import { useRef, useEffect, type ReactNode } from 'react';
+import { useRef, useEffect } from 'react';
 import { useComponent } from '#mockline/utils/useComponent';
+import type { HeaderProps, HeaderSlots } from '@mockline/themes'
 
-interface HeaderProps {
-  className?: string;
-  children?: ReactNode;
-  leftSlot?: ReactNode;
-  rightSlot?: ReactNode;
+type Properties = {
+slots: HeaderSlots,
+props: HeaderProps
 }
 
-export const Header = ({
-  className,
-  children,
-  leftSlot,
-  rightSlot
-}: HeaderProps) => {
+export const Header = ({slots, props}: Properties) => {
   const headerRef = useRef<HTMLElement>(null);
-  const { getClasses } = useComponent('header');
+  const { getClasses } = useComponent('header', props);
 
   useEffect(() => {
     if (headerRef.current) {
@@ -25,10 +19,10 @@ export const Header = ({
   }, []);
 
   return (
-    <header ref={headerRef} className={getClasses('default', className)}>
-      {leftSlot}
-      {children}
-      {rightSlot}
+    <header ref={headerRef} className={getClasses('default', props.class)}>
+      {slots.left}
+      {slots.default}
+      {slots.right}
     </header>
   );
 };
