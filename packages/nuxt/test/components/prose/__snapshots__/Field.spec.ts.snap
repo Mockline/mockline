@@ -1,0 +1,48 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CodeIcon > renders with all props correctly 1`] = `
+"<div class="my-5">
+  <div class="flex items-center gap-3 font-mono text-sm"><span class="font-semibold text-(--color-accent)">analytics</span>
+    <div class="flex-1 flex items-center gap-1.5 text-xs"><span class="rounded-(--base-radius) bg-(--color-bg-tertiary) text-(--color-text-tertiary) px-1.5 py-0.5">string</span>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`CodeIcon > renders with name correctly 1`] = `
+"<div class="my-5">
+  <div class="flex items-center gap-3 font-mono text-sm"><span class="font-semibold text-(--color-accent)">analytics</span>
+    <div class="flex-1 flex items-center gap-1.5 text-xs">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`CodeIcon > renders with required correctly 1`] = `
+"<div class="my-5">
+  <div class="flex items-center gap-3 font-mono text-sm">
+    <!--v-if-->
+    <div class="flex-1 flex items-center gap-1.5 text-xs">
+      <!--v-if--><span class="rounded-(--base-radius) bg-(--color-danger)/10 text-(--color-danger) px-1.5 py-0.5"> required </span>
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`CodeIcon > renders with type correctly 1`] = `
+"<div class="my-5">
+  <div class="flex items-center gap-3 font-mono text-sm">
+    <!--v-if-->
+    <div class="flex-1 flex items-center gap-1.5 text-xs"><span class="rounded-(--base-radius) bg-(--color-bg-tertiary) text-(--color-text-tertiary) px-1.5 py-0.5">string</span>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;

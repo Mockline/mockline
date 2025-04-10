@@ -16,7 +16,7 @@ const { version } = useRuntimeConfig().public
       </MSidebar>
     </template>
     <template #default="{ toggleSidebar }">
-      <MHeader sticky class="dark:bg-neutral-900 bg-white pl-1 pt-1 pr-4">
+      <MHeader sticky class="pl-1 pt-1 pr-4">
         <MButton
           variant="ghost"
           color="neutral"

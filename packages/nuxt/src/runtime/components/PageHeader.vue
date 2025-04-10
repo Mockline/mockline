@@ -17,7 +17,7 @@ export type PageHeaderProps = {
 }
 
 const props = withDefaults(defineProps<PageHeaderProps>(), {
-  class: 'relative border-b border-neutral-200 dark:border-neutral-800 py-8',
+  class: 'relative border-b border-(--color-border-primary) py-8',
   headline: undefined,
   icon: undefined,
   title: undefined,
