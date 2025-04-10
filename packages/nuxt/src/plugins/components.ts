@@ -15,7 +15,7 @@ export default function ComponentImportPlugin(options: MocklineOptions, meta: Un
       const base = file.replace(/\.vue$/, '')
       return base === 'Icon'
         ? 'Icon'
-        : 'M' + base
+        : `M${ base}`
     })
   )
 
@@ -25,7 +25,7 @@ export default function ComponentImportPlugin(options: MocklineOptions, meta: Un
       const base = file.replace(/\.vue$/, '')
       return base === 'Icon'
         ? 'Icon'
-        : 'M' + base
+        : `M${ base}`
     })
   )
 
@@ -42,14 +42,14 @@ export default function ComponentImportPlugin(options: MocklineOptions, meta: Un
           const realName = removeMPrefix(componentName)
           return {
             name: 'default',
-            from: join(runtimeDir, 'vue/components', realName + '.vue')
+            from: join(runtimeDir, 'vue/components', `${realName }.vue`)
           }
         }
         if (componentNames.has(componentName)) {
           const realName = removeMPrefix(componentName)
           return {
             name: 'default',
-            from: join(runtimeDir, 'components', realName + '.vue')
+            from: join(runtimeDir, 'components', `${realName }.vue`)
           }
         }
       }
@@ -68,8 +68,8 @@ export default function ComponentImportPlugin(options: MocklineOptions, meta: Un
           return
 
         const filename = id.match(/([^/]+)\.vue$/)?.[1] ?? ''
-        if (overrideNames.has('M' + filename) || overrideNames.has(filename)) {
-          return join(runtimeDir, 'vue/components', filename + '.vue')
+        if (overrideNames.has(`M${ filename}`) || overrideNames.has(filename)) {
+          return join(runtimeDir, 'vue/components', `${filename }.vue`)
         }
       }
     },
