@@ -10,6 +10,7 @@ export * from './themeToggle'
 export * from './link'
 export * from './avatar'
 export * from './avatarGroup'
+
 // Content
 export * from './content/navigationTree'
 
@@ -20,6 +21,8 @@ export * from './prose/list'
 export * from './prose/code'
 export * from './prose/hr'
 export * from './prose/callout'
+export * from './prose/field'
+export * from './prose/field-group'
 
 // Typography
 export * from './prose/typography'

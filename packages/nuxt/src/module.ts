@@ -106,6 +106,8 @@ export default defineNuxtModule<ModuleOptions>({
             'warning': 'ProseWarning',
             'img': 'ProseImg',
             'hr': 'ProseHr',
+            'field-group': 'ProseFieldGroup',
+            'field': 'ProseField',
           }
         }
       })

@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { type ProseH1Props } from '@mockline/themes'
+import { type FieldGroupProps } from '@mockline/themes'
 import { useComponent } from '#mockline/utils/useComponent'
 
-const props = defineProps<ProseH1Props>()
+const props = defineProps<FieldGroupProps>()
 
-const { getClasses } = useComponent('proseH1')
+const { getClasses } = useComponent('proseFieldGroup')
 </script>
 
 <template>
-  <h1 :id :class="getClasses('default', props.class)">
+  <div :class="getClasses('default', props.class)">
     <slot />
-  </h1>
+  </div>
 </template>

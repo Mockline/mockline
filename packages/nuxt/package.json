@@ -35,7 +35,6 @@
     "#build/app.config": "./.nuxt/app.config.mjs",
     "#build/mockline-image-component": "./.nuxt/mockline-image-component.ts"
   },
-  "style": "./dist/runtime/index.css",
   "main": "./dist/module.mjs",
   "files": [
     ".nuxt/mockline",
