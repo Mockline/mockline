@@ -2,6 +2,7 @@
 export * from './app'
 export * from './button'
 export * from './switch'
+export * from './card'
 export * from './sidebar'
 export * from './navMenu'
 export * from './header'
