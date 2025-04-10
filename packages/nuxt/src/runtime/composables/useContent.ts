@@ -36,7 +36,7 @@ export function findPageBreadcrumb(
   if (!navigation?.length || !page) return []
 
   return navigation.reduce<ContentNavigationItem[]>((breadcrumb, link) => {
-    if (page.path && (page.path + '/').startsWith(link.path + '/')) {
+    if (page.path && (`${page.path }/`).startsWith(`${link.path }/`)) {
       if (link.children) {
         breadcrumb.push(link)
         breadcrumb.push(...findPageBreadcrumb(link.children, page))
