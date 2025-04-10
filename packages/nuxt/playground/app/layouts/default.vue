@@ -94,6 +94,11 @@ const links: NavigationTreeLink[] = [
         title: 'Hr',
         path: '/components/hr',
         icon: 'lucide:minus',
+      },
+      {
+        title: 'Field',
+        path: '/components/field',
+        icon: 'lucide:check-square',
       }
     ]
   },
