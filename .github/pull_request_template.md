@@ -16,6 +16,14 @@ Here are the available types:
 - refactor (a code change that neither fixes a bug nor adds a feature) 🛠
 - revert (reverts a previous commit) 🔄
 
+### Scopes
+- nuxt (the nuxt module)
+- vue (the vue plugin)
+- next (the next package)
+- react (the react package)
+- theme (the theme package)
+- docs (the documentation)
+
 -->
 
 ### 🔗 Linked issue
