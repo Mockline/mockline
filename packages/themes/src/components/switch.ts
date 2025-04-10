@@ -6,7 +6,7 @@ export const switchTv = tv({
     base: 'inline-flex items-center shrink-0 rounded-full border-2 border-transparent focus-visible:outline-2 focus-visible:outline-offset-2 data-[state=unchecked]:bg-[var(--color-bg-quaternary)]',
     container: 'flex items-center',
     thumb: 'group pointer-events-none rounded-full bg-[var(--color-bg-primary)] shadow-lg ring-0 transition-transform duration-200 data-[state=unchecked]:translate-x-0 data-[state=unchecked]:rtl:-translate-x-0 flex items-center justify-center',
-    icon: 'absolute shrink-0 group-data-[state=unchecked]:text-[var(--color-text-primary)] opacity-0 size-10/12',
+    icon: 'absolute shrink-0 group-data-[state=unchecked]:text-[var(--color-bg-quaternary)] opacity-0 size-10/12',
     wrapper: 'ms-2',
     label: 'block font-medium text-[var(--color-text-primary)]',
     description: 'text-[var(--color-text-quaternary)]'
