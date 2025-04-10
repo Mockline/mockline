@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4
   },
-  modules: ['../../packages/nuxt/src/module', '@nuxt/content', 'nuxt-llms', '@nuxthub/core'],
+  modules: ['mockline', '@nuxt/content', 'nuxt-llms', '@nuxthub/core'],
   devtools: { enabled: true },
   compatibilityDate: '2024-07-09',
 
