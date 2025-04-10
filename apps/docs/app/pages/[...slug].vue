@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
+import { kebabCase } from 'scule'
+
+definePageMeta({
+  layout: 'docs'
+})
 
 const route = useRoute()
-const { framework, frameworks } = useSharedData()
+const { framework } = useSharedData()
 
-const { data: page } = await useAsyncData(route.path, () => queryCollection('content').path(route.path).first())
-
+const { data: page } = await useAsyncData(kebabCase(route.path), () => queryCollection('content').path(route.path).first())
+if (!page.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+}
 if (!page.value)
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 
@@ -29,18 +36,17 @@ watch(page, () => {
   }
 }, { immediate: true })
 
-const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
-
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
+const { data: surround } = await useAsyncData(`${kebabCase(route.path)}-surround`, () => {
   return queryCollectionItemSurroundings('content', route.path, {
     fields: ['description']
-  })
+  }).orWhere(group => group.where('framework', '=', framework.value).where('framework', 'IS NULL'))
 }, {
   watch: [framework]
 })
 
-const headline = findPageHeadline(navigation?.value, page?.value)
-const breadcrumb = findPageBreadcrumb(navigation?.value, page?.value)
+const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
+
+const breadcrumb = computed(() => mapContentNavigation(findPageBreadcrumb(navigation?.value, page.value)).map(({ icon, ...link }) => link))
 </script>
 
 <template>
