@@ -1,5 +1,11 @@
 # @mockline/themes
 
+## 0.17.0
+
+### Minor Changes
+
+- drop cjs
+
 ## 0.16.0
 
 ### Minor Changes
