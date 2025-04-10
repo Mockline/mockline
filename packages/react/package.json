@@ -7,15 +7,15 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "eslint": ">=9.21.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.2",
+    "eslint": ">=9.24.0",
     "eslint-config-custom": "*",
     "prettier": "^3.5.3",
-    "react": "^19.0.0",
+    "react": "^19.1.0",
     "tsconfig": "*",
-    "turbo": "^2.4.4",
-    "typescript": "5.8.2"
+    "turbo": "^2.5.0",
+    "typescript": "5.8.3"
   },
   "publishConfig": {
     "access": "public"
