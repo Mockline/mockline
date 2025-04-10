@@ -32,6 +32,16 @@ export const useContentNavigation = (navigation: Ref<ContentNavigationItem[] | u
 
   const mappedNavigation = computed(() => navigation.value?.map(item => processNavigationItem(item)))
 
+  mappedNavigation.value?.sort((a, b) => {
+    const getPriority = (item: any) => {
+      if (item.path.startsWith('/getting-started')) return 1
+      if (item.path.startsWith('/components')) return 2
+      if (item.path.startsWith('/typography')) return 3
+      return 4
+    }
+    return getPriority(a) - getPriority(b)
+  })
+
   const filteredNavigation = computed(() => mappedNavigation.value?.map((item) => {
     return {
       ...item,
