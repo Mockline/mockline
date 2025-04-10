@@ -24,7 +24,9 @@ const { getClasses } = useComponent('cardTv', componentProps)
       <slot name="header" />
     </div>
 
-    <slot />
+    <div :class="getClasses('body', props.class)">
+      <slot />
+    </div>
 
     <div v-if="slots.footer" :class="getClasses('footer', props.class)">
       <slot name="footer" />
