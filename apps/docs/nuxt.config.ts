@@ -19,6 +19,16 @@ export default defineNuxtConfig({
     },
   },
 
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          langs: ['bash', 'ts', 'typescript', 'diff', 'vue', 'json', 'yml', 'css', 'mdc']
+        }
+      }
+    }
+  },
+
   runtimeConfig: {
     public: {
       version: pkg.version
