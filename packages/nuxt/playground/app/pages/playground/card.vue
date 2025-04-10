@@ -1,6 +1,3 @@
-<script setup lang="ts">
-</script>
-
 <template>
   <MPageBody>
     <h2 class="text-2xl font-bold">
@@ -8,13 +5,11 @@
     </h2>
     <MCard variant="outline">
       <template #header>
-        <p>tata</p>
+        <p>Header</p>
       </template>
-
-      <p>toto</p>
-
+      <p>Body</p>
       <template #footer>
-        <p>titi</p>
+        <p>Footer</p>
       </template>
     </MCard>
     <h2 class="text-2xl font-bold">
@@ -22,13 +17,11 @@
     </h2>
     <MCard variant="soft">
       <template #header>
-        <p>tata</p>
+        <p>Header</p>
       </template>
-
-      <p>toto</p>
-
+      <p>Body</p>
       <template #footer>
-        <p>titi</p>
+        <p>Footer</p>
       </template>
     </MCard>
     <h2 class="text-2xl font-bold">
@@ -36,13 +29,11 @@
     </h2>
     <MCard variant="subtle">
       <template #header>
-        <p>tata</p>
+        <p>Header</p>
       </template>
-
-      <p>toto</p>
-
+      <p>Body</p>
       <template #footer>
-        <p>titi</p>
+        <p>Footer</p>
       </template>
     </MCard>
   </MPageBody>
