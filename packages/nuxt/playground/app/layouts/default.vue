@@ -54,6 +54,11 @@ const links: NavigationTreeLink[] = [
         path: '/playground/avatar',
         icon: 'lucide:user-round',
       },
+      {
+        title: 'Card',
+        path: '/playground/card',
+        icon: 'lucide:credit-card',
+      },
     ],
   },
   {
