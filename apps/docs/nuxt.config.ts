@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4
   },
-  modules: ['../../packages/nuxt/src/module', '@nuxt/content', 'nuxt-llms'],
+  modules: ['../../packages/nuxt/src/module', '@nuxt/content', 'nuxt-llms', '@nuxthub/core'],
   devtools: { enabled: true },
   compatibilityDate: '2024-07-09',
 
@@ -17,6 +17,16 @@ export default defineNuxtConfig({
         light: 'github-dark',
       }
     },
+  },
+
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          langs: ['bash', 'ts', 'typescript', 'diff', 'vue', 'json', 'yml', 'css', 'mdc']
+        }
+      }
+    }
   },
 
   runtimeConfig: {

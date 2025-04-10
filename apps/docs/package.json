@@ -11,10 +11,12 @@
     "dev:prepare": "nuxt prepare",
     "start": "node .output/server/index.mjs",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "deploy": "nuxthub deploy"
   },
   "dependencies": {
     "@nuxt/content": "^3.4.0",
+    "@nuxthub/core": "0.8.24",
     "mockline": "*",
     "nuxt": "^3.16.2",
     "nuxt-llms": "^0.1.2"

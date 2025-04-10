@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content', ['framework']))
-provide('navigation', navigation)
+const { mappedNavigation } = useContentNavigation(navigation)
+
+provide('navigation', mappedNavigation)
 </script>
 
 <template>
@@ -31,7 +33,9 @@ provide('navigation', navigation)
 }
 
 html[data-framework="nuxt"] .vue-only,
-html[data-framework="vue"] .nuxt-only {
+html[data-framework="vue"] .nuxt-only,
+html[data-framework="next"] .next-only,
+html[data-framework="react"] .react-only {
   display: none;
 }
 </style>
