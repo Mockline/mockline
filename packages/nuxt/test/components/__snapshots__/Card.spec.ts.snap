@@ -1,3 +1,41 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Card > renders base case correctly 1`] = `"<div> Card </div>"`;
+exports[`Card > renders base case (outline by default) correctly 1`] = `
+"<div class="relative flex flex-col gap-2 rounded-lg border border-(--color-bg-quaternary)">
+  <!--v-if-->
+  <div class="p-4"></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Card > renders with custom class correctly 1`] = `
+"<div class="relative flex flex-col gap-2 rounded-lg border border-(--color-bg-quaternary)">
+  <!--v-if-->
+  <div class="p-4"></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Card > renders with outline variant correctly 1`] = `
+"<div class="relative flex flex-col gap-2 rounded-lg border border-(--color-bg-quaternary)">
+  <!--v-if-->
+  <div class="p-4"></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Card > renders with soft variant correctly 1`] = `
+"<div class="relative flex flex-col gap-2 rounded-lg border border-(--color-bg-quaternary)">
+  <!--v-if-->
+  <div class="p-4"></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`Card > renders with subtle variant correctly 1`] = `
+"<div class="relative flex flex-col gap-2 rounded-lg border border-(--color-bg-quaternary)">
+  <!--v-if-->
+  <div class="p-4"></div>
+  <!--v-if-->
+</div>"
+`;
