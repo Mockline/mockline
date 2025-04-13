@@ -13,7 +13,7 @@ jobs:
       id-token: write
     defaults:
       run:
-        working-directory: ./apps/docs
+        working-directory: .
 
     steps:
       - uses: actions/checkout@v4
