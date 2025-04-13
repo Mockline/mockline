@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      - name: Prepare
+        run: bun run dev:prepare
+
       - name: Ensure NuxtHub module is installed
         run: bunx nuxthub@latest ensure
 
