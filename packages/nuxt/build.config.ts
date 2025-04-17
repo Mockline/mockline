@@ -14,5 +14,5 @@ export default defineBuildConfig({
       options.addRelativeDeclarationExtensions = false
     }
   },
-  externals: ['#build/mockline', '#build/app.config', 'vite']
+  externals: ['#build/mockline', 'vite']
 })
