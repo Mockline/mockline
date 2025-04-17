@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.2",
-    "@iconify-json/lucide": "^1.2.36",
+    "@iconify-json/lucide": "^1.2.37",
     "@mockline/themes": "*",
     "@nuxt/fonts": "^0.11.1",
     "@nuxt/icon": "^1.12.0",
@@ -66,7 +66,7 @@
     "@nuxtjs/color-mode": "^3.5.2",
     "@tailwindcss/postcss": "4.1.4",
     "@tailwindcss/vite": "4.1.4",
-    "@unhead/vue": "2.0.5",
+    "@unhead/vue": "2.0.8",
     "defu": "^6.1.4",
     "knitwork": "^1.2.0",
     "magic-string": "^0.30.17",
@@ -100,7 +100,7 @@
     "nuxt": "^3.16.2",
     "typescript": "5.8.3",
     "vue-tsc": "^2.2.8",
-    "zod": "^3.24.2",
+    "zod": "^3.24.3",
     "@vue/test-utils": "^2.4.6",
     "vitest": "^3.1.1",
     "happy-dom": "^17.4.4"
