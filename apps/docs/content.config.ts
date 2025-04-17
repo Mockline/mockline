@@ -8,9 +8,22 @@ const schema = z.object({
 })
 
 export const collections = {
-  content: defineCollection({
+  docs: defineCollection({
     type: 'page',
-    source: '**/*.md',
+    source: [
+      {
+        include: '1.getting-started/**/*.md',
+        prefix: '/getting-started/',
+      },
+      {
+        include: '2.components/**/*.md',
+        prefix: '/components/',
+      },
+      {
+        include: '3.typography/**/*.md',
+        prefix: '/typography/',
+      },
+    ],
     schema
   })
 }

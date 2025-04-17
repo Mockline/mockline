@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content', ['framework']))
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework']))
 provide('navigation', navigation)
 </script>
 
