@@ -4,7 +4,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "style": "./dist/runtime/mockline.css",
+      "style": "./dist/runtime/index.css",
       "types": "./dist/module.d.mts",
       "import": "./dist/module.mjs"
     },
@@ -67,10 +67,9 @@
     "#build/mockline-image-component": "./.nuxt/mockline-image-component.ts"
   },
   "main": "./dist/module.mjs",
-  "style": "./dist/runtime/mockline.css",
+  "style": "./dist/runtime/index.css",
   "files": [
     ".nuxt/mockline",
-    "",
     "vue-plugin.d.ts",
     "dist"
   ],
