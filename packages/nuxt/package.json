@@ -4,6 +4,7 @@
   "type": "module",
   "exports": {
     ".": {
+      "style": "./dist/runtime/mockline.css",
       "types": "./dist/module.d.mts",
       "import": "./dist/module.mjs"
     },
@@ -66,6 +67,7 @@
     "#build/mockline-image-component": "./.nuxt/mockline-image-component.ts"
   },
   "main": "./dist/module.mjs",
+  "style": "./dist/runtime/mockline.css",
   "files": [
     ".nuxt/mockline",
     "vue-plugin.d.ts",
@@ -75,7 +77,7 @@
     "prepack": "nuxt-module-build build",
     "dev": "DEV=true nuxi dev playground",
     "dev:vue": "DEV=true vite playground-vue",
-    "build": "nuxt-module-build build",
+    "build": "bun run tailwind && nuxt-module-build build",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && vite build playground-vue",
     "release": "bun run lint && bun run prepack && npm publish",
     "release:edge": "bun run lint && bun run prepack && npm publish --tag edge",
@@ -83,7 +85,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
-    "test:unit": "vitest run"
+    "test:unit": "vitest run",
+    "tailwind": "npx @tailwindcss/cli -i ./src/runtime/index.css -o ./src/runtime/mockline.css"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.2",

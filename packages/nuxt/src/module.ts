@@ -1,21 +1,21 @@
 import {
-  defineNuxtModule,
-  createResolver,
-  addImportsDir,
   addComponentsDir,
-  installModule,
+  addImportsDir,
+  addImportsSources,
   addPlugin,
-  hasNuxtModule,
+  addTemplate,
   addVitePlugin,
-  addImportsSources, addTemplate,
+  createResolver,
+  defineNuxtModule,
+  hasNuxtModule,
+  installModule,
 } from '@nuxt/kit'
 import { defu } from 'defu'
-import type { Nuxt } from '@nuxt/schema'
+import type { Nuxt, NuxtTemplate } from '@nuxt/schema'
 import type { ModuleOptions } from '@mockline/themes'
-import { defaultModuleOptions, defaultAppConfig } from '@mockline/themes'
+import { components, defaultAppConfig, defaultModuleOptions } from '@mockline/themes'
+import { kebabCase } from 'scule'
 import { name, version } from '../package.json'
-
-export * from '@mockline/themes'
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -156,5 +156,61 @@ export default defineNuxtModule<ModuleOptions>({
         return image ? `export { default } from "${image.filePath}"` : 'export default "img"'
       }
     })
+
+    getTemplates()
   },
 })
+
+export function getTemplates() {
+  const templates: NuxtTemplate[] = []
+
+  for (const component in components) {
+    templates.push({
+      filename: `mockline/${kebabCase(component)}.ts`,
+      write: true,
+      getContents: () => {
+        console.log(`Component ${component}:`)
+        const template = (components as any)[component]
+        console.log(`Template:`, template)
+        const result = typeof template === 'function' ? template() : template
+        let json = JSON.stringify(result, null, 2)
+
+        const variants = Object.entries(result.variants || {})
+          .filter(([_, values]) => {
+            const keys = Object.keys(values as Record<string, unknown>)
+            return keys.some(key => key !== 'true' && key !== 'false')
+          })
+          .map(([key]) => key)
+
+        for (const variant of variants) {
+          json = json.replace(new RegExp(`("${variant}": "[^"]+")`, 'g'), `$1 as typeof ${variant}[number]`)
+          json = json.replace(new RegExp(`("${variant}": \\[\\s*)((?:"[^"]+",?\\s*)+)(\\])`, 'g'), (_, before, match, after) => {
+            const replaced = match.replace(/("[^"]+")/g, `$1 as typeof ${variant}[number]`)
+            return `${before}${replaced}${after}`
+          })
+        }
+
+        function generateVariantDeclarations(variants: string[]) {
+          return variants.map((variant) => {
+            const keys = Object.keys(result.variants[variant])
+            return `const ${variant} = ${JSON.stringify(keys, null, 2)} as const`
+          })
+        }
+        return [
+          ...generateVariantDeclarations(variants),
+          `export default ${json}`
+        ].join('\n\n')
+      }
+    })
+  }
+
+  templates.push({
+    filename: 'mockline/index.ts',
+    write: true,
+    getContents: () => Object.keys(components).map(component => `export { default as ${component} } from './${kebabCase(component)}'`).join('\n')
+  })
+
+  for (const template of templates) {
+    addTemplate(template)
+  }
+}
