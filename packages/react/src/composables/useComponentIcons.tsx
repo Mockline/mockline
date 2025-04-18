@@ -1,7 +1,7 @@
 "use client";
 
 import {useMemo} from 'react';
-import {useAppConfig} from "../utils/AppConfigContext";
+import {useAppConfig} from "../utils/AppConfigContext.tsx";
 
 export type UseComponentIconsProps = {
     /** Display an icon based on the `leading` and `trailing` props. */

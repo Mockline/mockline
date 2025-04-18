@@ -1,16 +1,14 @@
 "use client";
 
 import "./globals.css";
-import {ReactNode} from "react";
-import {App} from "@mockline/react";
+import type { ReactNode } from "react";
+import { App } from "../../src";
 
 export default function RootLayout({children}: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
       <body>
-        <App>
-          {children}
-        </App>
+        <App children={children} />
       </body>
     </html>
   );

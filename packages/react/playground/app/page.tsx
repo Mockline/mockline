@@ -1,4 +1,4 @@
-import {Greet, Button} from "@mockline/react";
+import {Greet, Button} from "../../src/index.ts";
 
 export default function Home() {
   return (
@@ -11,10 +11,7 @@ export default function Home() {
         <h1 className={"text-xl text-gray-500 mb-4"}>Button</h1>
         <Button label="Icon button" icon="mdi-light:home" className={"bg-green-500"}/>
         <br/>
-        <Button className={"bg-red-500"}
-                leading={<span>---</span>}
-                trailing={<span>---</span>}
-        >
+        <Button className={"bg-red-500"}>
           Leading and trailing
         </Button>
         <br/>

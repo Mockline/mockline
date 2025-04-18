@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@radix-ui/react-popover": "^1.1.6",
-    "@mockline/themes": "*"
+    "@mockline/themes": "*",
+    "react": "^19.1.0"
   },
   "devDependencies": {
     "@iconify/react": "^5.2.0",
@@ -21,7 +22,6 @@
     "esbuild": "^0.25.0",
     "eslint-config-custom": "*",
     "prettier": "^3.5.3",
-    "react": "^19.1.0",
     "tsconfig": "*",
     "turbo": "^2.5.0",
     "typescript": "^5.8.3"
