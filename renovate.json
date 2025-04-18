@@ -1,5 +1,6 @@
 {
   "extends": [
     "github>hugorcd/renovate-config"
-  ]
+  ],
+  "ignoreDeps": ["@nuxt/module-builder"]
 }
