@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ProseIconProps } from '@mockline/themes'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponent } from '../../utils'
 
 const props = defineProps<ProseIconProps>()
 

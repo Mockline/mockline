@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ProseUlProps } from '@mockline/themes'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponent } from '../../utils'
 
 const props = defineProps<ProseUlProps>()
 

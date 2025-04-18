@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CardSlots, CardProps } from '@mockline/themes'
 import { computed } from 'vue'
-import { useComponent } from '#mockline/utils'
+import { useComponent } from '../utils'
 
 const slots = defineSlots<CardSlots>()
 const props = defineProps<CardProps>()

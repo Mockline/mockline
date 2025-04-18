@@ -3,8 +3,8 @@ import type { AvatarProps } from '@mockline/themes'
 import { AvatarImage, AvatarRoot, AvatarFallback } from 'reka-ui'
 
 import { computed } from 'vue'
+import { useComponent } from '../utils'
 import ImageComponent from '#build/mockline-image-component'
-import { useComponent } from '#mockline/utils/useComponent'
 
 const props = defineProps<AvatarProps>()
 

@@ -1,18 +1,19 @@
 import {
-  defineNuxtModule,
-  createResolver,
-  addImportsDir,
   addComponentsDir,
-  installModule,
+  addImportsDir,
+  addImportsSources,
   addPlugin,
-  hasNuxtModule,
+  addTemplate,
   addVitePlugin,
-  addImportsSources, addTemplate,
+  createResolver,
+  defineNuxtModule,
+  hasNuxtModule,
+  installModule,
 } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { Nuxt } from '@nuxt/schema'
 import type { ModuleOptions } from '@mockline/themes'
-import { defaultModuleOptions, defaultAppConfig } from '@mockline/themes'
+import { defaultAppConfig, defaultModuleOptions } from '@mockline/themes'
 import { name, version } from '../package.json'
 
 export default defineNuxtModule<ModuleOptions>({

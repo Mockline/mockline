@@ -3,9 +3,9 @@ import { computed, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
 import { toast } from 'vue-sonner'
 import type { ProsePreProps } from '@mockline/themes'
+import { useComponent } from '../../utils'
 import CodeIcon from './CodeIcon.vue'
 import appConfig from '#build/app.config'
-import { useComponent } from '#mockline/utils/useComponent'
 
 const props = defineProps<ProsePreProps>()
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type ProseH2Props } from '@mockline/themes'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponent } from '../../utils'
 
 const props = defineProps<ProseH2Props>()
 

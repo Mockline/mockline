@@ -4,6 +4,7 @@
   "type": "module",
   "exports": {
     ".": {
+      "style": "./dist/runtime/index.css",
       "types": "./dist/module.d.mts",
       "import": "./dist/module.mjs"
     },
@@ -30,12 +31,43 @@
       "import": "./dist/runtime/utils/*.js"
     }
   },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/module.d.mts"
+      ],
+      "unplugin": [
+        "./dist/unplugin.d.mts"
+      ],
+      "vite": [
+        "./dist/vite.d.mts"
+      ],
+      "vue-plugin": [
+        "./vue-plugin.d.ts"
+      ],
+      "runtime/*": [
+        "./dist/runtime/*"
+      ],
+      "components/*": [
+        "./dist/runtime/components/*"
+      ],
+      "composables/*": [
+        "./dist/runtime/composables/*"
+      ],
+      "utils": [
+        "./dist/runtime/utils/index.d.ts"
+      ],
+      "utils/*": [
+        "./dist/runtime/utils/*.d.ts"
+      ]
+    }
+  },
   "imports": {
-    "#build/mockline/*": "./.nuxt/mockline/*.ts",
-    "#build/app.config": "./.nuxt/app.config.mjs",
+    "#build/mockline/*": "./.nuxt/ui/*.ts",
     "#build/mockline-image-component": "./.nuxt/mockline-image-component.ts"
   },
   "main": "./dist/module.mjs",
+  "style": "./dist/runtime/index.css",
   "files": [
     ".nuxt/mockline",
     "vue-plugin.d.ts",
@@ -45,7 +77,7 @@
     "prepack": "nuxt-module-build build",
     "dev": "DEV=true nuxi dev playground",
     "dev:vue": "DEV=true vite playground-vue",
-    "build": "nuxt-module-build build",
+    "build": "bun run tailwind && nuxt-module-build build",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && vite build playground-vue",
     "release": "bun run lint && bun run prepack && npm publish",
     "release:edge": "bun run lint && bun run prepack && npm publish --tag edge",
@@ -53,7 +85,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
-    "test:unit": "vitest run"
+    "test:unit": "vitest run",
+    "tailwind": "npx @tailwindcss/cli -i ./src/runtime/tailwind.css -o ./src/runtime/mockline.css"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.2",
@@ -93,7 +126,7 @@
     "shiki-transformer-color-highlight": "^1.0.0",
     "@nuxt/content": "3.4.0",
     "@nuxt/devtools": "^2.4.0",
-    "@nuxt/module-builder": "^1.0.1",
+    "@nuxt/module-builder": "0.8.4",
     "@nuxt/test-utils": "^3.17.2",
     "@types/node": "^22.14.1",
     "changelogen": "^0.6.1",

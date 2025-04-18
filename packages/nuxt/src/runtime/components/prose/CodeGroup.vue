@@ -2,9 +2,8 @@
 import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent } from 'reka-ui'
 import { useSlots, computed, onMounted, watch } from 'vue'
 import { type CodeGroupProps } from '@mockline/themes'
-import { transformSlot } from '../../utils'
+import { transformSlot, useComponent } from '../../utils'
 import CodeIcon from './CodeIcon.vue'
-import { useComponent } from '#mockline/utils/useComponent'
 import { useState } from '#imports'
 import appConfig from '#build/app.config'
 

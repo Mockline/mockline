@@ -13,7 +13,7 @@ import {
   NavigationMenuViewport,
 } from 'reka-ui'
 import type { NavMenuProps } from '@mockline/themes'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponent } from '../utils'
 
 const props = withDefaults(defineProps<NavMenuProps>(), {
   orientation: 'horizontal',

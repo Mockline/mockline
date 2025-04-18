@@ -4,9 +4,10 @@ import { isEqual, diff } from 'ohash/utils'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import type { LinkProps, LinkSlots } from '@mockline/themes'
+import type { UseComponentIconsProps } from '../composables/useComponentIcons'
+import { useComponent } from '../utils'
 import ULinkBase from './LinkBase.vue'
-import { type UseComponentIconsProps, useRoute } from '#imports'
-import { useComponent } from '#mockline/utils'
+import { useRoute } from '#imports'
 
 const props = defineProps<LinkProps & UseComponentIconsProps>()
 const slots = defineSlots<LinkSlots>()

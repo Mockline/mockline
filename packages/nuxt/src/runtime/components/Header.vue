@@ -3,7 +3,7 @@ import { Primitive } from 'reka-ui'
 import { onMounted, ref } from 'vue'
 import { useElementSize } from '@vueuse/core'
 import type { HeaderProps, HeaderSlots } from '@mockline/themes'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponent } from '../utils'
 
 const props = withDefaults(defineProps<HeaderProps>(), {
   as: 'header',
