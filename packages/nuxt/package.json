@@ -86,7 +86,7 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
     "test:unit": "vitest run",
-    "tailwind": "npx @tailwindcss/cli -i ./src/runtime/index.css -o ./src/runtime/mockline.css"
+    "tailwind": "npx @tailwindcss/cli -i ./src/runtime/tailwind.css -o ./src/runtime/mockline.css"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.2",
