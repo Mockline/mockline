@@ -70,6 +70,7 @@
   "style": "./dist/runtime/mockline.css",
   "files": [
     ".nuxt/mockline",
+    "",
     "vue-plugin.d.ts",
     "dist"
   ],
