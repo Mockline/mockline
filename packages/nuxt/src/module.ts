@@ -15,6 +15,8 @@ import type { ModuleOptions } from '@mockline/themes'
 import { defaultModuleOptions, defaultAppConfig } from '@mockline/themes'
 import { name, version } from '../package.json'
 
+export * from '@mockline/themes'
+
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name,

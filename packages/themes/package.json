@@ -30,7 +30,6 @@
       "require": "./dist/index.js"
     }
   },
-  "module": "./dist/module.js",
   "files": [
     "dist",
     "README.md",
