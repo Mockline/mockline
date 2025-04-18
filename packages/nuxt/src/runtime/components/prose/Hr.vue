@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ProseHrProps, ProseHrSlots } from '@mockline/themes'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponent } from '../../utils'
 
 const props = withDefaults(defineProps<ProseHrProps>(), {
   orientation: 'horizontal'

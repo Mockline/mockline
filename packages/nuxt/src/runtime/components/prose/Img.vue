@@ -2,8 +2,8 @@
 import { computed } from 'vue'
 import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
 import type { ProseImgProps } from '@mockline/themes'
+import { useComponent } from '../../utils'
 import { useRuntimeConfig } from '#imports'
-import { useComponent } from '#mockline/utils/useComponent'
 import ImageComponent from '#build/mockline-image-component'
 
 const props = defineProps<ProseImgProps>()

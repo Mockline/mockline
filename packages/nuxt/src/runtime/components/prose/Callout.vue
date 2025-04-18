@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ProseCalloutProps, CalloutSlots } from '@mockline/themes'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponent } from '../../utils'
 import appConfig from '#build/app.config'
 
 const props = defineProps<ProseCalloutProps>()

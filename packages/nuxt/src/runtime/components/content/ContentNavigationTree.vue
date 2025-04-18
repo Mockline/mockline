@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
 import type { NavigationTreeProps, NavigationTreeLink } from '@mockline/themes'
+import { useComponent } from '../../utils'
 import { useRoute } from '#imports'
-import { useComponent } from '#mockline/utils/useComponent'
 
 const props = defineProps<NavigationTreeProps & { links: ContentNavigationItem[] }>()
 

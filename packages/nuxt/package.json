@@ -30,6 +30,37 @@
       "import": "./dist/runtime/utils/*.js"
     }
   },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/module.d.mts"
+      ],
+      "unplugin": [
+        "./dist/unplugin.d.mts"
+      ],
+      "vite": [
+        "./dist/vite.d.mts"
+      ],
+      "vue-plugin": [
+        "./vue-plugin.d.ts"
+      ],
+      "runtime/*": [
+        "./dist/runtime/*"
+      ],
+      "components/*": [
+        "./dist/runtime/components/*"
+      ],
+      "composables/*": [
+        "./dist/runtime/composables/*"
+      ],
+      "utils": [
+        "./dist/runtime/utils/index.d.ts"
+      ],
+      "utils/*": [
+        "./dist/runtime/utils/*.d.ts"
+      ]
+    }
+  },
   "imports": {
     "#build/mockline/*": "./.nuxt/mockline/*.ts",
     "#build/app.config": "./.nuxt/app.config.mjs",

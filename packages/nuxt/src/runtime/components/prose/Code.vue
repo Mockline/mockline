@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CodeProps } from '@mockline/themes'
 import { computed } from 'vue'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponent } from '../../utils'
 
 const props = defineProps<CodeProps>()
 

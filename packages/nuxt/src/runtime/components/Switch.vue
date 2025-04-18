@@ -2,8 +2,8 @@
 import { computed, useId } from 'vue'
 import { Primitive, SwitchRoot, SwitchThumb, Label } from 'reka-ui'
 import type { SwitchProps, SwitchSlots, SwitchEmits } from '@mockline/themes'
+import { useComponent } from '../utils'
 import { useAppConfig } from '#imports'
-import { useComponent } from '#mockline/utils/useComponent'
 
 const appConfig = useAppConfig()
 

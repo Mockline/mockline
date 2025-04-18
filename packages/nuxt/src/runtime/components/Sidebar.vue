@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { SidebarProps, SidebarSlots } from '@mockline/themes'
 import { computed, ref } from 'vue'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponent } from '../utils'
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   minSize: 20,

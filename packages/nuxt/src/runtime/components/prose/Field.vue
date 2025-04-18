@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Primitive } from 'reka-ui'
 import type { FieldProps, FieldSlots } from '@mockline/themes'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponent } from '../../utils'
 
 const props = defineProps<FieldProps>()
 const slots = defineSlots<FieldSlots>()

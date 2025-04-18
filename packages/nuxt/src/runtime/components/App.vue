@@ -3,7 +3,7 @@ import type { ConfigProviderProps, TooltipProviderProps } from 'reka-ui'
 import { ConfigProvider, TooltipProvider, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { toRef, useId } from 'vue'
-import { useComponent } from '#mockline/utils/useComponent'
+import { useComponent } from '../utils'
 
 export type AppProps = {
   class?: string

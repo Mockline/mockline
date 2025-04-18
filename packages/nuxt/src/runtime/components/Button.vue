@@ -4,8 +4,7 @@ import type { ButtonProps, ButtonSlots } from '@mockline/themes'
 import { useForwardProps } from 'reka-ui'
 import { useComponentIcons, type UseComponentIconsProps } from '../composables/useComponentIcons'
 import { pickLinkProps } from '../utils/link'
-import { useComponent } from '#mockline/utils/useComponent'
-import { omit } from '#mockline/utils'
+import { useComponent, omit } from '../utils'
 
 const props = defineProps<ButtonProps & UseComponentIconsProps>()
 const slots = defineSlots<ButtonSlots>()
