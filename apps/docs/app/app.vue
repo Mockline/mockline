@@ -19,7 +19,7 @@ provide('navigation', mappedNavigation)
 
 <style>
 @import "tailwindcss";
-@import "@mockline/themes";
+@import "mockline";
 
 @source "../content";
 
