@@ -71,7 +71,6 @@
   "main": "./dist/module.mjs",
   "files": [
     ".nuxt/mockline",
-    ".nuxt/mockline.css",
     "vue-plugin.d.ts",
     "dist"
   ],
