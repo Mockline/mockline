@@ -1,5 +1,11 @@
 # @mockline/themes
 
+## 0.18.0
+
+### Minor Changes
+
+- fix theme
+
 ## 0.17.0
 
 ### Minor Changes
