@@ -4,7 +4,6 @@
   "type": "module",
   "exports": {
     ".": {
-      "style": "./dist/runtime/index.css",
       "types": "./dist/module.d.mts",
       "import": "./dist/module.mjs"
     },
@@ -64,10 +63,8 @@
   },
   "imports": {
     "#build/mockline/*": "./.nuxt/ui/*.ts",
-    "#build/ui.css": "./.nuxt/ui.css",
     "#build/mockline-image-component": "./.nuxt/mockline-image-component.ts"
   },
-  "style": "./dist/runtime/index.css",
   "main": "./dist/module.mjs",
   "files": [
     ".nuxt/mockline",
