@@ -112,7 +112,7 @@
     "tailwind-variants": "^1.0.0",
     "tailwindcss": "4.1.4",
     "vaul-vue": "^0.4.1",
-    "tinyglobby": "^0.2.12",
+    "tinyglobby": "^0.2.13",
     "ufo": "^1.6.1",
     "unplugin": "^2.3.2",
     "unplugin-auto-import": "^19.1.2",
