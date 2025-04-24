@@ -69,6 +69,7 @@ const links: NavigationTreeLink[] = [
         title: 'Code',
         path: '/components/code',
         icon: 'lucide:code',
+        exact: true,
       },
       {
         title: 'Callout',

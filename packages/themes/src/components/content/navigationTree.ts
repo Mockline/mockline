@@ -83,6 +83,7 @@ export type NavigationTreeLink = {
   active?: boolean;
   disabled?: boolean;
   badge?: string | number;
+  exact?: boolean;
 }
 
 export type NavigationTreeProps = {

@@ -1,7 +1,7 @@
-@import "tailwindcss" theme(static) source("../../../../../");
+@import "tailwindcss" source("../../../../../");
 @import "mockline";
 
-@source "../content";
+@source "../content/**/*";
 
 @theme static {
   --font-geist: 'Geist', sans-serif;
