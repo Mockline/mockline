@@ -33,6 +33,3 @@
     </div>
   </MPageBody>
 </template>
-
-<style scoped></style>
-
