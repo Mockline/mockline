@@ -104,6 +104,11 @@ const links: NavigationTreeLink[] = [
         title: 'Field',
         path: '/components/field',
         icon: 'lucide:check-square',
+      },
+      {
+        title: 'Code Preview',
+        path: '/components/code-preview',
+        icon: 'lucide:code',
       }
     ]
   },

@@ -97,6 +97,7 @@ export default defineNuxtModule<ModuleOptions>({
           map: {
             'callout': 'ProseCallout',
             'code-group': 'ProseCodeGroup',
+            'code-preview': 'ProseCodePreview',
             'code-icon': 'ProseCodeIcon',
             'icon': 'ProseIcon',
             'kbd': 'ProseKbd',
