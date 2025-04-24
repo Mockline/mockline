@@ -11,6 +11,7 @@ export * from './themeToggle'
 export * from './link'
 export * from './avatar'
 export * from './avatarGroup'
+export * from './pageSection'
 
 // Content
 export * from './content/navigationTree'
