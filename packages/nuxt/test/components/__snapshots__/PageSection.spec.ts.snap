@@ -1,0 +1,208 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PageSection > renders base case correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders center alignment correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders complete example correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders horizontal images correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders horizontal orientation correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders horizontal orientation with image correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders images with correct orientation 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders images with correct orientation 2`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders left alignment correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders right alignment correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders vertical images correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders vertical orientation correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders vertical orientation with image correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders with custom slots 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders with custom title slot 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders with headline and icon correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders with headline, title and description correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders with horizontal orientation and reverse correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders with image in default slot 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders with left alignment correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders with props and slots combined 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders with reverse order correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`PageSection > renders with title and description correctly 1`] = `
+"<div class="relative isolate">
+  <div class="flex py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 lg:grid lg:grid-cols-2 lg:items-center flex-row">
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
