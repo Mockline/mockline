@@ -12,6 +12,7 @@ export * from './link'
 export * from './avatar'
 export * from './avatarGroup'
 export * from './pageSection'
+export * from './pageMarquee'
 
 // Content
 export * from './content/navigationTree'
