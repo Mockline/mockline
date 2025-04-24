@@ -61,7 +61,7 @@ const links: NavigationTreeLink[] = [
       },
       {
         title: 'Page Section',
-        path: '/playground/pageSection',
+        path: '/playground/page-section',
         icon: 'lucide:panels-top-left',
       },
     ],
