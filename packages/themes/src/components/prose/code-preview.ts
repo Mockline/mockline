@@ -3,7 +3,7 @@ import { tv } from 'tailwind-variants'
 export const proseCodePreview = tv({
   slots: {
     root: '',
-    preview: 'flex justify-center border-(--color-bg-quaternary) relative p-4 rounded-md',
+    preview: 'flex justify-center border border-(--color-bg-quaternary) relative p-4 rounded-md',
     code: '[&>div>pre]:rounded-t-none [&>div]:my-0'
   },
   variants: {

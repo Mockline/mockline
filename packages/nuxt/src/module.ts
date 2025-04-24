@@ -61,6 +61,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     if (options.icon) {
       await registerModule('@nuxt/icon', {
+        cssLayer: 'components',
         customCollections: [
           {
             prefix: 'custom',

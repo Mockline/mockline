@@ -9,6 +9,7 @@ const slots = defineSlots<ProseCodePreviewSlots>()
 const componentProps = computed(() => {
   return {
     ...props,
+    code: !!slots.code,
   }
 })
 
