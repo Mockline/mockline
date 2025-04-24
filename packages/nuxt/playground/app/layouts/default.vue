@@ -64,6 +64,11 @@ const links: NavigationTreeLink[] = [
         path: '/playground/page-section',
         icon: 'lucide:panels-top-left',
       },
+      {
+        title: 'Page Marquee',
+        path: '/playground/page-marquee',
+        icon: 'lucide:gallery-horizontal-end',
+      },
     ],
   },
   {

@@ -29,5 +29,8 @@
     "packages/*",
     "apps/*"
   ],
-  "packageManager": "bun@1.2.0"
+  "packageManager": "bun@1.2.0",
+  "dependencies": {
+    "@iconify-json/simple-icons": "^1.2.33"
+  }
 }
