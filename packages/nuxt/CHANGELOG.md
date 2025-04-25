@@ -1,5 +1,16 @@
 # mockline
 
+## 0.19.0
+
+### Minor Changes
+
+- add more components and documentation
+
+### Patch Changes
+
+- Updated dependencies
+  - @mockline/themes@0.19.0
+
 ## 0.18.0
 
 ### Minor Changes
