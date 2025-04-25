@@ -61,8 +61,8 @@ onClickOutside(target, event => {
       ref="target"
       class="rounded-md mx-auto transition-all duration-300 ease-in-out"
       :class="[
-        isOpen ? 'bg-[var(--ui-bg-elevated)]/90 backdrop-blur-lg shadow-md border border-[var(--ui-border)]/30 p-2' : 'p-0 border-transparent',
-        isMobile && !isOpen ? 'bg-[var(--ui-bg)]/80 backdrop-blur-lg shadow-md border border-[var(--ui-border)]/20 p-2 py-4 scale-50 origin-right' : ''
+        isOpen ? 'bg-(--ui-bg-elevated)/90 backdrop-blur-lg shadow-md border border-(--color-border-primary)/30 p-2' : 'p-0 border-transparent',
+        isMobile && !isOpen ? 'bg-(--ui-bg)/80 backdrop-blur-lg shadow-md border border-(--color-border-primary)/20 p-2 py-4 scale-50 origin-right' : ''
       ]"
       @mouseenter="handleInteraction('enter')"
       @mouseleave="handleInteraction('leave')"
