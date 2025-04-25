@@ -26,6 +26,7 @@ export * from './prose/hr'
 export * from './prose/callout'
 export * from './prose/field'
 export * from './prose/field-group'
+export * from './prose/code-preview'
 
 // Typography
 export * from './prose/typography'

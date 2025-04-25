@@ -30,8 +30,8 @@ export const proseCodeGroup = tv({
 
 export const prosePre = tv({
   slots: {
-    root: 'relative my-5 group not-[.code-group_&]:bg-[var(--color-bg-primary)] not-[.code-group_&]:border not-[.code-group_&]:border-[var(--color-border-primary)] not-[.code-group_&]:rounded-base not-[.code-group_&]:p-2',
-    base: 'group font-mono text-sm/6 p-1 rounded-base whitespace-pre-wrap break-words overflow-x-auto',
+    root: 'relative my-5 group',
+    base: 'group font-mono text-sm/6 p-1 rounded-base whitespace-pre-wrap break-words overflow-x-auto not-[.code-group_&]:bg-[var(--color-bg-primary)] not-[.code-group_&]:border not-[.code-group_&]:border-[var(--color-border-primary)] not-[.code-group_&]:p-2',
     header: 'flex items-center gap-1.5 relative pr-1 pb-1 pl-1',
     filename: 'text-[var(--color-text-primary)] text-sm/6',
     icon: 'size-4 shrink-0',
