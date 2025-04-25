@@ -59,6 +59,16 @@ const links: NavigationTreeLink[] = [
         path: '/playground/card',
         icon: 'lucide:credit-card',
       },
+      {
+        title: 'Page Section',
+        path: '/playground/page-section',
+        icon: 'lucide:panels-top-left',
+      },
+      {
+        title: 'Page Marquee',
+        path: '/playground/page-marquee',
+        icon: 'lucide:gallery-horizontal-end',
+      },
     ],
   },
   {
