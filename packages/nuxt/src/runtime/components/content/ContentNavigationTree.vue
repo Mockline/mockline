@@ -10,7 +10,7 @@ const route = useRoute()
 const { getClasses } = useComponent('navigationTree', props)
 
 const isLinkActive = (link: NavigationTreeLink): boolean => {
-  return link.exact ? route.path === link.path : route.path.startsWith(link.path) || link.active === true
+  return link.exact === false ? route.path.startsWith(link.path) : route.path === link.path || link.active === true
 }
 </script>
 
