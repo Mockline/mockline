@@ -7,7 +7,7 @@ import { useComponent } from '../utils'
 const props = withDefaults(defineProps<PageMarqueeProps>(), {
   repeat: 4,
   overlay: true,
-  orientation: 'horizontal',
+  orientation: 'horizontal'
 })
 
 const componentProps = computed(() => {
@@ -18,8 +18,9 @@ const componentProps = computed(() => {
 
 const { getClasses } = useComponent('pageMarqueeTv', componentProps)
 </script>
+
 <template>
-  <Primitive :as :class="getClasses('root')">
+  <Primitive :as :class="getClasses('root', props.class)">
     <div v-for="i in repeat" :key="i" :class="getClasses('content')">
       <slot />
     </div>
