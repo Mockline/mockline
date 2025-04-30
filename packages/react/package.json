@@ -14,7 +14,7 @@
     "prettier": "^3.5.3",
     "react": "^19.1.0",
     "tsconfig": "*",
-    "turbo": "^2.5.0",
+    "turbo": "^2.5.2",
     "typescript": "5.8.3"
   },
   "publishConfig": {
