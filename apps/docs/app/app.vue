@@ -3,6 +3,18 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
 const { mappedNavigation } = useContentNavigation(navigation)
 
 provide('navigation', mappedNavigation)
+
+useHead({
+  script: [
+    {
+      type: 'module',
+      src: 'https://genii-script.tolk.ai/lightchat.js',
+      id: 'lightchat-bot',
+      'project-id': '8094e56e-837e-4f12-903e-fda81bbe0e7c',
+      template: 'widget'
+    }
+  ]
+})
 </script>
 
 <template>
