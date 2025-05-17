@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@nuxt/content": "^3.5.1",
-    "nuxt": "^3.17.2"
+    "nuxt": "^3.17.3"
   },
   "devDependencies": {
-    "@iconify-json/vscode-icons": "^1.2.20",
+    "@iconify-json/vscode-icons": "^1.2.21",
     "typescript": "^5.8.3"
   }
 }
