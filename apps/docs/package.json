@@ -18,11 +18,11 @@
     "@nuxt/content": "^3.5.1",
     "@nuxthub/core": "0.8.27",
     "mockline": "*",
-    "nuxt": "^3.17.2",
+    "nuxt": "^3.17.3",
     "nuxt-llms": "^0.1.2"
   },
   "devDependencies": {
-    "@iconify-json/vscode-icons": "^1.2.20",
+    "@iconify-json/vscode-icons": "^1.2.21",
     "typescript": "5.8.3"
   }
 }
