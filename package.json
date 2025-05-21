@@ -31,6 +31,6 @@
   ],
   "packageManager": "bun@1.2.0",
   "dependencies": {
-    "@iconify-json/simple-icons": "^1.2.34"
+    "@iconify-json/simple-icons": "^1.2.35"
   }
 }
