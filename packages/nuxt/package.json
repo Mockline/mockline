@@ -99,7 +99,7 @@
     "@nuxtjs/color-mode": "^3.5.2",
     "@tailwindcss/postcss": "4.1.7",
     "@tailwindcss/vite": "4.1.7",
-    "@unhead/vue": "2.0.9",
+    "@unhead/vue": "2.0.10",
     "defu": "^6.1.4",
     "knitwork": "^1.2.0",
     "magic-string": "^0.30.17",
@@ -133,7 +133,7 @@
     "nuxt": "^3.17.4",
     "typescript": "5.8.3",
     "vue-tsc": "^2.2.10",
-    "zod": "^3.25.12",
+    "zod": "^3.25.28",
     "@vue/test-utils": "^2.4.6",
     "vitest": "^3.1.4",
     "happy-dom": "^17.4.7"
