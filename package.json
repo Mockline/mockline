@@ -22,8 +22,8 @@
     "@hrcd/eslint-config": "^3.0.3",
     "@shelve/cli": "^4.1.6",
     "automd": "^0.4.0",
-    "eslint": "^9.27.0",
-    "turbo": "^2.5.3"
+    "eslint": "^9.28.0",
+    "turbo": "^2.5.4"
   },
   "workspaces": [
     "packages/*",
@@ -31,6 +31,6 @@
   ],
   "packageManager": "bun@1.2.0",
   "dependencies": {
-    "@iconify-json/simple-icons": "^1.2.35"
+    "@iconify-json/simple-icons": "^1.2.36"
   }
 }
