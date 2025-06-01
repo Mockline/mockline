@@ -22,7 +22,7 @@
     "nuxt-llms": "^0.1.2"
   },
   "devDependencies": {
-    "@iconify-json/vscode-icons": "^1.2.21",
+    "@iconify-json/vscode-icons": "^1.2.22",
     "typescript": "5.8.3"
   }
 }
